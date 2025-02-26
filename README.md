@@ -27,7 +27,7 @@ const client = new Fingertip({
 });
 
 async function main() {
-  const response = await client.api.v1.ping();
+  const response = await client.api.v1.ping2();
 
   console.log(response.message);
 }
@@ -48,7 +48,7 @@ const client = new Fingertip({
 });
 
 async function main() {
-  const response: Fingertip.API.V1PingResponse = await client.api.v1.ping();
+  const response: Fingertip.API.V1Ping2Response = await client.api.v1.ping2();
 }
 
 main();
@@ -65,7 +65,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await client.api.v1.ping().catch(async (err) => {
+  const response = await client.api.v1.ping2().catch(async (err) => {
     if (err instanceof Fingertip.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -108,7 +108,7 @@ const client = new Fingertip({
 });
 
 // Or, configure per-request:
-await client.api.v1.ping({
+await client.api.v1.ping2({
   maxRetries: 5,
 });
 ```
@@ -125,7 +125,7 @@ const client = new Fingertip({
 });
 
 // Override per-request:
-await client.api.v1.ping({
+await client.api.v1.ping2({
   timeout: 5 * 1000,
 });
 ```
@@ -146,11 +146,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Fingertip();
 
-const response = await client.api.v1.ping().asResponse();
+const response = await client.api.v1.ping2().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.api.v1.ping().withResponse();
+const { data: response, response: raw } = await client.api.v1.ping2().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.message);
 ```
