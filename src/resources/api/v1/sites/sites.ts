@@ -36,16 +36,6 @@ export class Sites extends APIResource {
   }
 
   /**
-   * Retrieves a paginated list of sites with optional filtering
-   */
-  list(
-    query: SiteListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<SiteListResponse> {
-    return this._client.get('/api/v1/sites', { query, ...options });
-  }
-
-  /**
    * Permanently deletes a site by its ID
    */
   delete(siteID: string, options?: RequestOptions): APIPromise<SiteDeleteResponse> {
@@ -257,88 +247,6 @@ export namespace SiteUpdateResponse {
   }
 }
 
-export interface SiteListResponse {
-  pageInfo: SiteListResponse.PageInfo;
-
-  sites: Array<SiteListResponse.Site>;
-
-  total: number;
-}
-
-export namespace SiteListResponse {
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
-
-  export interface Site {
-    id: string;
-
-    businessType: string | null;
-
-    createdAt: string;
-
-    description: string | null;
-
-    homePageId: string | null;
-
-    locationId: string | null;
-
-    name: string;
-
-    overridePlan: string | null;
-
-    pages: Array<Site.Page>;
-
-    slug: string;
-
-    timeZone: string | null;
-
-    updatedAt: string;
-
-    workspaceId: string | null;
-
-    logoMedia?: unknown;
-
-    socialIcons?: unknown;
-
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
-  }
-
-  export namespace Site {
-    export interface Page {
-      id: string;
-
-      createdAt: string;
-
-      description: string | null;
-
-      name: string | null;
-
-      pageThemeId: string | null;
-
-      siteId: string;
-
-      slug: string;
-
-      updatedAt: string;
-
-      bannerMedia?: unknown;
-
-      logoMedia?: unknown;
-
-      position?: number;
-
-      socialIcons?: unknown;
-    }
-  }
-}
-
 export interface SiteDeleteResponse {
   success: boolean;
 }
@@ -437,16 +345,6 @@ export interface SiteUpdateParams {
   workspaceId?: string | null;
 }
 
-export interface SiteListParams {
-  cursor?: string;
-
-  pageSize?: string;
-
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
-
-  workspaceId?: string;
-}
-
 Sites.Pages = Pages;
 
 export declare namespace Sites {
@@ -454,11 +352,9 @@ export declare namespace Sites {
     type SiteCreateResponse as SiteCreateResponse,
     type SiteRetrieveResponse as SiteRetrieveResponse,
     type SiteUpdateResponse as SiteUpdateResponse,
-    type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
-    type SiteListParams as SiteListParams,
   };
 
   export {

@@ -10,16 +10,9 @@ import {
   Blocks,
 } from './blocks';
 import * as SiteContactsAPI from './site-contacts';
-import {
-  SiteContactCreateParams,
-  SiteContactCreateResponse,
-  SiteContactSampleResponse,
-  SiteContacts,
-} from './site-contacts';
+import { SiteContactCreateParams, SiteContactCreateResponse, SiteContacts } from './site-contacts';
 import * as WorkspacesAPI from './workspaces';
 import {
-  WorkspaceListParams,
-  WorkspaceListResponse,
   WorkspaceRetrieveResponse,
   WorkspaceUpdateParams,
   WorkspaceUpdateResponse,
@@ -46,8 +39,6 @@ import {
   SiteCreateParams,
   SiteCreateResponse,
   SiteDeleteResponse,
-  SiteListParams,
-  SiteListResponse,
   SiteRetrieveResponse,
   SiteUpdateParams,
   SiteUpdateResponse,
@@ -66,20 +57,47 @@ export class V1 extends APIResource {
     new ZapierSubscriptionsAPI.ZapierSubscriptions(this._client);
 
   /**
+   * Retrieves a sample of form responses for a specific form template.
+   */
+  getSampleFormResponses(
+    query: V1GetSampleFormResponsesParams,
+    options?: RequestOptions,
+  ): APIPromise<V1GetSampleFormResponsesResponse> {
+    return this._client.get('/api/v1/form-responses/sample', { query, ...options });
+  }
+
+  /**
+   * Retrieves a sample of site contacts with basic contact information
+   */
+  getSampleSiteContacts(options?: RequestOptions): APIPromise<V1GetSampleSiteContactsResponse> {
+    return this._client.get('/api/v1/site-contacts/sample', options);
+  }
+
+  /**
    * Retrieves a paginated list of bookings for a site with optional status filtering
    */
-  getBookings(query: V1GetBookingsParams, options?: RequestOptions): APIPromise<V1GetBookingsResponse> {
+  listBookings(query: V1ListBookingsParams, options?: RequestOptions): APIPromise<V1ListBookingsResponse> {
     return this._client.get('/api/v1/bookings', { query, ...options });
   }
 
   /**
-   * Retrieves a sample of form responses for a specific form template.
+   * Retrieves a paginated list of sites with optional filtering
    */
-  getFormResponsesSample(
-    query: V1GetFormResponsesSampleParams,
+  listSites(
+    query: V1ListSitesParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<V1GetFormResponsesSampleResponse> {
-    return this._client.get('/api/v1/form-responses/sample', { query, ...options });
+  ): APIPromise<V1ListSitesResponse> {
+    return this._client.get('/api/v1/sites', { query, ...options });
+  }
+
+  /**
+   * Retrieves a paginated list of workspaces with optional filtering
+   */
+  listWorkspaces(
+    query: V1ListWorkspacesParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<V1ListWorkspacesResponse> {
+    return this._client.get('/api/v1/workspaces', { query, ...options });
   }
 
   /**
@@ -91,15 +109,56 @@ export class V1 extends APIResource {
   }
 }
 
-export interface V1GetBookingsResponse {
-  bookings: Array<V1GetBookingsResponse.Booking>;
+export type V1GetSampleFormResponsesResponse =
+  Array<V1GetSampleFormResponsesResponse.V1GetSampleFormResponsesResponseItem>;
 
-  pageInfo: V1GetBookingsResponse.PageInfo;
+export namespace V1GetSampleFormResponsesResponse {
+  export interface V1GetSampleFormResponsesResponseItem {
+    createdAt: string;
+
+    formResponseId: string;
+
+    formTemplateId: string;
+
+    formTemplateSlug: string;
+
+    formTemplateTitle: string;
+
+    siteContactId: string;
+
+    siteId: string;
+
+    source: string;
+    [k: string]: unknown;
+  }
+}
+
+export type V1GetSampleSiteContactsResponse =
+  Array<V1GetSampleSiteContactsResponse.V1GetSampleSiteContactsResponseItem>;
+
+export namespace V1GetSampleSiteContactsResponse {
+  export interface V1GetSampleSiteContactsResponseItem {
+    email: string | null;
+
+    firstName: string | null;
+
+    lastName: string | null;
+
+    marketingStatus: string;
+
+    siteId: string;
+  }
+}
+
+export interface V1ListBookingsResponse {
+  bookings: Array<V1ListBookingsResponse.Booking>;
+
+  pageInfo: V1ListBookingsResponse.PageInfo;
 
   total: number;
 }
 
-export namespace V1GetBookingsResponse {
+export namespace V1ListBookingsResponse {
   export interface Booking {
     id: string;
 
@@ -173,27 +232,153 @@ export namespace V1GetBookingsResponse {
   }
 }
 
-export type V1GetFormResponsesSampleResponse =
-  Array<V1GetFormResponsesSampleResponse.V1GetFormResponsesSampleResponseItem>;
+export interface V1ListSitesResponse {
+  pageInfo: V1ListSitesResponse.PageInfo;
 
-export namespace V1GetFormResponsesSampleResponse {
-  export interface V1GetFormResponsesSampleResponseItem {
+  sites: Array<V1ListSitesResponse.Site>;
+
+  total: number;
+}
+
+export namespace V1ListSitesResponse {
+  export interface PageInfo {
+    hasNextPage: boolean;
+
+    hasPreviousPage: boolean;
+
+    endCursor?: string;
+
+    startCursor?: string;
+  }
+
+  export interface Site {
+    id: string;
+
+    businessType: string | null;
+
     createdAt: string;
 
-    formResponseId: string;
+    description: string | null;
 
-    formTemplateId: string;
+    homePageId: string | null;
 
-    formTemplateSlug: string;
+    locationId: string | null;
 
-    formTemplateTitle: string;
+    name: string;
 
-    siteContactId: string;
+    overridePlan: string | null;
 
-    siteId: string;
+    pages: Array<Site.Page>;
 
-    source: string;
-    [k: string]: unknown;
+    slug: string;
+
+    timeZone: string | null;
+
+    updatedAt: string;
+
+    workspaceId: string | null;
+
+    logoMedia?: unknown;
+
+    socialIcons?: unknown;
+
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  }
+
+  export namespace Site {
+    export interface Page {
+      id: string;
+
+      createdAt: string;
+
+      description: string | null;
+
+      name: string | null;
+
+      pageThemeId: string | null;
+
+      siteId: string;
+
+      slug: string;
+
+      updatedAt: string;
+
+      bannerMedia?: unknown;
+
+      logoMedia?: unknown;
+
+      position?: number;
+
+      socialIcons?: unknown;
+    }
+  }
+}
+
+export interface V1ListWorkspacesResponse {
+  pageInfo: V1ListWorkspacesResponse.PageInfo;
+
+  total: number;
+
+  workspaces: Array<V1ListWorkspacesResponse.Workspace>;
+}
+
+export namespace V1ListWorkspacesResponse {
+  export interface PageInfo {
+    hasNextPage: boolean;
+
+    hasPreviousPage: boolean;
+
+    endCursor?: string;
+
+    startCursor?: string;
+  }
+
+  export interface Workspace {
+    id: string;
+
+    createdAt: string;
+
+    name: string;
+
+    sites: Array<Workspace.Site>;
+
+    slug: string;
+
+    updatedAt: string;
+  }
+
+  export namespace Workspace {
+    export interface Site {
+      id: string;
+
+      businessType: string | null;
+
+      createdAt: string;
+
+      description: string | null;
+
+      homePageId: string | null;
+
+      locationId: string | null;
+
+      name: string;
+
+      overridePlan: string | null;
+
+      slug: string;
+
+      timeZone: string | null;
+
+      updatedAt: string;
+
+      workspaceId: string | null;
+
+      logoMedia?: unknown;
+
+      socialIcons?: unknown;
+
+      status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    }
   }
 }
 
@@ -201,7 +386,11 @@ export interface V1PingResponse {
   message: string;
 }
 
-export interface V1GetBookingsParams {
+export interface V1GetSampleFormResponsesParams {
+  form_template_slug: string;
+}
+
+export interface V1ListBookingsParams {
   siteId: string;
 
   cursor?: string;
@@ -219,8 +408,20 @@ export interface V1GetBookingsParams {
     | 'PENDING_CONFIRMATION';
 }
 
-export interface V1GetFormResponsesSampleParams {
-  form_template_slug: string;
+export interface V1ListSitesParams {
+  cursor?: string;
+
+  pageSize?: string;
+
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+
+  workspaceId?: string;
+}
+
+export interface V1ListWorkspacesParams {
+  cursor?: string;
+
+  pageSize?: string;
 }
 
 V1.Pages = Pages;
@@ -232,11 +433,16 @@ V1.ZapierSubscriptions = ZapierSubscriptions;
 
 export declare namespace V1 {
   export {
-    type V1GetBookingsResponse as V1GetBookingsResponse,
-    type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
+    type V1GetSampleFormResponsesResponse as V1GetSampleFormResponsesResponse,
+    type V1GetSampleSiteContactsResponse as V1GetSampleSiteContactsResponse,
+    type V1ListBookingsResponse as V1ListBookingsResponse,
+    type V1ListSitesResponse as V1ListSitesResponse,
+    type V1ListWorkspacesResponse as V1ListWorkspacesResponse,
     type V1PingResponse as V1PingResponse,
-    type V1GetBookingsParams as V1GetBookingsParams,
-    type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
+    type V1GetSampleFormResponsesParams as V1GetSampleFormResponsesParams,
+    type V1ListBookingsParams as V1ListBookingsParams,
+    type V1ListSitesParams as V1ListSitesParams,
+    type V1ListWorkspacesParams as V1ListWorkspacesParams,
   };
 
   export {
@@ -260,17 +466,14 @@ export declare namespace V1 {
     type SiteCreateResponse as SiteCreateResponse,
     type SiteRetrieveResponse as SiteRetrieveResponse,
     type SiteUpdateResponse as SiteUpdateResponse,
-    type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
-    type SiteListParams as SiteListParams,
   };
 
   export {
     SiteContacts as SiteContacts,
     type SiteContactCreateResponse as SiteContactCreateResponse,
-    type SiteContactSampleResponse as SiteContactSampleResponse,
     type SiteContactCreateParams as SiteContactCreateParams,
   };
 
@@ -278,9 +481,7 @@ export declare namespace V1 {
     Workspaces as Workspaces,
     type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
     type WorkspaceUpdateResponse as WorkspaceUpdateResponse,
-    type WorkspaceListResponse as WorkspaceListResponse,
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
-    type WorkspaceListParams as WorkspaceListParams,
   };
 
   export {
