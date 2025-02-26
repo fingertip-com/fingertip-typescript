@@ -11,8 +11,11 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install fingertip
+npm install git+ssh://git@github.com:fingertip-com/fingertip-typescript.git
 ```
+
+> [!NOTE]
+> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install fingertip`
 
 ## Usage
 
@@ -133,6 +136,37 @@ await client.api.v1.ping({
 On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
+
+## Auto-pagination
+
+List methods in the Fingertip API are paginated.
+You can use the `for await … of` syntax to iterate through items across all pages:
+
+```ts
+async function fetchAllApiv1s(params) {
+  const allAPIV1s = [];
+  // Automatically fetches more pages as needed.
+  for await (const v1ListBookingsResponse of client.api.v1.listBookings({ siteId: 'REPLACE_ME' })) {
+    allAPIV1s.push(v1ListBookingsResponse);
+  }
+  return allAPIV1s;
+}
+```
+
+Alternatively, you can request a single page at a time:
+
+```ts
+let page = await client.api.v1.listBookings({ siteId: 'REPLACE_ME' });
+for (const v1ListBookingsResponse of page.items) {
+  console.log(v1ListBookingsResponse);
+}
+
+// Convenience methods are provided for manually paginating:
+while (page.hasNextPage()) {
+  page = await page.getNextPage();
+  // ...
+}
+```
 
 ## Advanced Usage
 
@@ -343,7 +377,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/fingertip-com/fingertip-api/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/fingertip-com/fingertip-typescript/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

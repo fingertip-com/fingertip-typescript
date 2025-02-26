@@ -36,16 +36,4 @@ describe('resource siteContacts', () => {
       phone: 'phone',
     });
   });
-
-  // skipped: tests are disabled for the time being
-  test.skip('sample', async () => {
-    const responsePromise = client.api.v1.siteContacts.sample();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
 });

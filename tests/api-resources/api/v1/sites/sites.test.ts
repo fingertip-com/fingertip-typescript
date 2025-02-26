@@ -13,7 +13,7 @@ describe('resource sites', () => {
     const responsePromise = client.api.v1.sites.create({
       businessType: 'businessType',
       name: 'name',
-      pages: [{ name: 'name', pageTheme: { componentPageThemeId: 'componentPageThemeId' }, slug: 'slug' }],
+      pages: [{ name: 'name', pageTheme: {}, slug: 'slug' }],
       slug: 'slug',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -104,34 +104,6 @@ describe('resource sites', () => {
           socialIcons: {},
           status: 'EMPTY',
           timeZone: 'timeZone',
-          workspaceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(Fingertip.NotFoundError);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('list', async () => {
-    const responsePromise = client.api.v1.sites.list();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.api.v1.sites.list(
-        {
-          cursor: 'cursor',
-          pageSize: 'pageSize',
-          status: 'EMPTY',
           workspaceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
         },
         { path: '/_stainless_unknown_path' },

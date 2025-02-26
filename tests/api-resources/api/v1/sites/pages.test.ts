@@ -12,7 +12,7 @@ describe('resource pages', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.api.v1.sites.pages.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       name: 'name',
-      pageTheme: { componentPageThemeId: 'componentPageThemeId' },
+      pageTheme: {},
       body_siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       slug: 'slug',
     });
