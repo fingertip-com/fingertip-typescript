@@ -5,6 +5,7 @@ export { Fingertip as default } from './client';
 export { type Uploadable, toFile } from './uploads';
 export { APIPromise } from './api-promise';
 export { Fingertip, type ClientOptions } from './client';
+export { PagePromise } from './pagination';
 export {
   FingertipError,
   APIError,
