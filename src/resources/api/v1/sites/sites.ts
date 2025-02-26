@@ -11,6 +11,7 @@ import {
   Pages,
 } from './pages';
 import { APIPromise } from '../../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../../pagination';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
@@ -43,12 +44,24 @@ export class Sites extends APIResource {
   }
 
   /**
+   * Retrieves a paginated list of sites with optional filtering
+   */
+  list(
+    query: SiteListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<SiteListResponsesMyCursorPage, SiteListResponse> {
+    return this._client.getAPIList('/api/v1/sites', MyCursorPage<SiteListResponse>, { query, ...options });
+  }
+
+  /**
    * Permanently deletes a site by its ID
    */
   delete(siteID: string, options?: RequestOptions): APIPromise<SiteDeleteResponse> {
     return this._client.delete(path`/api/v1/sites/${siteID}`, options);
   }
 }
+
+export type SiteListResponsesMyCursorPage = MyCursorPage<SiteListResponse>;
 
 export interface SiteCreateResponse {
   site: SiteCreateResponse.Site;
@@ -254,6 +267,68 @@ export namespace SiteUpdateResponse {
   }
 }
 
+export interface SiteListResponse {
+  id: string;
+
+  businessType: string | null;
+
+  createdAt: string;
+
+  description: string | null;
+
+  homePageId: string | null;
+
+  locationId: string | null;
+
+  name: string;
+
+  overridePlan: string | null;
+
+  pages: Array<SiteListResponse.Page>;
+
+  slug: string;
+
+  timeZone: string | null;
+
+  updatedAt: string;
+
+  workspaceId: string | null;
+
+  logoMedia?: unknown;
+
+  socialIcons?: unknown;
+
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+}
+
+export namespace SiteListResponse {
+  export interface Page {
+    id: string;
+
+    createdAt: string;
+
+    description: string | null;
+
+    name: string | null;
+
+    pageThemeId: string | null;
+
+    siteId: string;
+
+    slug: string;
+
+    updatedAt: string;
+
+    bannerMedia?: unknown;
+
+    logoMedia?: unknown;
+
+    position?: number;
+
+    socialIcons?: unknown;
+  }
+}
+
 export interface SiteDeleteResponse {
   success: boolean;
 }
@@ -352,6 +427,12 @@ export interface SiteUpdateParams {
   workspaceId?: string | null;
 }
 
+export interface SiteListParams extends MyCursorPageParams {
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+
+  workspaceId?: string;
+}
+
 Sites.Pages = Pages;
 
 export declare namespace Sites {
@@ -359,9 +440,12 @@ export declare namespace Sites {
     type SiteCreateResponse as SiteCreateResponse,
     type SiteRetrieveResponse as SiteRetrieveResponse,
     type SiteUpdateResponse as SiteUpdateResponse,
+    type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
+    type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
+    type SiteListParams as SiteListParams,
   };
 
   export {

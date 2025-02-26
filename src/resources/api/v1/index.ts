@@ -14,37 +14,40 @@ export {
   type PageDeleteResponse,
   type PageUpdateParams,
 } from './pages/index';
-export { SiteContacts, type SiteContactCreateResponse, type SiteContactCreateParams } from './site-contacts';
+export {
+  SiteContacts,
+  type SiteContactCreateResponse,
+  type SiteContactSampleResponse,
+  type SiteContactCreateParams,
+} from './site-contacts';
 export {
   Sites,
   type SiteCreateResponse,
   type SiteRetrieveResponse,
   type SiteUpdateResponse,
+  type SiteListResponse,
   type SiteDeleteResponse,
   type SiteCreateParams,
   type SiteUpdateParams,
+  type SiteListParams,
+  type SiteListResponsesMyCursorPage,
 } from './sites/index';
 export {
   V1,
-  type V1GetSampleFormResponsesResponse,
-  type V1GetSampleSiteContactsResponse,
-  type V1ListBookingsResponse,
-  type V1ListSitesResponse,
-  type V1ListWorkspacesResponse,
+  type V1GetBookingsResponse,
+  type V1GetFormResponsesSampleResponse,
   type V1PingResponse,
-  type V1GetSampleFormResponsesParams,
-  type V1ListBookingsParams,
-  type V1ListSitesParams,
-  type V1ListWorkspacesParams,
-  type V1ListBookingsResponsesMyCursorPage,
-  type V1ListSitesResponsesMyCursorPage,
-  type V1ListWorkspacesResponsesMyCursorPage,
+  type V1GetBookingsParams,
+  type V1GetFormResponsesSampleParams,
 } from './v1';
 export {
   Workspaces,
   type WorkspaceRetrieveResponse,
   type WorkspaceUpdateResponse,
+  type WorkspaceListResponse,
   type WorkspaceUpdateParams,
+  type WorkspaceListParams,
+  type WorkspaceListResponsesMyCursorPage,
 } from './workspaces';
 export {
   ZapierSubscriptions,
