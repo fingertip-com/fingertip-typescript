@@ -15,9 +15,9 @@ Methods:
 
 - <code title="get /api/v1/form-responses/sample">client.api.v1.<a href="./src/resources/api/v1/v1.ts">getSampleFormResponses</a>({ ...params }) -> V1GetSampleFormResponsesResponse</code>
 - <code title="get /api/v1/site-contacts/sample">client.api.v1.<a href="./src/resources/api/v1/v1.ts">getSampleSiteContacts</a>() -> V1GetSampleSiteContactsResponse</code>
-- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponse</code>
-- <code title="get /api/v1/sites">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listSites</a>({ ...params }) -> V1ListSitesResponse</code>
-- <code title="get /api/v1/workspaces">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listWorkspaces</a>({ ...params }) -> V1ListWorkspacesResponse</code>
+- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponsesMyCursorPage</code>
+- <code title="get /api/v1/sites">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listSites</a>({ ...params }) -> V1ListSitesResponsesMyCursorPage</code>
+- <code title="get /api/v1/workspaces">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listWorkspaces</a>({ ...params }) -> V1ListWorkspacesResponsesMyCursorPage</code>
 - <code title="get /api/v1/ping">client.api.v1.<a href="./src/resources/api/v1/v1.ts">ping</a>() -> V1PingResponse</code>
 
 ### Pages
@@ -98,7 +98,7 @@ Types:
 Methods:
 
 - <code title="post /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
-- <code title="get /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponse</code>
+- <code title="get /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
 
 ### SiteContacts
 

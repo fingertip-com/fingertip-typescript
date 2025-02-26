@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../../../resource';
 import { APIPromise } from '../../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../../pagination';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
@@ -20,10 +21,15 @@ export class Pages extends APIResource {
     siteID: string,
     query: PageListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<PageListResponse> {
-    return this._client.get(path`/api/v1/sites/${siteID}/pages`, { query, ...options });
+  ): PagePromise<PageListResponsesMyCursorPage, PageListResponse> {
+    return this._client.getAPIList(path`/api/v1/sites/${siteID}/pages`, MyCursorPage<PageListResponse>, {
+      query,
+      ...options,
+    });
   }
 }
+
+export type PageListResponsesMyCursorPage = MyCursorPage<PageListResponse>;
 
 export interface PageCreateResponse {
   page: PageCreateResponse.Page;
@@ -98,88 +104,68 @@ export namespace PageCreateResponse {
 }
 
 export interface PageListResponse {
-  items: Array<PageListResponse.Item>;
+  id: string;
 
-  pageInfo: PageListResponse.PageInfo;
+  blocks: Array<PageListResponse.Block>;
 
-  total: number;
+  createdAt: string;
+
+  description: string | null;
+
+  name: string | null;
+
+  pageTheme: PageListResponse.PageTheme | null;
+
+  pageThemeId: string | null;
+
+  siteId: string;
+
+  slug: string;
+
+  updatedAt: string;
+
+  bannerMedia?: unknown;
+
+  logoMedia?: unknown;
+
+  position?: number;
+
+  socialIcons?: unknown;
 }
 
 export namespace PageListResponse {
-  export interface Item {
+  export interface Block {
     id: string;
 
-    blocks: Array<Item.Block>;
+    componentBlockId: string | null;
 
     createdAt: string;
 
-    description: string | null;
+    kind: string | null;
 
-    name: string | null;
+    name: string;
 
-    pageTheme: Item.PageTheme | null;
-
-    pageThemeId: string | null;
-
-    siteId: string;
-
-    slug: string;
+    pageId: string;
 
     updatedAt: string;
 
-    bannerMedia?: unknown;
+    content?: unknown;
 
-    logoMedia?: unknown;
-
-    position?: number;
-
-    socialIcons?: unknown;
+    isComponent?: boolean;
   }
 
-  export namespace Item {
-    export interface Block {
-      id: string;
+  export interface PageTheme {
+    id: string;
 
-      componentBlockId: string | null;
+    componentPageThemeId: string | null;
 
-      createdAt: string;
+    createdAt: string;
 
-      kind: string | null;
+    updatedAt: string;
 
-      name: string;
+    content?: unknown;
 
-      pageId: string;
-
-      updatedAt: string;
-
-      content?: unknown;
-
-      isComponent?: boolean;
-    }
-
-    export interface PageTheme {
-      id: string;
-
-      componentPageThemeId: string | null;
-
-      createdAt: string;
-
-      updatedAt: string;
-
-      content?: unknown;
-
-      isComponent?: boolean;
-    }
-  }
-
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
+    isComponent?: boolean;
   }
 }
 
@@ -227,16 +213,13 @@ export namespace PageCreateParams {
   }
 }
 
-export interface PageListParams {
-  cursor?: string;
-
-  pageSize?: string;
-}
+export interface PageListParams extends MyCursorPageParams {}
 
 export declare namespace Pages {
   export {
     type PageCreateResponse as PageCreateResponse,
     type PageListResponse as PageListResponse,
+    type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
   };

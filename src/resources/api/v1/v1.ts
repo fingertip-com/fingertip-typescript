@@ -45,6 +45,7 @@ import {
   Sites,
 } from './sites/sites';
 import { APIPromise } from '../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class V1 extends APIResource {
@@ -76,8 +77,14 @@ export class V1 extends APIResource {
   /**
    * Retrieves a paginated list of bookings for a site with optional status filtering
    */
-  listBookings(query: V1ListBookingsParams, options?: RequestOptions): APIPromise<V1ListBookingsResponse> {
-    return this._client.get('/api/v1/bookings', { query, ...options });
+  listBookings(
+    query: V1ListBookingsParams,
+    options?: RequestOptions,
+  ): PagePromise<V1ListBookingsResponsesMyCursorPage, V1ListBookingsResponse> {
+    return this._client.getAPIList('/api/v1/bookings', MyCursorPage<V1ListBookingsResponse>, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -86,8 +93,8 @@ export class V1 extends APIResource {
   listSites(
     query: V1ListSitesParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<V1ListSitesResponse> {
-    return this._client.get('/api/v1/sites', { query, ...options });
+  ): PagePromise<V1ListSitesResponsesMyCursorPage, V1ListSitesResponse> {
+    return this._client.getAPIList('/api/v1/sites', MyCursorPage<V1ListSitesResponse>, { query, ...options });
   }
 
   /**
@@ -96,8 +103,11 @@ export class V1 extends APIResource {
   listWorkspaces(
     query: V1ListWorkspacesParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<V1ListWorkspacesResponse> {
-    return this._client.get('/api/v1/workspaces', { query, ...options });
+  ): PagePromise<V1ListWorkspacesResponsesMyCursorPage, V1ListWorkspacesResponse> {
+    return this._client.getAPIList('/api/v1/workspaces', MyCursorPage<V1ListWorkspacesResponse>, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -108,6 +118,12 @@ export class V1 extends APIResource {
     return this._client.get('/api/v1/ping', options);
   }
 }
+
+export type V1ListBookingsResponsesMyCursorPage = MyCursorPage<V1ListBookingsResponse>;
+
+export type V1ListSitesResponsesMyCursorPage = MyCursorPage<V1ListSitesResponse>;
+
+export type V1ListWorkspacesResponsesMyCursorPage = MyCursorPage<V1ListWorkspacesResponse>;
 
 export type V1GetSampleFormResponsesResponse =
   Array<V1GetSampleFormResponsesResponse.V1GetSampleFormResponsesResponseItem>;
@@ -151,97 +167,145 @@ export namespace V1GetSampleSiteContactsResponse {
 }
 
 export interface V1ListBookingsResponse {
-  items: Array<V1ListBookingsResponse.Item>;
+  id: string;
 
-  pageInfo: V1ListBookingsResponse.PageInfo;
+  cancellationReason: string | null;
 
-  total: number;
+  createdAt: string;
+
+  description: string | null;
+
+  destinationCalendarId: string | null;
+
+  endTime: string;
+
+  eventTypeId: string | null;
+
+  fromReschedule: string | null;
+
+  isRecorded: boolean;
+
+  location: string | null;
+
+  recurringEventId: string | null;
+
+  rejectionReason: string | null;
+
+  rescheduled: boolean | null;
+
+  rescheduledReason: string | null;
+
+  siteId: string | null;
+
+  smsReminderNumber: string | null;
+
+  source: string | null;
+
+  startTime: string;
+
+  status:
+    | 'CANCELLED'
+    | 'ACCEPTED'
+    | 'REJECTED'
+    | 'PENDING'
+    | 'COMPLETED'
+    | 'NO_SHOW'
+    | 'REFUNDED'
+    | 'PENDING_CONFIRMATION';
+
+  title: string | null;
+
+  updatedAt: string;
+
+  userId: string | null;
+
+  attendees?: unknown;
+
+  calendarEvent?: null;
+
+  metadata?: null;
+
+  response?: null;
 }
 
-export namespace V1ListBookingsResponse {
-  export interface Item {
-    id: string;
+export interface V1ListSitesResponse {
+  id: string;
 
-    cancellationReason: string | null;
+  businessType: string | null;
+
+  createdAt: string;
+
+  description: string | null;
+
+  homePageId: string | null;
+
+  locationId: string | null;
+
+  name: string;
+
+  overridePlan: string | null;
+
+  pages: Array<V1ListSitesResponse.Page>;
+
+  slug: string;
+
+  timeZone: string | null;
+
+  updatedAt: string;
+
+  workspaceId: string | null;
+
+  logoMedia?: unknown;
+
+  socialIcons?: unknown;
+
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+}
+
+export namespace V1ListSitesResponse {
+  export interface Page {
+    id: string;
 
     createdAt: string;
 
     description: string | null;
 
-    destinationCalendarId: string | null;
+    name: string | null;
 
-    endTime: string;
+    pageThemeId: string | null;
 
-    eventTypeId: string | null;
+    siteId: string;
 
-    fromReschedule: string | null;
-
-    isRecorded: boolean;
-
-    location: string | null;
-
-    recurringEventId: string | null;
-
-    rejectionReason: string | null;
-
-    rescheduled: boolean | null;
-
-    rescheduledReason: string | null;
-
-    siteId: string | null;
-
-    smsReminderNumber: string | null;
-
-    source: string | null;
-
-    startTime: string;
-
-    status:
-      | 'CANCELLED'
-      | 'ACCEPTED'
-      | 'REJECTED'
-      | 'PENDING'
-      | 'COMPLETED'
-      | 'NO_SHOW'
-      | 'REFUNDED'
-      | 'PENDING_CONFIRMATION';
-
-    title: string | null;
+    slug: string;
 
     updatedAt: string;
 
-    userId: string | null;
+    bannerMedia?: unknown;
 
-    attendees?: unknown;
+    logoMedia?: unknown;
 
-    calendarEvent?: null;
+    position?: number;
 
-    metadata?: null;
-
-    response?: null;
-  }
-
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
+    socialIcons?: unknown;
   }
 }
 
-export interface V1ListSitesResponse {
-  items: Array<V1ListSitesResponse.Item>;
+export interface V1ListWorkspacesResponse {
+  id: string;
 
-  pageInfo: V1ListSitesResponse.PageInfo;
+  createdAt: string;
 
-  total: number;
+  name: string;
+
+  sites: Array<V1ListWorkspacesResponse.Site>;
+
+  slug: string;
+
+  updatedAt: string;
 }
 
-export namespace V1ListSitesResponse {
-  export interface Item {
+export namespace V1ListWorkspacesResponse {
+  export interface Site {
     id: string;
 
     businessType: string | null;
@@ -258,8 +322,6 @@ export namespace V1ListSitesResponse {
 
     overridePlan: string | null;
 
-    pages: Array<Item.Page>;
-
     slug: string;
 
     timeZone: string | null;
@@ -274,112 +336,6 @@ export namespace V1ListSitesResponse {
 
     status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
   }
-
-  export namespace Item {
-    export interface Page {
-      id: string;
-
-      createdAt: string;
-
-      description: string | null;
-
-      name: string | null;
-
-      pageThemeId: string | null;
-
-      siteId: string;
-
-      slug: string;
-
-      updatedAt: string;
-
-      bannerMedia?: unknown;
-
-      logoMedia?: unknown;
-
-      position?: number;
-
-      socialIcons?: unknown;
-    }
-  }
-
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
-}
-
-export interface V1ListWorkspacesResponse {
-  items: Array<V1ListWorkspacesResponse.Item>;
-
-  pageInfo: V1ListWorkspacesResponse.PageInfo;
-
-  total: number;
-}
-
-export namespace V1ListWorkspacesResponse {
-  export interface Item {
-    id: string;
-
-    createdAt: string;
-
-    name: string;
-
-    sites: Array<Item.Site>;
-
-    slug: string;
-
-    updatedAt: string;
-  }
-
-  export namespace Item {
-    export interface Site {
-      id: string;
-
-      businessType: string | null;
-
-      createdAt: string;
-
-      description: string | null;
-
-      homePageId: string | null;
-
-      locationId: string | null;
-
-      name: string;
-
-      overridePlan: string | null;
-
-      slug: string;
-
-      timeZone: string | null;
-
-      updatedAt: string;
-
-      workspaceId: string | null;
-
-      logoMedia?: unknown;
-
-      socialIcons?: unknown;
-
-      status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
-    }
-  }
-
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
 }
 
 export interface V1PingResponse {
@@ -390,12 +346,8 @@ export interface V1GetSampleFormResponsesParams {
   form_template_slug: string;
 }
 
-export interface V1ListBookingsParams {
+export interface V1ListBookingsParams extends MyCursorPageParams {
   siteId: string;
-
-  cursor?: string;
-
-  pageSize?: string;
 
   status?:
     | 'CANCELLED'
@@ -408,21 +360,13 @@ export interface V1ListBookingsParams {
     | 'PENDING_CONFIRMATION';
 }
 
-export interface V1ListSitesParams {
-  cursor?: string;
-
-  pageSize?: string;
-
+export interface V1ListSitesParams extends MyCursorPageParams {
   status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
 
   workspaceId?: string;
 }
 
-export interface V1ListWorkspacesParams {
-  cursor?: string;
-
-  pageSize?: string;
-}
+export interface V1ListWorkspacesParams extends MyCursorPageParams {}
 
 V1.Pages = Pages;
 V1.Blocks = Blocks;
@@ -439,6 +383,9 @@ export declare namespace V1 {
     type V1ListSitesResponse as V1ListSitesResponse,
     type V1ListWorkspacesResponse as V1ListWorkspacesResponse,
     type V1PingResponse as V1PingResponse,
+    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
+    type V1ListSitesResponsesMyCursorPage as V1ListSitesResponsesMyCursorPage,
+    type V1ListWorkspacesResponsesMyCursorPage as V1ListWorkspacesResponsesMyCursorPage,
     type V1GetSampleFormResponsesParams as V1GetSampleFormResponsesParams,
     type V1ListBookingsParams as V1ListBookingsParams,
     type V1ListSitesParams as V1ListSitesParams,

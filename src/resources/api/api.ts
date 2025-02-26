@@ -9,10 +9,13 @@ import {
   V1GetSampleSiteContactsResponse,
   V1ListBookingsParams,
   V1ListBookingsResponse,
+  V1ListBookingsResponsesMyCursorPage,
   V1ListSitesParams,
   V1ListSitesResponse,
+  V1ListSitesResponsesMyCursorPage,
   V1ListWorkspacesParams,
   V1ListWorkspacesResponse,
+  V1ListWorkspacesResponsesMyCursorPage,
   V1PingResponse,
 } from './v1/v1';
 
@@ -31,6 +34,9 @@ export declare namespace API {
     type V1ListSitesResponse as V1ListSitesResponse,
     type V1ListWorkspacesResponse as V1ListWorkspacesResponse,
     type V1PingResponse as V1PingResponse,
+    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
+    type V1ListSitesResponsesMyCursorPage as V1ListSitesResponsesMyCursorPage,
+    type V1ListWorkspacesResponsesMyCursorPage as V1ListWorkspacesResponsesMyCursorPage,
     type V1GetSampleFormResponsesParams as V1GetSampleFormResponsesParams,
     type V1ListBookingsParams as V1ListBookingsParams,
     type V1ListSitesParams as V1ListSitesParams,

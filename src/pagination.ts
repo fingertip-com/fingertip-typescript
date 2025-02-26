@@ -108,7 +108,7 @@ export class PagePromise<
 }
 
 export interface MyCursorPageResponse<Item> {
-  data: Array<Item>;
+  items: Array<Item>;
 
   pageInfo: MyCursorPageResponse.PageInfo;
 
@@ -134,7 +134,7 @@ export interface MyCursorPageParams {
 }
 
 export class MyCursorPage<Item> extends AbstractPage<Item> implements MyCursorPageResponse<Item> {
-  data: Array<Item>;
+  items: Array<Item>;
 
   pageInfo: MyCursorPageResponse.PageInfo;
 
@@ -148,13 +148,13 @@ export class MyCursorPage<Item> extends AbstractPage<Item> implements MyCursorPa
   ) {
     super(client, response, body, options);
 
-    this.data = body.data || [];
+    this.items = body.items || [];
     this.pageInfo = body.pageInfo || {};
     this.total = body.total || 0;
   }
 
   getPaginatedItems(): Item[] {
-    return this.data ?? [];
+    return this.items ?? [];
   }
 
   nextPageRequestOptions(): PageRequestOptions | null {
