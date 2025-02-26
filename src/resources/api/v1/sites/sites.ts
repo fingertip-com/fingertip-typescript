@@ -284,8 +284,6 @@ export interface SiteListResponse {
 
   overridePlan: string | null;
 
-  pages: Array<SiteListResponse.Page>;
-
   slug: string;
 
   timeZone: string | null;
@@ -299,34 +297,6 @@ export interface SiteListResponse {
   socialIcons?: unknown;
 
   status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
-}
-
-export namespace SiteListResponse {
-  export interface Page {
-    id: string;
-
-    createdAt: string;
-
-    description: string | null;
-
-    name: string | null;
-
-    pageThemeId: string | null;
-
-    siteId: string;
-
-    slug: string;
-
-    updatedAt: string;
-
-    bannerMedia?: unknown;
-
-    logoMedia?: unknown;
-
-    position?: number;
-
-    socialIcons?: unknown;
-  }
 }
 
 export interface SiteDeleteResponse {
