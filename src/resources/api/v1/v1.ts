@@ -56,6 +56,7 @@ import {
   Sites,
 } from './sites/sites';
 import { APIPromise } from '../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class V1 extends APIResource {
@@ -68,13 +69,6 @@ export class V1 extends APIResource {
     new ZapierSubscriptionsAPI.ZapierSubscriptions(this._client);
 
   /**
-   * Retrieves a paginated list of bookings for a site with optional status filtering
-   */
-  getBookings(query: V1GetBookingsParams, options?: RequestOptions): APIPromise<V1GetBookingsResponse> {
-    return this._client.get('/api/v1/bookings', { query, ...options });
-  }
-
-  /**
    * Retrieves a sample of form responses for a specific form template.
    */
   getFormResponsesSample(
@@ -82,6 +76,19 @@ export class V1 extends APIResource {
     options?: RequestOptions,
   ): APIPromise<V1GetFormResponsesSampleResponse> {
     return this._client.get('/api/v1/form-responses/sample', { query, ...options });
+  }
+
+  /**
+   * Retrieves a paginated list of bookings for a site with optional status filtering
+   */
+  listBookings(
+    query: V1ListBookingsParams,
+    options?: RequestOptions,
+  ): PagePromise<V1ListBookingsResponsesMyCursorPage, V1ListBookingsResponse> {
+    return this._client.getAPIList('/api/v1/bookings', MyCursorPage<V1ListBookingsResponse>, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -93,87 +100,7 @@ export class V1 extends APIResource {
   }
 }
 
-export interface V1GetBookingsResponse {
-  items: Array<V1GetBookingsResponse.Item>;
-
-  pageInfo: V1GetBookingsResponse.PageInfo;
-
-  total: number;
-}
-
-export namespace V1GetBookingsResponse {
-  export interface Item {
-    id: string;
-
-    cancellationReason: string | null;
-
-    createdAt: string;
-
-    description: string | null;
-
-    destinationCalendarId: string | null;
-
-    endTime: string;
-
-    eventTypeId: string | null;
-
-    fromReschedule: string | null;
-
-    isRecorded: boolean;
-
-    location: string | null;
-
-    recurringEventId: string | null;
-
-    rejectionReason: string | null;
-
-    rescheduled: boolean | null;
-
-    rescheduledReason: string | null;
-
-    siteId: string | null;
-
-    smsReminderNumber: string | null;
-
-    source: string | null;
-
-    startTime: string;
-
-    status:
-      | 'CANCELLED'
-      | 'ACCEPTED'
-      | 'REJECTED'
-      | 'PENDING'
-      | 'COMPLETED'
-      | 'NO_SHOW'
-      | 'REFUNDED'
-      | 'PENDING_CONFIRMATION';
-
-    title: string | null;
-
-    updatedAt: string;
-
-    userId: string | null;
-
-    attendees?: unknown;
-
-    calendarEvent?: null;
-
-    metadata?: null;
-
-    response?: null;
-  }
-
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
-}
+export type V1ListBookingsResponsesMyCursorPage = MyCursorPage<V1ListBookingsResponse>;
 
 export type V1GetFormResponsesSampleResponse =
   Array<V1GetFormResponsesSampleResponse.V1GetFormResponsesSampleResponseItem>;
@@ -199,16 +126,78 @@ export namespace V1GetFormResponsesSampleResponse {
   }
 }
 
+export interface V1ListBookingsResponse {
+  id: string;
+
+  cancellationReason: string | null;
+
+  createdAt: string;
+
+  description: string | null;
+
+  destinationCalendarId: string | null;
+
+  endTime: string;
+
+  eventTypeId: string | null;
+
+  fromReschedule: string | null;
+
+  isRecorded: boolean;
+
+  location: string | null;
+
+  recurringEventId: string | null;
+
+  rejectionReason: string | null;
+
+  rescheduled: boolean | null;
+
+  rescheduledReason: string | null;
+
+  siteId: string | null;
+
+  smsReminderNumber: string | null;
+
+  source: string | null;
+
+  startTime: string;
+
+  status:
+    | 'CANCELLED'
+    | 'ACCEPTED'
+    | 'REJECTED'
+    | 'PENDING'
+    | 'COMPLETED'
+    | 'NO_SHOW'
+    | 'REFUNDED'
+    | 'PENDING_CONFIRMATION';
+
+  title: string | null;
+
+  updatedAt: string;
+
+  userId: string | null;
+
+  attendees?: unknown;
+
+  calendarEvent?: null;
+
+  metadata?: null;
+
+  response?: null;
+}
+
 export interface V1PingResponse {
   message: string;
 }
 
-export interface V1GetBookingsParams {
+export interface V1GetFormResponsesSampleParams {
+  form_template_slug: string;
+}
+
+export interface V1ListBookingsParams extends MyCursorPageParams {
   siteId: string;
-
-  cursor?: string;
-
-  pageSize?: string;
 
   status?:
     | 'CANCELLED'
@@ -221,10 +210,6 @@ export interface V1GetBookingsParams {
     | 'PENDING_CONFIRMATION';
 }
 
-export interface V1GetFormResponsesSampleParams {
-  form_template_slug: string;
-}
-
 V1.Pages = Pages;
 V1.Blocks = Blocks;
 V1.Sites = Sites;
@@ -234,11 +219,12 @@ V1.ZapierSubscriptions = ZapierSubscriptions;
 
 export declare namespace V1 {
   export {
-    type V1GetBookingsResponse as V1GetBookingsResponse,
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
+    type V1ListBookingsResponse as V1ListBookingsResponse,
     type V1PingResponse as V1PingResponse,
-    type V1GetBookingsParams as V1GetBookingsParams,
+    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
+    type V1ListBookingsParams as V1ListBookingsParams,
   };
 
   export {

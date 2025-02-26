@@ -4,14 +4,14 @@
 
 Types:
 
-- <code><a href="./src/resources/api/v1/v1.ts">V1GetBookingsResponse</a></code>
 - <code><a href="./src/resources/api/v1/v1.ts">V1GetFormResponsesSampleResponse</a></code>
+- <code><a href="./src/resources/api/v1/v1.ts">V1ListBookingsResponse</a></code>
 - <code><a href="./src/resources/api/v1/v1.ts">V1PingResponse</a></code>
 
 Methods:
 
-- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">getBookings</a>({ ...params }) -> V1GetBookingsResponse</code>
 - <code title="get /api/v1/form-responses/sample">client.api.v1.<a href="./src/resources/api/v1/v1.ts">getFormResponsesSample</a>({ ...params }) -> V1GetFormResponsesSampleResponse</code>
+- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponsesMyCursorPage</code>
 - <code title="get /api/v1/ping">client.api.v1.<a href="./src/resources/api/v1/v1.ts">ping</a>() -> V1PingResponse</code>
 
 ### Pages
