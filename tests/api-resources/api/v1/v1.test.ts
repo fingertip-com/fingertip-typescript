@@ -50,8 +50,8 @@ describe('resource v1', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('ping', async () => {
-    const responsePromise = client.api.v1.ping();
+  test.skip('ping2', async () => {
+    const responsePromise = client.api.v1.ping2();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
