@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-02-26)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.4](https://github.com/fingertip-com/fingertip-typescript/compare/v0.1.0-alpha.2...v0.1.0-alpha.4)
+
+### Chores
+
+* remove custom code ([800cb44](https://github.com/fingertip-com/fingertip-typescript/commit/800cb448dba0358770bd11f0730816cc092d91ec))
+
 ## 0.1.0-alpha.2 (2025-02-26)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
