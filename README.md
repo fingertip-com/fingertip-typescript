@@ -137,6 +137,37 @@ On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
 
+## Auto-pagination
+
+List methods in the Fingertip API are paginated.
+You can use the `for await … of` syntax to iterate through items across all pages:
+
+```ts
+async function fetchAllApiv1s(params) {
+  const allAPIV1s = [];
+  // Automatically fetches more pages as needed.
+  for await (const v1ListBookingsResponse of client.api.v1.listBookings({ siteId: 'REPLACE_ME' })) {
+    allAPIV1s.push(v1ListBookingsResponse);
+  }
+  return allAPIV1s;
+}
+```
+
+Alternatively, you can request a single page at a time:
+
+```ts
+let page = await client.api.v1.listBookings({ siteId: 'REPLACE_ME' });
+for (const v1ListBookingsResponse of page.items) {
+  console.log(v1ListBookingsResponse);
+}
+
+// Convenience methods are provided for manually paginating:
+while (page.hasNextPage()) {
+  page = await page.getNextPage();
+  // ...
+}
+```
+
 ## Advanced Usage
 
 ### Accessing raw Response data (e.g., headers)

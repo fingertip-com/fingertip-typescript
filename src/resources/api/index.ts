@@ -13,4 +13,7 @@ export {
   type V1ListBookingsParams,
   type V1ListSitesParams,
   type V1ListWorkspacesParams,
+  type V1ListBookingsResponsesMyCursorPage,
+  type V1ListSitesResponsesMyCursorPage,
+  type V1ListWorkspacesResponsesMyCursorPage,
 } from './v1/index';

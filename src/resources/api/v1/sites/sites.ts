@@ -2,7 +2,14 @@
 
 import { APIResource } from '../../../../resource';
 import * as PagesAPI from './pages';
-import { PageCreateParams, PageCreateResponse, PageListParams, PageListResponse, Pages } from './pages';
+import {
+  PageCreateParams,
+  PageCreateResponse,
+  PageListParams,
+  PageListResponse,
+  PageListResponsesMyCursorPage,
+  Pages,
+} from './pages';
 import { APIPromise } from '../../../../api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -361,6 +368,7 @@ export declare namespace Sites {
     Pages as Pages,
     type PageCreateResponse as PageCreateResponse,
     type PageListResponse as PageListResponse,
+    type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
   };
