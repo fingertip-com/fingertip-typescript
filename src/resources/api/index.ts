@@ -3,17 +3,9 @@
 export { API } from './api';
 export {
   V1,
-  type V1GetSampleFormResponsesResponse,
-  type V1GetSampleSiteContactsResponse,
-  type V1ListBookingsResponse,
-  type V1ListSitesResponse,
-  type V1ListWorkspacesResponse,
+  type V1GetBookingsResponse,
+  type V1GetFormResponsesSampleResponse,
   type V1PingResponse,
-  type V1GetSampleFormResponsesParams,
-  type V1ListBookingsParams,
-  type V1ListSitesParams,
-  type V1ListWorkspacesParams,
-  type V1ListBookingsResponsesMyCursorPage,
-  type V1ListSitesResponsesMyCursorPage,
-  type V1ListWorkspacesResponsesMyCursorPage,
+  type V1GetBookingsParams,
+  type V1GetFormResponsesSampleParams,
 } from './v1/index';
