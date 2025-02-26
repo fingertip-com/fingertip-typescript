@@ -207,7 +207,7 @@ export interface PageCreateParams {
 
 export namespace PageCreateParams {
   export interface PageTheme {
-    componentPageThemeId: string | null;
+    componentPageThemeId?: string | null;
 
     content?: unknown;
 

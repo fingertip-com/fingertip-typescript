@@ -13,7 +13,7 @@ describe('resource sites', () => {
     const responsePromise = client.api.v1.sites.create({
       businessType: 'businessType',
       name: 'name',
-      pages: [{ name: 'name', pageTheme: { componentPageThemeId: 'componentPageThemeId' }, slug: 'slug' }],
+      pages: [{ name: 'name', pageTheme: {}, slug: 'slug' }],
       slug: 'slug',
     });
     const rawResponse = await responsePromise.asResponse();
