@@ -36,7 +36,7 @@ export {
   V1,
   type V1GetFormResponsesSampleResponse,
   type V1ListBookingsResponse,
-  type V1PingResponse,
+  type V1Ping2Response,
   type V1GetFormResponsesSampleParams,
   type V1ListBookingsParams,
   type V1ListBookingsResponsesMyCursorPage,
