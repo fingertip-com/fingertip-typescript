@@ -392,7 +392,7 @@ export namespace SiteCreateParams {
 
   export namespace Page {
     export interface PageTheme {
-      componentPageThemeId: string | null;
+      componentPageThemeId?: string | null;
 
       content?: unknown;
 
