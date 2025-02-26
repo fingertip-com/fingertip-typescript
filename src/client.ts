@@ -12,6 +12,8 @@ import * as Shims from './internal/shims';
 import * as Opts from './internal/request-options';
 import { VERSION } from './version';
 import * as Errors from './error';
+import * as Pagination from './pagination';
+import { AbstractPage, type MyCursorPageParams, MyCursorPageResponse } from './pagination';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
 import { APIPromise } from './api-promise';
@@ -490,6 +492,25 @@ export class Fingertip {
     return { response, options, controller, requestLogID, retryOfRequestLogID, startTime };
   }
 
+  getAPIList<Item, PageClass extends Pagination.AbstractPage<Item> = Pagination.AbstractPage<Item>>(
+    path: string,
+    Page: new (...args: any[]) => PageClass,
+    opts?: RequestOptions,
+  ): Pagination.PagePromise<PageClass, Item> {
+    return this.requestAPIList(Page, { method: 'get', path, ...opts });
+  }
+
+  requestAPIList<
+    Item = unknown,
+    PageClass extends Pagination.AbstractPage<Item> = Pagination.AbstractPage<Item>,
+  >(
+    Page: new (...args: ConstructorParameters<typeof Pagination.AbstractPage>) => PageClass,
+    options: FinalRequestOptions,
+  ): Pagination.PagePromise<PageClass, Item> {
+    const request = this.makeRequest(options, null, undefined);
+    return new Pagination.PagePromise<PageClass, Item>(this as any as Fingertip, request, Page);
+  }
+
   async fetchWithTimeout(
     url: RequestInfo,
     init: RequestInit | undefined,
@@ -725,6 +746,9 @@ export class Fingertip {
 Fingertip.API = ApiapiAPI;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
+
+  export import MyCursorPage = Pagination.MyCursorPage;
+  export { type MyCursorPageParams as MyCursorPageParams, type MyCursorPageResponse as MyCursorPageResponse };
 
   export { ApiapiAPI as API };
 }
