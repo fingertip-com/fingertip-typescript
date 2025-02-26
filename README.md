@@ -4,18 +4,15 @@
 
 This library provides convenient access to the Fingertip REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [docs.fingertip.com](https://docs.fingertip.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [fingertip.readme.io](https://fingertip.readme.io). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:fingertip-com/fingertip-typescript.git
+npm install fingertip
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install fingertip`
 
 ## Usage
 
@@ -30,7 +27,7 @@ const client = new Fingertip({
 });
 
 async function main() {
-  const response = await client.api.v1.ping();
+  const response = await client.api.v1.ping2();
 
   console.log(response.message);
 }
@@ -51,7 +48,7 @@ const client = new Fingertip({
 });
 
 async function main() {
-  const response: Fingertip.API.V1PingResponse = await client.api.v1.ping();
+  const response: Fingertip.API.V1Ping2Response = await client.api.v1.ping2();
 }
 
 main();
@@ -68,7 +65,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await client.api.v1.ping().catch(async (err) => {
+  const response = await client.api.v1.ping2().catch(async (err) => {
     if (err instanceof Fingertip.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -111,7 +108,7 @@ const client = new Fingertip({
 });
 
 // Or, configure per-request:
-await client.api.v1.ping({
+await client.api.v1.ping2({
   maxRetries: 5,
 });
 ```
@@ -128,7 +125,7 @@ const client = new Fingertip({
 });
 
 // Override per-request:
-await client.api.v1.ping({
+await client.api.v1.ping2({
   timeout: 5 * 1000,
 });
 ```
@@ -136,37 +133,6 @@ await client.api.v1.ping({
 On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
-
-## Auto-pagination
-
-List methods in the Fingertip API are paginated.
-You can use the `for await … of` syntax to iterate through items across all pages:
-
-```ts
-async function fetchAllApiv1s(params) {
-  const allAPIV1s = [];
-  // Automatically fetches more pages as needed.
-  for await (const v1ListBookingsResponse of client.api.v1.listBookings({ siteId: 'REPLACE_ME' })) {
-    allAPIV1s.push(v1ListBookingsResponse);
-  }
-  return allAPIV1s;
-}
-```
-
-Alternatively, you can request a single page at a time:
-
-```ts
-let page = await client.api.v1.listBookings({ siteId: 'REPLACE_ME' });
-for (const v1ListBookingsResponse of page.items) {
-  console.log(v1ListBookingsResponse);
-}
-
-// Convenience methods are provided for manually paginating:
-while (page.hasNextPage()) {
-  page = await page.getNextPage();
-  // ...
-}
-```
 
 ## Advanced Usage
 
@@ -180,11 +146,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Fingertip();
 
-const response = await client.api.v1.ping().asResponse();
+const response = await client.api.v1.ping2().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.api.v1.ping().withResponse();
+const { data: response, response: raw } = await client.api.v1.ping2().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.message);
 ```

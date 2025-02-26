@@ -4,19 +4,12 @@ import { APIResource } from '../../resource';
 import * as V1API from './v1/v1';
 import {
   V1,
-  V1GetSampleFormResponsesParams,
-  V1GetSampleFormResponsesResponse,
-  V1GetSampleSiteContactsResponse,
+  V1GetFormResponsesSampleParams,
+  V1GetFormResponsesSampleResponse,
   V1ListBookingsParams,
   V1ListBookingsResponse,
   V1ListBookingsResponsesMyCursorPage,
-  V1ListSitesParams,
-  V1ListSitesResponse,
-  V1ListSitesResponsesMyCursorPage,
-  V1ListWorkspacesParams,
-  V1ListWorkspacesResponse,
-  V1ListWorkspacesResponsesMyCursorPage,
-  V1PingResponse,
+  V1Ping2Response,
 } from './v1/v1';
 
 export class API extends APIResource {
@@ -28,18 +21,11 @@ API.V1 = V1;
 export declare namespace API {
   export {
     V1 as V1,
-    type V1GetSampleFormResponsesResponse as V1GetSampleFormResponsesResponse,
-    type V1GetSampleSiteContactsResponse as V1GetSampleSiteContactsResponse,
+    type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
-    type V1ListSitesResponse as V1ListSitesResponse,
-    type V1ListWorkspacesResponse as V1ListWorkspacesResponse,
-    type V1PingResponse as V1PingResponse,
+    type V1Ping2Response as V1Ping2Response,
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
-    type V1ListSitesResponsesMyCursorPage as V1ListSitesResponsesMyCursorPage,
-    type V1ListWorkspacesResponsesMyCursorPage as V1ListWorkspacesResponsesMyCursorPage,
-    type V1GetSampleFormResponsesParams as V1GetSampleFormResponsesParams,
+    type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
-    type V1ListSitesParams as V1ListSitesParams,
-    type V1ListWorkspacesParams as V1ListWorkspacesParams,
   };
 }

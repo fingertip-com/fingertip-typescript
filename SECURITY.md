@@ -20,7 +20,7 @@ or products provided by Fingertip please follow the respective company's securit
 
 ### Fingertip Terms and Policies
 
-Please contact dev-feedback@fingertip.com for any questions or concerns regarding security of our services.
+Please contact hello@fingertip.com for any questions or concerns regarding security of our services.
 
 ---
 

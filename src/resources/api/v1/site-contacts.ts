@@ -11,6 +11,13 @@ export class SiteContacts extends APIResource {
   create(body: SiteContactCreateParams, options?: RequestOptions): APIPromise<SiteContactCreateResponse> {
     return this._client.post('/api/v1/site-contacts', { body, ...options });
   }
+
+  /**
+   * Retrieves a sample of site contacts with basic contact information
+   */
+  sample(options?: RequestOptions): APIPromise<SiteContactSampleResponse> {
+    return this._client.get('/api/v1/site-contacts/sample', options);
+  }
 }
 
 export interface SiteContactCreateResponse {
@@ -61,6 +68,22 @@ export namespace SiteContactCreateResponse {
   }
 }
 
+export type SiteContactSampleResponse = Array<SiteContactSampleResponse.SiteContactSampleResponseItem>;
+
+export namespace SiteContactSampleResponse {
+  export interface SiteContactSampleResponseItem {
+    email: string | null;
+
+    firstName: string | null;
+
+    lastName: string | null;
+
+    marketingStatus: string;
+
+    siteId: string;
+  }
+}
+
 export interface SiteContactCreateParams {
   email: string;
 
@@ -80,6 +103,7 @@ export interface SiteContactCreateParams {
 export declare namespace SiteContacts {
   export {
     type SiteContactCreateResponse as SiteContactCreateResponse,
+    type SiteContactSampleResponse as SiteContactSampleResponse,
     type SiteContactCreateParams as SiteContactCreateParams,
   };
 }
