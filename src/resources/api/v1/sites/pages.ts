@@ -98,28 +98,18 @@ export namespace PageCreateResponse {
 }
 
 export interface PageListResponse {
-  pageInfo: PageListResponse.PageInfo;
+  items: Array<PageListResponse.Item>;
 
-  pages: Array<PageListResponse.Page>;
+  pageInfo: PageListResponse.PageInfo;
 
   total: number;
 }
 
 export namespace PageListResponse {
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
-
-  export interface Page {
+  export interface Item {
     id: string;
 
-    blocks: Array<Page.Block>;
+    blocks: Array<Item.Block>;
 
     createdAt: string;
 
@@ -127,7 +117,7 @@ export namespace PageListResponse {
 
     name: string | null;
 
-    pageTheme: Page.PageTheme | null;
+    pageTheme: Item.PageTheme | null;
 
     pageThemeId: string | null;
 
@@ -146,7 +136,7 @@ export namespace PageListResponse {
     socialIcons?: unknown;
   }
 
-  export namespace Page {
+  export namespace Item {
     export interface Block {
       id: string;
 
@@ -180,6 +170,16 @@ export namespace PageListResponse {
 
       isComponent?: boolean;
     }
+  }
+
+  export interface PageInfo {
+    hasNextPage: boolean;
+
+    hasPreviousPage: boolean;
+
+    endCursor?: string;
+
+    startCursor?: string;
   }
 }
 

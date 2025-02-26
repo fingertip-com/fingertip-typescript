@@ -151,7 +151,7 @@ export namespace V1GetSampleSiteContactsResponse {
 }
 
 export interface V1ListBookingsResponse {
-  bookings: Array<V1ListBookingsResponse.Booking>;
+  items: Array<V1ListBookingsResponse.Item>;
 
   pageInfo: V1ListBookingsResponse.PageInfo;
 
@@ -159,7 +159,7 @@ export interface V1ListBookingsResponse {
 }
 
 export namespace V1ListBookingsResponse {
-  export interface Booking {
+  export interface Item {
     id: string;
 
     cancellationReason: string | null;
@@ -233,25 +233,15 @@ export namespace V1ListBookingsResponse {
 }
 
 export interface V1ListSitesResponse {
-  pageInfo: V1ListSitesResponse.PageInfo;
+  items: Array<V1ListSitesResponse.Item>;
 
-  sites: Array<V1ListSitesResponse.Site>;
+  pageInfo: V1ListSitesResponse.PageInfo;
 
   total: number;
 }
 
 export namespace V1ListSitesResponse {
-  export interface PageInfo {
-    hasNextPage: boolean;
-
-    hasPreviousPage: boolean;
-
-    endCursor?: string;
-
-    startCursor?: string;
-  }
-
-  export interface Site {
+  export interface Item {
     id: string;
 
     businessType: string | null;
@@ -268,7 +258,7 @@ export namespace V1ListSitesResponse {
 
     overridePlan: string | null;
 
-    pages: Array<Site.Page>;
+    pages: Array<Item.Page>;
 
     slug: string;
 
@@ -285,7 +275,7 @@ export namespace V1ListSitesResponse {
     status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
   }
 
-  export namespace Site {
+  export namespace Item {
     export interface Page {
       id: string;
 
@@ -312,17 +302,7 @@ export namespace V1ListSitesResponse {
       socialIcons?: unknown;
     }
   }
-}
 
-export interface V1ListWorkspacesResponse {
-  pageInfo: V1ListWorkspacesResponse.PageInfo;
-
-  total: number;
-
-  workspaces: Array<V1ListWorkspacesResponse.Workspace>;
-}
-
-export namespace V1ListWorkspacesResponse {
   export interface PageInfo {
     hasNextPage: boolean;
 
@@ -332,22 +312,32 @@ export namespace V1ListWorkspacesResponse {
 
     startCursor?: string;
   }
+}
 
-  export interface Workspace {
+export interface V1ListWorkspacesResponse {
+  items: Array<V1ListWorkspacesResponse.Item>;
+
+  pageInfo: V1ListWorkspacesResponse.PageInfo;
+
+  total: number;
+}
+
+export namespace V1ListWorkspacesResponse {
+  export interface Item {
     id: string;
 
     createdAt: string;
 
     name: string;
 
-    sites: Array<Workspace.Site>;
+    sites: Array<Item.Site>;
 
     slug: string;
 
     updatedAt: string;
   }
 
-  export namespace Workspace {
+  export namespace Item {
     export interface Site {
       id: string;
 
@@ -379,6 +369,16 @@ export namespace V1ListWorkspacesResponse {
 
       status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
     }
+  }
+
+  export interface PageInfo {
+    hasNextPage: boolean;
+
+    hasPreviousPage: boolean;
+
+    endCursor?: string;
+
+    startCursor?: string;
   }
 }
 
