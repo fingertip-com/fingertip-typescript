@@ -95,7 +95,7 @@ export class V1 extends APIResource {
    * Simple health check endpoint to verify the API is running. Requires
    * authentication.
    */
-  ping2(options?: RequestOptions): APIPromise<V1Ping2Response> {
+  ping(options?: RequestOptions): APIPromise<V1PingResponse> {
     return this._client.get('/api/v1/ping', options);
   }
 }
@@ -188,7 +188,7 @@ export interface V1ListBookingsResponse {
   response?: null;
 }
 
-export interface V1Ping2Response {
+export interface V1PingResponse {
   message: string;
 }
 
@@ -221,7 +221,7 @@ export declare namespace V1 {
   export {
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
-    type V1Ping2Response as V1Ping2Response,
+    type V1PingResponse as V1PingResponse,
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
