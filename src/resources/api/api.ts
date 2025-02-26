@@ -9,7 +9,7 @@ import {
   V1ListBookingsParams,
   V1ListBookingsResponse,
   V1ListBookingsResponsesMyCursorPage,
-  V1Ping2Response,
+  V1PingResponse,
 } from './v1/v1';
 
 export class API extends APIResource {
@@ -23,7 +23,7 @@ export declare namespace API {
     V1 as V1,
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
-    type V1Ping2Response as V1Ping2Response,
+    type V1PingResponse as V1PingResponse,
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
