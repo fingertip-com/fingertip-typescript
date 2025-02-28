@@ -6,7 +6,7 @@ This library provides convenient access to the Fingertip REST API from server-si
 
 The REST API documentation can be found on [fingertip.readme.io](https://fingertip.readme.io). The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
