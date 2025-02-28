@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 (2025-02-28)
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.2.0...v0.2.1)
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#31](https://github.com/fingertip-com/fingertip-typescript/issues/31)) ([9ea3abb](https://github.com/fingertip-com/fingertip-typescript/commit/9ea3abb9091094b88e7f77078730ea461ac441f3))
+
 ## 0.2.0 (2025-02-26)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.1.0...v0.2.0)
