@@ -34,71 +34,164 @@ export class Blocks extends APIResource {
   }
 }
 
+/**
+ * Successful block retrieval response
+ */
 export interface BlockRetrieveResponse {
+  /**
+   * The requested block
+   */
   block: BlockRetrieveResponse.Block;
 }
 
 export namespace BlockRetrieveResponse {
+  /**
+   * The requested block
+   */
   export interface Block {
+    /**
+     * Unique identifier for the block
+     */
     id: string;
 
+    /**
+     * ID of the component block if this is an instance, can be null
+     */
     componentBlockId: string | null;
 
+    /**
+     * Date and time when the block was created
+     */
     createdAt: string;
 
+    /**
+     * Type or category of the block, can be null
+     */
     kind: string | null;
 
+    /**
+     * Name of the block
+     */
     name: string;
 
+    /**
+     * ID of the page this block belongs to
+     */
     pageId: string;
 
+    /**
+     * Date and time when the block was last updated
+     */
     updatedAt: string;
 
+    /**
+     * Content of the block, can be null
+     */
     content?: unknown;
 
+    /**
+     * Whether this block is a component
+     */
     isComponent?: boolean;
   }
 }
 
+/**
+ * Successful block update response
+ */
 export interface BlockUpdateResponse {
+  /**
+   * The updated block
+   */
   block: BlockUpdateResponse.Block;
 }
 
 export namespace BlockUpdateResponse {
+  /**
+   * The updated block
+   */
   export interface Block {
+    /**
+     * Unique identifier for the block
+     */
     id: string;
 
+    /**
+     * ID of the component block if this is an instance, can be null
+     */
     componentBlockId: string | null;
 
+    /**
+     * Date and time when the block was created
+     */
     createdAt: string;
 
+    /**
+     * Type or category of the block, can be null
+     */
     kind: string | null;
 
+    /**
+     * Name of the block
+     */
     name: string;
 
+    /**
+     * ID of the page this block belongs to
+     */
     pageId: string;
 
+    /**
+     * Date and time when the block was last updated
+     */
     updatedAt: string;
 
+    /**
+     * Content of the block, can be null
+     */
     content?: unknown;
 
+    /**
+     * Whether this block is a component
+     */
     isComponent?: boolean;
   }
 }
 
+/**
+ * Successful block deletion response
+ */
 export interface BlockDeleteResponse {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 }
 
 export interface BlockUpdateParams {
+  /**
+   * ID of the component block if this is an instance, can be null
+   */
   componentBlockId?: string | null;
 
+  /**
+   * Content of the block, can be null
+   */
   content?: unknown;
 
+  /**
+   * Whether this block is a component
+   */
   isComponent?: boolean;
 
+  /**
+   * Type or category of the block, can be null
+   */
   kind?: string | null;
 
+  /**
+   * Name of the block
+   */
   name?: string;
 }
 
