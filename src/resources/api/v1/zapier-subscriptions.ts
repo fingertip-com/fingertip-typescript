@@ -26,23 +26,47 @@ export class ZapierSubscriptions extends APIResource {
   }
 }
 
+/**
+ * Successful subscription creation response
+ */
 export interface ZapierSubscriptionCreateResponse {
+  /**
+   * Unique identifier for the created subscription
+   */
   id: string;
 }
 
+/**
+ * Successful subscription deletion response
+ */
 export interface ZapierSubscriptionDeleteResponse {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 }
 
 export interface ZapierSubscriptionCreateParams {
+  /**
+   * URL that will receive webhook notifications
+   */
   targetUrl: string;
 
+  /**
+   * Key that identifies the type of trigger for this subscription
+   */
   triggerKey: string;
 
+  /**
+   * Slug of the form template to subscribe to, can be null or undefined
+   */
   formTemplateSlug?: string | null;
 }
 
 export interface ZapierSubscriptionDeleteParams {
+  /**
+   * ID of the subscription to delete
+   */
   subscriptionId: string;
 }
 

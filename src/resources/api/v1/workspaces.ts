@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../../resource';
 import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -31,184 +30,467 @@ export class Workspaces extends APIResource {
   list(
     query: WorkspaceListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<WorkspaceListResponsesMyCursorPage, WorkspaceListResponse> {
-    return this._client.getAPIList('/api/v1/workspaces', MyCursorPage<WorkspaceListResponse>, {
-      query,
-      ...options,
-    });
+  ): APIPromise<WorkspaceListResponse> {
+    return this._client.get('/api/v1/workspaces', { query, ...options });
   }
 }
 
-export type WorkspaceListResponsesMyCursorPage = MyCursorPage<WorkspaceListResponse>;
-
+/**
+ * Successful workspace retrieval response
+ */
 export interface WorkspaceRetrieveResponse {
+  /**
+   * The requested workspace with all relations
+   */
   workspace: WorkspaceRetrieveResponse.Workspace;
 }
 
 export namespace WorkspaceRetrieveResponse {
+  /**
+   * The requested workspace with all relations
+   */
   export interface Workspace {
+    /**
+     * Unique identifier for the workspace
+     */
     id: string;
 
+    /**
+     * Date and time when the workspace was created
+     */
     createdAt: string;
 
+    /**
+     * Name of the workspace
+     */
     name: string;
 
+    /**
+     * Array of sites associated with this workspace
+     */
     sites: Array<Workspace.Site>;
 
+    /**
+     * URL-friendly identifier for the workspace
+     */
     slug: string;
 
+    /**
+     * Date and time when the workspace was last updated
+     */
     updatedAt: string;
   }
 
   export namespace Workspace {
+    /**
+     * Schema for a site entity
+     */
     export interface Site {
+      /**
+       * Unique identifier for the site
+       */
       id: string;
 
+      /**
+       * Type of business the site represents, can be null
+       */
       businessType: string | null;
 
+      /**
+       * Date and time when the site was created
+       */
       createdAt: string;
 
+      /**
+       * Description of the site, can be null
+       */
       description: string | null;
 
+      /**
+       * ID of the site's home page, can be null
+       */
       homePageId: string | null;
 
+      /**
+       * ID of the associated location, can be null
+       */
       locationId: string | null;
 
+      /**
+       * Name of the site
+       */
       name: string;
 
+      /**
+       * Custom plan override for the site, can be null
+       */
       overridePlan: string | null;
 
+      /**
+       * URL-friendly identifier for the site
+       */
       slug: string;
 
+      /**
+       * Time zone for the site, can be null
+       */
       timeZone: string | null;
 
+      /**
+       * Date and time when the site was last updated
+       */
       updatedAt: string;
 
+      /**
+       * ID of the workspace this site belongs to, can be null
+       */
       workspaceId: string | null;
 
+      /**
+       * Logo media for the site, can be null
+       */
       logoMedia?: unknown;
 
+      /**
+       * Social media icons configuration, can be null
+       */
       socialIcons?: unknown;
 
+      /**
+       * Current status of the site
+       */
       status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
     }
   }
 }
 
+/**
+ * Successful workspace update response
+ */
 export interface WorkspaceUpdateResponse {
+  /**
+   * The updated workspace with all relations
+   */
   workspace: WorkspaceUpdateResponse.Workspace;
 }
 
 export namespace WorkspaceUpdateResponse {
+  /**
+   * The updated workspace with all relations
+   */
   export interface Workspace {
+    /**
+     * Unique identifier for the workspace
+     */
     id: string;
 
+    /**
+     * Date and time when the workspace was created
+     */
     createdAt: string;
 
+    /**
+     * Name of the workspace
+     */
     name: string;
 
+    /**
+     * Array of sites associated with this workspace
+     */
     sites: Array<Workspace.Site>;
 
+    /**
+     * URL-friendly identifier for the workspace
+     */
     slug: string;
 
+    /**
+     * Date and time when the workspace was last updated
+     */
     updatedAt: string;
   }
 
   export namespace Workspace {
+    /**
+     * Schema for a site entity
+     */
     export interface Site {
+      /**
+       * Unique identifier for the site
+       */
       id: string;
 
+      /**
+       * Type of business the site represents, can be null
+       */
       businessType: string | null;
 
+      /**
+       * Date and time when the site was created
+       */
       createdAt: string;
 
+      /**
+       * Description of the site, can be null
+       */
       description: string | null;
 
+      /**
+       * ID of the site's home page, can be null
+       */
       homePageId: string | null;
 
+      /**
+       * ID of the associated location, can be null
+       */
       locationId: string | null;
 
+      /**
+       * Name of the site
+       */
       name: string;
 
+      /**
+       * Custom plan override for the site, can be null
+       */
       overridePlan: string | null;
 
+      /**
+       * URL-friendly identifier for the site
+       */
       slug: string;
 
+      /**
+       * Time zone for the site, can be null
+       */
       timeZone: string | null;
 
+      /**
+       * Date and time when the site was last updated
+       */
       updatedAt: string;
 
+      /**
+       * ID of the workspace this site belongs to, can be null
+       */
       workspaceId: string | null;
 
+      /**
+       * Logo media for the site, can be null
+       */
       logoMedia?: unknown;
 
+      /**
+       * Social media icons configuration, can be null
+       */
       socialIcons?: unknown;
 
+      /**
+       * Current status of the site
+       */
       status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
     }
   }
 }
 
+/**
+ * Successful workspaces listing response
+ */
 export interface WorkspaceListResponse {
-  id: string;
+  /**
+   * Array of workspaces in the current page of results
+   */
+  items: Array<WorkspaceListResponse.Item>;
 
-  createdAt: string;
+  /**
+   * Pagination information
+   */
+  pageInfo: WorkspaceListResponse.PageInfo;
 
-  name: string;
-
-  sites: Array<WorkspaceListResponse.Site>;
-
-  slug: string;
-
-  updatedAt: string;
+  /**
+   * Total number of workspaces matching the query
+   */
+  total: number;
 }
 
 export namespace WorkspaceListResponse {
-  export interface Site {
+  /**
+   * Workspace schema including related sites
+   */
+  export interface Item {
+    /**
+     * Unique identifier for the workspace
+     */
     id: string;
 
-    businessType: string | null;
-
+    /**
+     * Date and time when the workspace was created
+     */
     createdAt: string;
 
-    description: string | null;
-
-    homePageId: string | null;
-
-    locationId: string | null;
-
+    /**
+     * Name of the workspace
+     */
     name: string;
 
-    overridePlan: string | null;
+    /**
+     * Array of sites associated with this workspace
+     */
+    sites: Array<Item.Site>;
 
+    /**
+     * URL-friendly identifier for the workspace
+     */
     slug: string;
 
-    timeZone: string | null;
-
+    /**
+     * Date and time when the workspace was last updated
+     */
     updatedAt: string;
+  }
 
-    workspaceId: string | null;
+  export namespace Item {
+    /**
+     * Schema for a site entity
+     */
+    export interface Site {
+      /**
+       * Unique identifier for the site
+       */
+      id: string;
 
-    logoMedia?: unknown;
+      /**
+       * Type of business the site represents, can be null
+       */
+      businessType: string | null;
 
-    socialIcons?: unknown;
+      /**
+       * Date and time when the site was created
+       */
+      createdAt: string;
 
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+      /**
+       * Description of the site, can be null
+       */
+      description: string | null;
+
+      /**
+       * ID of the site's home page, can be null
+       */
+      homePageId: string | null;
+
+      /**
+       * ID of the associated location, can be null
+       */
+      locationId: string | null;
+
+      /**
+       * Name of the site
+       */
+      name: string;
+
+      /**
+       * Custom plan override for the site, can be null
+       */
+      overridePlan: string | null;
+
+      /**
+       * URL-friendly identifier for the site
+       */
+      slug: string;
+
+      /**
+       * Time zone for the site, can be null
+       */
+      timeZone: string | null;
+
+      /**
+       * Date and time when the site was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * ID of the workspace this site belongs to, can be null
+       */
+      workspaceId: string | null;
+
+      /**
+       * Logo media for the site, can be null
+       */
+      logoMedia?: unknown;
+
+      /**
+       * Social media icons configuration, can be null
+       */
+      socialIcons?: unknown;
+
+      /**
+       * Current status of the site
+       */
+      status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    }
+  }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
+
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
+
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
   }
 }
 
 export interface WorkspaceUpdateParams {
+  /**
+   * Name of the workspace
+   */
   name?: string;
 }
 
-export interface WorkspaceListParams extends MyCursorPageParams {}
+export interface WorkspaceListParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: varies, max: 100)
+   */
+  pageSize?: unknown;
+
+  /**
+   * Field to sort by (createdAt or updatedAt)
+   */
+  sortBy?: 'createdAt' | 'updatedAt';
+
+  /**
+   * Sort direction (ascending or descending)
+   */
+  sortDirection?: 'asc' | 'desc';
+}
 
 export declare namespace Workspaces {
   export {
     type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
     type WorkspaceUpdateResponse as WorkspaceUpdateResponse,
     type WorkspaceListResponse as WorkspaceListResponse,
-    type WorkspaceListResponsesMyCursorPage as WorkspaceListResponsesMyCursorPage,
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
     type WorkspaceListParams as WorkspaceListParams,
   };

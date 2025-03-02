@@ -25,51 +25,114 @@ export class Theme extends APIResource {
   }
 }
 
+/**
+ * Successful theme retrieval response
+ */
 export interface ThemeRetrieveResponse {
+  /**
+   * The theme associated with the requested page
+   */
   pageTheme: ThemeRetrieveResponse.PageTheme;
 }
 
 export namespace ThemeRetrieveResponse {
+  /**
+   * The theme associated with the requested page
+   */
   export interface PageTheme {
+    /**
+     * Unique identifier for the page theme
+     */
     id: string;
 
+    /**
+     * ID of the parent component theme if this is an instance, can be null
+     */
     componentPageThemeId: string | null;
 
+    /**
+     * Date and time when the theme was created
+     */
     createdAt: string;
 
+    /**
+     * Date and time when the theme was last updated
+     */
     updatedAt: string;
 
+    /**
+     * Theme content configuration, can be null
+     */
     content?: unknown;
 
+    /**
+     * Whether this theme is a reusable component
+     */
     isComponent?: boolean;
   }
 }
 
+/**
+ * Successful theme update response
+ */
 export interface ThemeUpdateResponse {
+  /**
+   * The updated or created page theme
+   */
   pageTheme: ThemeUpdateResponse.PageTheme;
 }
 
 export namespace ThemeUpdateResponse {
+  /**
+   * The updated or created page theme
+   */
   export interface PageTheme {
+    /**
+     * Unique identifier for the page theme
+     */
     id: string;
 
+    /**
+     * ID of the parent component theme if this is an instance, can be null
+     */
     componentPageThemeId: string | null;
 
+    /**
+     * Date and time when the theme was created
+     */
     createdAt: string;
 
+    /**
+     * Date and time when the theme was last updated
+     */
     updatedAt: string;
 
+    /**
+     * Theme content configuration, can be null
+     */
     content?: unknown;
 
+    /**
+     * Whether this theme is a reusable component
+     */
     isComponent?: boolean;
   }
 }
 
 export interface ThemeUpdateParams {
+  /**
+   * ID of the parent component theme if this is an instance, can be null
+   */
   componentPageThemeId?: string | null;
 
+  /**
+   * Theme content configuration, can be null
+   */
   content?: unknown;
 
+  /**
+   * Whether this theme is a reusable component
+   */
   isComponent?: boolean;
 }
 

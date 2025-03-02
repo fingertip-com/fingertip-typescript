@@ -2,16 +2,8 @@
 
 import { APIResource } from '../../../../resource';
 import * as PagesAPI from './pages';
-import {
-  PageCreateParams,
-  PageCreateResponse,
-  PageListParams,
-  PageListResponse,
-  PageListResponsesMyCursorPage,
-  Pages,
-} from './pages';
+import { PageCreateParams, PageCreateResponse, PageListParams, PageListResponse, Pages } from './pages';
 import { APIPromise } from '../../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../../pagination';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
@@ -49,8 +41,8 @@ export class Sites extends APIResource {
   list(
     query: SiteListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<SiteListResponsesMyCursorPage, SiteListResponse> {
-    return this._client.getAPIList('/api/v1/sites', MyCursorPage<SiteListResponse>, { query, ...options });
+  ): APIPromise<SiteListResponse> {
+    return this._client.get('/api/v1/sites', { query, ...options });
   }
 
   /**
@@ -61,345 +53,887 @@ export class Sites extends APIResource {
   }
 }
 
-export type SiteListResponsesMyCursorPage = MyCursorPage<SiteListResponse>;
-
+/**
+ * Successful site creation response
+ */
 export interface SiteCreateResponse {
+  /**
+   * The newly created site with all relations
+   */
   site: SiteCreateResponse.Site;
 }
 
 export namespace SiteCreateResponse {
+  /**
+   * The newly created site with all relations
+   */
   export interface Site {
+    /**
+     * Unique identifier for the site
+     */
     id: string;
 
+    /**
+     * Type of business the site represents, can be null
+     */
     businessType: string | null;
 
+    /**
+     * Date and time when the site was created
+     */
     createdAt: string;
 
+    /**
+     * Description of the site, can be null
+     */
     description: string | null;
 
+    /**
+     * ID of the site's home page, can be null
+     */
     homePageId: string | null;
 
+    /**
+     * ID of the associated location, can be null
+     */
     locationId: string | null;
 
+    /**
+     * Name of the site
+     */
     name: string;
 
+    /**
+     * Custom plan override for the site, can be null
+     */
     overridePlan: string | null;
 
+    /**
+     * Array of pages associated with this site
+     */
     pages: Array<Site.Page>;
 
+    /**
+     * URL-friendly identifier for the site
+     */
     slug: string;
 
+    /**
+     * Time zone for the site, can be null
+     */
     timeZone: string | null;
 
+    /**
+     * Date and time when the site was last updated
+     */
     updatedAt: string;
 
+    /**
+     * ID of the workspace this site belongs to, can be null
+     */
     workspaceId: string | null;
 
+    /**
+     * Logo media for the site, can be null
+     */
     logoMedia?: unknown;
 
+    /**
+     * Social media icons configuration, can be null
+     */
     socialIcons?: unknown;
 
+    /**
+     * Current status of the site
+     */
     status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
   }
 
   export namespace Site {
+    /**
+     * Schema for a page entity
+     */
     export interface Page {
+      /**
+       * Unique identifier for the page
+       */
       id: string;
 
+      /**
+       * Date and time when the page was created
+       */
       createdAt: string;
 
+      /**
+       * Description of the page content, can be null
+       */
       description: string | null;
 
+      /**
+       * Name of the page, can be null
+       */
       name: string | null;
 
+      /**
+       * ID of the theme applied to this page, can be null
+       */
       pageThemeId: string | null;
 
+      /**
+       * ID of the site this page belongs to
+       */
       siteId: string;
 
+      /**
+       * URL-friendly path segment for the page
+       */
       slug: string;
 
+      /**
+       * Date and time when the page was last updated
+       */
       updatedAt: string;
 
+      /**
+       * Banner media for the page, can be null
+       */
       bannerMedia?: unknown;
 
+      /**
+       * Logo media for the page, can be null
+       */
       logoMedia?: unknown;
 
+      /**
+       * Display position of the page within the site
+       */
       position?: number;
 
+      /**
+       * Social media icons configuration, can be null
+       */
       socialIcons?: unknown;
     }
   }
 }
 
+/**
+ * Successful site retrieval response
+ */
 export interface SiteRetrieveResponse {
+  /**
+   * The requested site with all relations
+   */
   site: SiteRetrieveResponse.Site;
 }
 
 export namespace SiteRetrieveResponse {
+  /**
+   * The requested site with all relations
+   */
   export interface Site {
+    /**
+     * Unique identifier for the site
+     */
     id: string;
 
+    /**
+     * Type of business the site represents, can be null
+     */
     businessType: string | null;
 
+    /**
+     * Date and time when the site was created
+     */
     createdAt: string;
 
+    /**
+     * Description of the site, can be null
+     */
     description: string | null;
 
+    /**
+     * ID of the site's home page, can be null
+     */
     homePageId: string | null;
 
+    /**
+     * ID of the associated location, can be null
+     */
     locationId: string | null;
 
+    /**
+     * Name of the site
+     */
     name: string;
 
+    /**
+     * Custom plan override for the site, can be null
+     */
     overridePlan: string | null;
 
+    /**
+     * Array of pages associated with this site
+     */
     pages: Array<Site.Page>;
 
+    /**
+     * URL-friendly identifier for the site
+     */
     slug: string;
 
+    /**
+     * Time zone for the site, can be null
+     */
     timeZone: string | null;
 
+    /**
+     * Date and time when the site was last updated
+     */
     updatedAt: string;
 
+    /**
+     * ID of the workspace this site belongs to, can be null
+     */
     workspaceId: string | null;
 
+    /**
+     * Logo media for the site, can be null
+     */
     logoMedia?: unknown;
 
+    /**
+     * Social media icons configuration, can be null
+     */
     socialIcons?: unknown;
 
+    /**
+     * Current status of the site
+     */
     status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
   }
 
   export namespace Site {
+    /**
+     * Schema for a page entity
+     */
     export interface Page {
+      /**
+       * Unique identifier for the page
+       */
       id: string;
 
+      /**
+       * Date and time when the page was created
+       */
       createdAt: string;
 
+      /**
+       * Description of the page content, can be null
+       */
       description: string | null;
 
+      /**
+       * Name of the page, can be null
+       */
       name: string | null;
 
+      /**
+       * ID of the theme applied to this page, can be null
+       */
       pageThemeId: string | null;
 
+      /**
+       * ID of the site this page belongs to
+       */
       siteId: string;
 
+      /**
+       * URL-friendly path segment for the page
+       */
       slug: string;
 
+      /**
+       * Date and time when the page was last updated
+       */
       updatedAt: string;
 
+      /**
+       * Banner media for the page, can be null
+       */
       bannerMedia?: unknown;
 
+      /**
+       * Logo media for the page, can be null
+       */
       logoMedia?: unknown;
 
+      /**
+       * Display position of the page within the site
+       */
       position?: number;
 
+      /**
+       * Social media icons configuration, can be null
+       */
       socialIcons?: unknown;
     }
   }
 }
 
+/**
+ * Successful site update response
+ */
 export interface SiteUpdateResponse {
+  /**
+   * The updated site with all relations
+   */
   site: SiteUpdateResponse.Site;
 }
 
 export namespace SiteUpdateResponse {
+  /**
+   * The updated site with all relations
+   */
   export interface Site {
+    /**
+     * Unique identifier for the site
+     */
     id: string;
 
+    /**
+     * Type of business the site represents, can be null
+     */
     businessType: string | null;
 
+    /**
+     * Date and time when the site was created
+     */
     createdAt: string;
 
+    /**
+     * Description of the site, can be null
+     */
     description: string | null;
 
+    /**
+     * ID of the site's home page, can be null
+     */
     homePageId: string | null;
 
+    /**
+     * ID of the associated location, can be null
+     */
     locationId: string | null;
 
+    /**
+     * Name of the site
+     */
     name: string;
 
+    /**
+     * Custom plan override for the site, can be null
+     */
     overridePlan: string | null;
 
+    /**
+     * Array of pages associated with this site
+     */
     pages: Array<Site.Page>;
 
+    /**
+     * URL-friendly identifier for the site
+     */
     slug: string;
 
+    /**
+     * Time zone for the site, can be null
+     */
     timeZone: string | null;
 
+    /**
+     * Date and time when the site was last updated
+     */
     updatedAt: string;
 
+    /**
+     * ID of the workspace this site belongs to, can be null
+     */
     workspaceId: string | null;
 
+    /**
+     * Logo media for the site, can be null
+     */
     logoMedia?: unknown;
 
+    /**
+     * Social media icons configuration, can be null
+     */
     socialIcons?: unknown;
 
+    /**
+     * Current status of the site
+     */
     status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
   }
 
   export namespace Site {
+    /**
+     * Schema for a page entity
+     */
     export interface Page {
+      /**
+       * Unique identifier for the page
+       */
       id: string;
 
+      /**
+       * Date and time when the page was created
+       */
       createdAt: string;
 
+      /**
+       * Description of the page content, can be null
+       */
       description: string | null;
 
+      /**
+       * Name of the page, can be null
+       */
       name: string | null;
 
+      /**
+       * ID of the theme applied to this page, can be null
+       */
       pageThemeId: string | null;
 
+      /**
+       * ID of the site this page belongs to
+       */
       siteId: string;
 
+      /**
+       * URL-friendly path segment for the page
+       */
       slug: string;
 
+      /**
+       * Date and time when the page was last updated
+       */
       updatedAt: string;
 
+      /**
+       * Banner media for the page, can be null
+       */
       bannerMedia?: unknown;
 
+      /**
+       * Logo media for the page, can be null
+       */
       logoMedia?: unknown;
 
+      /**
+       * Display position of the page within the site
+       */
       position?: number;
 
+      /**
+       * Social media icons configuration, can be null
+       */
       socialIcons?: unknown;
     }
   }
 }
 
+/**
+ * Successful sites listing response
+ */
 export interface SiteListResponse {
-  id: string;
+  /**
+   * Array of sites in the current page of results
+   */
+  items: Array<SiteListResponse.Item>;
 
-  businessType: string | null;
+  /**
+   * Pagination information
+   */
+  pageInfo: SiteListResponse.PageInfo;
 
-  createdAt: string;
-
-  description: string | null;
-
-  homePageId: string | null;
-
-  locationId: string | null;
-
-  name: string;
-
-  overridePlan: string | null;
-
-  slug: string;
-
-  timeZone: string | null;
-
-  updatedAt: string;
-
-  workspaceId: string | null;
-
-  logoMedia?: unknown;
-
-  socialIcons?: unknown;
-
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  /**
+   * Total number of sites matching the query
+   */
+  total: number;
 }
 
+export namespace SiteListResponse {
+  /**
+   * Schema for a site entity
+   */
+  export interface Item {
+    /**
+     * Unique identifier for the site
+     */
+    id: string;
+
+    /**
+     * Type of business the site represents, can be null
+     */
+    businessType: string | null;
+
+    /**
+     * Date and time when the site was created
+     */
+    createdAt: string;
+
+    /**
+     * Description of the site, can be null
+     */
+    description: string | null;
+
+    /**
+     * ID of the site's home page, can be null
+     */
+    homePageId: string | null;
+
+    /**
+     * ID of the associated location, can be null
+     */
+    locationId: string | null;
+
+    /**
+     * Name of the site
+     */
+    name: string;
+
+    /**
+     * Custom plan override for the site, can be null
+     */
+    overridePlan: string | null;
+
+    /**
+     * URL-friendly identifier for the site
+     */
+    slug: string;
+
+    /**
+     * Time zone for the site, can be null
+     */
+    timeZone: string | null;
+
+    /**
+     * Date and time when the site was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * ID of the workspace this site belongs to, can be null
+     */
+    workspaceId: string | null;
+
+    /**
+     * Logo media for the site, can be null
+     */
+    logoMedia?: unknown;
+
+    /**
+     * Social media icons configuration, can be null
+     */
+    socialIcons?: unknown;
+
+    /**
+     * Current status of the site
+     */
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
+
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
+
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
+  }
+}
+
+/**
+ * Successful site deletion response
+ */
 export interface SiteDeleteResponse {
+  /**
+   * Whether the deletion was successful
+   */
   success: boolean;
 }
 
 export interface SiteCreateParams {
+  /**
+   * Type of business the site represents, can be null
+   */
   businessType: string | null;
 
+  /**
+   * Name of the site
+   */
   name: string;
 
+  /**
+   * Array of pages to create with the site
+   */
   pages: Array<SiteCreateParams.Page>;
 
+  /**
+   * URL-friendly identifier for the site
+   */
   slug: string;
 
+  /**
+   * Description of the site, can be null
+   */
   description?: string | null;
 
+  /**
+   * ID of the site's home page, can be null
+   */
   homePageId?: string | null;
 
+  /**
+   * ID of the associated location, can be null
+   */
   locationId?: string | null;
 
+  /**
+   * Logo media for the site, can be null
+   */
   logoMedia?: unknown;
 
+  /**
+   * Social media icons configuration, can be null
+   */
   socialIcons?: unknown;
 
+  /**
+   * Current status of the site
+   */
   status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
 
+  /**
+   * Time zone for the site, can be null
+   */
   timeZone?: string | null;
 
+  /**
+   * ID of the workspace this site belongs to, can be null
+   */
   workspaceId?: string | null;
 }
 
 export namespace SiteCreateParams {
+  /**
+   * Page to create with theme and blocks
+   */
   export interface Page {
+    /**
+     * Name of the page, can be null
+     */
     name: string | null;
 
+    /**
+     * Theme for the page
+     */
     pageTheme: Page.PageTheme;
 
+    /**
+     * URL-friendly path segment for the page
+     */
     slug: string;
 
+    /**
+     * Banner media for the page, can be null
+     */
     bannerMedia?: unknown;
 
+    /**
+     * Content blocks for the page
+     */
     blocks?: Array<Page.Block>;
 
+    /**
+     * Description of the page content, can be null
+     */
     description?: string | null;
 
+    /**
+     * Logo media for the page, can be null
+     */
     logoMedia?: unknown;
 
+    /**
+     * Display position of the page within the site
+     */
     position?: number;
 
+    /**
+     * Social media icons configuration, can be null
+     */
     socialIcons?: unknown;
   }
 
   export namespace Page {
+    /**
+     * Theme for the page
+     */
     export interface PageTheme {
+      /**
+       * ID of the parent component theme if this is an instance, can be null
+       */
       componentPageThemeId?: string | null;
 
+      /**
+       * Theme content configuration, can be null
+       */
       content?: unknown;
 
+      /**
+       * Whether this theme is a reusable component
+       */
       isComponent?: boolean;
     }
 
+    /**
+     * Schema for creating a new block
+     */
     export interface Block {
+      /**
+       * ID of the component block if this is an instance, can be null
+       */
       componentBlockId: string | null;
 
+      /**
+       * Type or category of the block, can be null
+       */
       kind: string | null;
 
+      /**
+       * Name of the block
+       */
       name: string;
 
+      /**
+       * Content of the block, can be null
+       */
       content?: unknown;
 
+      /**
+       * Whether this block is a component
+       */
       isComponent?: boolean;
     }
   }
 }
 
 export interface SiteUpdateParams {
+  /**
+   * Type of business the site represents, can be null
+   */
   businessType?: string | null;
 
+  /**
+   * Description of the site, can be null
+   */
   description?: string | null;
 
+  /**
+   * ID of the site's home page, can be null
+   */
   homePageId?: string | null;
 
+  /**
+   * ID of the associated location, can be null
+   */
   locationId?: string | null;
 
+  /**
+   * Logo media for the site, can be null
+   */
   logoMedia?: unknown;
 
+  /**
+   * Name of the site
+   */
   name?: string;
 
+  /**
+   * URL-friendly identifier for the site
+   */
   slug?: string;
 
+  /**
+   * Social media icons configuration, can be null
+   */
   socialIcons?: unknown;
 
+  /**
+   * Current status of the site
+   */
   status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
 
+  /**
+   * Time zone for the site, can be null
+   */
   timeZone?: string | null;
 
+  /**
+   * ID of the workspace this site belongs to, can be null
+   */
   workspaceId?: string | null;
 }
 
-export interface SiteListParams extends MyCursorPageParams {
+export interface SiteListParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: varies, max: 100)
+   */
+  pageSize?: unknown;
+
+  /**
+   * Field to sort by (createdAt or updatedAt)
+   */
+  sortBy?: 'createdAt' | 'updatedAt';
+
+  /**
+   * Sort direction (ascending or descending)
+   */
+  sortDirection?: 'asc' | 'desc';
+
+  /**
+   * Filter sites by status
+   */
   status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
 
+  /**
+   * Filter sites by workspace ID
+   */
   workspaceId?: string;
 }
 
@@ -412,7 +946,6 @@ export declare namespace Sites {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
-    type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
     type SiteListParams as SiteListParams,
@@ -422,7 +955,6 @@ export declare namespace Sites {
     Pages as Pages,
     type PageCreateResponse as PageCreateResponse,
     type PageListResponse as PageListResponse,
-    type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
   };

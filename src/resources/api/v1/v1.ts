@@ -20,7 +20,6 @@ import * as WorkspacesAPI from './workspaces';
 import {
   WorkspaceListParams,
   WorkspaceListResponse,
-  WorkspaceListResponsesMyCursorPage,
   WorkspaceRetrieveResponse,
   WorkspaceUpdateParams,
   WorkspaceUpdateResponse,
@@ -49,14 +48,12 @@ import {
   SiteDeleteResponse,
   SiteListParams,
   SiteListResponse,
-  SiteListResponsesMyCursorPage,
   SiteRetrieveResponse,
   SiteUpdateParams,
   SiteUpdateResponse,
   Sites,
 } from './sites/sites';
 import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class V1 extends APIResource {
@@ -81,14 +78,8 @@ export class V1 extends APIResource {
   /**
    * Retrieves a paginated list of bookings for a site with optional status filtering
    */
-  listBookings(
-    query: V1ListBookingsParams,
-    options?: RequestOptions,
-  ): PagePromise<V1ListBookingsResponsesMyCursorPage, V1ListBookingsResponse> {
-    return this._client.getAPIList('/api/v1/bookings', MyCursorPage<V1ListBookingsResponse>, {
-      query,
-      ...options,
-    });
+  listBookings(query: V1ListBookingsParams, options?: RequestOptions): APIPromise<V1ListBookingsResponse> {
+    return this._client.get('/api/v1/bookings', { query, ...options });
   }
 
   /**
@@ -100,105 +91,290 @@ export class V1 extends APIResource {
   }
 }
 
-export type V1ListBookingsResponsesMyCursorPage = MyCursorPage<V1ListBookingsResponse>;
-
+/**
+ * Array of form responses matching the query
+ */
 export type V1GetFormResponsesSampleResponse =
   Array<V1GetFormResponsesSampleResponse.V1GetFormResponsesSampleResponseItem>;
 
 export namespace V1GetFormResponsesSampleResponse {
+  /**
+   * Complete form response schema with both standard and dynamic fields
+   */
   export interface V1GetFormResponsesSampleResponseItem {
+    /**
+     * Timestamp when the form response was created
+     */
     createdAt: string;
 
+    /**
+     * Unique identifier for the form response
+     */
     formResponseId: string;
 
+    /**
+     * ID of the form template this response belongs to
+     */
     formTemplateId: string;
 
+    /**
+     * URL-friendly slug of the form template
+     */
     formTemplateSlug: string;
 
+    /**
+     * Title of the form template
+     */
     formTemplateTitle: string;
 
+    /**
+     * ID of the site contact associated with this response
+     */
     siteContactId: string;
 
+    /**
+     * ID of the site where the form was submitted
+     */
     siteId: string;
 
+    /**
+     * Source of the form submission (e.g., website, app)
+     */
     source: string;
     [k: string]: unknown;
   }
 }
 
 export interface V1ListBookingsResponse {
-  id: string;
+  /**
+   * List of booking items in the current page
+   */
+  items: Array<V1ListBookingsResponse.Item>;
 
-  cancellationReason: string | null;
+  /**
+   * Pagination information
+   */
+  pageInfo: V1ListBookingsResponse.PageInfo;
 
-  createdAt: string;
-
-  description: string | null;
-
-  destinationCalendarId: string | null;
-
-  endTime: string;
-
-  eventTypeId: string | null;
-
-  fromReschedule: string | null;
-
-  isRecorded: boolean;
-
-  location: string | null;
-
-  recurringEventId: string | null;
-
-  rejectionReason: string | null;
-
-  rescheduled: boolean | null;
-
-  rescheduledReason: string | null;
-
-  siteId: string | null;
-
-  smsReminderNumber: string | null;
-
-  source: string | null;
-
-  startTime: string;
-
-  status:
-    | 'CANCELLED'
-    | 'ACCEPTED'
-    | 'REJECTED'
-    | 'PENDING'
-    | 'COMPLETED'
-    | 'NO_SHOW'
-    | 'REFUNDED'
-    | 'PENDING_CONFIRMATION';
-
-  title: string | null;
-
-  updatedAt: string;
-
-  userId: string | null;
-
-  attendees?: unknown;
-
-  calendarEvent?: null;
-
-  metadata?: null;
-
-  response?: null;
+  /**
+   * Total number of bookings matching the query
+   */
+  total: number;
 }
 
+export namespace V1ListBookingsResponse {
+  export interface Item {
+    /**
+     * Unique identifier for the booking
+     */
+    id: string;
+
+    /**
+     * Reason for cancellation if the booking was cancelled, can be null
+     */
+    cancellationReason: string | null;
+
+    /**
+     * Date and time when the booking was created
+     */
+    createdAt: string;
+
+    /**
+     * Description of the booking, can be null
+     */
+    description: string | null;
+
+    /**
+     * ID of the destination calendar for this booking, can be null
+     */
+    destinationCalendarId: string | null;
+
+    /**
+     * End date and time of the booking
+     */
+    endTime: string;
+
+    /**
+     * ID of the event type for this booking, can be null
+     */
+    eventTypeId: string | null;
+
+    /**
+     * ID of the original booking if this is a rescheduled booking, can be null
+     */
+    fromReschedule: string | null;
+
+    /**
+     * Indicates if the booking event will be recorded
+     */
+    isRecorded: boolean;
+
+    /**
+     * Location where the booking will take place, can be null
+     */
+    location: string | null;
+
+    /**
+     * ID of the recurring event this booking belongs to, can be null
+     */
+    recurringEventId: string | null;
+
+    /**
+     * Reason for rejection if the booking was rejected, can be null
+     */
+    rejectionReason: string | null;
+
+    /**
+     * Indicates if the booking has been rescheduled, can be null
+     */
+    rescheduled: boolean | null;
+
+    /**
+     * Reason for rescheduling if the booking was rescheduled, can be null
+     */
+    rescheduledReason: string | null;
+
+    /**
+     * ID of the site where the booking was made, can be null
+     */
+    siteId: string | null;
+
+    /**
+     * Phone number for SMS reminders, can be null
+     */
+    smsReminderNumber: string | null;
+
+    /**
+     * Source of the booking (e.g., website, app), can be null
+     */
+    source: string | null;
+
+    /**
+     * Start date and time of the booking
+     */
+    startTime: string;
+
+    /**
+     * Current status of the booking
+     */
+    status:
+      | 'CANCELLED'
+      | 'ACCEPTED'
+      | 'REJECTED'
+      | 'PENDING'
+      | 'COMPLETED'
+      | 'NO_SHOW'
+      | 'REFUNDED'
+      | 'PENDING_CONFIRMATION';
+
+    /**
+     * Title of the booking, can be null
+     */
+    title: string | null;
+
+    /**
+     * Date and time when the booking was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * ID of the user who created the booking, can be null
+     */
+    userId: string | null;
+
+    /**
+     * List of attendees for the booking
+     */
+    attendees?: unknown;
+
+    /**
+     * Calendar event data associated with the booking, can be null
+     */
+    calendarEvent?: null;
+
+    /**
+     * Additional metadata for the booking, can be null
+     */
+    metadata?: null;
+
+    /**
+     * Custom response data associated with the booking, can be null
+     */
+    response?: null;
+  }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
+
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
+
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
+  }
+}
+
+/**
+ * Successful ping response
+ */
 export interface V1PingResponse {
+  /**
+   * Response message indicating service status
+   */
   message: string;
 }
 
 export interface V1GetFormResponsesSampleParams {
+  /**
+   * Slug of the form template to retrieve responses for
+   */
   form_template_slug: string;
 }
 
-export interface V1ListBookingsParams extends MyCursorPageParams {
+export interface V1ListBookingsParams {
+  /**
+   * Site ID to fetch bookings for
+   */
   siteId: string;
 
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 25, max: 100)
+   */
+  pageSize?: unknown;
+
+  /**
+   * Field to sort by (default: updatedAt)
+   */
+  sortBy?: 'createdAt' | 'updatedAt';
+
+  /**
+   * Sort direction (default: desc)
+   */
+  sortDirection?: 'asc' | 'desc';
+
+  /**
+   * Filter by booking status
+   */
   status?:
     | 'CANCELLED'
     | 'ACCEPTED'
@@ -222,7 +398,6 @@ export declare namespace V1 {
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
     type V1PingResponse as V1PingResponse,
-    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
   };
@@ -250,7 +425,6 @@ export declare namespace V1 {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
-    type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
     type SiteListParams as SiteListParams,
@@ -268,7 +442,6 @@ export declare namespace V1 {
     type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
     type WorkspaceUpdateResponse as WorkspaceUpdateResponse,
     type WorkspaceListResponse as WorkspaceListResponse,
-    type WorkspaceListResponsesMyCursorPage as WorkspaceListResponsesMyCursorPage,
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
     type WorkspaceListParams as WorkspaceListParams,
   };
