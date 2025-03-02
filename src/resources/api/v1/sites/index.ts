@@ -6,7 +6,6 @@ export {
   type PageListResponse,
   type PageCreateParams,
   type PageListParams,
-  type PageListResponsesMyCursorPage,
 } from './pages';
 export {
   Sites,
@@ -18,5 +17,4 @@ export {
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,
-  type SiteListResponsesMyCursorPage,
 } from './sites';
