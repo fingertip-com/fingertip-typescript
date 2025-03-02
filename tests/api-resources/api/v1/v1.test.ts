@@ -29,7 +29,7 @@ describe('resource v1', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('listBookings: only required params', async () => {
-    const responsePromise = client.api.v1.listBookings({ siteId: 'siteId' });
+    const responsePromise = client.api.v1.listBookings({ siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,9 +42,11 @@ describe('resource v1', () => {
   // skipped: tests are disabled for the time being
   test.skip('listBookings: required and optional params', async () => {
     const response = await client.api.v1.listBookings({
-      siteId: 'siteId',
+      siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       cursor: 'cursor',
-      pageSize: 'pageSize',
+      pageSize: {},
+      sortBy: 'createdAt',
+      sortDirection: 'asc',
       status: 'CANCELLED',
     });
   });

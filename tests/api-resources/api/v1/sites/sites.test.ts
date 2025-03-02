@@ -130,7 +130,9 @@ describe('resource sites', () => {
       client.api.v1.sites.list(
         {
           cursor: 'cursor',
-          pageSize: 'pageSize',
+          pageSize: {},
+          sortBy: 'createdAt',
+          sortDirection: 'asc',
           status: 'EMPTY',
           workspaceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
         },
