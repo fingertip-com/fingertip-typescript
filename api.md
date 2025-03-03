@@ -11,7 +11,7 @@ Types:
 Methods:
 
 - <code title="get /api/v1/form-responses/sample">client.api.v1.<a href="./src/resources/api/v1/v1.ts">getFormResponsesSample</a>({ ...params }) -> V1GetFormResponsesSampleResponse</code>
-- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponse</code>
+- <code title="get /api/v1/bookings">client.api.v1.<a href="./src/resources/api/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponsesMyCursorPage</code>
 - <code title="get /api/v1/ping">client.api.v1.<a href="./src/resources/api/v1/v1.ts">ping</a>() -> V1PingResponse</code>
 
 ### Pages
@@ -81,7 +81,7 @@ Methods:
 - <code title="post /api/v1/sites">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">create</a>({ ...params }) -> SiteCreateResponse</code>
 - <code title="get /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">retrieve</a>(siteID) -> SiteRetrieveResponse</code>
 - <code title="patch /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">update</a>(siteID, { ...params }) -> SiteUpdateResponse</code>
-- <code title="get /api/v1/sites">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponse</code>
+- <code title="get /api/v1/sites">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponsesMyCursorPage</code>
 - <code title="delete /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">delete</a>(siteID) -> SiteDeleteResponse</code>
 
 #### Pages
@@ -94,7 +94,7 @@ Types:
 Methods:
 
 - <code title="post /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
-- <code title="get /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponse</code>
+- <code title="get /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
 
 ### SiteContacts
 
@@ -120,7 +120,7 @@ Methods:
 
 - <code title="get /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">retrieve</a>(workspaceID) -> WorkspaceRetrieveResponse</code>
 - <code title="patch /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">update</a>(workspaceID, { ...params }) -> WorkspaceUpdateResponse</code>
-- <code title="get /api/v1/workspaces">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponse</code>
+- <code title="get /api/v1/workspaces">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponsesMyCursorPage</code>
 
 ### ZapierSubscriptions
 
