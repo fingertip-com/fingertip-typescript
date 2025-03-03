@@ -61,7 +61,7 @@ describe('resource workspaces', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.api.v1.workspaces.list(
-        { cursor: 'cursor', pageSize: {}, sortBy: 'createdAt', sortDirection: 'asc' },
+        { cursor: 'cursor', pageSize: 'pageSize', sortBy: 'createdAt', sortDirection: 'asc' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Fingertip.NotFoundError);
