@@ -30,6 +30,7 @@ export {
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,
+  type SiteListResponsesMyCursorPage,
 } from './sites/index';
 export {
   V1,
@@ -38,6 +39,7 @@ export {
   type V1PingResponse,
   type V1GetFormResponsesSampleParams,
   type V1ListBookingsParams,
+  type V1ListBookingsResponsesMyCursorPage,
 } from './v1';
 export {
   Workspaces,
@@ -46,6 +48,7 @@ export {
   type WorkspaceListResponse,
   type WorkspaceUpdateParams,
   type WorkspaceListParams,
+  type WorkspaceListResponsesMyCursorPage,
 } from './workspaces';
 export {
   ZapierSubscriptions,

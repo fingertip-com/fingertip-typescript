@@ -67,7 +67,7 @@ describe('resource pages', () => {
     await expect(
       client.api.v1.sites.pages.list(
         '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-        { cursor: 'cursor', pageSize: {}, sortBy: 'createdAt', sortDirection: 'asc' },
+        { cursor: 'cursor', pageSize: 'pageSize', sortBy: 'createdAt', sortDirection: 'asc' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Fingertip.NotFoundError);
