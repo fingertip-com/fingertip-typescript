@@ -1,6 +1,6 @@
 {
   "name": "fingertip",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The official TypeScript library for the Fingertip API",
   "author": "Fingertip <hello@fingertip.com>",
   "types": "dist/index.d.ts",
