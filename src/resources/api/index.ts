@@ -8,4 +8,5 @@ export {
   type V1PingResponse,
   type V1GetFormResponsesSampleParams,
   type V1ListBookingsParams,
+  type V1ListBookingsResponsesMyCursorPage,
 } from './v1/index';

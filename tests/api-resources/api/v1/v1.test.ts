@@ -44,7 +44,7 @@ describe('resource v1', () => {
     const response = await client.api.v1.listBookings({
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       cursor: 'cursor',
-      pageSize: {},
+      pageSize: 'pageSize',
       sortBy: 'createdAt',
       sortDirection: 'asc',
       status: 'CANCELLED',

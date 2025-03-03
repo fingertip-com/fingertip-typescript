@@ -130,7 +130,7 @@ describe('resource sites', () => {
       client.api.v1.sites.list(
         {
           cursor: 'cursor',
-          pageSize: {},
+          pageSize: 'pageSize',
           sortBy: 'createdAt',
           sortDirection: 'asc',
           status: 'EMPTY',
