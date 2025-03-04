@@ -1,6 +1,7 @@
 import fs from 'fs';
 import type { ResponseLike } from 'fingertip/internal/to-file';
 import { toFile } from 'fingertip/uploads';
+import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
