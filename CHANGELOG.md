@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.1 (2025-03-04)
+
+Full Changelog: [v0.4.0...v0.4.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.4.0...v0.4.1)
+
+### Bug Fixes
+
+* **client:** fix TypeError with undefined File ([#42](https://github.com/fingertip-com/fingertip-typescript/issues/42)) ([5e39346](https://github.com/fingertip-com/fingertip-typescript/commit/5e393467a2de44ab4142e2e90c21214c2c0e1c66))
+* **internal:** clean up undefined File test ([#43](https://github.com/fingertip-com/fingertip-typescript/issues/43)) ([1185f24](https://github.com/fingertip-com/fingertip-typescript/commit/1185f24bd68246e540f6ea1d219e5c731b595c29))
+
+
+### Chores
+
+* **client:** only accept standard types for file uploads ([#38](https://github.com/fingertip-com/fingertip-typescript/issues/38)) ([0efa2f4](https://github.com/fingertip-com/fingertip-typescript/commit/0efa2f405e46e5305a750d50f7fc76741d7c9021))
+* **internal:** constrain synckit dev dependency ([#41](https://github.com/fingertip-com/fingertip-typescript/issues/41)) ([129235a](https://github.com/fingertip-com/fingertip-typescript/commit/129235af88d81f860f8d106bde32a3b2e49279ad))
+* **internal:** fix tests failing on node v18 ([#40](https://github.com/fingertip-com/fingertip-typescript/issues/40)) ([7d24e4e](https://github.com/fingertip-com/fingertip-typescript/commit/7d24e4e04a76b6868565a2c4c5876491d85cefd7))
+
 ## 0.4.0 (2025-03-03)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.3.0...v0.4.0)
