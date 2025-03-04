@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2 (2025-03-04)
+
+Full Changelog: [v0.4.1...v0.4.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.4.1...v0.4.2)
+
+### Bug Fixes
+
+* **tests:** manually reset node:buffer File ([#44](https://github.com/fingertip-com/fingertip-typescript/issues/44)) ([5b124fa](https://github.com/fingertip-com/fingertip-typescript/commit/5b124fa1f5bbb93f56f8ccc6efe46c1dc6c7678d))
+
 ## 0.4.1 (2025-03-04)
 
 Full Changelog: [v0.4.0...v0.4.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.4.0...v0.4.1)
