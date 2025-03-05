@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.5.0 (2025-03-05)
+
+Full Changelog: [v0.4.2...v0.5.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.4.2...v0.5.0)
+
+### Features
+
+* **api:** api update ([#52](https://github.com/fingertip-com/fingertip-typescript/issues/52)) ([d9355a2](https://github.com/fingertip-com/fingertip-typescript/commit/d9355a2b27e9956d64dddee5cc536480dfc24621))
+
+
+### Chores
+
+* **docs:** improve docs for withResponse/asResponse ([#51](https://github.com/fingertip-com/fingertip-typescript/issues/51)) ([260e6a1](https://github.com/fingertip-com/fingertip-typescript/commit/260e6a10a452f56d333136672054ac21ec437b4d))
+* **types:** improved go to definition on fetchOptions ([#49](https://github.com/fingertip-com/fingertip-typescript/issues/49)) ([79a057a](https://github.com/fingertip-com/fingertip-typescript/commit/79a057a62326b3fddcf52672b0f6d5bc4b308d60))
+
 ## 0.4.2 (2025-03-04)
 
 Full Changelog: [v0.4.1...v0.4.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.4.1...v0.4.2)
