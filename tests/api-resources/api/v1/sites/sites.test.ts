@@ -131,6 +131,7 @@ describe('resource sites', () => {
         {
           cursor: 'cursor',
           pageSize: 'pageSize',
+          search: 'search',
           sortBy: 'createdAt',
           sortDirection: 'asc',
           statuses: ['EMPTY'],
