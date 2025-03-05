@@ -882,7 +882,7 @@ export interface SiteListParams extends MyCursorPageParams {
   /**
    * Filter sites by status
    */
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  statuses?: Array<'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO'>;
 
   /**
    * Filter sites by workspace ID
