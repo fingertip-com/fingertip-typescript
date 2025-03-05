@@ -870,6 +870,11 @@ export interface SiteUpdateParams {
 
 export interface SiteListParams extends MyCursorPageParams {
   /**
+   * Search query
+   */
+  search?: string;
+
+  /**
    * Field to sort by (default: updatedAt)
    */
   sortBy?: 'createdAt' | 'updatedAt';
