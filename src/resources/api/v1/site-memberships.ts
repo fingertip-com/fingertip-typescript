@@ -7,6 +7,13 @@ import { path } from '../../../internal/utils/path';
 
 export class SiteMemberships extends APIResource {
   /**
+   * Retrieves details of a specific site membership
+   */
+  retrieve(membershipID: string, options?: RequestOptions): APIPromise<SiteMembershipRetrieveResponse> {
+    return this._client.get(path`/api/v1/site-memberships/${membershipID}`, options);
+  }
+
+  /**
    * Updates the role of an existing site membership
    */
   update(
@@ -22,6 +29,53 @@ export class SiteMemberships extends APIResource {
    */
   delete(membershipID: string, options?: RequestOptions): APIPromise<SiteMembershipDeleteResponse> {
     return this._client.delete(path`/api/v1/site-memberships/${membershipID}`, options);
+  }
+}
+
+/**
+ * Successful site membership retrieval response
+ */
+export interface SiteMembershipRetrieveResponse {
+  /**
+   * The requested site membership
+   */
+  membership: SiteMembershipRetrieveResponse.Membership;
+}
+
+export namespace SiteMembershipRetrieveResponse {
+  /**
+   * The requested site membership
+   */
+  export interface Membership {
+    /**
+     * Unique identifier for the site membership
+     */
+    id: string;
+
+    /**
+     * Date and time when the membership was created
+     */
+    createdAt: string;
+
+    /**
+     * Role of the user in the site
+     */
+    role: 'OWNER' | 'EDITOR' | 'VIEWER';
+
+    /**
+     * ID of the site
+     */
+    siteId: string;
+
+    /**
+     * Date and time when the membership was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * ID of the user
+     */
+    userId: string;
   }
 }
 
@@ -54,6 +108,7 @@ export interface SiteMembershipUpdateParams {
 
 export declare namespace SiteMemberships {
   export {
+    type SiteMembershipRetrieveResponse as SiteMembershipRetrieveResponse,
     type SiteMembershipUpdateResponse as SiteMembershipUpdateResponse,
     type SiteMembershipDeleteResponse as SiteMembershipDeleteResponse,
     type SiteMembershipUpdateParams as SiteMembershipUpdateParams,
