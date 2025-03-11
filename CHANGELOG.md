@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.0 (2025-03-11)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#66](https://github.com/fingertip-com/fingertip-typescript/issues/66)) ([5a3a4fe](https://github.com/fingertip-com/fingertip-typescript/commit/5a3a4fe765a2388aa9e247e1cd1b596762789464))
+* **api:** api update ([#69](https://github.com/fingertip-com/fingertip-typescript/issues/69)) ([1fd5c02](https://github.com/fingertip-com/fingertip-typescript/commit/1fd5c0279f8e3f672adc0992f749394da6c9ac2e))
+* **client:** accept RFC6838 JSON content types ([#68](https://github.com/fingertip-com/fingertip-typescript/issues/68)) ([2a4280b](https://github.com/fingertip-com/fingertip-typescript/commit/2a4280b85ba9541614da2885c8f7fbf73220113f))
+
 ## 0.9.0 (2025-03-11)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.8.0...v0.9.0)
