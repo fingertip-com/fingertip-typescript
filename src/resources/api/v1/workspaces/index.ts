@@ -11,29 +11,19 @@ export {
 export {
   Memberships,
   type MembershipCreateResponse,
+  type MembershipRetrieveResponse,
   type MembershipListResponse,
   type MembershipCreateParams,
+  type MembershipRetrieveParams,
   type MembershipListParams,
   type MembershipListResponsesMyCursorPage,
 } from './memberships';
 export {
-  Pages,
-  type PageCreateResponse,
-  type PageListResponse,
-  type PageCreateParams,
-  type PageListParams,
-  type PageListResponsesMyCursorPage,
-} from './pages';
-export {
-  Sites,
-  type SiteCreateResponse,
-  type SiteRetrieveResponse,
-  type SiteUpdateResponse,
-  type SiteListResponse,
-  type SiteDeleteResponse,
-  type SiteRetrieveMembershipResponse,
-  type SiteCreateParams,
-  type SiteUpdateParams,
-  type SiteListParams,
-  type SiteListResponsesMyCursorPage,
-} from './sites';
+  Workspaces,
+  type WorkspaceRetrieveResponse,
+  type WorkspaceUpdateResponse,
+  type WorkspaceListResponse,
+  type WorkspaceUpdateParams,
+  type WorkspaceListParams,
+  type WorkspaceListResponsesMyCursorPage,
+} from './workspaces';

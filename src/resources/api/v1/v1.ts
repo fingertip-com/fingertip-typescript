@@ -9,6 +9,8 @@ import {
   BlockUpdateResponse,
   Blocks,
 } from './blocks';
+import * as InvitationsAPI from './invitations';
+import { InvitationDeleteResponse, InvitationRetrieveResponse, Invitations } from './invitations';
 import * as SiteContactsAPI from './site-contacts';
 import {
   SiteContactCreateParams,
@@ -16,16 +18,26 @@ import {
   SiteContactSampleResponse,
   SiteContacts,
 } from './site-contacts';
-import * as WorkspacesAPI from './workspaces';
+import * as SiteInvitationsAPI from './site-invitations';
 import {
-  WorkspaceListParams,
-  WorkspaceListResponse,
-  WorkspaceListResponsesMyCursorPage,
-  WorkspaceRetrieveResponse,
-  WorkspaceUpdateParams,
-  WorkspaceUpdateResponse,
-  Workspaces,
-} from './workspaces';
+  SiteInvitationDeleteResponse,
+  SiteInvitationRetrieveResponse,
+  SiteInvitations,
+} from './site-invitations';
+import * as SiteMembershipsAPI from './site-memberships';
+import {
+  SiteMembershipDeleteResponse,
+  SiteMembershipUpdateParams,
+  SiteMembershipUpdateResponse,
+  SiteMemberships,
+} from './site-memberships';
+import * as WorkspaceMembershipsAPI from './workspace-memberships';
+import {
+  WorkspaceMembershipDeleteResponse,
+  WorkspaceMembershipUpdateParams,
+  WorkspaceMembershipUpdateResponse,
+  WorkspaceMemberships,
+} from './workspace-memberships';
 import * as ZapierSubscriptionsAPI from './zapier-subscriptions';
 import {
   ZapierSubscriptionCreateParams,
@@ -50,11 +62,22 @@ import {
   SiteListParams,
   SiteListResponse,
   SiteListResponsesMyCursorPage,
+  SiteRetrieveMembershipResponse,
   SiteRetrieveResponse,
   SiteUpdateParams,
   SiteUpdateResponse,
   Sites,
 } from './sites/sites';
+import * as WorkspacesAPI from './workspaces/workspaces';
+import {
+  WorkspaceListParams,
+  WorkspaceListResponse,
+  WorkspaceListResponsesMyCursorPage,
+  WorkspaceRetrieveResponse,
+  WorkspaceUpdateParams,
+  WorkspaceUpdateResponse,
+  Workspaces,
+} from './workspaces/workspaces';
 import { APIPromise } from '../../../api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -67,6 +90,11 @@ export class V1 extends APIResource {
   workspaces: WorkspacesAPI.Workspaces = new WorkspacesAPI.Workspaces(this._client);
   zapierSubscriptions: ZapierSubscriptionsAPI.ZapierSubscriptions =
     new ZapierSubscriptionsAPI.ZapierSubscriptions(this._client);
+  siteInvitations: SiteInvitationsAPI.SiteInvitations = new SiteInvitationsAPI.SiteInvitations(this._client);
+  siteMemberships: SiteMembershipsAPI.SiteMemberships = new SiteMembershipsAPI.SiteMemberships(this._client);
+  invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
+  workspaceMemberships: WorkspaceMembershipsAPI.WorkspaceMemberships =
+    new WorkspaceMembershipsAPI.WorkspaceMemberships(this._client);
 
   /**
    * Retrieves a sample of form responses for a specific form template.
@@ -349,6 +377,10 @@ V1.Sites = Sites;
 V1.SiteContacts = SiteContacts;
 V1.Workspaces = Workspaces;
 V1.ZapierSubscriptions = ZapierSubscriptions;
+V1.SiteInvitations = SiteInvitations;
+V1.SiteMemberships = SiteMemberships;
+V1.Invitations = Invitations;
+V1.WorkspaceMemberships = WorkspaceMemberships;
 
 export declare namespace V1 {
   export {
@@ -383,6 +415,7 @@ export declare namespace V1 {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
+    type SiteRetrieveMembershipResponse as SiteRetrieveMembershipResponse,
     type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
@@ -412,5 +445,31 @@ export declare namespace V1 {
     type ZapierSubscriptionDeleteResponse as ZapierSubscriptionDeleteResponse,
     type ZapierSubscriptionCreateParams as ZapierSubscriptionCreateParams,
     type ZapierSubscriptionDeleteParams as ZapierSubscriptionDeleteParams,
+  };
+
+  export {
+    SiteInvitations as SiteInvitations,
+    type SiteInvitationRetrieveResponse as SiteInvitationRetrieveResponse,
+    type SiteInvitationDeleteResponse as SiteInvitationDeleteResponse,
+  };
+
+  export {
+    SiteMemberships as SiteMemberships,
+    type SiteMembershipUpdateResponse as SiteMembershipUpdateResponse,
+    type SiteMembershipDeleteResponse as SiteMembershipDeleteResponse,
+    type SiteMembershipUpdateParams as SiteMembershipUpdateParams,
+  };
+
+  export {
+    Invitations as Invitations,
+    type InvitationRetrieveResponse as InvitationRetrieveResponse,
+    type InvitationDeleteResponse as InvitationDeleteResponse,
+  };
+
+  export {
+    WorkspaceMemberships as WorkspaceMemberships,
+    type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
+    type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
+    type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,
   };
 }

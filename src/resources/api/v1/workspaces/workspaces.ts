@@ -1,12 +1,35 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
-import { RequestOptions } from '../../../internal/request-options';
-import { path } from '../../../internal/utils/path';
+import { APIResource } from '../../../../resource';
+import * as InvitationsAPI from './invitations';
+import {
+  InvitationCreateParams,
+  InvitationCreateResponse,
+  InvitationListParams,
+  InvitationListResponse,
+  InvitationListResponsesMyCursorPage,
+  Invitations,
+} from './invitations';
+import * as MembershipsAPI from './memberships';
+import {
+  MembershipCreateParams,
+  MembershipCreateResponse,
+  MembershipListParams,
+  MembershipListResponse,
+  MembershipListResponsesMyCursorPage,
+  MembershipRetrieveParams,
+  MembershipRetrieveResponse,
+  Memberships,
+} from './memberships';
+import { APIPromise } from '../../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../../pagination';
+import { RequestOptions } from '../../../../internal/request-options';
+import { path } from '../../../../internal/utils/path';
 
 export class Workspaces extends APIResource {
+  invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
+  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
+
   /**
    * Retrieves a specific workspace and its related data by workspace ID
    */
@@ -435,6 +458,9 @@ export interface WorkspaceListParams extends MyCursorPageParams {
   sortDirection?: 'asc' | 'desc';
 }
 
+Workspaces.Invitations = Invitations;
+Workspaces.Memberships = Memberships;
+
 export declare namespace Workspaces {
   export {
     type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
@@ -443,5 +469,25 @@ export declare namespace Workspaces {
     type WorkspaceListResponsesMyCursorPage as WorkspaceListResponsesMyCursorPage,
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
     type WorkspaceListParams as WorkspaceListParams,
+  };
+
+  export {
+    Invitations as Invitations,
+    type InvitationCreateResponse as InvitationCreateResponse,
+    type InvitationListResponse as InvitationListResponse,
+    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
+    type InvitationCreateParams as InvitationCreateParams,
+    type InvitationListParams as InvitationListParams,
+  };
+
+  export {
+    Memberships as Memberships,
+    type MembershipCreateResponse as MembershipCreateResponse,
+    type MembershipRetrieveResponse as MembershipRetrieveResponse,
+    type MembershipListResponse as MembershipListResponse,
+    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
+    type MembershipCreateParams as MembershipCreateParams,
+    type MembershipRetrieveParams as MembershipRetrieveParams,
+    type MembershipListParams as MembershipListParams,
   };
 }
