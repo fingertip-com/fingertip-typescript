@@ -75,6 +75,7 @@ Types:
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteUpdateResponse</a></code>
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteListResponse</a></code>
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteDeleteResponse</a></code>
+- <code><a href="./src/resources/api/v1/sites/sites.ts">SiteRetrieveMembershipResponse</a></code>
 
 Methods:
 
@@ -83,6 +84,7 @@ Methods:
 - <code title="patch /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">update</a>(siteID, { ...params }) -> SiteUpdateResponse</code>
 - <code title="get /api/v1/sites">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponsesMyCursorPage</code>
 - <code title="delete /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">delete</a>(siteID) -> SiteDeleteResponse</code>
+- <code title="get /api/v1/sites/{siteId}/membership">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">retrieveMembership</a>(siteID) -> SiteRetrieveMembershipResponse</code>
 
 #### Pages
 
@@ -95,6 +97,30 @@ Methods:
 
 - <code title="post /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
 - <code title="get /api/v1/sites/{siteId}/pages">client.api.v1.sites.pages.<a href="./src/resources/api/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
+
+#### Invitations
+
+Types:
+
+- <code><a href="./src/resources/api/v1/sites/invitations.ts">InvitationCreateResponse</a></code>
+- <code><a href="./src/resources/api/v1/sites/invitations.ts">InvitationListResponse</a></code>
+
+Methods:
+
+- <code title="post /api/v1/sites/{siteId}/invitations">client.api.v1.sites.invitations.<a href="./src/resources/api/v1/sites/invitations.ts">create</a>(siteID, { ...params }) -> InvitationCreateResponse</code>
+- <code title="get /api/v1/sites/{siteId}/invitations">client.api.v1.sites.invitations.<a href="./src/resources/api/v1/sites/invitations.ts">list</a>(siteID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
+
+#### Memberships
+
+Types:
+
+- <code><a href="./src/resources/api/v1/sites/memberships.ts">MembershipCreateResponse</a></code>
+- <code><a href="./src/resources/api/v1/sites/memberships.ts">MembershipListResponse</a></code>
+
+Methods:
+
+- <code title="post /api/v1/sites/{siteId}/memberships">client.api.v1.sites.memberships.<a href="./src/resources/api/v1/sites/memberships.ts">create</a>(siteID, { ...params }) -> MembershipCreateResponse</code>
+- <code title="get /api/v1/sites/{siteId}/memberships">client.api.v1.sites.memberships.<a href="./src/resources/api/v1/sites/memberships.ts">list</a>(siteID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
 
 ### SiteContacts
 
@@ -112,15 +138,41 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/api/v1/workspaces.ts">WorkspaceRetrieveResponse</a></code>
-- <code><a href="./src/resources/api/v1/workspaces.ts">WorkspaceUpdateResponse</a></code>
-- <code><a href="./src/resources/api/v1/workspaces.ts">WorkspaceListResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/workspaces.ts">WorkspaceRetrieveResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/workspaces.ts">WorkspaceUpdateResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/workspaces.ts">WorkspaceListResponse</a></code>
 
 Methods:
 
-- <code title="get /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">retrieve</a>(workspaceID) -> WorkspaceRetrieveResponse</code>
-- <code title="patch /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">update</a>(workspaceID, { ...params }) -> WorkspaceUpdateResponse</code>
-- <code title="get /api/v1/workspaces">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponsesMyCursorPage</code>
+- <code title="get /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces/workspaces.ts">retrieve</a>(workspaceID) -> WorkspaceRetrieveResponse</code>
+- <code title="patch /api/v1/workspaces/{workspaceId}">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces/workspaces.ts">update</a>(workspaceID, { ...params }) -> WorkspaceUpdateResponse</code>
+- <code title="get /api/v1/workspaces">client.api.v1.workspaces.<a href="./src/resources/api/v1/workspaces/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponsesMyCursorPage</code>
+
+#### Invitations
+
+Types:
+
+- <code><a href="./src/resources/api/v1/workspaces/invitations.ts">InvitationCreateResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/invitations.ts">InvitationListResponse</a></code>
+
+Methods:
+
+- <code title="post /api/v1/workspaces/{workspaceId}/invitations">client.api.v1.workspaces.invitations.<a href="./src/resources/api/v1/workspaces/invitations.ts">create</a>(workspaceID, { ...params }) -> InvitationCreateResponse</code>
+- <code title="get /api/v1/workspaces/{workspaceId}/invitations">client.api.v1.workspaces.invitations.<a href="./src/resources/api/v1/workspaces/invitations.ts">list</a>(workspaceID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
+
+#### Memberships
+
+Types:
+
+- <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipCreateResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipRetrieveResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipListResponse</a></code>
+
+Methods:
+
+- <code title="post /api/v1/workspaces/{workspaceId}/memberships">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
+- <code title="get /api/v1/workspaces/{workspaceId}/memberships/{userId}">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">retrieve</a>(userID, { ...params }) -> MembershipRetrieveResponse</code>
+- <code title="get /api/v1/workspaces/{workspaceId}/memberships">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
 
 ### ZapierSubscriptions
 
@@ -133,3 +185,51 @@ Methods:
 
 - <code title="post /api/v1/zapier-subscriptions">client.api.v1.zapierSubscriptions.<a href="./src/resources/api/v1/zapier-subscriptions.ts">create</a>({ ...params }) -> ZapierSubscriptionCreateResponse</code>
 - <code title="delete /api/v1/zapier-subscriptions">client.api.v1.zapierSubscriptions.<a href="./src/resources/api/v1/zapier-subscriptions.ts">delete</a>({ ...params }) -> ZapierSubscriptionDeleteResponse</code>
+
+### SiteInvitations
+
+Types:
+
+- <code><a href="./src/resources/api/v1/site-invitations.ts">SiteInvitationRetrieveResponse</a></code>
+- <code><a href="./src/resources/api/v1/site-invitations.ts">SiteInvitationDeleteResponse</a></code>
+
+Methods:
+
+- <code title="get /api/v1/site-invitations/{invitationId}">client.api.v1.siteInvitations.<a href="./src/resources/api/v1/site-invitations.ts">retrieve</a>(invitationID) -> SiteInvitationRetrieveResponse</code>
+- <code title="delete /api/v1/site-invitations/{invitationId}">client.api.v1.siteInvitations.<a href="./src/resources/api/v1/site-invitations.ts">delete</a>(invitationID) -> SiteInvitationDeleteResponse</code>
+
+### SiteMemberships
+
+Types:
+
+- <code><a href="./src/resources/api/v1/site-memberships.ts">SiteMembershipUpdateResponse</a></code>
+- <code><a href="./src/resources/api/v1/site-memberships.ts">SiteMembershipDeleteResponse</a></code>
+
+Methods:
+
+- <code title="patch /api/v1/site-memberships/{membershipId}">client.api.v1.siteMemberships.<a href="./src/resources/api/v1/site-memberships.ts">update</a>(membershipID, { ...params }) -> SiteMembershipUpdateResponse</code>
+- <code title="delete /api/v1/site-memberships/{membershipId}">client.api.v1.siteMemberships.<a href="./src/resources/api/v1/site-memberships.ts">delete</a>(membershipID) -> SiteMembershipDeleteResponse</code>
+
+### Invitations
+
+Types:
+
+- <code><a href="./src/resources/api/v1/invitations.ts">InvitationRetrieveResponse</a></code>
+- <code><a href="./src/resources/api/v1/invitations.ts">InvitationDeleteResponse</a></code>
+
+Methods:
+
+- <code title="get /api/v1/invitations/{invitationId}">client.api.v1.invitations.<a href="./src/resources/api/v1/invitations.ts">retrieve</a>(invitationID) -> InvitationRetrieveResponse</code>
+- <code title="delete /api/v1/invitations/{invitationId}">client.api.v1.invitations.<a href="./src/resources/api/v1/invitations.ts">delete</a>(invitationID) -> InvitationDeleteResponse</code>
+
+### WorkspaceMemberships
+
+Types:
+
+- <code><a href="./src/resources/api/v1/workspace-memberships.ts">WorkspaceMembershipUpdateResponse</a></code>
+- <code><a href="./src/resources/api/v1/workspace-memberships.ts">WorkspaceMembershipDeleteResponse</a></code>
+
+Methods:
+
+- <code title="patch /api/v1/workspace-memberships/{membershipId}">client.api.v1.workspaceMemberships.<a href="./src/resources/api/v1/workspace-memberships.ts">update</a>(membershipID, { ...params }) -> WorkspaceMembershipUpdateResponse</code>
+- <code title="delete /api/v1/workspace-memberships/{membershipId}">client.api.v1.workspaceMemberships.<a href="./src/resources/api/v1/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>

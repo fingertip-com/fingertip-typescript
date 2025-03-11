@@ -7,6 +7,7 @@ export {
   type BlockDeleteResponse,
   type BlockUpdateParams,
 } from './blocks';
+export { Invitations, type InvitationRetrieveResponse, type InvitationDeleteResponse } from './invitations';
 export {
   Pages,
   type PageRetrieveResponse,
@@ -21,12 +22,24 @@ export {
   type SiteContactCreateParams,
 } from './site-contacts';
 export {
+  SiteInvitations,
+  type SiteInvitationRetrieveResponse,
+  type SiteInvitationDeleteResponse,
+} from './site-invitations';
+export {
+  SiteMemberships,
+  type SiteMembershipUpdateResponse,
+  type SiteMembershipDeleteResponse,
+  type SiteMembershipUpdateParams,
+} from './site-memberships';
+export {
   Sites,
   type SiteCreateResponse,
   type SiteRetrieveResponse,
   type SiteUpdateResponse,
   type SiteListResponse,
   type SiteDeleteResponse,
+  type SiteRetrieveMembershipResponse,
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,
@@ -42,6 +55,12 @@ export {
   type V1ListBookingsResponsesMyCursorPage,
 } from './v1';
 export {
+  WorkspaceMemberships,
+  type WorkspaceMembershipUpdateResponse,
+  type WorkspaceMembershipDeleteResponse,
+  type WorkspaceMembershipUpdateParams,
+} from './workspace-memberships';
+export {
   Workspaces,
   type WorkspaceRetrieveResponse,
   type WorkspaceUpdateResponse,
@@ -49,7 +68,7 @@ export {
   type WorkspaceUpdateParams,
   type WorkspaceListParams,
   type WorkspaceListResponsesMyCursorPage,
-} from './workspaces';
+} from './workspaces/index';
 export {
   ZapierSubscriptions,
   type ZapierSubscriptionCreateResponse,
