@@ -34,6 +34,7 @@ import {
 import * as WorkspaceMembershipsAPI from './workspace-memberships';
 import {
   WorkspaceMembershipDeleteResponse,
+  WorkspaceMembershipRetrieveResponse,
   WorkspaceMembershipUpdateParams,
   WorkspaceMembershipUpdateResponse,
   WorkspaceMemberships,
@@ -468,6 +469,7 @@ export declare namespace V1 {
 
   export {
     WorkspaceMemberships as WorkspaceMemberships,
+    type WorkspaceMembershipRetrieveResponse as WorkspaceMembershipRetrieveResponse,
     type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
     type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
     type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,
