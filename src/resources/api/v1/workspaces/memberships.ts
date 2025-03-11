@@ -70,6 +70,8 @@ export interface MembershipListResponse {
    */
   updatedAt: string;
 
+  user: MembershipListResponse.User;
+
   /**
    * ID of the user
    */
@@ -79,6 +81,25 @@ export interface MembershipListResponse {
    * ID of the workspace
    */
   workspaceId: string;
+}
+
+export namespace MembershipListResponse {
+  export interface User {
+    /**
+     * Unique identifier for the user
+     */
+    id: string;
+
+    /**
+     * Email of the user
+     */
+    email: string;
+
+    /**
+     * Name of the user
+     */
+    name?: string;
+  }
 }
 
 export interface MembershipCreateParams {
