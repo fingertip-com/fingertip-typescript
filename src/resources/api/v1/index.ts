@@ -56,6 +56,7 @@ export {
 } from './v1';
 export {
   WorkspaceMemberships,
+  type WorkspaceMembershipRetrieveResponse,
   type WorkspaceMembershipUpdateResponse,
   type WorkspaceMembershipDeleteResponse,
   type WorkspaceMembershipUpdateParams,

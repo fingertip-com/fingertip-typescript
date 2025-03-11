@@ -17,8 +17,6 @@ import {
   MembershipListParams,
   MembershipListResponse,
   MembershipListResponsesMyCursorPage,
-  MembershipRetrieveParams,
-  MembershipRetrieveResponse,
   Memberships,
 } from './memberships';
 import { APIPromise } from '../../../../api-promise';
@@ -483,11 +481,9 @@ export declare namespace Workspaces {
   export {
     Memberships as Memberships,
     type MembershipCreateResponse as MembershipCreateResponse,
-    type MembershipRetrieveResponse as MembershipRetrieveResponse,
     type MembershipListResponse as MembershipListResponse,
     type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
-    type MembershipRetrieveParams as MembershipRetrieveParams,
     type MembershipListParams as MembershipListParams,
   };
 }
