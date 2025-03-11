@@ -19,18 +19,6 @@ export class Memberships extends APIResource {
   }
 
   /**
-   * Retrieves details of a specific workspace membership
-   */
-  retrieve(
-    userID: string,
-    params: MembershipRetrieveParams,
-    options?: RequestOptions,
-  ): APIPromise<MembershipRetrieveResponse> {
-    const { workspaceId } = params;
-    return this._client.get(path`/api/v1/workspaces/${workspaceId}/memberships/${userID}`, options);
-  }
-
-  /**
    * Retrieves a paginated list of members for a specific workspace
    */
   list(
@@ -56,53 +44,6 @@ export interface MembershipCreateResponse {
    * Whether the membership was created successfully
    */
   success: boolean;
-}
-
-/**
- * Successful workspace membership retrieval response
- */
-export interface MembershipRetrieveResponse {
-  /**
-   * The requested workspace membership
-   */
-  membership: MembershipRetrieveResponse.Membership;
-}
-
-export namespace MembershipRetrieveResponse {
-  /**
-   * The requested workspace membership
-   */
-  export interface Membership {
-    /**
-     * Unique identifier for the workspace membership
-     */
-    id: string;
-
-    /**
-     * Date and time when the membership was created
-     */
-    createdAt: string;
-
-    /**
-     * Role of the user in the workspace
-     */
-    role: 'OWNER' | 'MEMBER';
-
-    /**
-     * Date and time when the membership was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * ID of the user
-     */
-    userId: string;
-
-    /**
-     * ID of the workspace
-     */
-    workspaceId: string;
-  }
 }
 
 /**
@@ -152,23 +93,14 @@ export interface MembershipCreateParams {
   role: 'OWNER' | 'MEMBER';
 }
 
-export interface MembershipRetrieveParams {
-  /**
-   * ID of the workspace
-   */
-  workspaceId: string;
-}
-
 export interface MembershipListParams extends MyCursorPageParams {}
 
 export declare namespace Memberships {
   export {
     type MembershipCreateResponse as MembershipCreateResponse,
-    type MembershipRetrieveResponse as MembershipRetrieveResponse,
     type MembershipListResponse as MembershipListResponse,
     type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
-    type MembershipRetrieveParams as MembershipRetrieveParams,
     type MembershipListParams as MembershipListParams,
   };
 }
