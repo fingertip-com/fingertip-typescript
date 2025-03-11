@@ -7,6 +7,13 @@ import { path } from '../../../internal/utils/path';
 
 export class WorkspaceMemberships extends APIResource {
   /**
+   * Retrieves details of a specific workspace membership
+   */
+  retrieve(membershipID: string, options?: RequestOptions): APIPromise<WorkspaceMembershipRetrieveResponse> {
+    return this._client.get(path`/api/v1/workspace-memberships/${membershipID}`, options);
+  }
+
+  /**
    * Updates the role of an existing workspace membership
    */
   update(
@@ -22,6 +29,53 @@ export class WorkspaceMemberships extends APIResource {
    */
   delete(membershipID: string, options?: RequestOptions): APIPromise<WorkspaceMembershipDeleteResponse> {
     return this._client.delete(path`/api/v1/workspace-memberships/${membershipID}`, options);
+  }
+}
+
+/**
+ * Successful workspace membership retrieval response
+ */
+export interface WorkspaceMembershipRetrieveResponse {
+  /**
+   * The requested workspace membership
+   */
+  membership: WorkspaceMembershipRetrieveResponse.Membership;
+}
+
+export namespace WorkspaceMembershipRetrieveResponse {
+  /**
+   * The requested workspace membership
+   */
+  export interface Membership {
+    /**
+     * Unique identifier for the workspace membership
+     */
+    id: string;
+
+    /**
+     * Date and time when the membership was created
+     */
+    createdAt: string;
+
+    /**
+     * Role of the user in the workspace
+     */
+    role: 'OWNER' | 'MEMBER';
+
+    /**
+     * Date and time when the membership was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * ID of the user
+     */
+    userId: string;
+
+    /**
+     * ID of the workspace
+     */
+    workspaceId: string;
   }
 }
 
@@ -54,6 +108,7 @@ export interface WorkspaceMembershipUpdateParams {
 
 export declare namespace WorkspaceMemberships {
   export {
+    type WorkspaceMembershipRetrieveResponse as WorkspaceMembershipRetrieveResponse,
     type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
     type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
     type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,

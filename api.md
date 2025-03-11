@@ -165,13 +165,11 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipCreateResponse</a></code>
-- <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipRetrieveResponse</a></code>
 - <code><a href="./src/resources/api/v1/workspaces/memberships.ts">MembershipListResponse</a></code>
 
 Methods:
 
 - <code title="post /api/v1/workspaces/{workspaceId}/memberships">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /api/v1/workspaces/{workspaceId}/memberships/{userId}">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">retrieve</a>(userID, { ...params }) -> MembershipRetrieveResponse</code>
 - <code title="get /api/v1/workspaces/{workspaceId}/memberships">client.api.v1.workspaces.memberships.<a href="./src/resources/api/v1/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
 
 ### ZapierSubscriptions
@@ -226,10 +224,12 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/api/v1/workspace-memberships.ts">WorkspaceMembershipRetrieveResponse</a></code>
 - <code><a href="./src/resources/api/v1/workspace-memberships.ts">WorkspaceMembershipUpdateResponse</a></code>
 - <code><a href="./src/resources/api/v1/workspace-memberships.ts">WorkspaceMembershipDeleteResponse</a></code>
 
 Methods:
 
+- <code title="get /api/v1/workspace-memberships/{membershipId}">client.api.v1.workspaceMemberships.<a href="./src/resources/api/v1/workspace-memberships.ts">retrieve</a>(membershipID) -> WorkspaceMembershipRetrieveResponse</code>
 - <code title="patch /api/v1/workspace-memberships/{membershipId}">client.api.v1.workspaceMemberships.<a href="./src/resources/api/v1/workspace-memberships.ts">update</a>(membershipID, { ...params }) -> WorkspaceMembershipUpdateResponse</code>
 - <code title="delete /api/v1/workspace-memberships/{membershipId}">client.api.v1.workspaceMemberships.<a href="./src/resources/api/v1/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>

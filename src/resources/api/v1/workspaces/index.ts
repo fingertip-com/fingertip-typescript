@@ -11,10 +11,8 @@ export {
 export {
   Memberships,
   type MembershipCreateResponse,
-  type MembershipRetrieveResponse,
   type MembershipListResponse,
   type MembershipCreateParams,
-  type MembershipRetrieveParams,
   type MembershipListParams,
   type MembershipListResponsesMyCursorPage,
 } from './memberships';
