@@ -67,6 +67,8 @@ export namespace WorkspaceMembershipRetrieveResponse {
      */
     updatedAt: string;
 
+    user: Membership.User;
+
     /**
      * ID of the user
      */
@@ -76,6 +78,25 @@ export namespace WorkspaceMembershipRetrieveResponse {
      * ID of the workspace
      */
     workspaceId: string;
+  }
+
+  export namespace Membership {
+    export interface User {
+      /**
+       * Unique identifier for the user
+       */
+      id: string;
+
+      /**
+       * Email of the user
+       */
+      email: string;
+
+      /**
+       * Name of the user
+       */
+      name?: string;
+    }
   }
 }
 

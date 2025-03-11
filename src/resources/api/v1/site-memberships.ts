@@ -72,10 +72,31 @@ export namespace SiteMembershipRetrieveResponse {
      */
     updatedAt: string;
 
+    user: Membership.User;
+
     /**
      * ID of the user
      */
     userId: string;
+  }
+
+  export namespace Membership {
+    export interface User {
+      /**
+       * Unique identifier for the user
+       */
+      id: string;
+
+      /**
+       * Email of the user
+       */
+      email: string;
+
+      /**
+       * Name of the user
+       */
+      name?: string;
+    }
   }
 }
 
