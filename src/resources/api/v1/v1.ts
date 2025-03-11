@@ -27,6 +27,7 @@ import {
 import * as SiteMembershipsAPI from './site-memberships';
 import {
   SiteMembershipDeleteResponse,
+  SiteMembershipRetrieveResponse,
   SiteMembershipUpdateParams,
   SiteMembershipUpdateResponse,
   SiteMemberships,
@@ -63,7 +64,6 @@ import {
   SiteListParams,
   SiteListResponse,
   SiteListResponsesMyCursorPage,
-  SiteRetrieveMembershipResponse,
   SiteRetrieveResponse,
   SiteUpdateParams,
   SiteUpdateResponse,
@@ -416,7 +416,6 @@ export declare namespace V1 {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
-    type SiteRetrieveMembershipResponse as SiteRetrieveMembershipResponse,
     type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
@@ -456,6 +455,7 @@ export declare namespace V1 {
 
   export {
     SiteMemberships as SiteMemberships,
+    type SiteMembershipRetrieveResponse as SiteMembershipRetrieveResponse,
     type SiteMembershipUpdateResponse as SiteMembershipUpdateResponse,
     type SiteMembershipDeleteResponse as SiteMembershipDeleteResponse,
     type SiteMembershipUpdateParams as SiteMembershipUpdateParams,

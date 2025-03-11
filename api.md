@@ -75,7 +75,6 @@ Types:
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteUpdateResponse</a></code>
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteListResponse</a></code>
 - <code><a href="./src/resources/api/v1/sites/sites.ts">SiteDeleteResponse</a></code>
-- <code><a href="./src/resources/api/v1/sites/sites.ts">SiteRetrieveMembershipResponse</a></code>
 
 Methods:
 
@@ -84,7 +83,6 @@ Methods:
 - <code title="patch /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">update</a>(siteID, { ...params }) -> SiteUpdateResponse</code>
 - <code title="get /api/v1/sites">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponsesMyCursorPage</code>
 - <code title="delete /api/v1/sites/{siteId}">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">delete</a>(siteID) -> SiteDeleteResponse</code>
-- <code title="get /api/v1/sites/{siteId}/membership">client.api.v1.sites.<a href="./src/resources/api/v1/sites/sites.ts">retrieveMembership</a>(siteID) -> SiteRetrieveMembershipResponse</code>
 
 #### Pages
 
@@ -200,11 +198,13 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/api/v1/site-memberships.ts">SiteMembershipRetrieveResponse</a></code>
 - <code><a href="./src/resources/api/v1/site-memberships.ts">SiteMembershipUpdateResponse</a></code>
 - <code><a href="./src/resources/api/v1/site-memberships.ts">SiteMembershipDeleteResponse</a></code>
 
 Methods:
 
+- <code title="get /api/v1/site-memberships/{membershipId}">client.api.v1.siteMemberships.<a href="./src/resources/api/v1/site-memberships.ts">retrieve</a>(membershipID) -> SiteMembershipRetrieveResponse</code>
 - <code title="patch /api/v1/site-memberships/{membershipId}">client.api.v1.siteMemberships.<a href="./src/resources/api/v1/site-memberships.ts">update</a>(membershipID, { ...params }) -> SiteMembershipUpdateResponse</code>
 - <code title="delete /api/v1/site-memberships/{membershipId}">client.api.v1.siteMemberships.<a href="./src/resources/api/v1/site-memberships.ts">delete</a>(membershipID) -> SiteMembershipDeleteResponse</code>
 

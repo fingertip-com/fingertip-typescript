@@ -28,6 +28,7 @@ export {
 } from './site-invitations';
 export {
   SiteMemberships,
+  type SiteMembershipRetrieveResponse,
   type SiteMembershipUpdateResponse,
   type SiteMembershipDeleteResponse,
   type SiteMembershipUpdateParams,
@@ -39,7 +40,6 @@ export {
   type SiteUpdateResponse,
   type SiteListResponse,
   type SiteDeleteResponse,
-  type SiteRetrieveMembershipResponse,
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,
