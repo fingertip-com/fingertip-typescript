@@ -31,7 +31,6 @@ export {
   type SiteUpdateResponse,
   type SiteListResponse,
   type SiteDeleteResponse,
-  type SiteRetrieveMembershipResponse,
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,

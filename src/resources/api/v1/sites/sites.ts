@@ -79,13 +79,6 @@ export class Sites extends APIResource {
   delete(siteID: string, options?: RequestOptions): APIPromise<SiteDeleteResponse> {
     return this._client.delete(path`/api/v1/sites/${siteID}`, options);
   }
-
-  /**
-   * Retrieves the current user's membership details for a specific site
-   */
-  retrieveMembership(siteID: string, options?: RequestOptions): APIPromise<SiteRetrieveMembershipResponse> {
-    return this._client.get(path`/api/v1/sites/${siteID}/membership`, options);
-  }
 }
 
 export type SiteListResponsesMyCursorPage = MyCursorPage<SiteListResponse>;
@@ -672,53 +665,6 @@ export interface SiteDeleteResponse {
   success: boolean;
 }
 
-/**
- * Successful site membership retrieval response
- */
-export interface SiteRetrieveMembershipResponse {
-  /**
-   * The current user's site membership
-   */
-  membership: SiteRetrieveMembershipResponse.Membership;
-}
-
-export namespace SiteRetrieveMembershipResponse {
-  /**
-   * The current user's site membership
-   */
-  export interface Membership {
-    /**
-     * Unique identifier for the site membership
-     */
-    id: string;
-
-    /**
-     * Date and time when the membership was created
-     */
-    createdAt: string;
-
-    /**
-     * Role of the user in the site
-     */
-    role: 'OWNER' | 'EDITOR' | 'VIEWER';
-
-    /**
-     * ID of the site
-     */
-    siteId: string;
-
-    /**
-     * Date and time when the membership was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * ID of the user
-     */
-    userId: string;
-  }
-}
-
 export interface SiteCreateParams {
   /**
    * Type of business the site represents, can be null
@@ -980,7 +926,6 @@ export declare namespace Sites {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
-    type SiteRetrieveMembershipResponse as SiteRetrieveMembershipResponse,
     type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
