@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.10.1 (2025-03-14)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.10.0...v0.10.1)
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#73](https://github.com/fingertip-com/fingertip-typescript/issues/73)) ([f833d73](https://github.com/fingertip-com/fingertip-typescript/commit/f833d736f12ff8e3bd832b41d5e85738d51e1545))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#71](https://github.com/fingertip-com/fingertip-typescript/issues/71)) ([26f8bc0](https://github.com/fingertip-com/fingertip-typescript/commit/26f8bc06a37f5e9da448a15edc4875121cff6e0b))
+
 ## 0.10.0 (2025-03-11)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.9.0...v0.10.0)
