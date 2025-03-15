@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.2 (2025-03-15)
+
+Full Changelog: [v0.10.1...v0.10.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.10.1...v0.10.2)
+
+### Bug Fixes
+
+* **internal:** add mts file + crypto shim types ([#75](https://github.com/fingertip-com/fingertip-typescript/issues/75)) ([a47680d](https://github.com/fingertip-com/fingertip-typescript/commit/a47680d45e242df7e5e0ad5cce7b7f38b9aecab1))
+
 ## 0.10.1 (2025-03-14)
 
 Full Changelog: [v0.10.0...v0.10.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.10.0...v0.10.1)
