@@ -9,14 +9,14 @@ export class SiteContacts extends APIResource {
    * Creates a new contact associated with a site including marketing preferences
    */
   create(body: SiteContactCreateParams, options?: RequestOptions): APIPromise<SiteContactCreateResponse> {
-    return this._client.post('/api/v1/site-contacts', { body, ...options });
+    return this._client.post('/v1/site-contacts', { body, ...options });
   }
 
   /**
    * Retrieves a sample of site contacts with basic contact information
    */
   sample(options?: RequestOptions): APIPromise<SiteContactSampleResponse> {
-    return this._client.get('/api/v1/site-contacts/sample', options);
+    return this._client.get('/v1/site-contacts/sample', options);
   }
 }
 

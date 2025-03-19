@@ -11,7 +11,7 @@ export class Pages extends APIResource {
    * Creates a new page within a site with the provided content.
    */
   create(siteID: string, body: PageCreateParams, options?: RequestOptions): APIPromise<PageCreateResponse> {
-    return this._client.post(path`/api/v1/sites/${siteID}/pages`, { body, ...options });
+    return this._client.post(path`/v1/sites/${siteID}/pages`, { body, ...options });
   }
 
   /**
@@ -22,7 +22,7 @@ export class Pages extends APIResource {
     query: PageListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<PageListResponsesMyCursorPage, PageListResponse> {
-    return this._client.getAPIList(path`/api/v1/sites/${siteID}/pages`, MyCursorPage<PageListResponse>, {
+    return this._client.getAPIList(path`/v1/sites/${siteID}/pages`, MyCursorPage<PageListResponse>, {
       query,
       ...options,
     });

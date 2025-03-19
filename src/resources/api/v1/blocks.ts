@@ -10,7 +10,7 @@ export class Blocks extends APIResource {
    * Retrieves a specific block by its ID. Returns 404 if the block is not found.
    */
   retrieve(blockID: string, options?: RequestOptions): APIPromise<BlockRetrieveResponse> {
-    return this._client.get(path`/api/v1/blocks/${blockID}`, options);
+    return this._client.get(path`/v1/blocks/${blockID}`, options);
   }
 
   /**
@@ -22,7 +22,7 @@ export class Blocks extends APIResource {
     body: BlockUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<BlockUpdateResponse> {
-    return this._client.patch(path`/api/v1/blocks/${blockID}`, { body, ...options });
+    return this._client.patch(path`/v1/blocks/${blockID}`, { body, ...options });
   }
 
   /**
@@ -30,7 +30,7 @@ export class Blocks extends APIResource {
    * found.
    */
   delete(blockID: string, options?: RequestOptions): APIPromise<BlockDeleteResponse> {
-    return this._client.delete(path`/api/v1/blocks/${blockID}`, options);
+    return this._client.delete(path`/v1/blocks/${blockID}`, options);
   }
 }
 

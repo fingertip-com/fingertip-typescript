@@ -10,7 +10,7 @@ export class Theme extends APIResource {
    * Retrieves the theme associated with a specific page
    */
   retrieve(pageID: string, options?: RequestOptions): APIPromise<ThemeRetrieveResponse> {
-    return this._client.get(path`/api/v1/pages/${pageID}/theme`, options);
+    return this._client.get(path`/v1/pages/${pageID}/theme`, options);
   }
 
   /**
@@ -21,7 +21,7 @@ export class Theme extends APIResource {
     body: ThemeUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<ThemeUpdateResponse> {
-    return this._client.patch(path`/api/v1/pages/${pageID}/theme`, { body, ...options });
+    return this._client.patch(path`/v1/pages/${pageID}/theme`, { body, ...options });
   }
 }
 

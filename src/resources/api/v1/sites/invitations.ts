@@ -15,7 +15,7 @@ export class Invitations extends APIResource {
     body: InvitationCreateParams,
     options?: RequestOptions,
   ): APIPromise<InvitationCreateResponse> {
-    return this._client.post(path`/api/v1/sites/${siteID}/invitations`, { body, ...options });
+    return this._client.post(path`/v1/sites/${siteID}/invitations`, { body, ...options });
   }
 
   /**
@@ -27,7 +27,7 @@ export class Invitations extends APIResource {
     options?: RequestOptions,
   ): PagePromise<InvitationListResponsesMyCursorPage, InvitationListResponse> {
     return this._client.getAPIList(
-      path`/api/v1/sites/${siteID}/invitations`,
+      path`/v1/sites/${siteID}/invitations`,
       MyCursorPage<InvitationListResponse>,
       { query, ...options },
     );
