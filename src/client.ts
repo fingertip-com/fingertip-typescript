@@ -24,7 +24,15 @@ import { FinalRequestOptions, RequestOptions } from './internal/request-options'
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
-import { API as ApiapiAPI } from './resources/api/api';
+import {
+  V1,
+  V1GetFormResponsesSampleParams,
+  V1GetFormResponsesSampleResponse,
+  V1ListBookingsParams,
+  V1ListBookingsResponse,
+  V1ListBookingsResponsesMyCursorPage,
+  V1PingResponse,
+} from './resources/v1/v1';
 
 const safeJSON = (text: string) => {
   try {
@@ -728,14 +736,22 @@ export class Fingertip {
 
   static toFile = Uploads.toFile;
 
-  api: API.API = new API.API(this);
+  v1: API.V1 = new API.V1(this);
 }
-Fingertip.API = ApiapiAPI;
+Fingertip.V1 = V1;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
   export import MyCursorPage = Pagination.MyCursorPage;
   export { type MyCursorPageParams as MyCursorPageParams, type MyCursorPageResponse as MyCursorPageResponse };
 
-  export { ApiapiAPI as API };
+  export {
+    V1 as V1,
+    type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
+    type V1ListBookingsResponse as V1ListBookingsResponse,
+    type V1PingResponse as V1PingResponse,
+    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
+    type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
+    type V1ListBookingsParams as V1ListBookingsParams,
+  };
 }
