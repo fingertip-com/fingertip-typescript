@@ -32,7 +32,7 @@ export class Workspaces extends APIResource {
    * Retrieves a specific workspace and its related data by workspace ID
    */
   retrieve(workspaceID: string, options?: RequestOptions): APIPromise<WorkspaceRetrieveResponse> {
-    return this._client.get(path`/api/v1/workspaces/${workspaceID}`, options);
+    return this._client.get(path`/v1/workspaces/${workspaceID}`, options);
   }
 
   /**
@@ -43,7 +43,7 @@ export class Workspaces extends APIResource {
     body: WorkspaceUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<WorkspaceUpdateResponse> {
-    return this._client.patch(path`/api/v1/workspaces/${workspaceID}`, { body, ...options });
+    return this._client.patch(path`/v1/workspaces/${workspaceID}`, { body, ...options });
   }
 
   /**
@@ -53,7 +53,7 @@ export class Workspaces extends APIResource {
     query: WorkspaceListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<WorkspaceListResponsesMyCursorPage, WorkspaceListResponse> {
-    return this._client.getAPIList('/api/v1/workspaces', MyCursorPage<WorkspaceListResponse>, {
+    return this._client.getAPIList('/v1/workspaces', MyCursorPage<WorkspaceListResponse>, {
       query,
       ...options,
     });

@@ -10,7 +10,7 @@ export class SiteMemberships extends APIResource {
    * Retrieves details of a specific site membership
    */
   retrieve(membershipID: string, options?: RequestOptions): APIPromise<SiteMembershipRetrieveResponse> {
-    return this._client.get(path`/api/v1/site-memberships/${membershipID}`, options);
+    return this._client.get(path`/v1/site-memberships/${membershipID}`, options);
   }
 
   /**
@@ -21,14 +21,14 @@ export class SiteMemberships extends APIResource {
     body: SiteMembershipUpdateParams,
     options?: RequestOptions,
   ): APIPromise<SiteMembershipUpdateResponse> {
-    return this._client.patch(path`/api/v1/site-memberships/${membershipID}`, { body, ...options });
+    return this._client.patch(path`/v1/site-memberships/${membershipID}`, { body, ...options });
   }
 
   /**
    * Removes a user from a site
    */
   delete(membershipID: string, options?: RequestOptions): APIPromise<SiteMembershipDeleteResponse> {
-    return this._client.delete(path`/api/v1/site-memberships/${membershipID}`, options);
+    return this._client.delete(path`/v1/site-memberships/${membershipID}`, options);
   }
 }
 

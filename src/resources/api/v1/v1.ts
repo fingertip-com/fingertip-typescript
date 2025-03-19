@@ -104,7 +104,7 @@ export class V1 extends APIResource {
     query: V1GetFormResponsesSampleParams,
     options?: RequestOptions,
   ): APIPromise<V1GetFormResponsesSampleResponse> {
-    return this._client.get('/api/v1/form-responses/sample', { query, ...options });
+    return this._client.get('/v1/form-responses/sample', { query, ...options });
   }
 
   /**
@@ -114,7 +114,7 @@ export class V1 extends APIResource {
     query: V1ListBookingsParams,
     options?: RequestOptions,
   ): PagePromise<V1ListBookingsResponsesMyCursorPage, V1ListBookingsResponse> {
-    return this._client.getAPIList('/api/v1/bookings', MyCursorPage<V1ListBookingsResponse>, {
+    return this._client.getAPIList('/v1/bookings', MyCursorPage<V1ListBookingsResponse>, {
       query,
       ...options,
     });
@@ -125,7 +125,7 @@ export class V1 extends APIResource {
    * authentication.
    */
   ping(options?: RequestOptions): APIPromise<V1PingResponse> {
-    return this._client.get('/api/v1/ping', options);
+    return this._client.get('/v1/ping', options);
   }
 }
 
