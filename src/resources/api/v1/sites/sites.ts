@@ -42,14 +42,14 @@ export class Sites extends APIResource {
    * Creates a new site with associated pages, themes, and blocks
    */
   create(body: SiteCreateParams, options?: RequestOptions): APIPromise<SiteCreateResponse> {
-    return this._client.post('/api/v1/sites', { body, ...options });
+    return this._client.post('/v1/sites', { body, ...options });
   }
 
   /**
    * Retrieves a specific site and its related data by site ID
    */
   retrieve(siteID: string, options?: RequestOptions): APIPromise<SiteRetrieveResponse> {
-    return this._client.get(path`/api/v1/sites/${siteID}`, options);
+    return this._client.get(path`/v1/sites/${siteID}`, options);
   }
 
   /**
@@ -60,7 +60,7 @@ export class Sites extends APIResource {
     body: SiteUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<SiteUpdateResponse> {
-    return this._client.patch(path`/api/v1/sites/${siteID}`, { body, ...options });
+    return this._client.patch(path`/v1/sites/${siteID}`, { body, ...options });
   }
 
   /**
@@ -70,14 +70,14 @@ export class Sites extends APIResource {
     query: SiteListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<SiteListResponsesMyCursorPage, SiteListResponse> {
-    return this._client.getAPIList('/api/v1/sites', MyCursorPage<SiteListResponse>, { query, ...options });
+    return this._client.getAPIList('/v1/sites', MyCursorPage<SiteListResponse>, { query, ...options });
   }
 
   /**
    * Permanently deletes a site by its ID
    */
   delete(siteID: string, options?: RequestOptions): APIPromise<SiteDeleteResponse> {
-    return this._client.delete(path`/api/v1/sites/${siteID}`, options);
+    return this._client.delete(path`/v1/sites/${siteID}`, options);
   }
 }
 

@@ -10,14 +10,14 @@ export class Invitations extends APIResource {
    * Retrieves details of a specific workspace invitation
    */
   retrieve(invitationID: string, options?: RequestOptions): APIPromise<InvitationRetrieveResponse> {
-    return this._client.get(path`/api/v1/invitations/${invitationID}`, options);
+    return this._client.get(path`/v1/invitations/${invitationID}`, options);
   }
 
   /**
    * Deletes an existing workspace invitation
    */
   delete(invitationID: string, options?: RequestOptions): APIPromise<InvitationDeleteResponse> {
-    return this._client.delete(path`/api/v1/invitations/${invitationID}`, options);
+    return this._client.delete(path`/v1/invitations/${invitationID}`, options);
   }
 }
 

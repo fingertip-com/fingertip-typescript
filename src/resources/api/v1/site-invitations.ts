@@ -10,14 +10,14 @@ export class SiteInvitations extends APIResource {
    * Retrieves details of a specific site invitation
    */
   retrieve(invitationID: string, options?: RequestOptions): APIPromise<SiteInvitationRetrieveResponse> {
-    return this._client.get(path`/api/v1/site-invitations/${invitationID}`, options);
+    return this._client.get(path`/v1/site-invitations/${invitationID}`, options);
   }
 
   /**
    * Deletes an existing site invitation
    */
   delete(invitationID: string, options?: RequestOptions): APIPromise<SiteInvitationDeleteResponse> {
-    return this._client.delete(path`/api/v1/site-invitations/${invitationID}`, options);
+    return this._client.delete(path`/v1/site-invitations/${invitationID}`, options);
   }
 }
 
