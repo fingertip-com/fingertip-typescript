@@ -10,7 +10,7 @@ export class WorkspaceMemberships extends APIResource {
    * Retrieves details of a specific workspace membership
    */
   retrieve(membershipID: string, options?: RequestOptions): APIPromise<WorkspaceMembershipRetrieveResponse> {
-    return this._client.get(path`/api/v1/workspace-memberships/${membershipID}`, options);
+    return this._client.get(path`/v1/workspace-memberships/${membershipID}`, options);
   }
 
   /**
@@ -21,14 +21,14 @@ export class WorkspaceMemberships extends APIResource {
     body: WorkspaceMembershipUpdateParams,
     options?: RequestOptions,
   ): APIPromise<WorkspaceMembershipUpdateResponse> {
-    return this._client.patch(path`/api/v1/workspace-memberships/${membershipID}`, { body, ...options });
+    return this._client.patch(path`/v1/workspace-memberships/${membershipID}`, { body, ...options });
   }
 
   /**
    * Removes a user from a workspace
    */
   delete(membershipID: string, options?: RequestOptions): APIPromise<WorkspaceMembershipDeleteResponse> {
-    return this._client.delete(path`/api/v1/workspace-memberships/${membershipID}`, options);
+    return this._client.delete(path`/v1/workspace-memberships/${membershipID}`, options);
   }
 }
 

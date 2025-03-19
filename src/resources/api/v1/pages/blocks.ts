@@ -11,14 +11,14 @@ export class Blocks extends APIResource {
    * validation errors.
    */
   create(pageID: string, body: BlockCreateParams, options?: RequestOptions): APIPromise<BlockCreateResponse> {
-    return this._client.post(path`/api/v1/pages/${pageID}/blocks`, { body, ...options });
+    return this._client.post(path`/v1/pages/${pageID}/blocks`, { body, ...options });
   }
 
   /**
    * Retrieves all blocks associated with the specified page ID
    */
   list(pageID: string, options?: RequestOptions): APIPromise<BlockListResponse> {
-    return this._client.get(path`/api/v1/pages/${pageID}/blocks`, options);
+    return this._client.get(path`/v1/pages/${pageID}/blocks`, options);
   }
 }
 

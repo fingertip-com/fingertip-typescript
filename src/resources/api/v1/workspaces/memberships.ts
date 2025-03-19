@@ -15,7 +15,7 @@ export class Memberships extends APIResource {
     body: MembershipCreateParams,
     options?: RequestOptions,
   ): APIPromise<MembershipCreateResponse> {
-    return this._client.post(path`/api/v1/workspaces/${workspaceID}/memberships`, { body, ...options });
+    return this._client.post(path`/v1/workspaces/${workspaceID}/memberships`, { body, ...options });
   }
 
   /**
@@ -27,7 +27,7 @@ export class Memberships extends APIResource {
     options?: RequestOptions,
   ): PagePromise<MembershipListResponsesMyCursorPage, MembershipListResponse> {
     return this._client.getAPIList(
-      path`/api/v1/workspaces/${workspaceID}/memberships`,
+      path`/v1/workspaces/${workspaceID}/memberships`,
       MyCursorPage<MembershipListResponse>,
       { query, ...options },
     );

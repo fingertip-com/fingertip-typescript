@@ -12,7 +12,7 @@ export class ZapierSubscriptions extends APIResource {
     body: ZapierSubscriptionCreateParams,
     options?: RequestOptions,
   ): APIPromise<ZapierSubscriptionCreateResponse> {
-    return this._client.post('/api/v1/zapier-subscriptions', { body, ...options });
+    return this._client.post('/v1/zapier-subscriptions', { body, ...options });
   }
 
   /**
@@ -22,7 +22,7 @@ export class ZapierSubscriptions extends APIResource {
     body: ZapierSubscriptionDeleteParams,
     options?: RequestOptions,
   ): APIPromise<ZapierSubscriptionDeleteResponse> {
-    return this._client.delete('/api/v1/zapier-subscriptions', { body, ...options });
+    return this._client.delete('/v1/zapier-subscriptions', { body, ...options });
   }
 }
 

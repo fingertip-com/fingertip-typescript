@@ -306,13 +306,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['FINGERTIP_BASE_URL'] = ''; // empty
       const client = new Fingertip({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://ap1-production-creator-api.fingertip.com');
+      expect(client.baseURL).toEqual('https://api.fingertip.com');
     });
 
     test('blank env variable', () => {
       process.env['FINGERTIP_BASE_URL'] = '  '; // blank
       const client = new Fingertip({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://ap1-production-creator-api.fingertip.com');
+      expect(client.baseURL).toEqual('https://api.fingertip.com');
     });
   });
 

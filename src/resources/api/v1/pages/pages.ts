@@ -18,7 +18,7 @@ export class Pages extends APIResource {
    * information.
    */
   retrieve(pageID: string, options?: RequestOptions): APIPromise<PageRetrieveResponse> {
-    return this._client.get(path`/api/v1/pages/${pageID}`, options);
+    return this._client.get(path`/v1/pages/${pageID}`, options);
   }
 
   /**
@@ -29,14 +29,14 @@ export class Pages extends APIResource {
     body: PageUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<PageUpdateResponse> {
-    return this._client.patch(path`/api/v1/pages/${pageID}`, { body, ...options });
+    return this._client.patch(path`/v1/pages/${pageID}`, { body, ...options });
   }
 
   /**
    * Permanently deletes a page and all associated data.
    */
   delete(pageID: string, options?: RequestOptions): APIPromise<PageDeleteResponse> {
-    return this._client.delete(path`/api/v1/pages/${pageID}`, options);
+    return this._client.delete(path`/v1/pages/${pageID}`, options);
   }
 }
 
