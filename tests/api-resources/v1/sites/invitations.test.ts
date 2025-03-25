@@ -49,7 +49,7 @@ describe('resource invitations', () => {
     await expect(
       client.v1.sites.invitations.list(
         'siteId',
-        { cursor: 'cursor', pageSize: 'pageSize' },
+        { cursor: 'cursor', pageSize: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Fingertip.NotFoundError);

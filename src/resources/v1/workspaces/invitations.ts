@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../../resource';
 import { APIPromise } from '../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -24,10 +25,16 @@ export class Invitations extends APIResource {
     workspaceID: string,
     query: InvitationListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<InvitationListResponse> {
-    return this._client.get(path`/v1/workspaces/${workspaceID}/invitations`, { query, ...options });
+  ): PagePromise<InvitationListResponsesMyCursorPage, InvitationListResponse> {
+    return this._client.getAPIList(
+      path`/v1/workspaces/${workspaceID}/invitations`,
+      MyCursorPage<InvitationListResponse>,
+      { query, ...options },
+    );
   }
 }
+
+export type InvitationListResponsesMyCursorPage = MyCursorPage<InvitationListResponse>;
 
 /**
  * Successful workspace invitation creation response
@@ -97,100 +104,53 @@ export namespace InvitationCreateResponse {
 }
 
 /**
- * Successful workspace invitations listing response
+ * Schema for a workspace invitation entity
  */
 export interface InvitationListResponse {
   /**
-   * Array of invitations in the current page of results
+   * Unique identifier for the workspace invitation
    */
-  items: Array<InvitationListResponse.Item>;
+  id: string;
 
   /**
-   * Pagination information
+   * Whether the invitation has been accepted
    */
-  pageInfo: InvitationListResponse.PageInfo;
+  accepted: boolean;
 
   /**
-   * Total number of invitations matching the query
+   * Date and time when the invitation was created
    */
-  total: number;
-}
-
-export namespace InvitationListResponse {
-  /**
-   * Schema for a workspace invitation entity
-   */
-  export interface Item {
-    /**
-     * Unique identifier for the workspace invitation
-     */
-    id: string;
-
-    /**
-     * Whether the invitation has been accepted
-     */
-    accepted: boolean;
-
-    /**
-     * Date and time when the invitation was created
-     */
-    createdAt: string;
-
-    /**
-     * Email address of the invited user
-     */
-    email: string;
-
-    /**
-     * Date and time when the invitation expires
-     */
-    expiresAt: string;
-
-    /**
-     * Role assigned to the invited user
-     */
-    role: 'OWNER' | 'MEMBER';
-
-    /**
-     * Date and time when the invitation was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * ID of the invited user
-     */
-    userId: string;
-
-    /**
-     * ID of the workspace the user is invited to
-     */
-    workspaceId: string;
-  }
+  createdAt: string;
 
   /**
-   * Pagination information
+   * Email address of the invited user
    */
-  export interface PageInfo {
-    /**
-     * Indicates if there are more pages after the current one
-     */
-    hasNextPage: boolean;
+  email: string;
 
-    /**
-     * Indicates if there are previous pages before the current one
-     */
-    hasPreviousPage: boolean;
+  /**
+   * Date and time when the invitation expires
+   */
+  expiresAt: string;
 
-    /**
-     * Cursor pointing to the last item in the current page, if available
-     */
-    endCursor?: string;
+  /**
+   * Role assigned to the invited user
+   */
+  role: 'OWNER' | 'MEMBER';
 
-    /**
-     * Cursor pointing to the first item in the current page, if available
-     */
-    startCursor?: string;
-  }
+  /**
+   * Date and time when the invitation was last updated
+   */
+  updatedAt: string;
+
+  /**
+   * ID of the invited user
+   */
+  userId: string;
+
+  /**
+   * ID of the workspace the user is invited to
+   */
+  workspaceId: string;
 }
 
 export interface InvitationCreateParams {
@@ -205,22 +165,13 @@ export interface InvitationCreateParams {
   role: 'OWNER' | 'MEMBER';
 }
 
-export interface InvitationListParams {
-  /**
-   * Pagination cursor
-   */
-  cursor?: string;
-
-  /**
-   * Number of items per page (default: 25, max: 100)
-   */
-  pageSize?: string;
-}
+export interface InvitationListParams extends MyCursorPageParams {}
 
 export declare namespace Invitations {
   export {
     type InvitationCreateResponse as InvitationCreateResponse,
     type InvitationListResponse as InvitationListResponse,
+    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
     type InvitationCreateParams as InvitationCreateParams,
     type InvitationListParams as InvitationListParams,
   };
