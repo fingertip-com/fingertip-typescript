@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../../resource';
 import { APIPromise } from '../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -20,10 +21,15 @@ export class Pages extends APIResource {
     siteID: string,
     query: PageListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<PageListResponse> {
-    return this._client.get(path`/v1/sites/${siteID}/pages`, { query, ...options });
+  ): PagePromise<PageListResponsesMyCursorPage, PageListResponse> {
+    return this._client.getAPIList(path`/v1/sites/${siteID}/pages`, MyCursorPage<PageListResponse>, {
+      query,
+      ...options,
+    });
   }
 }
+
+export type PageListResponsesMyCursorPage = MyCursorPage<PageListResponse>;
 
 /**
  * Successful page creation response
@@ -197,208 +203,161 @@ export namespace PageCreateResponse {
 }
 
 /**
- * Successful pages listing response
+ * Page schema including related blocks and theme information
  */
 export interface PageListResponse {
   /**
-   * Array of pages in the current page of results
+   * Unique identifier for the page
    */
-  items: Array<PageListResponse.Item>;
+  id: string;
 
   /**
-   * Pagination information
+   * Array of content blocks associated with the page
    */
-  pageInfo: PageListResponse.PageInfo;
+  blocks: Array<PageListResponse.Block>;
 
   /**
-   * Total number of pages matching the query
+   * Date and time when the page was created
    */
-  total: number;
+  createdAt: string;
+
+  /**
+   * Description of the page content, can be null
+   */
+  description: string | null;
+
+  /**
+   * Name of the page, can be null
+   */
+  name: string | null;
+
+  /**
+   * Theme applied to the page, can be null
+   */
+  pageTheme: PageListResponse.PageTheme | null;
+
+  /**
+   * ID of the theme applied to this page, can be null
+   */
+  pageThemeId: string | null;
+
+  /**
+   * ID of the site this page belongs to
+   */
+  siteId: string;
+
+  /**
+   * URL-friendly path segment for the page
+   */
+  slug: string;
+
+  /**
+   * Date and time when the page was last updated
+   */
+  updatedAt: string;
+
+  /**
+   * Banner media for the page, can be null
+   */
+  bannerMedia?: unknown;
+
+  /**
+   * Logo media for the page, can be null
+   */
+  logoMedia?: unknown;
+
+  /**
+   * Display position of the page within the site
+   */
+  position?: number;
+
+  /**
+   * Social media icons configuration, can be null
+   */
+  socialIcons?: unknown;
 }
 
 export namespace PageListResponse {
-  /**
-   * Page schema including related blocks and theme information
-   */
-  export interface Item {
+  export interface Block {
     /**
-     * Unique identifier for the page
+     * Unique identifier for the block
      */
     id: string;
 
     /**
-     * Array of content blocks associated with the page
+     * ID of the component block if this is an instance, can be null
      */
-    blocks: Array<Item.Block>;
+    componentBlockId: string | null;
 
     /**
-     * Date and time when the page was created
+     * Date and time when the block was created
      */
     createdAt: string;
 
     /**
-     * Description of the page content, can be null
+     * Type or category of the block, can be null
      */
-    description: string | null;
+    kind: string | null;
 
     /**
-     * Name of the page, can be null
+     * Name of the block
      */
-    name: string | null;
+    name: string;
 
     /**
-     * Theme applied to the page, can be null
+     * ID of the page this block belongs to
      */
-    pageTheme: Item.PageTheme | null;
+    pageId: string;
 
     /**
-     * ID of the theme applied to this page, can be null
-     */
-    pageThemeId: string | null;
-
-    /**
-     * ID of the site this page belongs to
-     */
-    siteId: string;
-
-    /**
-     * URL-friendly path segment for the page
-     */
-    slug: string;
-
-    /**
-     * Date and time when the page was last updated
+     * Date and time when the block was last updated
      */
     updatedAt: string;
 
     /**
-     * Banner media for the page, can be null
+     * Content of the block, can be null
      */
-    bannerMedia?: unknown;
+    content?: unknown;
 
     /**
-     * Logo media for the page, can be null
+     * Whether this block is a component
      */
-    logoMedia?: unknown;
-
-    /**
-     * Display position of the page within the site
-     */
-    position?: number;
-
-    /**
-     * Social media icons configuration, can be null
-     */
-    socialIcons?: unknown;
-  }
-
-  export namespace Item {
-    export interface Block {
-      /**
-       * Unique identifier for the block
-       */
-      id: string;
-
-      /**
-       * ID of the component block if this is an instance, can be null
-       */
-      componentBlockId: string | null;
-
-      /**
-       * Date and time when the block was created
-       */
-      createdAt: string;
-
-      /**
-       * Type or category of the block, can be null
-       */
-      kind: string | null;
-
-      /**
-       * Name of the block
-       */
-      name: string;
-
-      /**
-       * ID of the page this block belongs to
-       */
-      pageId: string;
-
-      /**
-       * Date and time when the block was last updated
-       */
-      updatedAt: string;
-
-      /**
-       * Content of the block, can be null
-       */
-      content?: unknown;
-
-      /**
-       * Whether this block is a component
-       */
-      isComponent?: boolean;
-    }
-
-    /**
-     * Theme applied to the page, can be null
-     */
-    export interface PageTheme {
-      /**
-       * Unique identifier for the page theme
-       */
-      id: string;
-
-      /**
-       * ID of the parent component theme if this is an instance, can be null
-       */
-      componentPageThemeId: string | null;
-
-      /**
-       * Date and time when the theme was created
-       */
-      createdAt: string;
-
-      /**
-       * Date and time when the theme was last updated
-       */
-      updatedAt: string;
-
-      /**
-       * Theme content configuration, can be null
-       */
-      content?: unknown;
-
-      /**
-       * Whether this theme is a reusable component
-       */
-      isComponent?: boolean;
-    }
+    isComponent?: boolean;
   }
 
   /**
-   * Pagination information
+   * Theme applied to the page, can be null
    */
-  export interface PageInfo {
+  export interface PageTheme {
     /**
-     * Indicates if there are more pages after the current one
+     * Unique identifier for the page theme
      */
-    hasNextPage: boolean;
+    id: string;
 
     /**
-     * Indicates if there are previous pages before the current one
+     * ID of the parent component theme if this is an instance, can be null
      */
-    hasPreviousPage: boolean;
+    componentPageThemeId: string | null;
 
     /**
-     * Cursor pointing to the last item in the current page, if available
+     * Date and time when the theme was created
      */
-    endCursor?: string;
+    createdAt: string;
 
     /**
-     * Cursor pointing to the first item in the current page, if available
+     * Date and time when the theme was last updated
      */
-    startCursor?: string;
+    updatedAt: string;
+
+    /**
+     * Theme content configuration, can be null
+     */
+    content?: unknown;
+
+    /**
+     * Whether this theme is a reusable component
+     */
+    isComponent?: boolean;
   }
 }
 
@@ -506,17 +465,7 @@ export namespace PageCreateParams {
   }
 }
 
-export interface PageListParams {
-  /**
-   * Pagination cursor
-   */
-  cursor?: string;
-
-  /**
-   * Number of items per page (default: 25, max: 100)
-   */
-  pageSize?: string;
-
+export interface PageListParams extends MyCursorPageParams {
   /**
    * Field to sort by (default: updatedAt)
    */
@@ -532,6 +481,7 @@ export declare namespace Pages {
   export {
     type PageCreateResponse as PageCreateResponse,
     type PageListResponse as PageListResponse,
+    type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
   };
