@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../../resource';
 import { APIPromise } from '../../../api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -24,10 +25,16 @@ export class Memberships extends APIResource {
     workspaceID: string,
     query: MembershipListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<MembershipListResponse> {
-    return this._client.get(path`/v1/workspaces/${workspaceID}/memberships`, { query, ...options });
+  ): PagePromise<MembershipListResponsesMyCursorPage, MembershipListResponse> {
+    return this._client.getAPIList(
+      path`/v1/workspaces/${workspaceID}/memberships`,
+      MyCursorPage<MembershipListResponse>,
+      { query, ...options },
+    );
   }
 }
+
+export type MembershipListResponsesMyCursorPage = MyCursorPage<MembershipListResponse>;
 
 /**
  * Successful workspace membership creation response
@@ -40,105 +47,58 @@ export interface MembershipCreateResponse {
 }
 
 /**
- * Successful workspace memberships listing response
+ * Schema for a workspace membership entity
  */
 export interface MembershipListResponse {
   /**
-   * Array of memberships in the current page of results
+   * Unique identifier for the workspace membership
    */
-  items: Array<MembershipListResponse.Item>;
+  id: string;
 
   /**
-   * Pagination information
+   * Date and time when the membership was created
    */
-  pageInfo: MembershipListResponse.PageInfo;
+  createdAt: string;
 
   /**
-   * Total number of memberships matching the query
+   * Role of the user in the workspace
    */
-  total: number;
+  role: 'OWNER' | 'MEMBER';
+
+  /**
+   * Date and time when the membership was last updated
+   */
+  updatedAt: string;
+
+  user: MembershipListResponse.User;
+
+  /**
+   * ID of the user
+   */
+  userId: string;
+
+  /**
+   * ID of the workspace
+   */
+  workspaceId: string;
 }
 
 export namespace MembershipListResponse {
-  /**
-   * Schema for a workspace membership entity
-   */
-  export interface Item {
+  export interface User {
     /**
-     * Unique identifier for the workspace membership
+     * Unique identifier for the user
      */
     id: string;
 
     /**
-     * Date and time when the membership was created
+     * Email of the user
      */
-    createdAt: string;
+    email: string;
 
     /**
-     * Role of the user in the workspace
+     * Name of the user
      */
-    role: 'OWNER' | 'MEMBER';
-
-    /**
-     * Date and time when the membership was last updated
-     */
-    updatedAt: string;
-
-    user: Item.User;
-
-    /**
-     * ID of the user
-     */
-    userId: string;
-
-    /**
-     * ID of the workspace
-     */
-    workspaceId: string;
-  }
-
-  export namespace Item {
-    export interface User {
-      /**
-       * Unique identifier for the user
-       */
-      id: string;
-
-      /**
-       * Email of the user
-       */
-      email: string;
-
-      /**
-       * Name of the user
-       */
-      name?: string;
-    }
-  }
-
-  /**
-   * Pagination information
-   */
-  export interface PageInfo {
-    /**
-     * Indicates if there are more pages after the current one
-     */
-    hasNextPage: boolean;
-
-    /**
-     * Indicates if there are previous pages before the current one
-     */
-    hasPreviousPage: boolean;
-
-    /**
-     * Cursor pointing to the last item in the current page, if available
-     */
-    endCursor?: string;
-
-    /**
-     * Cursor pointing to the first item in the current page, if available
-     */
-    startCursor?: string;
+    name?: string;
   }
 }
 
@@ -154,22 +114,13 @@ export interface MembershipCreateParams {
   role: 'OWNER' | 'MEMBER';
 }
 
-export interface MembershipListParams {
-  /**
-   * Pagination cursor
-   */
-  cursor?: string;
-
-  /**
-   * Number of items per page (default: 25, max: 100)
-   */
-  pageSize?: string;
-}
+export interface MembershipListParams extends MyCursorPageParams {}
 
 export declare namespace Memberships {
   export {
     type MembershipCreateResponse as MembershipCreateResponse,
     type MembershipListResponse as MembershipListResponse,
+    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
     type MembershipListParams as MembershipListParams,
   };

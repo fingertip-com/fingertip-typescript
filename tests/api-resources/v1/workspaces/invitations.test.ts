@@ -49,7 +49,7 @@ describe('resource invitations', () => {
     await expect(
       client.v1.workspaces.invitations.list(
         '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-        { cursor: 'cursor', pageSize: 'pageSize' },
+        { cursor: 'cursor', pageSize: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Fingertip.NotFoundError);

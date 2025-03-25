@@ -42,7 +42,7 @@ describe('resource v1', () => {
     const response = await client.v1.listBookings({
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       cursor: 'cursor',
-      pageSize: 'pageSize',
+      pageSize: 0,
       sortBy: 'createdAt',
       sortDirection: 'asc',
       status: 'CANCELLED',
