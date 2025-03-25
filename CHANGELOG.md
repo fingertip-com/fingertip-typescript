@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.13.0 (2025-03-25)
+
+Full Changelog: [v0.12.0...v0.13.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.12.0...v0.13.0)
+
+### Features
+
+* **api:** update via SDK Studio ([#88](https://github.com/fingertip-com/fingertip-typescript/issues/88)) ([bde3c34](https://github.com/fingertip-com/fingertip-typescript/commit/bde3c34e06eace9d6ad829d11a085f31c1c8c223))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#86](https://github.com/fingertip-com/fingertip-typescript/issues/86)) ([6fd97e9](https://github.com/fingertip-com/fingertip-typescript/commit/6fd97e9e43000a92b45ec3039df11a9fb37ee11b))
+* **exports:** stop using path fallbacks ([#87](https://github.com/fingertip-com/fingertip-typescript/issues/87)) ([a2f5dfc](https://github.com/fingertip-com/fingertip-typescript/commit/a2f5dfcadd14087f947924d6403598e1d1bd5f70))
+* **internal:** minor client file refactoring ([#84](https://github.com/fingertip-com/fingertip-typescript/issues/84)) ([621b7e1](https://github.com/fingertip-com/fingertip-typescript/commit/621b7e16fadb5f41d9b24251532802ecb3f77f85))
+
 ## 0.12.0 (2025-03-19)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.11.0...v0.12.0)
