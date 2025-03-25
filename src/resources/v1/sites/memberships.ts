@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../../resource';
 import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -25,16 +24,10 @@ export class Memberships extends APIResource {
     siteID: string,
     query: MembershipListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<MembershipListResponsesMyCursorPage, MembershipListResponse> {
-    return this._client.getAPIList(
-      path`/v1/sites/${siteID}/memberships`,
-      MyCursorPage<MembershipListResponse>,
-      { query, ...options },
-    );
+  ): APIPromise<MembershipListResponse> {
+    return this._client.get(path`/v1/sites/${siteID}/memberships`, { query, ...options });
   }
 }
-
-export type MembershipListResponsesMyCursorPage = MyCursorPage<MembershipListResponse>;
 
 /**
  * Successful site membership creation response
@@ -47,58 +40,105 @@ export interface MembershipCreateResponse {
 }
 
 /**
- * Schema for a site membership entity
+ * Successful site memberships listing response
  */
 export interface MembershipListResponse {
   /**
-   * Unique identifier for the site membership
+   * Array of memberships in the current page of results
    */
-  id: string;
+  items: Array<MembershipListResponse.Item>;
 
   /**
-   * Date and time when the membership was created
+   * Pagination information
    */
-  createdAt: string;
+  pageInfo: MembershipListResponse.PageInfo;
 
   /**
-   * Role of the user in the site
+   * Total number of memberships matching the query
    */
-  role: 'OWNER' | 'EDITOR' | 'VIEWER';
-
-  /**
-   * ID of the site
-   */
-  siteId: string;
-
-  /**
-   * Date and time when the membership was last updated
-   */
-  updatedAt: string;
-
-  user: MembershipListResponse.User;
-
-  /**
-   * ID of the user
-   */
-  userId: string;
+  total: number;
 }
 
 export namespace MembershipListResponse {
-  export interface User {
+  /**
+   * Schema for a site membership entity
+   */
+  export interface Item {
     /**
-     * Unique identifier for the user
+     * Unique identifier for the site membership
      */
     id: string;
 
     /**
-     * Email of the user
+     * Date and time when the membership was created
      */
-    email: string;
+    createdAt: string;
 
     /**
-     * Name of the user
+     * Role of the user in the site
      */
-    name?: string;
+    role: 'OWNER' | 'EDITOR' | 'VIEWER';
+
+    /**
+     * ID of the site
+     */
+    siteId: string;
+
+    /**
+     * Date and time when the membership was last updated
+     */
+    updatedAt: string;
+
+    user: Item.User;
+
+    /**
+     * ID of the user
+     */
+    userId: string;
+  }
+
+  export namespace Item {
+    export interface User {
+      /**
+       * Unique identifier for the user
+       */
+      id: string;
+
+      /**
+       * Email of the user
+       */
+      email: string;
+
+      /**
+       * Name of the user
+       */
+      name?: string;
+    }
+  }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
+
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
+
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
   }
 }
 
@@ -114,13 +154,22 @@ export interface MembershipCreateParams {
   userId: string;
 }
 
-export interface MembershipListParams extends MyCursorPageParams {}
+export interface MembershipListParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 25, max: 100)
+   */
+  pageSize?: string;
+}
 
 export declare namespace Memberships {
   export {
     type MembershipCreateResponse as MembershipCreateResponse,
     type MembershipListResponse as MembershipListResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
     type MembershipListParams as MembershipListParams,
   };

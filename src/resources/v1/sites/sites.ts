@@ -7,7 +7,6 @@ import {
   InvitationCreateResponse,
   InvitationListParams,
   InvitationListResponse,
-  InvitationListResponsesMyCursorPage,
   Invitations,
 } from './invitations';
 import * as MembershipsAPI from './memberships';
@@ -16,20 +15,11 @@ import {
   MembershipCreateResponse,
   MembershipListParams,
   MembershipListResponse,
-  MembershipListResponsesMyCursorPage,
   Memberships,
 } from './memberships';
 import * as PagesAPI from './pages';
-import {
-  PageCreateParams,
-  PageCreateResponse,
-  PageListParams,
-  PageListResponse,
-  PageListResponsesMyCursorPage,
-  Pages,
-} from './pages';
+import { PageCreateParams, PageCreateResponse, PageListParams, PageListResponse, Pages } from './pages';
 import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -69,8 +59,8 @@ export class Sites extends APIResource {
   list(
     query: SiteListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<SiteListResponsesMyCursorPage, SiteListResponse> {
-    return this._client.getAPIList('/v1/sites', MyCursorPage<SiteListResponse>, { query, ...options });
+  ): APIPromise<SiteListResponse> {
+    return this._client.get('/v1/sites', { query, ...options });
   }
 
   /**
@@ -80,8 +70,6 @@ export class Sites extends APIResource {
     return this._client.delete(path`/v1/sites/${siteID}`, options);
   }
 }
-
-export type SiteListResponsesMyCursorPage = MyCursorPage<SiteListResponse>;
 
 /**
  * Successful site creation response
@@ -576,83 +564,130 @@ export namespace SiteUpdateResponse {
 }
 
 /**
- * Schema for a site entity
+ * Successful sites listing response
  */
 export interface SiteListResponse {
   /**
-   * Unique identifier for the site
+   * Array of sites in the current page of results
    */
-  id: string;
+  items: Array<SiteListResponse.Item>;
 
   /**
-   * Type of business the site represents, can be null
+   * Pagination information
    */
-  businessType: string | null;
+  pageInfo: SiteListResponse.PageInfo;
 
   /**
-   * Date and time when the site was created
+   * Total number of sites matching the query
    */
-  createdAt: string;
+  total: number;
+}
+
+export namespace SiteListResponse {
+  /**
+   * Schema for a site entity
+   */
+  export interface Item {
+    /**
+     * Unique identifier for the site
+     */
+    id: string;
+
+    /**
+     * Type of business the site represents, can be null
+     */
+    businessType: string | null;
+
+    /**
+     * Date and time when the site was created
+     */
+    createdAt: string;
+
+    /**
+     * Description of the site, can be null
+     */
+    description: string | null;
+
+    /**
+     * ID of the site's home page, can be null
+     */
+    homePageId: string | null;
+
+    /**
+     * ID of the associated location, can be null
+     */
+    locationId: string | null;
+
+    /**
+     * Name of the site
+     */
+    name: string;
+
+    /**
+     * Custom plan override for the site, can be null
+     */
+    overridePlan: string | null;
+
+    /**
+     * URL-friendly identifier for the site
+     */
+    slug: string;
+
+    /**
+     * Time zone for the site, can be null
+     */
+    timeZone: string | null;
+
+    /**
+     * Date and time when the site was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * ID of the workspace this site belongs to, can be null
+     */
+    workspaceId: string | null;
+
+    /**
+     * Logo media for the site, can be null
+     */
+    logoMedia?: unknown;
+
+    /**
+     * Social media icons configuration, can be null
+     */
+    socialIcons?: unknown;
+
+    /**
+     * Current status of the site
+     */
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  }
 
   /**
-   * Description of the site, can be null
+   * Pagination information
    */
-  description: string | null;
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
 
-  /**
-   * ID of the site's home page, can be null
-   */
-  homePageId: string | null;
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
 
-  /**
-   * ID of the associated location, can be null
-   */
-  locationId: string | null;
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
 
-  /**
-   * Name of the site
-   */
-  name: string;
-
-  /**
-   * Custom plan override for the site, can be null
-   */
-  overridePlan: string | null;
-
-  /**
-   * URL-friendly identifier for the site
-   */
-  slug: string;
-
-  /**
-   * Time zone for the site, can be null
-   */
-  timeZone: string | null;
-
-  /**
-   * Date and time when the site was last updated
-   */
-  updatedAt: string;
-
-  /**
-   * ID of the workspace this site belongs to, can be null
-   */
-  workspaceId: string | null;
-
-  /**
-   * Logo media for the site, can be null
-   */
-  logoMedia?: unknown;
-
-  /**
-   * Social media icons configuration, can be null
-   */
-  socialIcons?: unknown;
-
-  /**
-   * Current status of the site
-   */
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
+  }
 }
 
 /**
@@ -888,7 +923,17 @@ export interface SiteUpdateParams {
   workspaceId?: string | null;
 }
 
-export interface SiteListParams extends MyCursorPageParams {
+export interface SiteListParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 25, max: 100)
+   */
+  pageSize?: string;
+
   /**
    * Search query
    */
@@ -926,7 +971,6 @@ export declare namespace Sites {
     type SiteUpdateResponse as SiteUpdateResponse,
     type SiteListResponse as SiteListResponse,
     type SiteDeleteResponse as SiteDeleteResponse,
-    type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
     type SiteCreateParams as SiteCreateParams,
     type SiteUpdateParams as SiteUpdateParams,
     type SiteListParams as SiteListParams,
@@ -936,7 +980,6 @@ export declare namespace Sites {
     Pages as Pages,
     type PageCreateResponse as PageCreateResponse,
     type PageListResponse as PageListResponse,
-    type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
   };
@@ -945,7 +988,6 @@ export declare namespace Sites {
     Invitations as Invitations,
     type InvitationCreateResponse as InvitationCreateResponse,
     type InvitationListResponse as InvitationListResponse,
-    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
     type InvitationCreateParams as InvitationCreateParams,
     type InvitationListParams as InvitationListParams,
   };
@@ -954,7 +996,6 @@ export declare namespace Sites {
     Memberships as Memberships,
     type MembershipCreateResponse as MembershipCreateResponse,
     type MembershipListResponse as MembershipListResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
     type MembershipListParams as MembershipListParams,
   };
