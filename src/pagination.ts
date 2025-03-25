@@ -130,7 +130,7 @@ export namespace MyCursorPageResponse {
 export interface MyCursorPageParams {
   cursor?: string;
 
-  pageSize?: string;
+  pageSize?: number;
 }
 
 export class MyCursorPage<Item> extends AbstractPage<Item> implements MyCursorPageResponse<Item> {

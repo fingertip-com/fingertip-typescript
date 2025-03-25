@@ -7,7 +7,6 @@ import {
   InvitationCreateResponse,
   InvitationListParams,
   InvitationListResponse,
-  InvitationListResponsesMyCursorPage,
   Invitations,
 } from './invitations';
 import * as MembershipsAPI from './memberships';
@@ -16,11 +15,9 @@ import {
   MembershipCreateResponse,
   MembershipListParams,
   MembershipListResponse,
-  MembershipListResponsesMyCursorPage,
   Memberships,
 } from './memberships';
 import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -52,15 +49,10 @@ export class Workspaces extends APIResource {
   list(
     query: WorkspaceListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<WorkspaceListResponsesMyCursorPage, WorkspaceListResponse> {
-    return this._client.getAPIList('/v1/workspaces', MyCursorPage<WorkspaceListResponse>, {
-      query,
-      ...options,
-    });
+  ): APIPromise<WorkspaceListResponse> {
+    return this._client.get('/v1/workspaces', { query, ...options });
   }
 }
-
-export type WorkspaceListResponsesMyCursorPage = MyCursorPage<WorkspaceListResponse>;
 
 /**
  * Successful workspace retrieval response
@@ -321,119 +313,166 @@ export namespace WorkspaceUpdateResponse {
 }
 
 /**
- * Workspace schema including related sites
+ * Successful workspaces listing response
  */
 export interface WorkspaceListResponse {
   /**
-   * Unique identifier for the workspace
+   * Array of workspaces in the current page of results
    */
-  id: string;
+  items: Array<WorkspaceListResponse.Item>;
 
   /**
-   * Date and time when the workspace was created
+   * Pagination information
    */
-  createdAt: string;
+  pageInfo: WorkspaceListResponse.PageInfo;
 
   /**
-   * Name of the workspace
+   * Total number of workspaces matching the query
    */
-  name: string;
-
-  /**
-   * Array of sites associated with this workspace
-   */
-  sites: Array<WorkspaceListResponse.Site>;
-
-  /**
-   * URL-friendly identifier for the workspace
-   */
-  slug: string;
-
-  /**
-   * Date and time when the workspace was last updated
-   */
-  updatedAt: string;
+  total: number;
 }
 
 export namespace WorkspaceListResponse {
   /**
-   * Schema for a site entity
+   * Workspace schema including related sites
    */
-  export interface Site {
+  export interface Item {
     /**
-     * Unique identifier for the site
+     * Unique identifier for the workspace
      */
     id: string;
 
     /**
-     * Type of business the site represents, can be null
-     */
-    businessType: string | null;
-
-    /**
-     * Date and time when the site was created
+     * Date and time when the workspace was created
      */
     createdAt: string;
 
     /**
-     * Description of the site, can be null
-     */
-    description: string | null;
-
-    /**
-     * ID of the site's home page, can be null
-     */
-    homePageId: string | null;
-
-    /**
-     * ID of the associated location, can be null
-     */
-    locationId: string | null;
-
-    /**
-     * Name of the site
+     * Name of the workspace
      */
     name: string;
 
     /**
-     * Custom plan override for the site, can be null
+     * Array of sites associated with this workspace
      */
-    overridePlan: string | null;
+    sites: Array<Item.Site>;
 
     /**
-     * URL-friendly identifier for the site
+     * URL-friendly identifier for the workspace
      */
     slug: string;
 
     /**
-     * Time zone for the site, can be null
-     */
-    timeZone: string | null;
-
-    /**
-     * Date and time when the site was last updated
+     * Date and time when the workspace was last updated
      */
     updatedAt: string;
+  }
+
+  export namespace Item {
+    /**
+     * Schema for a site entity
+     */
+    export interface Site {
+      /**
+       * Unique identifier for the site
+       */
+      id: string;
+
+      /**
+       * Type of business the site represents, can be null
+       */
+      businessType: string | null;
+
+      /**
+       * Date and time when the site was created
+       */
+      createdAt: string;
+
+      /**
+       * Description of the site, can be null
+       */
+      description: string | null;
+
+      /**
+       * ID of the site's home page, can be null
+       */
+      homePageId: string | null;
+
+      /**
+       * ID of the associated location, can be null
+       */
+      locationId: string | null;
+
+      /**
+       * Name of the site
+       */
+      name: string;
+
+      /**
+       * Custom plan override for the site, can be null
+       */
+      overridePlan: string | null;
+
+      /**
+       * URL-friendly identifier for the site
+       */
+      slug: string;
+
+      /**
+       * Time zone for the site, can be null
+       */
+      timeZone: string | null;
+
+      /**
+       * Date and time when the site was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * ID of the workspace this site belongs to, can be null
+       */
+      workspaceId: string | null;
+
+      /**
+       * Logo media for the site, can be null
+       */
+      logoMedia?: unknown;
+
+      /**
+       * Social media icons configuration, can be null
+       */
+      socialIcons?: unknown;
+
+      /**
+       * Current status of the site
+       */
+      status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    }
+  }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
 
     /**
-     * ID of the workspace this site belongs to, can be null
+     * Indicates if there are previous pages before the current one
      */
-    workspaceId: string | null;
+    hasPreviousPage: boolean;
 
     /**
-     * Logo media for the site, can be null
+     * Cursor pointing to the last item in the current page, if available
      */
-    logoMedia?: unknown;
+    endCursor?: string;
 
     /**
-     * Social media icons configuration, can be null
+     * Cursor pointing to the first item in the current page, if available
      */
-    socialIcons?: unknown;
-
-    /**
-     * Current status of the site
-     */
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    startCursor?: string;
   }
 }
 
@@ -444,7 +483,17 @@ export interface WorkspaceUpdateParams {
   name?: string;
 }
 
-export interface WorkspaceListParams extends MyCursorPageParams {
+export interface WorkspaceListParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 25, max: 100)
+   */
+  pageSize?: string;
+
   /**
    * Field to sort by (default: updatedAt)
    */
@@ -464,7 +513,6 @@ export declare namespace Workspaces {
     type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
     type WorkspaceUpdateResponse as WorkspaceUpdateResponse,
     type WorkspaceListResponse as WorkspaceListResponse,
-    type WorkspaceListResponsesMyCursorPage as WorkspaceListResponsesMyCursorPage,
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
     type WorkspaceListParams as WorkspaceListParams,
   };
@@ -473,7 +521,6 @@ export declare namespace Workspaces {
     Invitations as Invitations,
     type InvitationCreateResponse as InvitationCreateResponse,
     type InvitationListResponse as InvitationListResponse,
-    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
     type InvitationCreateParams as InvitationCreateParams,
     type InvitationListParams as InvitationListParams,
   };
@@ -482,7 +529,6 @@ export declare namespace Workspaces {
     Memberships as Memberships,
     type MembershipCreateResponse as MembershipCreateResponse,
     type MembershipListResponse as MembershipListResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
     type MembershipCreateParams as MembershipCreateParams,
     type MembershipListParams as MembershipListParams,
   };
