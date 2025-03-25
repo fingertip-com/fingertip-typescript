@@ -32,7 +32,6 @@ import {
   V1GetFormResponsesSampleResponse,
   V1ListBookingsParams,
   V1ListBookingsResponse,
-  V1ListBookingsResponsesMyCursorPage,
   V1PingResponse,
 } from './resources/v1/v1';
 
@@ -708,7 +707,6 @@ export declare namespace Fingertip {
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
     type V1PingResponse as V1PingResponse,
-    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
   };

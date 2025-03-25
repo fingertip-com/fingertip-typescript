@@ -6,7 +6,6 @@ export {
   type InvitationListResponse,
   type InvitationCreateParams,
   type InvitationListParams,
-  type InvitationListResponsesMyCursorPage,
 } from './invitations';
 export {
   Memberships,
@@ -14,7 +13,6 @@ export {
   type MembershipListResponse,
   type MembershipCreateParams,
   type MembershipListParams,
-  type MembershipListResponsesMyCursorPage,
 } from './memberships';
 export {
   Pages,
@@ -22,7 +20,6 @@ export {
   type PageListResponse,
   type PageCreateParams,
   type PageListParams,
-  type PageListResponsesMyCursorPage,
 } from './pages';
 export {
   Sites,
@@ -34,5 +31,4 @@ export {
   type SiteCreateParams,
   type SiteUpdateParams,
   type SiteListParams,
-  type SiteListResponsesMyCursorPage,
 } from './sites';

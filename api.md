@@ -9,7 +9,7 @@ Types:
 Methods:
 
 - <code title="get /v1/form-responses/sample">client.v1.<a href="./src/resources/v1/v1.ts">getFormResponsesSample</a>({ ...params }) -> V1GetFormResponsesSampleResponse</code>
-- <code title="get /v1/bookings">client.v1.<a href="./src/resources/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponsesMyCursorPage</code>
+- <code title="get /v1/bookings">client.v1.<a href="./src/resources/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponse</code>
 - <code title="get /v1/ping">client.v1.<a href="./src/resources/v1/v1.ts">ping</a>() -> V1PingResponse</code>
 
 ## Pages
@@ -79,7 +79,7 @@ Methods:
 - <code title="post /v1/sites">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">create</a>({ ...params }) -> SiteCreateResponse</code>
 - <code title="get /v1/sites/{siteId}">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">retrieve</a>(siteID) -> SiteRetrieveResponse</code>
 - <code title="patch /v1/sites/{siteId}">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">update</a>(siteID, { ...params }) -> SiteUpdateResponse</code>
-- <code title="get /v1/sites">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponsesMyCursorPage</code>
+- <code title="get /v1/sites">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">list</a>({ ...params }) -> SiteListResponse</code>
 - <code title="delete /v1/sites/{siteId}">client.v1.sites.<a href="./src/resources/v1/sites/sites.ts">delete</a>(siteID) -> SiteDeleteResponse</code>
 
 ### Pages
@@ -92,7 +92,7 @@ Types:
 Methods:
 
 - <code title="post /v1/sites/{siteId}/pages">client.v1.sites.pages.<a href="./src/resources/v1/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
-- <code title="get /v1/sites/{siteId}/pages">client.v1.sites.pages.<a href="./src/resources/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
+- <code title="get /v1/sites/{siteId}/pages">client.v1.sites.pages.<a href="./src/resources/v1/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponse</code>
 
 ### Invitations
 
@@ -104,7 +104,7 @@ Types:
 Methods:
 
 - <code title="post /v1/sites/{siteId}/invitations">client.v1.sites.invitations.<a href="./src/resources/v1/sites/invitations.ts">create</a>(siteID, { ...params }) -> InvitationCreateResponse</code>
-- <code title="get /v1/sites/{siteId}/invitations">client.v1.sites.invitations.<a href="./src/resources/v1/sites/invitations.ts">list</a>(siteID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
+- <code title="get /v1/sites/{siteId}/invitations">client.v1.sites.invitations.<a href="./src/resources/v1/sites/invitations.ts">list</a>(siteID, { ...params }) -> InvitationListResponse</code>
 
 ### Memberships
 
@@ -116,7 +116,7 @@ Types:
 Methods:
 
 - <code title="post /v1/sites/{siteId}/memberships">client.v1.sites.memberships.<a href="./src/resources/v1/sites/memberships.ts">create</a>(siteID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/sites/{siteId}/memberships">client.v1.sites.memberships.<a href="./src/resources/v1/sites/memberships.ts">list</a>(siteID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
+- <code title="get /v1/sites/{siteId}/memberships">client.v1.sites.memberships.<a href="./src/resources/v1/sites/memberships.ts">list</a>(siteID, { ...params }) -> MembershipListResponse</code>
 
 ## SiteContacts
 
@@ -142,7 +142,7 @@ Methods:
 
 - <code title="get /v1/workspaces/{workspaceId}">client.v1.workspaces.<a href="./src/resources/v1/workspaces/workspaces.ts">retrieve</a>(workspaceID) -> WorkspaceRetrieveResponse</code>
 - <code title="patch /v1/workspaces/{workspaceId}">client.v1.workspaces.<a href="./src/resources/v1/workspaces/workspaces.ts">update</a>(workspaceID, { ...params }) -> WorkspaceUpdateResponse</code>
-- <code title="get /v1/workspaces">client.v1.workspaces.<a href="./src/resources/v1/workspaces/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponsesMyCursorPage</code>
+- <code title="get /v1/workspaces">client.v1.workspaces.<a href="./src/resources/v1/workspaces/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponse</code>
 
 ### Invitations
 
@@ -154,7 +154,7 @@ Types:
 Methods:
 
 - <code title="post /v1/workspaces/{workspaceId}/invitations">client.v1.workspaces.invitations.<a href="./src/resources/v1/workspaces/invitations.ts">create</a>(workspaceID, { ...params }) -> InvitationCreateResponse</code>
-- <code title="get /v1/workspaces/{workspaceId}/invitations">client.v1.workspaces.invitations.<a href="./src/resources/v1/workspaces/invitations.ts">list</a>(workspaceID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
+- <code title="get /v1/workspaces/{workspaceId}/invitations">client.v1.workspaces.invitations.<a href="./src/resources/v1/workspaces/invitations.ts">list</a>(workspaceID, { ...params }) -> InvitationListResponse</code>
 
 ### Memberships
 
@@ -166,7 +166,7 @@ Types:
 Methods:
 
 - <code title="post /v1/workspaces/{workspaceId}/memberships">client.v1.workspaces.memberships.<a href="./src/resources/v1/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/workspaces/{workspaceId}/memberships">client.v1.workspaces.memberships.<a href="./src/resources/v1/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
+- <code title="get /v1/workspaces/{workspaceId}/memberships">client.v1.workspaces.memberships.<a href="./src/resources/v1/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponse</code>
 
 ## ZapierSubscriptions
 
