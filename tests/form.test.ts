@@ -1,5 +1,5 @@
 import { multipartFormRequestOptions, createForm } from 'fingertip/internal/uploads';
-import { toFile } from 'fingertip/uploads';
+import { toFile } from 'fingertip/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
