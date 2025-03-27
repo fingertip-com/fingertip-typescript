@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
+import { APIResource } from '../../../core/resource';
 import * as InvitationsAPI from './invitations';
 import {
   InvitationCreateParams,
@@ -19,8 +19,8 @@ import {
   MembershipListResponsesMyCursorPage,
   Memberships,
 } from './memberships';
-import { APIPromise } from '../../../api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../pagination';
+import { APIPromise } from '../../../core/api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 

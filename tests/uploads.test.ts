@@ -1,6 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from 'fingertip/internal/to-file';
-import { toFile } from 'fingertip/uploads';
+import { toFile } from 'fingertip/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('fingertip/uploads');
+    const uploads = await import('fingertip/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
