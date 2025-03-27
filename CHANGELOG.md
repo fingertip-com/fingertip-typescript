@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.1 (2025-03-27)
+
+Full Changelog: [v0.14.0...v0.14.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.14.0...v0.14.1)
+
+### Chores
+
+* **client:** move misc public files to new `core/` directory, deprecate old paths ([#93](https://github.com/fingertip-com/fingertip-typescript/issues/93)) ([196899a](https://github.com/fingertip-com/fingertip-typescript/commit/196899a900acfad6d84c34922e281351efee1177))
+* configure new SDK language ([#95](https://github.com/fingertip-com/fingertip-typescript/issues/95)) ([d5b8033](https://github.com/fingertip-com/fingertip-typescript/commit/d5b8033c834b9444c8badc7e60637ed48123520a))
+
 ## 0.14.0 (2025-03-25)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.13.0...v0.14.0)
