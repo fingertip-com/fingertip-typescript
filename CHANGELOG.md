@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.0 (2025-03-28)
+
+Full Changelog: [v0.14.1...v0.15.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.14.1...v0.15.0)
+
+### Features
+
+* **mcp:** export server and tools for more customizability ([#97](https://github.com/fingertip-com/fingertip-typescript/issues/97)) ([edd3d11](https://github.com/fingertip-com/fingertip-typescript/commit/edd3d11af5f82fcdf5f27dcf495c649afb647d1a))
+
 ## 0.14.1 (2025-03-27)
 
 Full Changelog: [v0.14.0...v0.14.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.14.0...v0.14.1)
