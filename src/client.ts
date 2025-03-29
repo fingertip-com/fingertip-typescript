@@ -38,9 +38,9 @@ import {
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['FINGERTIP_API_KEY'].
+   * Defaults to process.env['FINGERTIP_BEARER_TOKEN'].
    */
-  apiKey?: string | null | undefined;
+  bearerToken?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -113,7 +113,7 @@ export interface ClientOptions {
  * API Client for interfacing with the Fingertip API.
  */
 export class Fingertip {
-  apiKey: string | null;
+  bearerToken: string;
 
   baseURL: string;
   maxRetries: number;
@@ -130,7 +130,7 @@ export class Fingertip {
   /**
    * API Client for interfacing with the Fingertip API.
    *
-   * @param {string | null | undefined} [opts.apiKey=process.env['FINGERTIP_API_KEY'] ?? null]
+   * @param {string | undefined} [opts.bearerToken=process.env['FINGERTIP_BEARER_TOKEN'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['FINGERTIP_BASE_URL'] ?? https://api.fingertip.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -141,11 +141,17 @@ export class Fingertip {
    */
   constructor({
     baseURL = readEnv('FINGERTIP_BASE_URL'),
-    apiKey = readEnv('FINGERTIP_API_KEY') ?? null,
+    bearerToken = readEnv('FINGERTIP_BEARER_TOKEN'),
     ...opts
   }: ClientOptions = {}) {
+    if (bearerToken === undefined) {
+      throw new Errors.FingertipError(
+        "The FINGERTIP_BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the Fingertip client with an bearerToken option, like new Fingertip({ bearerToken: 'My Bearer Token' }).",
+      );
+    }
+
     const options: ClientOptions = {
-      apiKey,
+      bearerToken,
       ...opts,
       baseURL: baseURL || `https://api.fingertip.com`,
     };
@@ -167,7 +173,7 @@ export class Fingertip {
 
     this._options = options;
 
-    this.apiKey = apiKey;
+    this.bearerToken = bearerToken;
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -175,23 +181,11 @@ export class Fingertip {
   }
 
   protected validateHeaders({ values, nulls }: NullableHeaders) {
-    if (this.apiKey && values.get('authorization')) {
-      return;
-    }
-    if (nulls.has('authorization')) {
-      return;
-    }
-
-    throw new Error(
-      'Could not resolve authentication method. Expected the apiKey to be set. Or for the "Authorization" headers to be explicitly omitted',
-    );
+    return;
   }
 
   protected authHeaders(opts: FinalRequestOptions): Headers | undefined {
-    if (this.apiKey == null) {
-      return undefined;
-    }
-    return new Headers({ Authorization: `Bearer ${this.apiKey}` });
+    return new Headers({ Authorization: `Bearer ${this.bearerToken}` });
   }
 
   protected stringifyQuery(query: Record<string, unknown>): string {
