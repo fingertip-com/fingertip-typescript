@@ -24,7 +24,7 @@ Add the following value to your `mcpServers` section. Make sure to provide any n
       "command": "npx",
       "args": ["-y", "fingertip-mcp"],
       "env": {
-        "FINGERTIP_API_KEY": "My API Key"
+        "FINGERTIP_BEARER_TOKEN": "My Bearer Token"
       }
     }
   }
