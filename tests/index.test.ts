@@ -23,7 +23,7 @@ describe('instantiate client', () => {
     const client = new Fingertip({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
     });
 
     test('they are used in the request', () => {
@@ -87,14 +87,14 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Fingertip({ logger: logger, logLevel: 'debug', bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
     });
 
     test('default logLevel is warn', async () => {
-      const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ apiKey: 'My API Key' });
       expect(client.logLevel).toBe('warn');
     });
 
@@ -107,7 +107,7 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Fingertip({ logger: logger, logLevel: 'info', bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, logLevel: 'info', apiKey: 'My API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -123,7 +123,7 @@ describe('instantiate client', () => {
       };
 
       process.env['FINGERTIP_LOG'] = 'debug';
-      const client = new Fingertip({ logger: logger, bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, apiKey: 'My API Key' });
       expect(client.logLevel).toBe('debug');
 
       await forceAPIResponseForClient(client);
@@ -140,7 +140,7 @@ describe('instantiate client', () => {
       };
 
       process.env['FINGERTIP_LOG'] = 'not a log level';
-      const client = new Fingertip({ logger: logger, bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, apiKey: 'My API Key' });
       expect(client.logLevel).toBe('warn');
       expect(warnMock).toHaveBeenCalledWith(
         'process.env[\'FINGERTIP_LOG\'] was set to "not a log level", expected one of ["off","error","warn","info","debug"]',
@@ -157,7 +157,7 @@ describe('instantiate client', () => {
       };
 
       process.env['FINGERTIP_LOG'] = 'debug';
-      const client = new Fingertip({ logger: logger, logLevel: 'off', bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, logLevel: 'off', apiKey: 'My API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -173,7 +173,7 @@ describe('instantiate client', () => {
       };
 
       process.env['FINGERTIP_LOG'] = 'not a log level';
-      const client = new Fingertip({ logger: logger, logLevel: 'debug', bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -184,7 +184,7 @@ describe('instantiate client', () => {
       const client = new Fingertip({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
@@ -193,7 +193,7 @@ describe('instantiate client', () => {
       const client = new Fingertip({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
@@ -202,7 +202,7 @@ describe('instantiate client', () => {
       const client = new Fingertip({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
@@ -211,7 +211,7 @@ describe('instantiate client', () => {
   test('custom fetch', async () => {
     const client = new Fingertip({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -229,7 +229,7 @@ describe('instantiate client', () => {
     // make sure the global fetch type is assignable to our Fetch type
     const client = new Fingertip({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: defaultFetch,
     });
   });
@@ -237,7 +237,7 @@ describe('instantiate client', () => {
   test('custom signal', async () => {
     const client = new Fingertip({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -269,7 +269,7 @@ describe('instantiate client', () => {
 
     const client = new Fingertip({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: testFetch,
     });
 
@@ -279,18 +279,12 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new Fingertip({
-        baseURL: 'http://localhost:5000/custom/path/',
-        bearerToken: 'My Bearer Token',
-      });
+      const client = new Fingertip({ baseURL: 'http://localhost:5000/custom/path/', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new Fingertip({
-        baseURL: 'http://localhost:5000/custom/path',
-        bearerToken: 'My Bearer Token',
-      });
+      const client = new Fingertip({ baseURL: 'http://localhost:5000/custom/path', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -299,55 +293,55 @@ describe('instantiate client', () => {
     });
 
     test('explicit option', () => {
-      const client = new Fingertip({ baseURL: 'https://example.com', bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ baseURL: 'https://example.com', apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['FINGERTIP_BASE_URL'] = 'https://example.com/from_env';
-      const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['FINGERTIP_BASE_URL'] = ''; // empty
-      const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.fingertip.com');
     });
 
     test('blank env variable', () => {
       process.env['FINGERTIP_BASE_URL'] = '  '; // blank
-      const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+      const client = new Fingertip({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.fingertip.com');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Fingertip({ maxRetries: 4, bearerToken: 'My Bearer Token' });
+    const client = new Fingertip({ maxRetries: 4, apiKey: 'My API Key' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new Fingertip({ bearerToken: 'My Bearer Token' });
+    const client2 = new Fingertip({ apiKey: 'My API Key' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['FINGERTIP_BEARER_TOKEN'] = 'My Bearer Token';
+    process.env['FINGERTIP_API_KEY'] = 'My API Key';
     const client = new Fingertip();
-    expect(client.bearerToken).toBe('My Bearer Token');
+    expect(client.apiKey).toBe('My API Key');
   });
 
   test('with overridden environment variable arguments', () => {
     // set options via env var
-    process.env['FINGERTIP_BEARER_TOKEN'] = 'another My Bearer Token';
-    const client = new Fingertip({ bearerToken: 'My Bearer Token' });
-    expect(client.bearerToken).toBe('My Bearer Token');
+    process.env['FINGERTIP_API_KEY'] = 'another My API Key';
+    const client = new Fingertip({ apiKey: 'My API Key' });
+    expect(client.apiKey).toBe('My API Key');
   });
 });
 
 describe('request building', () => {
-  const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+  const client = new Fingertip({ apiKey: 'My API Key' });
 
   describe('custom headers', () => {
     test('handles undefined', () => {
@@ -366,7 +360,7 @@ describe('request building', () => {
 });
 
 describe('default encoder', () => {
-  const client = new Fingertip({ bearerToken: 'My Bearer Token' });
+  const client = new Fingertip({ apiKey: 'My API Key' });
 
   class Serializable {
     toJSON() {
@@ -451,7 +445,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', timeout: 10, fetch: testFetch });
+    const client = new Fingertip({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -481,7 +475,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Fingertip({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -505,7 +499,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Fingertip({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -535,7 +529,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
     const client = new Fingertip({
-      bearerToken: 'My Bearer Token',
+      apiKey: 'My API Key',
       fetch: testFetch,
       maxRetries: 4,
       defaultHeaders: { 'X-Stainless-Retry-Count': null },
@@ -567,7 +561,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Fingertip({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -597,7 +591,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new Fingertip({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -627,7 +621,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Fingertip({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new Fingertip({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);

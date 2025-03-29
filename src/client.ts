@@ -38,9 +38,9 @@ import {
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['FINGERTIP_BEARER_TOKEN'].
+   * Defaults to process.env['FINGERTIP_API_KEY'].
    */
-  bearerToken?: string | undefined;
+  apiKey?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -113,7 +113,7 @@ export interface ClientOptions {
  * API Client for interfacing with the Fingertip API.
  */
 export class Fingertip {
-  bearerToken: string;
+  apiKey: string;
 
   baseURL: string;
   maxRetries: number;
@@ -130,7 +130,7 @@ export class Fingertip {
   /**
    * API Client for interfacing with the Fingertip API.
    *
-   * @param {string | undefined} [opts.bearerToken=process.env['FINGERTIP_BEARER_TOKEN'] ?? undefined]
+   * @param {string | undefined} [opts.apiKey=process.env['FINGERTIP_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['FINGERTIP_BASE_URL'] ?? https://api.fingertip.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -141,17 +141,17 @@ export class Fingertip {
    */
   constructor({
     baseURL = readEnv('FINGERTIP_BASE_URL'),
-    bearerToken = readEnv('FINGERTIP_BEARER_TOKEN'),
+    apiKey = readEnv('FINGERTIP_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
-    if (bearerToken === undefined) {
+    if (apiKey === undefined) {
       throw new Errors.FingertipError(
-        "The FINGERTIP_BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the Fingertip client with an bearerToken option, like new Fingertip({ bearerToken: 'My Bearer Token' }).",
+        "The FINGERTIP_API_KEY environment variable is missing or empty; either provide it, or instantiate the Fingertip client with an apiKey option, like new Fingertip({ apiKey: 'My API Key' }).",
       );
     }
 
     const options: ClientOptions = {
-      bearerToken,
+      apiKey,
       ...opts,
       baseURL: baseURL || `https://api.fingertip.com`,
     };
@@ -173,7 +173,7 @@ export class Fingertip {
 
     this._options = options;
 
-    this.bearerToken = bearerToken;
+    this.apiKey = apiKey;
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -185,7 +185,7 @@ export class Fingertip {
   }
 
   protected authHeaders(opts: FinalRequestOptions): Headers | undefined {
-    return new Headers({ Authorization: `Bearer ${this.bearerToken}` });
+    return new Headers({ Authorization: `Bearer ${this.apiKey}` });
   }
 
   protected stringifyQuery(query: Record<string, unknown>): string {
