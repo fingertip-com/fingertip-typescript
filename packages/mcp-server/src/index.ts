@@ -32,7 +32,7 @@ const client = new Fingertip();
 export const server = new Server(
   {
     name: 'fingertip_api',
-    version: '0.14.1',
+    version: '0.15.0',
   },
   {
     capabilities: {
