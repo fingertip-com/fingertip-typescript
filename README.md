@@ -23,7 +23,7 @@ The full API of this library can be found in [api.md](api.md).
 import Fingertip from 'fingertip';
 
 const client = new Fingertip({
-  bearerToken: process.env['FINGERTIP_BEARER_TOKEN'], // This is the default and can be omitted
+  apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
@@ -44,7 +44,7 @@ This library includes TypeScript definitions for all request params and response
 import Fingertip from 'fingertip';
 
 const client = new Fingertip({
-  bearerToken: process.env['FINGERTIP_BEARER_TOKEN'], // This is the default and can be omitted
+  apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
