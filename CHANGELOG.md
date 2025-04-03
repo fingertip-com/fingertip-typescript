@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.17.0 (2025-04-03)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **mcp:** handle recursive schemas ([#105](https://github.com/fingertip-com/fingertip-typescript/issues/105)) ([614bb44](https://github.com/fingertip-com/fingertip-typescript/commit/614bb447e8eb7444b6cfd51724ae1902e047ccd3))
+
+
+### Bug Fixes
+
+* **client:** send `X-Stainless-Timeout` in seconds ([#106](https://github.com/fingertip-com/fingertip-typescript/issues/106)) ([198fdfb](https://github.com/fingertip-com/fingertip-typescript/commit/198fdfbf248767420f748d2e4e6f61219b758852))
+
+
+### Chores
+
+* **internal:** version bump ([#103](https://github.com/fingertip-com/fingertip-typescript/issues/103)) ([e67c986](https://github.com/fingertip-com/fingertip-typescript/commit/e67c986fbf9884ca9706f52ecef34b8e308f79b5))
+
 ## 0.16.0 (2025-03-29)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.15.0...v0.16.0)
