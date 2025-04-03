@@ -49,14 +49,24 @@ import retrieve_v1_workspace_memberships from './v1/workspace-memberships/retrie
 import update_v1_workspace_memberships from './v1/workspace-memberships/update-v1-workspace-memberships';
 import delete_v1_workspace_memberships from './v1/workspace-memberships/delete-v1-workspace-memberships';
 
-export const tools: Tool[] = [];
-
 export type HandlerFunction = (client: Fingertip, args: any) => Promise<any>;
-export const handlers: Record<string, HandlerFunction> = {};
 
-function addEndpoint(endpoint: { tool: Tool; handler: HandlerFunction }) {
-  tools.push(endpoint.tool);
-  handlers[endpoint.tool.name] = endpoint.handler;
+export type Metadata = {
+  resource: string;
+  operation: 'read' | 'write';
+  tags: string[];
+};
+
+export type Endpoint = {
+  metadata: Metadata;
+  tool: Tool;
+  handler: HandlerFunction;
+};
+
+export const endpoints: Endpoint[] = [];
+
+function addEndpoint(endpoint: Endpoint) {
+  endpoints.push(endpoint);
 }
 
 addEndpoint(get_form_responses_sample_v1);
@@ -104,3 +114,49 @@ addEndpoint(delete_v1_invitations);
 addEndpoint(retrieve_v1_workspace_memberships);
 addEndpoint(update_v1_workspace_memberships);
 addEndpoint(delete_v1_workspace_memberships);
+
+export type Filter = {
+  type: 'resource' | 'operation' | 'tag' | 'tool';
+  op: 'include' | 'exclude';
+  value: string;
+};
+
+export function query(filters: Filter[], endpoints: Endpoint[]): Endpoint[] {
+  if (filters.length === 0) {
+    return endpoints;
+  }
+  const allExcludes = filters.every((filter) => filter.op === 'exclude');
+
+  return endpoints.filter((endpoint: Endpoint) => {
+    let included = false || allExcludes;
+
+    for (const filter of filters) {
+      if (match(filter, endpoint)) {
+        included = filter.op === 'include';
+      }
+    }
+
+    return included;
+  });
+}
+
+function match({ type, value }: Filter, endpoint: Endpoint): boolean {
+  switch (type) {
+    case 'resource': {
+      const regexStr = '^' + normalizeResource(value).replace(/\*/g, '.*') + '$';
+      const regex = new RegExp(regexStr);
+      console.error('regex is', regexStr);
+      return regex.test(normalizeResource(endpoint.metadata.resource));
+    }
+    case 'operation':
+      return endpoint.metadata.operation === value;
+    case 'tag':
+      return endpoint.metadata.tags.includes(value);
+    case 'tool':
+      return endpoint.tool.name === value;
+  }
+}
+
+function normalizeResource(resource: string): string {
+  return resource.toLowerCase().replace(/[^a-z.*\-_]*/g, '');
+}

@@ -1,7 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import type { Metadata } from '../../../';
 import Fingertip from 'fingertip';
+
+export const metadata: Metadata = {
+  resource: 'v1.pages.blocks',
+  operation: 'write',
+  tags: [],
+};
 
 export const tool: Tool = {
   name: 'create_pages_v1_blocks',
@@ -42,4 +49,4 @@ export const handler = (client: Fingertip, args: any) => {
   return client.v1.pages.blocks.create(pageId, body);
 };
 
-export default { tool, handler };
+export default { metadata, tool, handler };
