@@ -11,7 +11,7 @@ export { tools, handlers } from './tools';
 export const server = new McpServer(
   {
     name: 'fingertip_api',
-    version: '0.16.0',
+    version: '0.17.0',
   },
   {
     capabilities: {
