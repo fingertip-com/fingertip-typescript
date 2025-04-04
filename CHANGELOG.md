@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.18.0 (2025-04-04)
+
+Full Changelog: [v0.17.0...v0.18.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.17.0...v0.18.0)
+
+### Features
+
+* **mcp:** support end-user filtering of tools, resources, and tags ([#109](https://github.com/fingertip-com/fingertip-typescript/issues/109)) ([d2e8576](https://github.com/fingertip-com/fingertip-typescript/commit/d2e8576e5e23463d478f9f688d39e0508e72fcdf))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#111](https://github.com/fingertip-com/fingertip-typescript/issues/111)) ([d2a5457](https://github.com/fingertip-com/fingertip-typescript/commit/d2a545720c05125c45f5f9ac5fd948e86f495fbb))
+
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#110](https://github.com/fingertip-com/fingertip-typescript/issues/110)) ([f6588a5](https://github.com/fingertip-com/fingertip-typescript/commit/f6588a53ea06c7891904eb63184f87615c666891))
+* **internal:** codegen related update ([#107](https://github.com/fingertip-com/fingertip-typescript/issues/107)) ([1f672c5](https://github.com/fingertip-com/fingertip-typescript/commit/1f672c52ef80e8f1862049197b2114beae373f6e))
+
 ## 0.17.0 (2025-04-03)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.16.0...v0.17.0)
