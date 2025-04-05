@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.18.2 (2025-04-05)
+
+Full Changelog: [v0.18.1...v0.18.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.1...v0.18.2)
+
+### Documentation
+
+* **mcp:** update env vars in README ([#119](https://github.com/fingertip-com/fingertip-typescript/issues/119)) ([5ed3c7d](https://github.com/fingertip-com/fingertip-typescript/commit/5ed3c7d57fd5f13c50cbb278c961f9e1731aba24))
+
 ## 0.18.1 (2025-04-05)
 
 Full Changelog: [v0.18.0...v0.18.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.0...v0.18.1)
