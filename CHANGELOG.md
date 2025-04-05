@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.18.1 (2025-04-05)
+
+Full Changelog: [v0.18.0...v0.18.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.0...v0.18.1)
+
+### Bug Fixes
+
+* **mcp:** remove debug logging ([#117](https://github.com/fingertip-com/fingertip-typescript/issues/117)) ([a99361c](https://github.com/fingertip-com/fingertip-typescript/commit/a99361ca41881f6952b9dd2387f26df0c694d3ab))
+
+
+### Chores
+
+* **internal:** improve index signature formatting ([#116](https://github.com/fingertip-com/fingertip-typescript/issues/116)) ([2298da6](https://github.com/fingertip-com/fingertip-typescript/commit/2298da61ff18c65ff1fae13d663940218c30d671))
+
+
+### Documentation
+
+* **mcp:** improve MCP readme docs ([#114](https://github.com/fingertip-com/fingertip-typescript/issues/114)) ([4c7e302](https://github.com/fingertip-com/fingertip-typescript/commit/4c7e30259df0eb329f7f18c166e1a4678f1861a2))
+
 ## 0.18.0 (2025-04-04)
 
 Full Changelog: [v0.17.0...v0.18.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.17.0...v0.18.0)
