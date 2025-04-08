@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.18.2 (2025-04-08)
+
+Full Changelog: [v0.18.1...v0.18.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.1...v0.18.2)
+
+### Bug Fixes
+
+* **client:** send all configured auth headers ([#121](https://github.com/fingertip-com/fingertip-typescript/issues/121)) ([7ad5dd4](https://github.com/fingertip-com/fingertip-typescript/commit/7ad5dd4c9e9662b3acb4d7c150071c0b7435e98b))
+
+
+### Documentation
+
+* **mcp:** update env vars in README ([#119](https://github.com/fingertip-com/fingertip-typescript/issues/119)) ([5ed3c7d](https://github.com/fingertip-com/fingertip-typescript/commit/5ed3c7d57fd5f13c50cbb278c961f9e1731aba24))
+
 ## 0.18.1 (2025-04-05)
 
 Full Changelog: [v0.18.0...v0.18.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.0...v0.18.1)
