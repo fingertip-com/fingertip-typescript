@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.18.3 (2025-04-11)
+
+Full Changelog: [v0.18.2...v0.18.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.2...v0.18.3)
+
+### Bug Fixes
+
+* **internal:** fix file uploads in node 18 jest ([77d0954](https://github.com/fingertip-com/fingertip-typescript/commit/77d095430cf0188bca2a6d9a36906578a1b3b713))
+* **mcp:** fix readEnv type error ([7ac1534](https://github.com/fingertip-com/fingertip-typescript/commit/7ac153446dbcae1930cc5d6e81689aff49823fde))
+* **mcp:** include all necessary env vars in client instantiation ([3066b2b](https://github.com/fingertip-com/fingertip-typescript/commit/3066b2b10549b683664d3ce6ff68cb2b66a95481))
+
+
+### Chores
+
+* **internal:** improve node 18 shims ([3c6f4b8](https://github.com/fingertip-com/fingertip-typescript/commit/3c6f4b898d3b61e814585f33386633cb69508fc4))
+* **internal:** reduce CI branch coverage ([e765fe9](https://github.com/fingertip-com/fingertip-typescript/commit/e765fe95a57b7e6b4bd4bad22327f558827dc5e8))
+* **internal:** upload builds and expand CI branch coverage ([c0f1429](https://github.com/fingertip-com/fingertip-typescript/commit/c0f1429711c351f66b5396b9716381d00aa367eb))
+
 ## 0.18.2 (2025-04-08)
 
 Full Changelog: [v0.18.1...v0.18.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.1...v0.18.2)
