@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.18.4 (2025-04-15)
+
+Full Changelog: [v0.18.3...v0.18.4](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.3...v0.18.4)
+
+### Chores
+
+* **client:** minor internal fixes ([c4cf37a](https://github.com/fingertip-com/fingertip-typescript/commit/c4cf37a2b53a1b075a4bd974efb79efc41bedd6e))
+
 ## 0.18.3 (2025-04-11)
 
 Full Changelog: [v0.18.2...v0.18.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.2...v0.18.3)
