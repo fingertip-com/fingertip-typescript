@@ -5,6 +5,7 @@ export {
   type V1GetFormResponsesSampleResponse,
   type V1ListBookingsResponse,
   type V1PingResponse,
+  type V1RetrieveSampleBookingsResponse,
   type V1GetFormResponsesSampleParams,
   type V1ListBookingsParams,
   type V1ListBookingsResponsesMyCursorPage,
