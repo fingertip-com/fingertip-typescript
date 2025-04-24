@@ -127,6 +127,13 @@ export class V1 extends APIResource {
   ping(options?: RequestOptions): APIPromise<V1PingResponse> {
     return this._client.get('/v1/ping', options);
   }
+
+  /**
+   * Retrieves a sample of bookings with basic information
+   */
+  retrieveSampleBookings(options?: RequestOptions): APIPromise<unknown> {
+    return this._client.get('/v1/bookings/sample', options);
+  }
 }
 
 export type V1ListBookingsResponsesMyCursorPage = MyCursorPage<V1ListBookingsResponse>;
@@ -336,6 +343,11 @@ export interface V1PingResponse {
   message: string;
 }
 
+/**
+ * Array of simplified bookings with basic information
+ */
+export type V1RetrieveSampleBookingsResponse = unknown;
+
 export interface V1GetFormResponsesSampleParams {
   /**
    * Slug of the form template to retrieve responses for
@@ -389,6 +401,7 @@ export declare namespace V1 {
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
     type V1PingResponse as V1PingResponse,
+    type V1RetrieveSampleBookingsResponse as V1RetrieveSampleBookingsResponse,
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,

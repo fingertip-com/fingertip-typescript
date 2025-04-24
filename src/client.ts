@@ -34,6 +34,7 @@ import {
   V1ListBookingsResponse,
   V1ListBookingsResponsesMyCursorPage,
   V1PingResponse,
+  V1RetrieveSampleBookingsResponse,
 } from './resources/v1/v1';
 
 export interface ClientOptions {
@@ -702,6 +703,7 @@ export declare namespace Fingertip {
     type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
     type V1ListBookingsResponse as V1ListBookingsResponse,
     type V1PingResponse as V1PingResponse,
+    type V1RetrieveSampleBookingsResponse as V1RetrieveSampleBookingsResponse,
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
