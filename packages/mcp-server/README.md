@@ -96,6 +96,7 @@ The following tools are available in this MCP server.
 - `get_form_responses_sample_v1` (`read`): Retrieves a sample of form responses for a specific form template.
 - `list_bookings_v1` (`read`): Retrieves a paginated list of bookings for a site with optional status filtering
 - `ping_v1` (`read`): Simple health check endpoint to verify the API is running. Requires authentication.
+- `retrieve_sample_bookings_v1` (`read`): Retrieves a sample of bookings with basic information
 
 ### Resource `v1.pages`:
 

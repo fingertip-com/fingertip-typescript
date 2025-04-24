@@ -6,6 +6,7 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import get_form_responses_sample_v1 from './v1/get-form-responses-sample-v1';
 import list_bookings_v1 from './v1/list-bookings-v1';
 import ping_v1 from './v1/ping-v1';
+import retrieve_sample_bookings_v1 from './v1/retrieve-sample-bookings-v1';
 import retrieve_v1_pages from './v1/pages/retrieve-v1-pages';
 import update_v1_pages from './v1/pages/update-v1-pages';
 import delete_v1_pages from './v1/pages/delete-v1-pages';
@@ -72,6 +73,7 @@ function addEndpoint(endpoint: Endpoint) {
 addEndpoint(get_form_responses_sample_v1);
 addEndpoint(list_bookings_v1);
 addEndpoint(ping_v1);
+addEndpoint(retrieve_sample_bookings_v1);
 addEndpoint(retrieve_v1_pages);
 addEndpoint(update_v1_pages);
 addEndpoint(delete_v1_pages);
