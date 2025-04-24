@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.20.0 (2025-04-24)
+
+Full Changelog: [v0.19.0...v0.20.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.19.0...v0.20.0)
+
+### Features
+
+* **api:** api update ([bc47c66](https://github.com/fingertip-com/fingertip-typescript/commit/bc47c66492ad1e1b0056408d3278ee8e4589b8fd))
+
 ## 0.19.0 (2025-04-24)
 
 Full Changelog: [v0.18.3...v0.19.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.3...v0.19.0)
