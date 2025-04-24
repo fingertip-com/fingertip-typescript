@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.19.0 (2025-04-24)
+
+Full Changelog: [v0.18.3...v0.19.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.3...v0.19.0)
+
+### Features
+
+* **api:** api update ([8c1179f](https://github.com/fingertip-com/fingertip-typescript/commit/8c1179fef6ba1301d40ed445a0c594e62b1a1ca6))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([a543988](https://github.com/fingertip-com/fingertip-typescript/commit/a54398879371db96eb8c159673764d4e78a9bf58))
+* **client:** minor internal fixes ([c4cf37a](https://github.com/fingertip-com/fingertip-typescript/commit/c4cf37a2b53a1b075a4bd974efb79efc41bedd6e))
+* **perf:** faster base64 decoding ([6abf81d](https://github.com/fingertip-com/fingertip-typescript/commit/6abf81d4bf25f7db03a469d4ceb4b2a88eff4c34))
+
 ## 0.18.3 (2025-04-11)
 
 Full Changelog: [v0.18.2...v0.18.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.18.2...v0.18.3)
