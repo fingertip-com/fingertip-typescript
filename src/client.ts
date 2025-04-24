@@ -23,6 +23,7 @@ import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import { OrderRetrieveSampleResponse, Orders } from './resources/orders';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -690,8 +691,10 @@ export class Fingertip {
   static toFile = Uploads.toFile;
 
   v1: API.V1 = new API.V1(this);
+  orders: API.Orders = new API.Orders(this);
 }
 Fingertip.V1 = V1;
+Fingertip.Orders = Orders;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -708,4 +711,6 @@ export declare namespace Fingertip {
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
   };
+
+  export { Orders as Orders, type OrderRetrieveSampleResponse as OrderRetrieveSampleResponse };
 }

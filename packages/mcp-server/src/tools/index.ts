@@ -49,6 +49,7 @@ import delete_v1_invitations from './v1/invitations/delete-v1-invitations';
 import retrieve_v1_workspace_memberships from './v1/workspace-memberships/retrieve-v1-workspace-memberships';
 import update_v1_workspace_memberships from './v1/workspace-memberships/update-v1-workspace-memberships';
 import delete_v1_workspace_memberships from './v1/workspace-memberships/delete-v1-workspace-memberships';
+import retrieve_sample_orders from './orders/retrieve-sample-orders';
 
 export type HandlerFunction = (client: Fingertip, args: any) => Promise<any>;
 
@@ -116,6 +117,7 @@ addEndpoint(delete_v1_invitations);
 addEndpoint(retrieve_v1_workspace_memberships);
 addEndpoint(update_v1_workspace_memberships);
 addEndpoint(delete_v1_workspace_memberships);
+addEndpoint(retrieve_sample_orders);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';
