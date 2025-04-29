@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.21.0 (2025-04-29)
+
+Full Changelog: [v0.20.0...v0.21.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.20.0...v0.21.0)
+
+### Features
+
+* **api:** api update ([2c0be10](https://github.com/fingertip-com/fingertip-typescript/commit/2c0be1093df53af06ee1679945b3a5ecb7a92bc6))
+
+
+### Chores
+
+* **ci:** only use depot for staging repos ([21d6024](https://github.com/fingertip-com/fingertip-typescript/commit/21d602425c0b24f1a51922211d2eddc5d1626bbf))
+* **internal:** codegen related update ([df77e3b](https://github.com/fingertip-com/fingertip-typescript/commit/df77e3b392d371c0ddd33ed0d08deb574fd9f9f1))
+* **internal:** refactor utils ([0b0caae](https://github.com/fingertip-com/fingertip-typescript/commit/0b0caae71f6c2d08989c0a4d243ee45162fd5117))
+
 ## 0.20.0 (2025-04-24)
 
 Full Changelog: [v0.19.0...v0.20.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.19.0...v0.20.0)
