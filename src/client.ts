@@ -40,7 +40,7 @@ import {
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['FINGERTIP_API_KEY'].
+   * Fingertip API authentication using Bearer token
    */
   apiKey?: string | undefined;
 
