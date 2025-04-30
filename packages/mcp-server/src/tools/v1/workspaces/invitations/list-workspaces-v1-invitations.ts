@@ -31,8 +31,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { workspaceId, ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { workspaceId, ...body } = args as any;
   return client.v1.workspaces.invitations.list(workspaceId, body);
 };
 

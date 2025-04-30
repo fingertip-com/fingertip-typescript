@@ -68,8 +68,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { siteId, ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { siteId, ...body } = args as any;
   return client.v1.sites.update(siteId, body);
 };
 
