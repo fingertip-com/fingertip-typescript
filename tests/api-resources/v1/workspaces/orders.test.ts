@@ -9,8 +9,8 @@ const client = new Fingertip({
 
 describe('resource orders', () => {
   // skipped: tests are disabled for the time being
-  test.skip('retrieveSample', async () => {
-    const responsePromise = client.orders.retrieveSample();
+  test.skip('sample', async () => {
+    const responsePromise = client.v1.workspaces.orders.sample();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

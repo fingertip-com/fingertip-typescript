@@ -37,6 +37,7 @@ import create_workspaces_v1_invitations from './v1/workspaces/invitations/create
 import list_workspaces_v1_invitations from './v1/workspaces/invitations/list-workspaces-v1-invitations';
 import create_workspaces_v1_memberships from './v1/workspaces/memberships/create-workspaces-v1-memberships';
 import list_workspaces_v1_memberships from './v1/workspaces/memberships/list-workspaces-v1-memberships';
+import sample_workspaces_v1_orders from './v1/workspaces/orders/sample-workspaces-v1-orders';
 import create_v1_zapier_subscriptions from './v1/zapier-subscriptions/create-v1-zapier-subscriptions';
 import delete_v1_zapier_subscriptions from './v1/zapier-subscriptions/delete-v1-zapier-subscriptions';
 import retrieve_v1_site_invitations from './v1/site-invitations/retrieve-v1-site-invitations';
@@ -49,7 +50,6 @@ import delete_v1_invitations from './v1/invitations/delete-v1-invitations';
 import retrieve_v1_workspace_memberships from './v1/workspace-memberships/retrieve-v1-workspace-memberships';
 import update_v1_workspace_memberships from './v1/workspace-memberships/update-v1-workspace-memberships';
 import delete_v1_workspace_memberships from './v1/workspace-memberships/delete-v1-workspace-memberships';
-import retrieve_sample_orders from './orders/retrieve-sample-orders';
 
 export type HandlerFunction = (client: Fingertip, args: any) => Promise<any>;
 
@@ -105,6 +105,7 @@ addEndpoint(create_workspaces_v1_invitations);
 addEndpoint(list_workspaces_v1_invitations);
 addEndpoint(create_workspaces_v1_memberships);
 addEndpoint(list_workspaces_v1_memberships);
+addEndpoint(sample_workspaces_v1_orders);
 addEndpoint(create_v1_zapier_subscriptions);
 addEndpoint(delete_v1_zapier_subscriptions);
 addEndpoint(retrieve_v1_site_invitations);
@@ -117,7 +118,6 @@ addEndpoint(delete_v1_invitations);
 addEndpoint(retrieve_v1_workspace_memberships);
 addEndpoint(update_v1_workspace_memberships);
 addEndpoint(delete_v1_workspace_memberships);
-addEndpoint(retrieve_sample_orders);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

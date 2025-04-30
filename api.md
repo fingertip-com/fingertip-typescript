@@ -170,6 +170,16 @@ Methods:
 - <code title="post /v1/workspaces/{workspaceId}/memberships">client.v1.workspaces.memberships.<a href="./src/resources/v1/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
 - <code title="get /v1/workspaces/{workspaceId}/memberships">client.v1.workspaces.memberships.<a href="./src/resources/v1/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
 
+### Orders
+
+Types:
+
+- <code><a href="./src/resources/v1/workspaces/orders.ts">OrderSampleResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/orders/sample">client.v1.workspaces.orders.<a href="./src/resources/v1/workspaces/orders.ts">sample</a>() -> unknown</code>
+
 ## ZapierSubscriptions
 
 Types:
@@ -233,13 +243,3 @@ Methods:
 - <code title="get /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">retrieve</a>(membershipID) -> WorkspaceMembershipRetrieveResponse</code>
 - <code title="patch /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">update</a>(membershipID, { ...params }) -> WorkspaceMembershipUpdateResponse</code>
 - <code title="delete /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>
-
-# Orders
-
-Types:
-
-- <code><a href="./src/resources/orders.ts">OrderRetrieveSampleResponse</a></code>
-
-Methods:
-
-- <code title="get /v1/orders/sample">client.orders.<a href="./src/resources/orders.ts">retrieveSample</a>() -> unknown</code>

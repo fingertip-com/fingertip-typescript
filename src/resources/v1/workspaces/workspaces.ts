@@ -19,6 +19,8 @@ import {
   MembershipListResponsesMyCursorPage,
   Memberships,
 } from './memberships';
+import * as OrdersAPI from './orders';
+import { OrderSampleResponse, Orders } from './orders';
 import { APIPromise } from '../../../core/api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -27,6 +29,7 @@ import { path } from '../../../internal/utils/path';
 export class Workspaces extends APIResource {
   invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
   memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
+  orders: OrdersAPI.Orders = new OrdersAPI.Orders(this._client);
 
   /**
    * Retrieves a specific workspace and its related data by workspace ID
@@ -458,6 +461,7 @@ export interface WorkspaceListParams extends MyCursorPageParams {
 
 Workspaces.Invitations = Invitations;
 Workspaces.Memberships = Memberships;
+Workspaces.Orders = Orders;
 
 export declare namespace Workspaces {
   export {
@@ -486,4 +490,6 @@ export declare namespace Workspaces {
     type MembershipCreateParams as MembershipCreateParams,
     type MembershipListParams as MembershipListParams,
   };
+
+  export { Orders as Orders, type OrderSampleResponse as OrderSampleResponse };
 }
