@@ -38,8 +38,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.v1.workspaces.list(body);
 };
 

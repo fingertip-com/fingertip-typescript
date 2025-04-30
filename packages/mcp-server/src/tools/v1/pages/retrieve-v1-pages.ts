@@ -23,8 +23,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { pageId } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { pageId, ...body } = args as any;
   return client.v1.pages.retrieve(pageId);
 };
 

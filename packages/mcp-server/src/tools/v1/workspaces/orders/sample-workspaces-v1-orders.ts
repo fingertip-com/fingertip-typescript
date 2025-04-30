@@ -19,8 +19,7 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const {} = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
   return client.v1.workspaces.orders.sample();
 };
 

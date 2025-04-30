@@ -23,8 +23,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { blockId } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { blockId, ...body } = args as any;
   return client.v1.blocks.delete(blockId);
 };
 
