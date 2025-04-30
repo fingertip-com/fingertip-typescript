@@ -23,8 +23,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { invitationId } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { invitationId, ...body } = args as any;
   return client.v1.siteInvitations.retrieve(invitationId);
 };
 

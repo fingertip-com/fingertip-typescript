@@ -28,8 +28,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { membershipId, ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { membershipId, ...body } = args as any;
   return client.v1.workspaceMemberships.update(membershipId, body);
 };
 

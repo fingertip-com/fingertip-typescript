@@ -44,8 +44,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { blockId, ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { blockId, ...body } = args as any;
   return client.v1.blocks.update(blockId, body);
 };
 

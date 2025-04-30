@@ -55,8 +55,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: any) => {
-  const { pageId, ...body } = args;
+export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+  const { pageId, ...body } = args as any;
   return client.v1.pages.update(pageId, body);
 };
 
