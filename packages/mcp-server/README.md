@@ -164,6 +164,10 @@ The following tools are available in this MCP server.
 - `create_workspaces_v1_memberships` (`write`): Adds a user to a workspace
 - `list_workspaces_v1_memberships` (`read`): Retrieves a paginated list of members for a specific workspace
 
+### Resource `v1.workspaces.orders`:
+
+- `sample_workspaces_v1_orders` (`read`): Retrieves a sample of orders with basic information
+
 ### Resource `v1.zapier_subscriptions`:
 
 - `create_v1_zapier_subscriptions` (`write`): Creates a new webhook subscription for receiving Zapier notifications
@@ -190,7 +194,3 @@ The following tools are available in this MCP server.
 - `retrieve_v1_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
 - `update_v1_workspace_memberships` (`write`): Updates the role of an existing workspace membership
 - `delete_v1_workspace_memberships` (`write`): Removes a user from a workspace
-
-### Resource `orders`:
-
-- `retrieve_sample_orders` (`read`): Retrieves a sample of orders with basic information
