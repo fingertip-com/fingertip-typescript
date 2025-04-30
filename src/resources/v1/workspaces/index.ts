@@ -16,6 +16,7 @@ export {
   type MembershipListParams,
   type MembershipListResponsesMyCursorPage,
 } from './memberships';
+export { Orders, type OrderSampleResponse } from './orders';
 export {
   Workspaces,
   type WorkspaceRetrieveResponse,
