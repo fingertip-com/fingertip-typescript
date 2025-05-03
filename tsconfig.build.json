@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "fingertip/*": ["dist/src/*"],
-      "fingertip": ["dist/src/index.ts"],
+      "fingertip": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
