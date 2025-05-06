@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.23.0 (2025-05-06)
+
+Full Changelog: [v0.22.0...v0.23.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.22.0...v0.23.0)
+
+### Features
+
+* more gracefully handle $refs and work around schema limitations ([17704b3](https://github.com/fingertip-com/fingertip-typescript/commit/17704b3e415bad7254233dd9026e2e2e67b059eb))
+
+
+### Bug Fixes
+
+* **mcp:** remove ajv dependency so MCP servers are more compatible with Cloudflare Workers ([db76cb8](https://github.com/fingertip-com/fingertip-typescript/commit/db76cb84be3022edf1a87dad87f7efd29b924a08))
+
+
+### Chores
+
+* **internal:** codegen related update ([3f52963](https://github.com/fingertip-com/fingertip-typescript/commit/3f5296367058a373df7ca03e00e1bdeaab87b025))
+* **internal:** share typescript helpers ([3ec7f63](https://github.com/fingertip-com/fingertip-typescript/commit/3ec7f635c28cedf3286254f64341d361f66b1ba7))
+
+
+### Documentation
+
+* **readme:** fix typo ([fbc7c3a](https://github.com/fingertip-com/fingertip-typescript/commit/fbc7c3aa91d89e06918a51d6513d60ab3300171c))
+
 ## 0.22.0 (2025-04-30)
 
 Full Changelog: [v0.21.0...v0.22.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.21.0...v0.22.0)
