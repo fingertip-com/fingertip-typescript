@@ -26,7 +26,6 @@ import { FinalRequestOptions, RequestOptions } from './internal/request-options'
 import {
   WebhookCreateParams,
   WebhookCreateResponse,
-  WebhookDeleteParams,
   WebhookDeleteResponse,
   WebhookListParams,
   WebhookListResponse,
@@ -729,6 +728,5 @@ export declare namespace Fingertip {
     type WebhookListResponsesMyCursorPage as WebhookListResponsesMyCursorPage,
     type WebhookCreateParams as WebhookCreateParams,
     type WebhookListParams as WebhookListParams,
-    type WebhookDeleteParams as WebhookDeleteParams,
   };
 }
