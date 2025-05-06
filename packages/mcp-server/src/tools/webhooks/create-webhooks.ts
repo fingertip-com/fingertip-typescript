@@ -16,17 +16,27 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      targetUrl: {
+      endpointUrl: {
         type: 'string',
         description: 'URL that will receive webhook notifications',
       },
-      triggerKey: {
-        type: 'string',
-        description: 'Key that identifies the type of trigger for this subscription',
-      },
-      formTemplateSlug: {
-        type: 'string',
-        description: 'Slug of the form template to subscribe to, can be null or undefined',
+      triggers: {
+        type: 'array',
+        description: 'Triggers for this subscription',
+        items: {
+          type: 'object',
+          properties: {
+            eventType: {
+              type: 'string',
+              description: 'Type of trigger',
+            },
+            inputData: {
+              type: 'object',
+              description: 'Data for the trigger',
+            },
+          },
+          required: ['eventType'],
+        },
       },
     },
   },

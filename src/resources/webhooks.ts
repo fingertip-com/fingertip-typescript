@@ -126,17 +126,26 @@ export interface WebhookCreateParams {
   /**
    * URL that will receive webhook notifications
    */
-  targetUrl: string;
+  endpointUrl: string;
 
   /**
-   * Key that identifies the type of trigger for this subscription
+   * Triggers for this subscription
    */
-  triggerKey: string;
+  triggers: Array<WebhookCreateParams.Trigger>;
+}
 
-  /**
-   * Slug of the form template to subscribe to, can be null or undefined
-   */
-  formTemplateSlug?: string | null;
+export namespace WebhookCreateParams {
+  export interface Trigger {
+    /**
+     * Type of trigger
+     */
+    eventType: string;
+
+    /**
+     * Data for the trigger
+     */
+    inputData?: unknown;
+  }
 }
 
 export interface WebhookListParams extends MyCursorPageParams {
