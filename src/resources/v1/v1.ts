@@ -41,13 +41,7 @@ import {
   WorkspaceMemberships,
 } from './workspace-memberships';
 import * as ZapierSubscriptionsAPI from './zapier-subscriptions';
-import {
-  ZapierSubscriptionCreateParams,
-  ZapierSubscriptionCreateResponse,
-  ZapierSubscriptionDeleteParams,
-  ZapierSubscriptionDeleteResponse,
-  ZapierSubscriptions,
-} from './zapier-subscriptions';
+import { ZapierSubscriptions } from './zapier-subscriptions';
 import * as PagesAPI from './pages/pages';
 import {
   PageDeleteResponse,
@@ -453,13 +447,7 @@ export declare namespace V1 {
     type WorkspaceListParams as WorkspaceListParams,
   };
 
-  export {
-    ZapierSubscriptions as ZapierSubscriptions,
-    type ZapierSubscriptionCreateResponse as ZapierSubscriptionCreateResponse,
-    type ZapierSubscriptionDeleteResponse as ZapierSubscriptionDeleteResponse,
-    type ZapierSubscriptionCreateParams as ZapierSubscriptionCreateParams,
-    type ZapierSubscriptionDeleteParams as ZapierSubscriptionDeleteParams,
-  };
+  export { ZapierSubscriptions as ZapierSubscriptions };
 
   export {
     SiteInvitations as SiteInvitations,
