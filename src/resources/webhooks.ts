@@ -4,6 +4,7 @@ import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Webhooks extends APIResource {
   /**
@@ -26,8 +27,8 @@ export class Webhooks extends APIResource {
   /**
    * Removes an existing webhook subscription
    */
-  delete(body: WebhookDeleteParams, options?: RequestOptions): APIPromise<WebhookDeleteResponse> {
-    return this._client.delete('/v1/webhooks', { body, ...options });
+  delete(webhookID: string, options?: RequestOptions): APIPromise<WebhookDeleteResponse> {
+    return this._client.delete(path`/v1/webhooks/${webhookID}`, options);
   }
 }
 
@@ -165,13 +166,6 @@ export interface WebhookListParams extends MyCursorPageParams {
   sortDirection?: 'asc' | 'desc';
 }
 
-export interface WebhookDeleteParams {
-  /**
-   * ID of the subscription to delete
-   */
-  subscriptionId: string;
-}
-
 export declare namespace Webhooks {
   export {
     type WebhookCreateResponse as WebhookCreateResponse,
@@ -180,6 +174,5 @@ export declare namespace Webhooks {
     type WebhookListResponsesMyCursorPage as WebhookListResponsesMyCursorPage,
     type WebhookCreateParams as WebhookCreateParams,
     type WebhookListParams as WebhookListParams,
-    type WebhookDeleteParams as WebhookDeleteParams,
   };
 }

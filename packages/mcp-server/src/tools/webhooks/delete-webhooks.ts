@@ -16,17 +16,16 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      subscriptionId: {
+      webhookId: {
         type: 'string',
-        description: 'ID of the subscription to delete',
       },
     },
   },
 };
 
 export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const body = args as any;
-  return client.webhooks.delete(body);
+  const { webhookId, ...body } = args as any;
+  return client.webhooks.delete(webhookId);
 };
 
 export default { metadata, tool, handler };
