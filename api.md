@@ -239,11 +239,15 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/webhooks.ts">WebhookCreateResponse</a></code>
+- <code><a href="./src/resources/webhooks.ts">WebhookRetrieveResponse</a></code>
+- <code><a href="./src/resources/webhooks.ts">WebhookUpdateResponse</a></code>
 - <code><a href="./src/resources/webhooks.ts">WebhookListResponse</a></code>
 - <code><a href="./src/resources/webhooks.ts">WebhookDeleteResponse</a></code>
 
 Methods:
 
 - <code title="post /v1/webhooks">client.webhooks.<a href="./src/resources/webhooks.ts">create</a>({ ...params }) -> WebhookCreateResponse</code>
+- <code title="get /v1/webhooks/{webhookId}">client.webhooks.<a href="./src/resources/webhooks.ts">retrieve</a>(webhookID) -> WebhookRetrieveResponse</code>
+- <code title="patch /v1/webhooks/{webhookId}">client.webhooks.<a href="./src/resources/webhooks.ts">update</a>(webhookID, { ...params }) -> WebhookUpdateResponse</code>
 - <code title="get /v1/webhooks">client.webhooks.<a href="./src/resources/webhooks.ts">list</a>({ ...params }) -> WebhookListResponsesMyCursorPage</code>
 - <code title="delete /v1/webhooks/{webhookId}">client.webhooks.<a href="./src/resources/webhooks.ts">delete</a>(webhookID) -> WebhookDeleteResponse</code>
