@@ -63,6 +63,11 @@ export interface WebhookListResponse {
   endpointUrl: string;
 
   /**
+   * Signing secret for the webhook
+   */
+  secret: string;
+
+  /**
    * Array of triggers associated with this webhook
    */
   triggers: Array<WebhookListResponse.Trigger>;
