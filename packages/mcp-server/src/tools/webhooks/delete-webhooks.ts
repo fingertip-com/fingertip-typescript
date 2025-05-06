@@ -1,18 +1,18 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../../';
+import type { Metadata } from '../';
 import Fingertip from 'fingertip';
 
 export const metadata: Metadata = {
-  resource: 'v1.zapier_subscriptions',
+  resource: 'webhooks',
   operation: 'write',
   tags: [],
 };
 
 export const tool: Tool = {
-  name: 'delete_v1_zapier_subscriptions',
-  description: 'Removes an existing Zapier webhook subscription',
+  name: 'delete_webhooks',
+  description: 'Removes an existing webhook subscription',
   inputSchema: {
     type: 'object',
     properties: {
@@ -26,7 +26,7 @@ export const tool: Tool = {
 
 export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.v1.zapierSubscriptions.delete(body);
+  return client.webhooks.delete(body);
 };
 
 export default { metadata, tool, handler };

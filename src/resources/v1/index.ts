@@ -71,10 +71,4 @@ export {
   type WorkspaceListParams,
   type WorkspaceListResponsesMyCursorPage,
 } from './workspaces/index';
-export {
-  ZapierSubscriptions,
-  type ZapierSubscriptionCreateResponse,
-  type ZapierSubscriptionDeleteResponse,
-  type ZapierSubscriptionCreateParams,
-  type ZapierSubscriptionDeleteParams,
-} from './zapier-subscriptions';
+export { ZapierSubscriptions } from './zapier-subscriptions';

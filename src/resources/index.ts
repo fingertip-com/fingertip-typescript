@@ -10,3 +10,13 @@ export {
   type V1ListBookingsParams,
   type V1ListBookingsResponsesMyCursorPage,
 } from './v1/v1';
+export {
+  Webhooks,
+  type WebhookCreateResponse,
+  type WebhookListResponse,
+  type WebhookDeleteResponse,
+  type WebhookCreateParams,
+  type WebhookListParams,
+  type WebhookDeleteParams,
+  type WebhookListResponsesMyCursorPage,
+} from './webhooks';
