@@ -220,11 +220,6 @@ The following tools are available in this MCP server.
 
 - `sample_workspaces_v1_orders` (`read`): Retrieves a sample of orders with basic information
 
-### Resource `v1.zapier_subscriptions`:
-
-- `create_v1_zapier_subscriptions` (`write`): Creates a new webhook subscription for receiving Zapier notifications
-- `delete_v1_zapier_subscriptions` (`write`): Removes an existing Zapier webhook subscription
-
 ### Resource `v1.site_invitations`:
 
 - `retrieve_v1_site_invitations` (`read`): Retrieves details of a specific site invitation
@@ -246,3 +241,9 @@ The following tools are available in this MCP server.
 - `retrieve_v1_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
 - `update_v1_workspace_memberships` (`write`): Updates the role of an existing workspace membership
 - `delete_v1_workspace_memberships` (`write`): Removes a user from a workspace
+
+### Resource `webhooks`:
+
+- `create_webhooks` (`write`): Creates a new webhook subscription for receiving Webhook notifications
+- `list_webhooks` (`read`): Retrieves a paginated list of webhooks with optional filtering
+- `delete_webhooks` (`write`): Removes an existing webhook subscription

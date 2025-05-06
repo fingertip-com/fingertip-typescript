@@ -182,16 +182,6 @@ Methods:
 
 ## ZapierSubscriptions
 
-Types:
-
-- <code><a href="./src/resources/v1/zapier-subscriptions.ts">ZapierSubscriptionCreateResponse</a></code>
-- <code><a href="./src/resources/v1/zapier-subscriptions.ts">ZapierSubscriptionDeleteResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/zapier-subscriptions">client.v1.zapierSubscriptions.<a href="./src/resources/v1/zapier-subscriptions.ts">create</a>({ ...params }) -> ZapierSubscriptionCreateResponse</code>
-- <code title="delete /v1/zapier-subscriptions">client.v1.zapierSubscriptions.<a href="./src/resources/v1/zapier-subscriptions.ts">delete</a>({ ...params }) -> ZapierSubscriptionDeleteResponse</code>
-
 ## SiteInvitations
 
 Types:
@@ -243,3 +233,17 @@ Methods:
 - <code title="get /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">retrieve</a>(membershipID) -> WorkspaceMembershipRetrieveResponse</code>
 - <code title="patch /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">update</a>(membershipID, { ...params }) -> WorkspaceMembershipUpdateResponse</code>
 - <code title="delete /v1/workspace-memberships/{membershipId}">client.v1.workspaceMemberships.<a href="./src/resources/v1/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>
+
+# Webhooks
+
+Types:
+
+- <code><a href="./src/resources/webhooks.ts">WebhookCreateResponse</a></code>
+- <code><a href="./src/resources/webhooks.ts">WebhookListResponse</a></code>
+- <code><a href="./src/resources/webhooks.ts">WebhookDeleteResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/webhooks">client.webhooks.<a href="./src/resources/webhooks.ts">create</a>({ ...params }) -> WebhookCreateResponse</code>
+- <code title="get /v1/webhooks">client.webhooks.<a href="./src/resources/webhooks.ts">list</a>({ ...params }) -> WebhookListResponsesMyCursorPage</code>
+- <code title="delete /v1/webhooks">client.webhooks.<a href="./src/resources/webhooks.ts">delete</a>({ ...params }) -> WebhookDeleteResponse</code>

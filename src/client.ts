@@ -23,6 +23,16 @@ import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import {
+  WebhookCreateParams,
+  WebhookCreateResponse,
+  WebhookDeleteParams,
+  WebhookDeleteResponse,
+  WebhookListParams,
+  WebhookListResponse,
+  WebhookListResponsesMyCursorPage,
+  Webhooks,
+} from './resources/webhooks';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -690,8 +700,10 @@ export class Fingertip {
   static toFile = Uploads.toFile;
 
   v1: API.V1 = new API.V1(this);
+  webhooks: API.Webhooks = new API.Webhooks(this);
 }
 Fingertip.V1 = V1;
+Fingertip.Webhooks = Webhooks;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -707,5 +719,16 @@ export declare namespace Fingertip {
     type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
     type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
     type V1ListBookingsParams as V1ListBookingsParams,
+  };
+
+  export {
+    Webhooks as Webhooks,
+    type WebhookCreateResponse as WebhookCreateResponse,
+    type WebhookListResponse as WebhookListResponse,
+    type WebhookDeleteResponse as WebhookDeleteResponse,
+    type WebhookListResponsesMyCursorPage as WebhookListResponsesMyCursorPage,
+    type WebhookCreateParams as WebhookCreateParams,
+    type WebhookListParams as WebhookListParams,
+    type WebhookDeleteParams as WebhookDeleteParams,
   };
 }
