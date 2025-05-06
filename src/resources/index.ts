@@ -17,6 +17,5 @@ export {
   type WebhookDeleteResponse,
   type WebhookCreateParams,
   type WebhookListParams,
-  type WebhookDeleteParams,
   type WebhookListResponsesMyCursorPage,
 } from './webhooks';

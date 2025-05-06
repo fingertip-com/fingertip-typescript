@@ -55,8 +55,8 @@ describe('resource webhooks', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('delete: only required params', async () => {
-    const responsePromise = client.webhooks.delete({ subscriptionId: 'subscriptionId' });
+  test.skip('delete', async () => {
+    const responsePromise = client.webhooks.delete('webhookId');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -64,10 +64,5 @@ describe('resource webhooks', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('delete: required and optional params', async () => {
-    const response = await client.webhooks.delete({ subscriptionId: 'subscriptionId' });
   });
 });
