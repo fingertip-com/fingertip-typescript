@@ -32,6 +32,42 @@ describe('resource webhooks', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('retrieve', async () => {
+    const responsePromise = client.webhooks.retrieve('webhookId');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('update', async () => {
+    const responsePromise = client.webhooks.update('webhookId');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('update: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.webhooks.update(
+        'webhookId',
+        { endpointUrl: 'endpointUrl', triggers: [{ eventType: 'eventType', inputData: {} }] },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Fingertip.NotFoundError);
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('list', async () => {
     const responsePromise = client.webhooks.list();
     const rawResponse = await responsePromise.asResponse();

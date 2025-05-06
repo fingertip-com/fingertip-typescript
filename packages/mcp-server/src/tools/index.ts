@@ -49,6 +49,8 @@ import retrieve_v1_workspace_memberships from './v1/workspace-memberships/retrie
 import update_v1_workspace_memberships from './v1/workspace-memberships/update-v1-workspace-memberships';
 import delete_v1_workspace_memberships from './v1/workspace-memberships/delete-v1-workspace-memberships';
 import create_webhooks from './webhooks/create-webhooks';
+import retrieve_webhooks from './webhooks/retrieve-webhooks';
+import update_webhooks from './webhooks/update-webhooks';
 import list_webhooks from './webhooks/list-webhooks';
 import delete_webhooks from './webhooks/delete-webhooks';
 
@@ -118,6 +120,8 @@ addEndpoint(retrieve_v1_workspace_memberships);
 addEndpoint(update_v1_workspace_memberships);
 addEndpoint(delete_v1_workspace_memberships);
 addEndpoint(create_webhooks);
+addEndpoint(retrieve_webhooks);
+addEndpoint(update_webhooks);
 addEndpoint(list_webhooks);
 addEndpoint(delete_webhooks);
 

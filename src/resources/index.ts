@@ -13,9 +13,12 @@ export {
 export {
   Webhooks,
   type WebhookCreateResponse,
+  type WebhookRetrieveResponse,
+  type WebhookUpdateResponse,
   type WebhookListResponse,
   type WebhookDeleteResponse,
   type WebhookCreateParams,
+  type WebhookUpdateParams,
   type WebhookListParams,
   type WebhookListResponsesMyCursorPage,
 } from './webhooks';

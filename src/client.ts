@@ -30,6 +30,9 @@ import {
   WebhookListParams,
   WebhookListResponse,
   WebhookListResponsesMyCursorPage,
+  WebhookRetrieveResponse,
+  WebhookUpdateParams,
+  WebhookUpdateResponse,
   Webhooks,
 } from './resources/webhooks';
 import { readEnv } from './internal/utils/env';
@@ -723,10 +726,13 @@ export declare namespace Fingertip {
   export {
     Webhooks as Webhooks,
     type WebhookCreateResponse as WebhookCreateResponse,
+    type WebhookRetrieveResponse as WebhookRetrieveResponse,
+    type WebhookUpdateResponse as WebhookUpdateResponse,
     type WebhookListResponse as WebhookListResponse,
     type WebhookDeleteResponse as WebhookDeleteResponse,
     type WebhookListResponsesMyCursorPage as WebhookListResponsesMyCursorPage,
     type WebhookCreateParams as WebhookCreateParams,
+    type WebhookUpdateParams as WebhookUpdateParams,
     type WebhookListParams as WebhookListParams,
   };
 }
