@@ -245,5 +245,7 @@ The following tools are available in this MCP server.
 ### Resource `webhooks`:
 
 - `create_webhooks` (`write`): Creates a new webhook subscription for receiving Webhook notifications
+- `retrieve_webhooks` (`read`): Retrieves a specific webhook by ID with its related triggers
+- `update_webhooks` (`write`): Updates an existing webhook subscription
 - `list_webhooks` (`read`): Retrieves a paginated list of webhooks with optional filtering
 - `delete_webhooks` (`write`): Removes an existing webhook subscription
