@@ -11,8 +11,8 @@ describe('resource webhooks', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
     const responsePromise = client.webhooks.create({
-      endpointUrl: 'endpointUrl',
-      triggers: [{ eventType: 'eventType' }],
+      endpointUrl: 'https://example.com',
+      triggers: [{ eventType: 'site_contact.created' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,8 +26,8 @@ describe('resource webhooks', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
     const response = await client.webhooks.create({
-      endpointUrl: 'endpointUrl',
-      triggers: [{ eventType: 'eventType', inputData: {} }],
+      endpointUrl: 'https://example.com',
+      triggers: [{ eventType: 'site_contact.created', inputData: {} }],
     });
   });
 
@@ -61,7 +61,10 @@ describe('resource webhooks', () => {
     await expect(
       client.webhooks.update(
         'webhookId',
-        { endpointUrl: 'endpointUrl', triggers: [{ eventType: 'eventType', inputData: {} }] },
+        {
+          endpointUrl: 'https://example.com',
+          triggers: [{ eventType: 'site_contact.created', inputData: {} }],
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Fingertip.NotFoundError);
