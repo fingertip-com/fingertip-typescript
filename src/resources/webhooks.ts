@@ -117,7 +117,13 @@ export namespace WebhookRetrieveResponse {
     /**
      * Type of event that triggers this webhook
      */
-    eventType: string;
+    eventType:
+      | 'site_contact.created'
+      | 'form_response.created'
+      | 'booking.created'
+      | 'booking.cancelled'
+      | 'booking.rescheduled'
+      | 'order.created';
 
     /**
      * Date and time when the trigger was last updated
@@ -191,7 +197,13 @@ export namespace WebhookUpdateResponse {
     /**
      * Type of event that triggers this webhook
      */
-    eventType: string;
+    eventType:
+      | 'site_contact.created'
+      | 'form_response.created'
+      | 'booking.created'
+      | 'booking.cancelled'
+      | 'booking.rescheduled'
+      | 'order.created';
 
     /**
      * Date and time when the trigger was last updated
@@ -265,7 +277,13 @@ export namespace WebhookListResponse {
     /**
      * Type of event that triggers this webhook
      */
-    eventType: string;
+    eventType:
+      | 'site_contact.created'
+      | 'form_response.created'
+      | 'booking.created'
+      | 'booking.cancelled'
+      | 'booking.rescheduled'
+      | 'order.created';
 
     /**
      * Date and time when the trigger was last updated
@@ -303,19 +321,59 @@ export interface WebhookCreateParams {
   /**
    * Triggers for this subscription
    */
-  triggers: Array<WebhookCreateParams.Trigger>;
+  triggers: Array<
+    | WebhookCreateParams.SiteContactCreated
+    | WebhookCreateParams.FormResponseCreated
+    | WebhookCreateParams.BookingCreated
+    | WebhookCreateParams.BookingCancelled
+    | WebhookCreateParams.BookingRescheduled
+    | WebhookCreateParams.OrderCreated
+  >;
 }
 
 export namespace WebhookCreateParams {
-  export interface Trigger {
-    /**
-     * Type of trigger
-     */
-    eventType: string;
+  export interface SiteContactCreated {
+    eventType: 'site_contact.created';
 
-    /**
-     * Data for the trigger
-     */
+    inputData?: unknown;
+  }
+
+  export interface FormResponseCreated {
+    eventType: 'form_response.created';
+
+    inputData: FormResponseCreated.InputData;
+  }
+
+  export namespace FormResponseCreated {
+    export interface InputData {
+      /**
+       * The slug of the form template
+       */
+      formTemplateSlug: string;
+    }
+  }
+
+  export interface BookingCreated {
+    eventType: 'booking.created';
+
+    inputData?: unknown;
+  }
+
+  export interface BookingCancelled {
+    eventType: 'booking.cancelled';
+
+    inputData?: unknown;
+  }
+
+  export interface BookingRescheduled {
+    eventType: 'booking.rescheduled';
+
+    inputData?: unknown;
+  }
+
+  export interface OrderCreated {
+    eventType: 'order.created';
+
     inputData?: unknown;
   }
 }
@@ -329,19 +387,59 @@ export interface WebhookUpdateParams {
   /**
    * Triggers for this subscription
    */
-  triggers?: Array<WebhookUpdateParams.Trigger>;
+  triggers?: Array<
+    | WebhookUpdateParams.SiteContactCreated
+    | WebhookUpdateParams.FormResponseCreated
+    | WebhookUpdateParams.BookingCreated
+    | WebhookUpdateParams.BookingCancelled
+    | WebhookUpdateParams.BookingRescheduled
+    | WebhookUpdateParams.OrderCreated
+  >;
 }
 
 export namespace WebhookUpdateParams {
-  export interface Trigger {
-    /**
-     * Type of trigger
-     */
-    eventType: string;
+  export interface SiteContactCreated {
+    eventType: 'site_contact.created';
 
-    /**
-     * Data for the trigger
-     */
+    inputData?: unknown;
+  }
+
+  export interface FormResponseCreated {
+    eventType: 'form_response.created';
+
+    inputData: FormResponseCreated.InputData;
+  }
+
+  export namespace FormResponseCreated {
+    export interface InputData {
+      /**
+       * The slug of the form template
+       */
+      formTemplateSlug: string;
+    }
+  }
+
+  export interface BookingCreated {
+    eventType: 'booking.created';
+
+    inputData?: unknown;
+  }
+
+  export interface BookingCancelled {
+    eventType: 'booking.cancelled';
+
+    inputData?: unknown;
+  }
+
+  export interface BookingRescheduled {
+    eventType: 'booking.rescheduled';
+
+    inputData?: unknown;
+  }
+
+  export interface OrderCreated {
+    eventType: 'order.created';
+
     inputData?: unknown;
   }
 }
