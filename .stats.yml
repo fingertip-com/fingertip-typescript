@@ -1,4 +1,4 @@
 configured_endpoints: 50
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/fingertip%2Ffingertip-0bd882f1dd8e328e59d1a2645707c8df99712d2ffc0b9fd2f1f9f7adbd09f9d9.yml
-openapi_spec_hash: 9bc4ed17c9e457257d909617fbc81904
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/fingertip%2Ffingertip-bf159ff2f365791a8d5ca9237e298e7eb2ad884b71860f91c84e049c69635c76.yml
+openapi_spec_hash: 45e758a6eaff7334da228f7cc883fb53
 config_hash: adcf02da70deaef0eb61c8c1fb9e7dc6
