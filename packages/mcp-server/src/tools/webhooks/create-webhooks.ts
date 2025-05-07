@@ -24,18 +24,93 @@ export const tool: Tool = {
         type: 'array',
         description: 'Triggers for this subscription',
         items: {
-          type: 'object',
-          properties: {
-            eventType: {
-              type: 'string',
-              description: 'Type of trigger',
-            },
-            inputData: {
+          anyOf: [
+            {
               type: 'object',
-              description: 'Data for the trigger',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['site_contact.created'],
+                },
+                inputData: {
+                  type: 'object',
+                },
+              },
+              required: ['eventType'],
             },
-          },
-          required: ['eventType'],
+            {
+              type: 'object',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['form_response.created'],
+                },
+                inputData: {
+                  type: 'object',
+                  properties: {
+                    formTemplateSlug: {
+                      type: 'string',
+                      description: 'The slug of the form template',
+                    },
+                  },
+                  required: ['formTemplateSlug'],
+                },
+              },
+              required: ['eventType', 'inputData'],
+            },
+            {
+              type: 'object',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['booking.created'],
+                },
+                inputData: {
+                  type: 'object',
+                },
+              },
+              required: ['eventType'],
+            },
+            {
+              type: 'object',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['booking.cancelled'],
+                },
+                inputData: {
+                  type: 'object',
+                },
+              },
+              required: ['eventType'],
+            },
+            {
+              type: 'object',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['booking.rescheduled'],
+                },
+                inputData: {
+                  type: 'object',
+                },
+              },
+              required: ['eventType'],
+            },
+            {
+              type: 'object',
+              properties: {
+                eventType: {
+                  type: 'string',
+                  enum: ['order.created'],
+                },
+                inputData: {
+                  type: 'object',
+                },
+              },
+              required: ['eventType'],
+            },
+          ],
         },
       },
     },
