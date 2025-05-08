@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.29.0 (2025-05-08)
+
+Full Changelog: [v0.28.0...v0.29.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.28.0...v0.29.0)
+
+### Features
+
+* **client:** add withOptions helper ([95249d3](https://github.com/fingertip-com/fingertip-typescript/commit/95249d364b6eac234d8edcdad5a9fbb34eb1ac11))
+
+
+### Chores
+
+* **client:** drop support for EOL node versions ([9e7cddc](https://github.com/fingertip-com/fingertip-typescript/commit/9e7cddcae7448f9cf114a526941c32999b9105f3))
+
 ## 0.28.0 (2025-05-07)
 
 Full Changelog: [v0.27.0...v0.28.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.27.0...v0.28.0)
