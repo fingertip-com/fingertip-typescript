@@ -1,6 +1,6 @@
 {
   "name": "fingertip",
-  "version": "0.28.0",
+  "version": "0.29.0",
   "description": "The official TypeScript library for the Fingertip API",
   "author": "Fingertip <hello@fingertip.com>",
   "types": "dist/index.d.ts",
@@ -49,10 +49,6 @@
   "resolutions": {
     "synckit": "0.8.8"
   },
-  "browser": {
-    "./internal/shims/getBuiltinModule.mjs": "./internal/shims/nullGetBuiltinModule.mjs",
-    "./internal/shims/getBuiltinModule.js": "./internal/shims/nullGetBuiltinModule.js"
-  },
   "imports": {
     "fingertip": ".",
     "fingertip/*": "./src/*"
@@ -72,5 +68,8 @@
       "import": "./dist/*.mjs",
       "require": "./dist/*.js"
     }
+  },
+  "engines": {
+    "node": ">= 20"
   }
 }
