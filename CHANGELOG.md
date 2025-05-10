@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.30.0 (2025-05-10)
+
+Full Changelog: [v0.29.0...v0.30.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.29.0...v0.30.0)
+
+### Features
+
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([f888d40](https://github.com/fingertip-com/fingertip-typescript/commit/f888d40126e45680cc55b8b635a70909a24d6f64))
+
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([57b8ad0](https://github.com/fingertip-com/fingertip-typescript/commit/57b8ad01c05431c056b187e5b9622755e5757d72))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([c4f1f21](https://github.com/fingertip-com/fingertip-typescript/commit/c4f1f2181b22ab5ec9f1edf55d3a42e0dadd523b))
+
 ## 0.29.0 (2025-05-08)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.28.0...v0.29.0)
