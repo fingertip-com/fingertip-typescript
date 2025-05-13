@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.30.0 (2025-05-13)
+
+Full Changelog: [v0.29.0...v0.30.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.29.0...v0.30.0)
+
+### Features
+
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([f888d40](https://github.com/fingertip-com/fingertip-typescript/commit/f888d40126e45680cc55b8b635a70909a24d6f64))
+
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([57b8ad0](https://github.com/fingertip-com/fingertip-typescript/commit/57b8ad01c05431c056b187e5b9622755e5757d72))
+* **mcp:** explicitly include zod and zod-to-json-schema in package.json ([d9ef23c](https://github.com/fingertip-com/fingertip-typescript/commit/d9ef23c25613b2b0ee1740ed6d350924b8f6de9c))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([c4f1f21](https://github.com/fingertip-com/fingertip-typescript/commit/c4f1f2181b22ab5ec9f1edf55d3a42e0dadd523b))
+* **internal:** codegen related update ([50b5b4b](https://github.com/fingertip-com/fingertip-typescript/commit/50b5b4bf7c14e3a65703b1acdeb6092a14241832))
+* **tests:** use node 22 for CI tests ([88329c1](https://github.com/fingertip-com/fingertip-typescript/commit/88329c1ddfb24881d46ea7668637fca3bb6eab8d))
+
 ## 0.29.0 (2025-05-08)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.28.0...v0.29.0)
