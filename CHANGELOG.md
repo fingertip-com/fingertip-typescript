@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.31.0 (2025-05-14)
+
+Full Changelog: [v0.30.0...v0.31.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.30.0...v0.31.0)
+
+### Features
+
+* **api:** api update ([527808a](https://github.com/fingertip-com/fingertip-typescript/commit/527808aca55169e80fa4ccda755ee1ccb00688dd))
+
+
+### Chores
+
+* **package:** remove engines ([09166fe](https://github.com/fingertip-com/fingertip-typescript/commit/09166fe3cd059d4595c3426c1798bb2d2976fc4c))
+
 ## 0.30.0 (2025-05-13)
 
 Full Changelog: [v0.29.0...v0.30.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.29.0...v0.30.0)
