@@ -176,7 +176,7 @@ export namespace SiteCreateResponse {
     /**
      * Current status of the site
      */
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 
   export namespace Site {
@@ -340,7 +340,7 @@ export namespace SiteRetrieveResponse {
     /**
      * Current status of the site
      */
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 
   export namespace Site {
@@ -504,7 +504,7 @@ export namespace SiteUpdateResponse {
     /**
      * Current status of the site
      */
-    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 
   export namespace Site {
@@ -652,7 +652,7 @@ export interface SiteListResponse {
   /**
    * Current status of the site
    */
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
 }
 
 /**
@@ -714,7 +714,7 @@ export interface SiteCreateParams {
   /**
    * Current status of the site
    */
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
 
   /**
    * Time zone for the site, can be null
@@ -875,7 +875,7 @@ export interface SiteUpdateParams {
   /**
    * Current status of the site
    */
-  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO';
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
 
   /**
    * Time zone for the site, can be null
@@ -907,7 +907,7 @@ export interface SiteListParams extends MyCursorPageParams {
   /**
    * Filter sites by status
    */
-  statuses?: Array<'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO'>;
+  statuses?: Array<'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED'>;
 
   /**
    * Filter sites by workspace ID

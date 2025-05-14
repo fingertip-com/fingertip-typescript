@@ -54,7 +54,7 @@ export const tool: Tool = {
       status: {
         type: 'string',
         description: 'Current status of the site',
-        enum: ['EMPTY', 'UNPUBLISHED', 'PREVIEW', 'SOFT_CLAIM', 'ENABLED', 'DEMO'],
+        enum: ['EMPTY', 'UNPUBLISHED', 'PREVIEW', 'SOFT_CLAIM', 'ENABLED', 'DEMO', 'ARCHIVED'],
       },
       timeZone: {
         type: 'string',
