@@ -43,7 +43,7 @@ export const tool: Tool = {
         description: 'Filter sites by status',
         items: {
           type: 'string',
-          enum: ['EMPTY', 'UNPUBLISHED', 'PREVIEW', 'SOFT_CLAIM', 'ENABLED', 'DEMO'],
+          enum: ['EMPTY', 'UNPUBLISHED', 'PREVIEW', 'SOFT_CLAIM', 'ENABLED', 'DEMO', 'ARCHIVED'],
         },
       },
       workspaceId: {
