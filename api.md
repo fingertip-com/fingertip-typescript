@@ -130,7 +130,7 @@ Types:
 Methods:
 
 - <code title="post /v1/site-contacts">client.v1.siteContacts.<a href="./src/resources/v1/site-contacts.ts">create</a>({ ...params }) -> SiteContactCreateResponse</code>
-- <code title="get /v1/site-contacts/sample">client.v1.siteContacts.<a href="./src/resources/v1/site-contacts.ts">sample</a>() -> SiteContactSampleResponse</code>
+- <code title="get /v1/site-contacts/sample">client.v1.siteContacts.<a href="./src/resources/v1/site-contacts.ts">sample</a>() -> unknown</code>
 
 ## Workspaces
 
