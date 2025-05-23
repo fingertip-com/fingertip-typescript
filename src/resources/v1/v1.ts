@@ -97,7 +97,7 @@ export class V1 extends APIResource {
   getFormResponsesSample(
     query: V1GetFormResponsesSampleParams,
     options?: RequestOptions,
-  ): APIPromise<V1GetFormResponsesSampleResponse> {
+  ): APIPromise<unknown> {
     return this._client.get('/v1/form-responses/sample', { query, ...options });
   }
 
@@ -135,57 +135,7 @@ export type V1ListBookingsResponsesMyCursorPage = MyCursorPage<V1ListBookingsRes
 /**
  * Array of form responses matching the query
  */
-export type V1GetFormResponsesSampleResponse =
-  Array<V1GetFormResponsesSampleResponse.V1GetFormResponsesSampleResponseItem>;
-
-export namespace V1GetFormResponsesSampleResponse {
-  /**
-   * Complete form response schema with both standard and dynamic fields
-   */
-  export interface V1GetFormResponsesSampleResponseItem {
-    /**
-     * Timestamp when the form response was created
-     */
-    createdAt: string;
-
-    /**
-     * Unique identifier for the form response
-     */
-    formResponseId: string;
-
-    /**
-     * ID of the form template this response belongs to
-     */
-    formTemplateId: string;
-
-    /**
-     * URL-friendly slug of the form template
-     */
-    formTemplateSlug: string;
-
-    /**
-     * Title of the form template
-     */
-    formTemplateTitle: string;
-
-    /**
-     * ID of the site contact associated with this response
-     */
-    siteContactId: string;
-
-    /**
-     * ID of the site where the form was submitted
-     */
-    siteId: string;
-
-    /**
-     * Source of the form submission (e.g., website, app)
-     */
-    source: string;
-
-    [k: string]: unknown;
-  }
-}
+export type V1GetFormResponsesSampleResponse = unknown;
 
 export interface V1ListBookingsResponse {
   /**
