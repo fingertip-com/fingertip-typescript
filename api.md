@@ -9,7 +9,7 @@ Types:
 
 Methods:
 
-- <code title="get /v1/form-responses/sample">client.v1.<a href="./src/resources/v1/v1.ts">getFormResponsesSample</a>({ ...params }) -> V1GetFormResponsesSampleResponse</code>
+- <code title="get /v1/form-responses/sample">client.v1.<a href="./src/resources/v1/v1.ts">getFormResponsesSample</a>({ ...params }) -> unknown</code>
 - <code title="get /v1/bookings">client.v1.<a href="./src/resources/v1/v1.ts">listBookings</a>({ ...params }) -> V1ListBookingsResponsesMyCursorPage</code>
 - <code title="get /v1/ping">client.v1.<a href="./src/resources/v1/v1.ts">ping</a>() -> V1PingResponse</code>
 - <code title="get /v1/bookings/sample">client.v1.<a href="./src/resources/v1/v1.ts">retrieveSampleBookings</a>() -> unknown</code>
