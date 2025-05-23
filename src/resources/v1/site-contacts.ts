@@ -15,7 +15,7 @@ export class SiteContacts extends APIResource {
   /**
    * Retrieves a sample of site contacts with basic contact information
    */
-  sample(options?: RequestOptions): APIPromise<SiteContactSampleResponse> {
+  sample(options?: RequestOptions): APIPromise<unknown> {
     return this._client.get('/v1/site-contacts/sample', options);
   }
 }
@@ -140,39 +140,7 @@ export namespace SiteContactCreateResponse {
 /**
  * Array of simplified site contacts with basic information
  */
-export type SiteContactSampleResponse = Array<SiteContactSampleResponse.SiteContactSampleResponseItem>;
-
-export namespace SiteContactSampleResponse {
-  /**
-   * Schema for a site contact entity
-   */
-  export interface SiteContactSampleResponseItem {
-    /**
-     * Email address of the contact, can be null
-     */
-    email: string | null;
-
-    /**
-     * First name of the contact, can be null
-     */
-    firstName: string | null;
-
-    /**
-     * Last name of the contact, can be null
-     */
-    lastName: string | null;
-
-    /**
-     * Marketing consent status of the contact
-     */
-    marketingStatus: string;
-
-    /**
-     * ID of the site this contact is associated with
-     */
-    siteId: string;
-  }
-}
+export type SiteContactSampleResponse = unknown;
 
 export interface SiteContactCreateParams {
   /**
