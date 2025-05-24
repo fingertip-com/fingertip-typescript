@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.33.1 (2025-05-24)
+
+Full Changelog: [v0.33.0...v0.33.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.0...v0.33.1)
+
+### Bug Fixes
+
+* **mcp:** fix cursor schema transformation issue with recursive references ([fc07aa1](https://github.com/fingertip-com/fingertip-typescript/commit/fc07aa167eb502d9385ebb01c61285a1bc93955a))
+
 ## 0.33.0 (2025-05-23)
 
 Full Changelog: [v0.32.0...v0.33.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.32.0...v0.33.0)
