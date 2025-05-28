@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.33.2 (2025-05-28)
+
+Full Changelog: [v0.33.1...v0.33.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.1...v0.33.2)
+
+### Bug Fixes
+
+* **mcp:** include description in dynamic tool search ([846cc5d](https://github.com/fingertip-com/fingertip-typescript/commit/846cc5d10354689c50441c4d707eb3b53ea439e5))
+
 ## 0.33.1 (2025-05-24)
 
 Full Changelog: [v0.33.0...v0.33.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.0...v0.33.1)
