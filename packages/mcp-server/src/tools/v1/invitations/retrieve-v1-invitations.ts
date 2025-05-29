@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.invitations',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/v1/invitations/{invitationId}',
+  operationId: 'getWorkspaceInvitation',
 };
 
 export const tool: Tool = {

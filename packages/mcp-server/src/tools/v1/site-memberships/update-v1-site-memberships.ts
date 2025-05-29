@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.site_memberships',
   operation: 'write',
   tags: [],
+  httpMethod: 'patch',
+  httpPath: '/v1/site-memberships/{membershipId}',
+  operationId: 'updateSiteMembership',
 };
 
 export const tool: Tool = {
