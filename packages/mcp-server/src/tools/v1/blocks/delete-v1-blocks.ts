@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.blocks',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/v1/blocks/{blockId}',
+  operationId: 'deleteBlock',
 };
 
 export const tool: Tool = {

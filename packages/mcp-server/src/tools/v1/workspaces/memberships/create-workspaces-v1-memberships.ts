@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.workspaces.memberships',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/v1/workspaces/{workspaceId}/memberships',
+  operationId: 'createWorkspaceMembership',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.workspaces',
   operation: 'write',
   tags: [],
+  httpMethod: 'patch',
+  httpPath: '/v1/workspaces/{workspaceId}',
+  operationId: 'updateWorkspace',
 };
 
 export const tool: Tool = {

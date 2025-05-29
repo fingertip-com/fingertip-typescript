@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.site_contacts',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/v1/site-contacts/sample',
+  operationId: 'getSiteContactsSample',
 };
 
 export const tool: Tool = {

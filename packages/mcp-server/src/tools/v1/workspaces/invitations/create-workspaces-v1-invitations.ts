@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.workspaces.invitations',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/v1/workspaces/{workspaceId}/invitations',
+  operationId: 'createWorkspaceInvitation',
 };
 
 export const tool: Tool = {

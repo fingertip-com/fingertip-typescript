@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.pages.theme',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/v1/pages/{pageId}/theme',
+  operationId: 'getPageTheme',
 };
 
 export const tool: Tool = {

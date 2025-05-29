@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.sites.invitations',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/v1/sites/{siteId}/invitations',
+  operationId: 'getSiteInvitations',
 };
 
 export const tool: Tool = {

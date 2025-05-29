@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.site_memberships',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/v1/site-memberships/{membershipId}',
+  operationId: 'deleteSiteMembership',
 };
 
 export const tool: Tool = {

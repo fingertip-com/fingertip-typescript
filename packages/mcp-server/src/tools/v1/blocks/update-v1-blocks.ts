@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.blocks',
   operation: 'write',
   tags: [],
+  httpMethod: 'patch',
+  httpPath: '/v1/blocks/{blockId}',
+  operationId: 'updateBlock',
 };
 
 export const tool: Tool = {
