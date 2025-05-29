@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.pages.theme',
   operation: 'write',
   tags: [],
+  httpMethod: 'patch',
+  httpPath: '/v1/pages/{pageId}/theme',
+  operationId: 'upsertPageTheme',
 };
 
 export const tool: Tool = {

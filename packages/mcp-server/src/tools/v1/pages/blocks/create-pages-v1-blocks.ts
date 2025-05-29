@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.pages.blocks',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/v1/pages/{pageId}/blocks',
+  operationId: 'createBlock',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.blocks',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/v1/blocks/{blockId}',
+  operationId: 'getBlock',
 };
 
 export const tool: Tool = {

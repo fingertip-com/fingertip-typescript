@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'v1.workspace_memberships',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/v1/workspace-memberships/{membershipId}',
+  operationId: 'deleteWorkspaceMembership',
 };
 
 export const tool: Tool = {
