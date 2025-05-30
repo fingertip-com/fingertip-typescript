@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.34.0 (2025-05-30)
+
+Full Changelog: [v0.33.2...v0.34.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.2...v0.34.0)
+
+### Features
+
+* **mcp:** include http information in tools ([903df0d](https://github.com/fingertip-com/fingertip-typescript/commit/903df0dda5d4a3a6671e0ca5fd1e553fe9bf6bdc))
+
+
+### Bug Fixes
+
+* compat with more runtimes ([e53861c](https://github.com/fingertip-com/fingertip-typescript/commit/e53861c097e71f83db6a2d862f84019fd455bf66))
+
+
+### Chores
+
+* improve publish-npm script --latest tag logic ([9030212](https://github.com/fingertip-com/fingertip-typescript/commit/9030212fceaf4f5984ae9e17ef9c557696e40390))
+* **mcp:** remove duplicate assignment ([954e889](https://github.com/fingertip-com/fingertip-typescript/commit/954e8891b1ed50433b7f0bfc54e94f9ac62b8731))
+
 ## 0.33.2 (2025-05-28)
 
 Full Changelog: [v0.33.1...v0.33.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.1...v0.33.2)
