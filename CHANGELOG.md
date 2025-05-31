@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.34.1 (2025-05-31)
+
+Full Changelog: [v0.34.0...v0.34.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.34.0...v0.34.1)
+
+### Chores
+
+* **deps:** bump eslint-plugin-prettier ([3a4f77b](https://github.com/fingertip-com/fingertip-typescript/commit/3a4f77b921fe82fefda15a672771e9ef7cc74484))
+* **internal:** update jest config ([745468c](https://github.com/fingertip-com/fingertip-typescript/commit/745468cc6eebb2de015f4badca2c0c18e07b4275))
+
 ## 0.34.0 (2025-05-30)
 
 Full Changelog: [v0.33.2...v0.34.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.2...v0.34.0)
