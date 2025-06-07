@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Fingertip from 'fingertip';
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { Metadata, Endpoint, HandlerFunction } from './types';
+
+export { Metadata, Endpoint, HandlerFunction };
 
 import get_form_responses_sample_v1 from './v1/get-form-responses-sample-v1';
 import list_bookings_v1 from './v1/list-bookings-v1';
@@ -53,24 +54,6 @@ import retrieve_webhooks from './webhooks/retrieve-webhooks';
 import update_webhooks from './webhooks/update-webhooks';
 import list_webhooks from './webhooks/list-webhooks';
 import delete_webhooks from './webhooks/delete-webhooks';
-
-export type HandlerFunction = (client: Fingertip, args: Record<string, unknown> | undefined) => Promise<any>;
-
-export type Metadata = {
-  resource: string;
-  operation: 'read' | 'write';
-  tags: string[];
-
-  httpMethod?: string;
-  httpPath?: string;
-  operationId?: string;
-};
-
-export type Endpoint = {
-  metadata: Metadata;
-  tool: Tool;
-  handler: HandlerFunction;
-};
 
 export const endpoints: Endpoint[] = [];
 
