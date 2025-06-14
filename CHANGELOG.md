@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.35.0 (2025-06-14)
+
+Full Changelog: [v0.34.0...v0.35.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.34.0...v0.35.0)
+
+### Features
+
+* **mcp:** implement support for binary responses ([d8b5f6e](https://github.com/fingertip-com/fingertip-typescript/commit/d8b5f6e1d4fce756ad0b09c36963af345fe5f71a))
+* **mcp:** set X-Stainless-MCP header ([4ab268a](https://github.com/fingertip-com/fingertip-typescript/commit/4ab268abd5da708fe4e93e9fe2b859cf0db7ebd5))
+
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([587aedb](https://github.com/fingertip-com/fingertip-typescript/commit/587aedb1b17c55fea57fe721fa3e02504b201ce1))
+
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([322dda7](https://github.com/fingertip-com/fingertip-typescript/commit/322dda79183936e894685c7e3188cec5801b01be))
+* avoid type error in certain environments ([d12d388](https://github.com/fingertip-com/fingertip-typescript/commit/d12d3887695d47a22e4b468d2f2151e57b903c45))
+* **deps:** bump eslint-plugin-prettier ([3a4f77b](https://github.com/fingertip-com/fingertip-typescript/commit/3a4f77b921fe82fefda15a672771e9ef7cc74484))
+* **docs:** use top-level-await in example snippets ([34fd71e](https://github.com/fingertip-com/fingertip-typescript/commit/34fd71efea93ec8baf158c4d62ab5352192e8bdb))
+* **internal:** add pure annotations, make base APIResource abstract ([f2bee20](https://github.com/fingertip-com/fingertip-typescript/commit/f2bee208fde8b83ba19d85668e46d085dd6d50f7))
+* **internal:** fix readablestream types in node 20 ([ce2cd21](https://github.com/fingertip-com/fingertip-typescript/commit/ce2cd2118f6eedcafaa3f107fefca268ac4baa73))
+* **internal:** update jest config ([745468c](https://github.com/fingertip-com/fingertip-typescript/commit/745468cc6eebb2de015f4badca2c0c18e07b4275))
+* **mcp:** provides high-level initMcpServer function and exports known clients ([3e448b6](https://github.com/fingertip-com/fingertip-typescript/commit/3e448b6d88ea62479ee449bc5be50c9d53862e58))
+
 ## 0.34.0 (2025-05-30)
 
 Full Changelog: [v0.33.2...v0.34.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.33.2...v0.34.0)
