@@ -1,6 +1,6 @@
 # Fingertip TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/fingertip.svg)](https://npmjs.org/package/fingertip) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fingertip)
+[![NPM version](<https://img.shields.io/npm/v/fingertip.svg?label=npm%20(stable)>)](https://npmjs.org/package/fingertip) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fingertip)
 
 This library provides convenient access to the Fingertip REST API from server-side TypeScript or JavaScript.
 
