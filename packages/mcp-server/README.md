@@ -133,7 +133,7 @@ over time, you can manually enable or disable certain capabilities:
 import { server, endpoints, init } from "fingertip-mcp/server";
 
 // import a specific tool
-import getFormResponsesSampleV1 from "fingertip-mcp/tools/v1/get-form-responses-sample-v1";
+import listBookingsV1 from "fingertip-mcp/tools/v1/list-bookings-v1";
 
 // initialize the server and all endpoints
 init({ server, endpoints });
@@ -158,7 +158,7 @@ const myCustomEndpoint = {
 };
 
 // initialize the server with your custom endpoints
-init({ server: myServer, endpoints: [getFormResponsesSampleV1, myCustomEndpoint] });
+init({ server: myServer, endpoints: [listBookingsV1, myCustomEndpoint] });
 ```
 
 ## Available Tools
@@ -167,16 +167,13 @@ The following tools are available in this MCP server.
 
 ### Resource `v1`:
 
-- `get_form_responses_sample_v1` (`read`): Retrieves a sample of form responses for a specific form template.
 - `list_bookings_v1` (`read`): Retrieves a paginated list of bookings for a site with optional status filtering
 - `ping_v1` (`read`): Simple health check endpoint to verify the API is running. Requires authentication.
-- `retrieve_sample_bookings_v1` (`read`): Retrieves a sample of bookings with basic information
 
 ### Resource `v1.pages`:
 
 - `retrieve_v1_pages` (`read`): Retrieves a specific page by ID including all related blocks and theme information.
 - `update_v1_pages` (`write`): Updates an existing page with the provided data.
-- `delete_v1_pages` (`write`): Permanently deletes a page and all associated data.
 
 ### Resource `v1.pages.blocks`:
 
@@ -200,7 +197,6 @@ The following tools are available in this MCP server.
 - `retrieve_v1_sites` (`read`): Retrieves a specific site and its related data by site ID
 - `update_v1_sites` (`write`): Updates an existing site with provided partial data
 - `list_v1_sites` (`read`): Retrieves a paginated list of sites with optional filtering
-- `delete_v1_sites` (`write`): Permanently deletes a site by its ID
 
 ### Resource `v1.sites.pages`:
 
@@ -220,27 +216,6 @@ The following tools are available in this MCP server.
 ### Resource `v1.site_contacts`:
 
 - `create_v1_site_contacts` (`write`): Creates a new contact associated with a site including marketing preferences
-- `sample_v1_site_contacts` (`read`): Retrieves a sample of site contacts with basic contact information
-
-### Resource `v1.workspaces`:
-
-- `retrieve_v1_workspaces` (`read`): Retrieves a specific workspace and its related data by workspace ID
-- `update_v1_workspaces` (`write`): Updates an existing workspace with provided partial data
-- `list_v1_workspaces` (`read`): Retrieves a paginated list of workspaces with optional filtering
-
-### Resource `v1.workspaces.invitations`:
-
-- `create_workspaces_v1_invitations` (`write`): Creates a new invitation for a user to join a workspace
-- `list_workspaces_v1_invitations` (`read`): Retrieves a paginated list of invitations for a specific workspace
-
-### Resource `v1.workspaces.memberships`:
-
-- `create_workspaces_v1_memberships` (`write`): Adds a user to a workspace
-- `list_workspaces_v1_memberships` (`read`): Retrieves a paginated list of members for a specific workspace
-
-### Resource `v1.workspaces.orders`:
-
-- `sample_workspaces_v1_orders` (`read`): Retrieves a sample of orders with basic information
 
 ### Resource `v1.site_invitations`:
 
@@ -263,11 +238,3 @@ The following tools are available in this MCP server.
 - `retrieve_v1_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
 - `update_v1_workspace_memberships` (`write`): Updates the role of an existing workspace membership
 - `delete_v1_workspace_memberships` (`write`): Removes a user from a workspace
-
-### Resource `webhooks`:
-
-- `create_webhooks` (`write`): Creates a new webhook subscription for receiving Webhook notifications
-- `retrieve_webhooks` (`read`): Retrieves a specific webhook by ID with its related triggers
-- `update_webhooks` (`write`): Updates an existing webhook subscription
-- `list_webhooks` (`read`): Retrieves a paginated list of webhooks with optional filtering
-- `delete_webhooks` (`write`): Removes an existing webhook subscription
