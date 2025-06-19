@@ -1,6 +1,6 @@
 # Fingertip TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/fingertip.svg)](https://npmjs.org/package/fingertip) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fingertip)
+[![NPM version](<https://img.shields.io/npm/v/fingertip.svg?label=npm%20(stable)>)](https://npmjs.org/package/fingertip) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fingertip)
 
 This library provides convenient access to the Fingertip REST API from server-side TypeScript or JavaScript.
 
@@ -26,13 +26,9 @@ const client = new Fingertip({
   apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const response = await client.v1.ping();
+const response = await client.v1.ping();
 
-  console.log(response.message);
-}
-
-main();
+console.log(response.message);
 ```
 
 ### Request & Response types
@@ -47,11 +43,7 @@ const client = new Fingertip({
   apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const response: Fingertip.V1PingResponse = await client.v1.ping();
-}
-
-main();
+const response: Fingertip.V1PingResponse = await client.v1.ping();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -64,19 +56,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const response = await client.v1.ping().catch(async (err) => {
-    if (err instanceof Fingertip.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const response = await client.v1.ping().catch(async (err) => {
+  if (err instanceof Fingertip.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -234,9 +222,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.v1.ping({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });

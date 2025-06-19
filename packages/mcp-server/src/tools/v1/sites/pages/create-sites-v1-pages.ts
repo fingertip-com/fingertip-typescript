@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from 'fingertip-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../../';
 import Fingertip from 'fingertip';
@@ -105,9 +107,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Fingertip, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
   const { siteId, ...body } = args as any;
-  return client.v1.sites.pages.create(siteId, body);
+  return asTextContentResult(await client.v1.sites.pages.create(siteId, body));
 };
 
 export default { metadata, tool, handler };
