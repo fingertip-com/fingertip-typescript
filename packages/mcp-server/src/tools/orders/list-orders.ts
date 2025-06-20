@@ -31,7 +31,7 @@ export const tool: Tool = {
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return asTextContentResult((await client.orders.list(body)) as object);
+  return asTextContentResult(await client.orders.list(body));
 };
 
 export default { metadata, tool, handler };
