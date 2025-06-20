@@ -20,6 +20,79 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import {
+  BlockDeleteResponse,
+  BlockRetrieveResponse,
+  BlockUpdateParams,
+  BlockUpdateResponse,
+  Blocks,
+} from './resources/blocks';
+import {
+  BlogPostListParams,
+  BlogPostListResponse,
+  BlogPostListResponsesMyCursorPage,
+  BlogPostRetrieveResponse,
+  BlogPosts,
+} from './resources/blog-posts';
+import {
+  BookingListParams,
+  BookingListResponse,
+  BookingListResponsesMyCursorPage,
+  BookingListSampleResponse,
+  Bookings,
+} from './resources/bookings';
+import {
+  EventTypeListParams,
+  EventTypeListResponse,
+  EventTypeListResponsesMyCursorPage,
+  EventTypeRetrieveResponse,
+  EventTypes,
+} from './resources/event-types';
+import {
+  FormResponseListParams,
+  FormResponseListResponse,
+  FormResponseListSampleParams,
+  FormResponseListSampleResponse,
+  FormResponses,
+} from './resources/form-responses';
+import {
+  FormTemplateListParams,
+  FormTemplateListResponse,
+  FormTemplateListResponsesMyCursorPage,
+  FormTemplateRetrieveParams,
+  FormTemplateRetrieveResponse,
+  FormTemplates,
+} from './resources/form-templates';
+import { InvitationDeleteResponse, InvitationRetrieveResponse, Invitations } from './resources/invitations';
+import {
+  InvoiceListParams,
+  InvoiceListResponse,
+  InvoiceListResponsesMyCursorPage,
+  Invoices,
+} from './resources/invoices';
+import { OrderListParams, OrderListResponse, OrderListSampleResponse, Orders } from './resources/orders';
+import { Ping, PingCheckResponse } from './resources/ping';
+import {
+  SiteContactCreateParams,
+  SiteContactCreateResponse,
+  SiteContactListParams,
+  SiteContactListResponse,
+  SiteContactListResponsesMyCursorPage,
+  SiteContactListSampleResponse,
+  SiteContacts,
+} from './resources/site-contacts';
+import {
+  SiteInvitationDeleteResponse,
+  SiteInvitationRetrieveResponse,
+  SiteInvitations,
+} from './resources/site-invitations';
+import {
+  SiteMembershipDeleteResponse,
+  SiteMembershipRetrieveResponse,
+  SiteMembershipUpdateParams,
+  SiteMembershipUpdateResponse,
+  SiteMemberships,
+} from './resources/site-memberships';
+import {
   WebhookCreateParams,
   WebhookCreateResponse,
   WebhookDeleteResponse,
@@ -32,15 +105,43 @@ import {
   Webhooks,
 } from './resources/webhooks';
 import {
-  V1,
-  V1GetFormResponsesSampleParams,
-  V1GetFormResponsesSampleResponse,
-  V1ListBookingsParams,
-  V1ListBookingsResponse,
-  V1ListBookingsResponsesMyCursorPage,
-  V1PingResponse,
-  V1RetrieveSampleBookingsResponse,
-} from './resources/v1/v1';
+  WorkspaceMembershipDeleteResponse,
+  WorkspaceMembershipRetrieveResponse,
+  WorkspaceMembershipUpdateParams,
+  WorkspaceMembershipUpdateResponse,
+  WorkspaceMemberships,
+} from './resources/workspace-memberships';
+import { ZapierSubscriptions } from './resources/zapier-subscriptions';
+import {
+  PageDeleteResponse,
+  PageRetrieveResponse,
+  PageUpdateParams,
+  PageUpdateResponse,
+  Pages,
+} from './resources/pages/pages';
+import {
+  SiteCreateParams,
+  SiteCreateResponse,
+  SiteDeleteResponse,
+  SiteListParams,
+  SiteListResponse,
+  SiteListResponsesMyCursorPage,
+  SiteRetrieveAnalyticsParams,
+  SiteRetrieveAnalyticsResponse,
+  SiteRetrieveResponse,
+  SiteUpdateParams,
+  SiteUpdateResponse,
+  Sites,
+} from './resources/sites/sites';
+import {
+  WorkspaceListParams,
+  WorkspaceListResponse,
+  WorkspaceListResponsesMyCursorPage,
+  WorkspaceRetrieveResponse,
+  WorkspaceUpdateParams,
+  WorkspaceUpdateResponse,
+  Workspaces,
+} from './resources/workspaces/workspaces';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -735,26 +836,147 @@ export class Fingertip {
 
   static toFile = Uploads.toFile;
 
-  v1: API.V1 = new API.V1(this);
+  ping: API.Ping = new API.Ping(this);
+  sites: API.Sites = new API.Sites(this);
+  pages: API.Pages = new API.Pages(this);
+  blocks: API.Blocks = new API.Blocks(this);
+  blogPosts: API.BlogPosts = new API.BlogPosts(this);
+  bookings: API.Bookings = new API.Bookings(this);
+  eventTypes: API.EventTypes = new API.EventTypes(this);
+  formResponses: API.FormResponses = new API.FormResponses(this);
+  formTemplates: API.FormTemplates = new API.FormTemplates(this);
+  invoices: API.Invoices = new API.Invoices(this);
+  orders: API.Orders = new API.Orders(this);
+  siteContacts: API.SiteContacts = new API.SiteContacts(this);
   webhooks: API.Webhooks = new API.Webhooks(this);
+  workspaces: API.Workspaces = new API.Workspaces(this);
+  invitations: API.Invitations = new API.Invitations(this);
+  zapierSubscriptions: API.ZapierSubscriptions = new API.ZapierSubscriptions(this);
+  siteInvitations: API.SiteInvitations = new API.SiteInvitations(this);
+  siteMemberships: API.SiteMemberships = new API.SiteMemberships(this);
+  workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
 }
-Fingertip.V1 = V1;
+Fingertip.Ping = Ping;
+Fingertip.Sites = Sites;
+Fingertip.Pages = Pages;
+Fingertip.Blocks = Blocks;
+Fingertip.BlogPosts = BlogPosts;
+Fingertip.Bookings = Bookings;
+Fingertip.EventTypes = EventTypes;
+Fingertip.FormResponses = FormResponses;
+Fingertip.FormTemplates = FormTemplates;
+Fingertip.Invoices = Invoices;
+Fingertip.Orders = Orders;
+Fingertip.SiteContacts = SiteContacts;
 Fingertip.Webhooks = Webhooks;
+Fingertip.Workspaces = Workspaces;
+Fingertip.Invitations = Invitations;
+Fingertip.ZapierSubscriptions = ZapierSubscriptions;
+Fingertip.SiteInvitations = SiteInvitations;
+Fingertip.SiteMemberships = SiteMemberships;
+Fingertip.WorkspaceMemberships = WorkspaceMemberships;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
   export import MyCursorPage = Pagination.MyCursorPage;
   export { type MyCursorPageParams as MyCursorPageParams, type MyCursorPageResponse as MyCursorPageResponse };
 
+  export { Ping as Ping, type PingCheckResponse as PingCheckResponse };
+
   export {
-    V1 as V1,
-    type V1GetFormResponsesSampleResponse as V1GetFormResponsesSampleResponse,
-    type V1ListBookingsResponse as V1ListBookingsResponse,
-    type V1PingResponse as V1PingResponse,
-    type V1RetrieveSampleBookingsResponse as V1RetrieveSampleBookingsResponse,
-    type V1ListBookingsResponsesMyCursorPage as V1ListBookingsResponsesMyCursorPage,
-    type V1GetFormResponsesSampleParams as V1GetFormResponsesSampleParams,
-    type V1ListBookingsParams as V1ListBookingsParams,
+    Sites as Sites,
+    type SiteCreateResponse as SiteCreateResponse,
+    type SiteRetrieveResponse as SiteRetrieveResponse,
+    type SiteUpdateResponse as SiteUpdateResponse,
+    type SiteListResponse as SiteListResponse,
+    type SiteDeleteResponse as SiteDeleteResponse,
+    type SiteRetrieveAnalyticsResponse as SiteRetrieveAnalyticsResponse,
+    type SiteListResponsesMyCursorPage as SiteListResponsesMyCursorPage,
+    type SiteCreateParams as SiteCreateParams,
+    type SiteUpdateParams as SiteUpdateParams,
+    type SiteListParams as SiteListParams,
+    type SiteRetrieveAnalyticsParams as SiteRetrieveAnalyticsParams,
+  };
+
+  export {
+    Pages as Pages,
+    type PageRetrieveResponse as PageRetrieveResponse,
+    type PageUpdateResponse as PageUpdateResponse,
+    type PageDeleteResponse as PageDeleteResponse,
+    type PageUpdateParams as PageUpdateParams,
+  };
+
+  export {
+    Blocks as Blocks,
+    type BlockRetrieveResponse as BlockRetrieveResponse,
+    type BlockUpdateResponse as BlockUpdateResponse,
+    type BlockDeleteResponse as BlockDeleteResponse,
+    type BlockUpdateParams as BlockUpdateParams,
+  };
+
+  export {
+    BlogPosts as BlogPosts,
+    type BlogPostRetrieveResponse as BlogPostRetrieveResponse,
+    type BlogPostListResponse as BlogPostListResponse,
+    type BlogPostListResponsesMyCursorPage as BlogPostListResponsesMyCursorPage,
+    type BlogPostListParams as BlogPostListParams,
+  };
+
+  export {
+    Bookings as Bookings,
+    type BookingListResponse as BookingListResponse,
+    type BookingListSampleResponse as BookingListSampleResponse,
+    type BookingListResponsesMyCursorPage as BookingListResponsesMyCursorPage,
+    type BookingListParams as BookingListParams,
+  };
+
+  export {
+    EventTypes as EventTypes,
+    type EventTypeRetrieveResponse as EventTypeRetrieveResponse,
+    type EventTypeListResponse as EventTypeListResponse,
+    type EventTypeListResponsesMyCursorPage as EventTypeListResponsesMyCursorPage,
+    type EventTypeListParams as EventTypeListParams,
+  };
+
+  export {
+    FormResponses as FormResponses,
+    type FormResponseListResponse as FormResponseListResponse,
+    type FormResponseListSampleResponse as FormResponseListSampleResponse,
+    type FormResponseListParams as FormResponseListParams,
+    type FormResponseListSampleParams as FormResponseListSampleParams,
+  };
+
+  export {
+    FormTemplates as FormTemplates,
+    type FormTemplateRetrieveResponse as FormTemplateRetrieveResponse,
+    type FormTemplateListResponse as FormTemplateListResponse,
+    type FormTemplateListResponsesMyCursorPage as FormTemplateListResponsesMyCursorPage,
+    type FormTemplateRetrieveParams as FormTemplateRetrieveParams,
+    type FormTemplateListParams as FormTemplateListParams,
+  };
+
+  export {
+    Invoices as Invoices,
+    type InvoiceListResponse as InvoiceListResponse,
+    type InvoiceListResponsesMyCursorPage as InvoiceListResponsesMyCursorPage,
+    type InvoiceListParams as InvoiceListParams,
+  };
+
+  export {
+    Orders as Orders,
+    type OrderListResponse as OrderListResponse,
+    type OrderListSampleResponse as OrderListSampleResponse,
+    type OrderListParams as OrderListParams,
+  };
+
+  export {
+    SiteContacts as SiteContacts,
+    type SiteContactCreateResponse as SiteContactCreateResponse,
+    type SiteContactListResponse as SiteContactListResponse,
+    type SiteContactListSampleResponse as SiteContactListSampleResponse,
+    type SiteContactListResponsesMyCursorPage as SiteContactListResponsesMyCursorPage,
+    type SiteContactCreateParams as SiteContactCreateParams,
+    type SiteContactListParams as SiteContactListParams,
   };
 
   export {
@@ -768,5 +990,45 @@ export declare namespace Fingertip {
     type WebhookCreateParams as WebhookCreateParams,
     type WebhookUpdateParams as WebhookUpdateParams,
     type WebhookListParams as WebhookListParams,
+  };
+
+  export {
+    Workspaces as Workspaces,
+    type WorkspaceRetrieveResponse as WorkspaceRetrieveResponse,
+    type WorkspaceUpdateResponse as WorkspaceUpdateResponse,
+    type WorkspaceListResponse as WorkspaceListResponse,
+    type WorkspaceListResponsesMyCursorPage as WorkspaceListResponsesMyCursorPage,
+    type WorkspaceUpdateParams as WorkspaceUpdateParams,
+    type WorkspaceListParams as WorkspaceListParams,
+  };
+
+  export {
+    Invitations as Invitations,
+    type InvitationRetrieveResponse as InvitationRetrieveResponse,
+    type InvitationDeleteResponse as InvitationDeleteResponse,
+  };
+
+  export { ZapierSubscriptions as ZapierSubscriptions };
+
+  export {
+    SiteInvitations as SiteInvitations,
+    type SiteInvitationRetrieveResponse as SiteInvitationRetrieveResponse,
+    type SiteInvitationDeleteResponse as SiteInvitationDeleteResponse,
+  };
+
+  export {
+    SiteMemberships as SiteMemberships,
+    type SiteMembershipRetrieveResponse as SiteMembershipRetrieveResponse,
+    type SiteMembershipUpdateResponse as SiteMembershipUpdateResponse,
+    type SiteMembershipDeleteResponse as SiteMembershipDeleteResponse,
+    type SiteMembershipUpdateParams as SiteMembershipUpdateParams,
+  };
+
+  export {
+    WorkspaceMemberships as WorkspaceMemberships,
+    type WorkspaceMembershipRetrieveResponse as WorkspaceMembershipRetrieveResponse,
+    type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
+    type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
+    type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,
   };
 }
