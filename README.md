@@ -26,7 +26,7 @@ const client = new Fingertip({
   apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.v1.ping();
+const response = await client.ping.check();
 
 console.log(response.message);
 ```
@@ -43,7 +43,7 @@ const client = new Fingertip({
   apiKey: process.env['FINGERTIP_API_KEY'], // This is the default and can be omitted
 });
 
-const response: Fingertip.V1PingResponse = await client.v1.ping();
+const response: Fingertip.PingCheckResponse = await client.ping.check();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -56,7 +56,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.v1.ping().catch(async (err) => {
+const response = await client.ping.check().catch(async (err) => {
   if (err instanceof Fingertip.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -96,7 +96,7 @@ const client = new Fingertip({
 });
 
 // Or, configure per-request:
-await client.v1.ping({
+await client.ping.check({
   maxRetries: 5,
 });
 ```
@@ -113,7 +113,7 @@ const client = new Fingertip({
 });
 
 // Override per-request:
-await client.v1.ping({
+await client.ping.check({
   timeout: 5 * 1000,
 });
 ```
@@ -136,11 +136,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Fingertip();
 
-const response = await client.v1.ping().asResponse();
+const response = await client.ping.check().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.v1.ping().withResponse();
+const { data: response, response: raw } = await client.ping.check().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.message);
 ```
@@ -222,7 +222,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.v1.ping({
+client.ping.check({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',

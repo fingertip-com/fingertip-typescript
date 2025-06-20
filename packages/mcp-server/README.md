@@ -133,7 +133,7 @@ over time, you can manually enable or disable certain capabilities:
 import { server, endpoints, init } from "fingertip-mcp/server";
 
 // import a specific tool
-import getFormResponsesSampleV1 from "fingertip-mcp/tools/v1/get-form-responses-sample-v1";
+import checkPing from "fingertip-mcp/tools/ping/check-ping";
 
 // initialize the server and all endpoints
 init({ server, endpoints });
@@ -158,116 +158,126 @@ const myCustomEndpoint = {
 };
 
 // initialize the server with your custom endpoints
-init({ server: myServer, endpoints: [getFormResponsesSampleV1, myCustomEndpoint] });
+init({ server: myServer, endpoints: [checkPing, myCustomEndpoint] });
 ```
 
 ## Available Tools
 
 The following tools are available in this MCP server.
 
-### Resource `v1`:
+### Resource `ping`:
 
-- `get_form_responses_sample_v1` (`read`): Retrieves a sample of form responses for a specific form template.
-- `list_bookings_v1` (`read`): Retrieves a paginated list of bookings for a site with optional status filtering
-- `ping_v1` (`read`): Simple health check endpoint to verify the API is running. Requires authentication.
-- `retrieve_sample_bookings_v1` (`read`): Retrieves a sample of bookings with basic information
+- `check_ping` (`read`): Simple health check endpoint to verify the API is running. Requires authentication.
 
-### Resource `v1.pages`:
+### Resource `sites`:
 
-- `retrieve_v1_pages` (`read`): Retrieves a specific page by ID including all related blocks and theme information.
-- `update_v1_pages` (`write`): Updates an existing page with the provided data.
-- `delete_v1_pages` (`write`): Permanently deletes a page and all associated data.
+- `create_sites` (`write`): Creates a new site with associated pages, themes, and blocks
+- `retrieve_sites` (`read`): Retrieves a specific site and its related data by site ID
+- `update_sites` (`write`): Updates an existing site with provided partial data
+- `list_sites` (`read`): Retrieves a paginated list of sites with optional filtering
+- `retrieve_analytics_sites` (`read`): Retrieves comprehensive analytics data including views, clicks, traffic sources, geographic data, and store metrics for the specified site
 
-### Resource `v1.pages.blocks`:
+### Resource `sites.pages`:
 
-- `create_pages_v1_blocks` (`write`): Creates a new block within the specified page. Returns the created block or validation errors.
-- `list_pages_v1_blocks` (`read`): Retrieves all blocks associated with the specified page ID
+- `create_sites_pages` (`write`): Creates a new page within a site with the provided content.
+- `list_sites_pages` (`read`): Retrieves a paginated list of pages for a specific site.
 
-### Resource `v1.pages.theme`:
+### Resource `sites.invitations`:
 
-- `retrieve_pages_v1_theme` (`read`): Retrieves the theme associated with a specific page
-- `update_pages_v1_theme` (`write`): Creates or updates the theme for a specific page
+- `create_sites_invitations` (`write`): Creates a new invitation for a user to join a site
+- `retrieve_sites_invitations` (`read`): Retrieves details of a specific site invitation
+- `list_sites_invitations` (`read`): Retrieves a paginated list of invitations for a specific site
+- `delete_sites_invitations` (`write`): Deletes an existing site invitation
 
-### Resource `v1.blocks`:
+### Resource `sites.memberships`:
 
-- `retrieve_v1_blocks` (`read`): Retrieves a specific block by its ID. Returns 404 if the block is not found.
-- `update_v1_blocks` (`write`): Updates an existing block with the provided data. Allows partial updates. Returns 404 if the block is not found.
-- `delete_v1_blocks` (`write`): Permanently deletes a block. Returns a success status or 404 if the block is not found.
+- `create_sites_memberships` (`write`): Adds a user to a site
+- `retrieve_sites_memberships` (`read`): Retrieves details of a specific site membership
+- `update_sites_memberships` (`write`): Updates the role of an existing site membership
+- `list_sites_memberships` (`read`): Retrieves a paginated list of members for a specific site
+- `delete_sites_memberships` (`write`): Removes a user from a site
 
-### Resource `v1.sites`:
+### Resource `pages`:
 
-- `create_v1_sites` (`write`): Creates a new site with associated pages, themes, and blocks
-- `retrieve_v1_sites` (`read`): Retrieves a specific site and its related data by site ID
-- `update_v1_sites` (`write`): Updates an existing site with provided partial data
-- `list_v1_sites` (`read`): Retrieves a paginated list of sites with optional filtering
-- `delete_v1_sites` (`write`): Permanently deletes a site by its ID
+- `retrieve_pages` (`read`): Retrieves a specific page by ID including all related blocks and theme information.
+- `update_pages` (`write`): Updates an existing page with the provided data.
 
-### Resource `v1.sites.pages`:
+### Resource `pages.blocks`:
 
-- `create_sites_v1_pages` (`write`): Creates a new page within a site with the provided content.
-- `list_sites_v1_pages` (`read`): Retrieves a paginated list of pages for a specific site.
+- `create_pages_blocks` (`write`): Creates a new block within the specified page. Returns the created block or validation errors.
+- `list_pages_blocks` (`read`): Retrieves all blocks associated with the specified page ID
 
-### Resource `v1.sites.invitations`:
+### Resource `pages.theme`:
 
-- `create_sites_v1_invitations` (`write`): Creates a new invitation for a user to join a site
-- `list_sites_v1_invitations` (`read`): Retrieves a paginated list of invitations for a specific site
+- `retrieve_pages_theme` (`read`): Retrieves the theme associated with a specific page
+- `update_pages_theme` (`write`): Creates or updates the theme for a specific page
 
-### Resource `v1.sites.memberships`:
+### Resource `blocks`:
 
-- `create_sites_v1_memberships` (`write`): Adds a user to a site
-- `list_sites_v1_memberships` (`read`): Retrieves a paginated list of members for a specific site
+- `retrieve_blocks` (`read`): Retrieves a specific block by its ID. Returns 404 if the block is not found.
+- `update_blocks` (`write`): Updates an existing block with the provided data. Allows partial updates. Returns 404 if the block is not found.
+- `delete_blocks` (`write`): Permanently deletes a block. Returns a success status or 404 if the block is not found.
 
-### Resource `v1.site_contacts`:
+### Resource `blog_posts`:
 
-- `create_v1_site_contacts` (`write`): Creates a new contact associated with a site including marketing preferences
-- `sample_v1_site_contacts` (`read`): Retrieves a sample of site contacts with basic contact information
+- `retrieve_blog_posts` (`read`): Retrieves a specific published blog post by ID
+- `list_blog_posts` (`read`): Retrieves a paginated list of published blog posts for a specific site
 
-### Resource `v1.workspaces`:
+### Resource `bookings`:
 
-- `retrieve_v1_workspaces` (`read`): Retrieves a specific workspace and its related data by workspace ID
-- `update_v1_workspaces` (`write`): Updates an existing workspace with provided partial data
-- `list_v1_workspaces` (`read`): Retrieves a paginated list of workspaces with optional filtering
+- `list_bookings` (`read`): Retrieves a paginated list of bookings for a site with optional status filtering
 
-### Resource `v1.workspaces.invitations`:
+### Resource `event_types`:
 
-- `create_workspaces_v1_invitations` (`write`): Creates a new invitation for a user to join a workspace
-- `list_workspaces_v1_invitations` (`read`): Retrieves a paginated list of invitations for a specific workspace
+- `retrieve_event_types` (`read`): Retrieves a specific published event type by ID
+- `list_event_types` (`read`): Retrieves a paginated list of published event types for a specific site
 
-### Resource `v1.workspaces.memberships`:
+### Resource `form_responses`:
 
-- `create_workspaces_v1_memberships` (`write`): Adds a user to a workspace
-- `list_workspaces_v1_memberships` (`read`): Retrieves a paginated list of members for a specific workspace
+- `list_form_responses` (`read`): Retrieves form responses for a specific form template and site.
 
-### Resource `v1.workspaces.orders`:
+### Resource `form_templates`:
 
-- `sample_workspaces_v1_orders` (`read`): Retrieves a sample of orders with basic information
+- `retrieve_form_templates` (`read`): Retrieves a specific form template with its fields and theme
+- `list_form_templates` (`read`): Retrieves a paginated list of form templates for a specific site
 
-### Resource `v1.site_invitations`:
+### Resource `invoices`:
 
-- `retrieve_v1_site_invitations` (`read`): Retrieves details of a specific site invitation
-- `delete_v1_site_invitations` (`write`): Deletes an existing site invitation
+- `list_invoices` (`read`): Retrieves a paginated list of invoices for sites the user has access to
 
-### Resource `v1.site_memberships`:
+### Resource `orders`:
 
-- `retrieve_v1_site_memberships` (`read`): Retrieves details of a specific site membership
-- `update_v1_site_memberships` (`write`): Updates the role of an existing site membership
-- `delete_v1_site_memberships` (`write`): Removes a user from a site
+- `list_orders` (`read`): Retrieves orders with basic information
 
-### Resource `v1.invitations`:
+### Resource `site_contacts`:
 
-- `retrieve_v1_invitations` (`read`): Retrieves details of a specific workspace invitation
-- `delete_v1_invitations` (`write`): Deletes an existing workspace invitation
+- `create_site_contacts` (`write`): Creates a new contact associated with a site including marketing preferences
+- `list_site_contacts` (`read`): Retrieves site contacts with basic contact information
 
-### Resource `v1.workspace_memberships`:
+### Resource `workspaces.memberships`:
 
-- `retrieve_v1_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
-- `update_v1_workspace_memberships` (`write`): Updates the role of an existing workspace membership
-- `delete_v1_workspace_memberships` (`write`): Removes a user from a workspace
+- `retrieve_workspaces_memberships` (`read`): Retrieves details of a specific workspace membership
+- `update_workspaces_memberships` (`write`): Updates the role of an existing workspace membership
+- `delete_workspaces_memberships` (`write`): Removes a user from a workspace
 
-### Resource `webhooks`:
+### Resource `invitations`:
 
-- `create_webhooks` (`write`): Creates a new webhook subscription for receiving Webhook notifications
-- `retrieve_webhooks` (`read`): Retrieves a specific webhook by ID with its related triggers
-- `update_webhooks` (`write`): Updates an existing webhook subscription
-- `list_webhooks` (`read`): Retrieves a paginated list of webhooks with optional filtering
-- `delete_webhooks` (`write`): Removes an existing webhook subscription
+- `retrieve_invitations` (`read`): Retrieves details of a specific workspace invitation
+- `delete_invitations` (`write`): Deletes an existing workspace invitation
+
+### Resource `site_invitations`:
+
+- `retrieve_site_invitations` (`read`): Retrieves details of a specific site invitation
+- `delete_site_invitations` (`write`): Deletes an existing site invitation
+
+### Resource `site_memberships`:
+
+- `retrieve_site_memberships` (`read`): Retrieves details of a specific site membership
+- `update_site_memberships` (`write`): Updates the role of an existing site membership
+- `delete_site_memberships` (`write`): Removes a user from a site
+
+### Resource `workspace_memberships`:
+
+- `retrieve_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
+- `update_workspace_memberships` (`write`): Updates the role of an existing workspace membership
+- `delete_workspace_memberships` (`write`): Removes a user from a workspace
