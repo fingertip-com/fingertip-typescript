@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.37.1 (2025-06-20)
+
+Full Changelog: [v0.37.0...v0.37.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.37.0...v0.37.1)
+
 ## 0.37.0 (2025-06-20)
 
 Full Changelog: [v0.36.0...v0.37.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.36.0...v0.37.0)
