@@ -205,8 +205,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/orders">client.orders.<a href="./src/resources/orders.ts">list</a>({ ...params }) -> unknown</code>
-- <code title="get /v1/orders/sample">client.orders.<a href="./src/resources/orders.ts">listSample</a>() -> unknown</code>
+- <code title="get /v1/orders">client.orders.<a href="./src/resources/orders.ts">list</a>({ ...params }) -> OrderListResponse</code>
+- <code title="get /v1/orders/sample">client.orders.<a href="./src/resources/orders.ts">listSample</a>() -> OrderListSampleResponse</code>
 
 # SiteContacts
 
@@ -292,7 +292,7 @@ Types:
 
 Methods:
 
-- <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>() -> unknown</code>
+- <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>() -> OrderSampleResponse</code>
 
 # Invitations
 
