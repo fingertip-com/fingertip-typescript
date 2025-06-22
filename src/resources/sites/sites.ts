@@ -2,16 +2,7 @@
 
 import { APIResource } from '../../core/resource';
 import * as InvitationsAPI from './invitations';
-import {
-  InvitationCreateParams,
-  InvitationCreateResponse,
-  InvitationDeleteResponse,
-  InvitationListParams,
-  InvitationListResponse,
-  InvitationListResponsesMyCursorPage,
-  InvitationRetrieveResponse,
-  Invitations,
-} from './invitations';
+import { Invitations } from './invitations';
 import * as MembershipsAPI from './memberships';
 import {
   MembershipCreateParams,
@@ -1439,16 +1430,7 @@ export declare namespace Sites {
     type PageListParams as PageListParams,
   };
 
-  export {
-    Invitations as Invitations,
-    type InvitationCreateResponse as InvitationCreateResponse,
-    type InvitationRetrieveResponse as InvitationRetrieveResponse,
-    type InvitationListResponse as InvitationListResponse,
-    type InvitationDeleteResponse as InvitationDeleteResponse,
-    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
-    type InvitationCreateParams as InvitationCreateParams,
-    type InvitationListParams as InvitationListParams,
-  };
+  export { Invitations as Invitations };
 
   export {
     Memberships as Memberships,

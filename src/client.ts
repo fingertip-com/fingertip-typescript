@@ -62,7 +62,6 @@ import {
   FormTemplateRetrieveResponse,
   FormTemplates,
 } from './resources/form-templates';
-import { InvitationDeleteResponse, InvitationRetrieveResponse, Invitations } from './resources/invitations';
 import {
   InvoiceListParams,
   InvoiceListResponse,
@@ -111,7 +110,6 @@ import {
   WorkspaceMembershipUpdateResponse,
   WorkspaceMemberships,
 } from './resources/workspace-memberships';
-import { ZapierSubscriptions } from './resources/zapier-subscriptions';
 import {
   PageDeleteResponse,
   PageRetrieveResponse,
@@ -851,8 +849,6 @@ export class Fingertip {
   siteContacts: API.SiteContacts = new API.SiteContacts(this);
   webhooks: API.Webhooks = new API.Webhooks(this);
   workspaces: API.Workspaces = new API.Workspaces(this);
-  invitations: API.Invitations = new API.Invitations(this);
-  zapierSubscriptions: API.ZapierSubscriptions = new API.ZapierSubscriptions(this);
   siteInvitations: API.SiteInvitations = new API.SiteInvitations(this);
   siteMemberships: API.SiteMemberships = new API.SiteMemberships(this);
   workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
@@ -871,8 +867,6 @@ Fingertip.Orders = Orders;
 Fingertip.SiteContacts = SiteContacts;
 Fingertip.Webhooks = Webhooks;
 Fingertip.Workspaces = Workspaces;
-Fingertip.Invitations = Invitations;
-Fingertip.ZapierSubscriptions = ZapierSubscriptions;
 Fingertip.SiteInvitations = SiteInvitations;
 Fingertip.SiteMemberships = SiteMemberships;
 Fingertip.WorkspaceMemberships = WorkspaceMemberships;
@@ -1002,14 +996,6 @@ export declare namespace Fingertip {
     type WorkspaceUpdateParams as WorkspaceUpdateParams,
     type WorkspaceListParams as WorkspaceListParams,
   };
-
-  export {
-    Invitations as Invitations,
-    type InvitationRetrieveResponse as InvitationRetrieveResponse,
-    type InvitationDeleteResponse as InvitationDeleteResponse,
-  };
-
-  export { ZapierSubscriptions as ZapierSubscriptions };
 
   export {
     SiteInvitations as SiteInvitations,

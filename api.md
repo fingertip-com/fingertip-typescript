@@ -42,20 +42,6 @@ Methods:
 
 ## Invitations
 
-Types:
-
-- <code><a href="./src/resources/sites/invitations.ts">InvitationCreateResponse</a></code>
-- <code><a href="./src/resources/sites/invitations.ts">InvitationRetrieveResponse</a></code>
-- <code><a href="./src/resources/sites/invitations.ts">InvitationListResponse</a></code>
-- <code><a href="./src/resources/sites/invitations.ts">InvitationDeleteResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/sites/{siteId}/invitations">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">create</a>(siteID, { ...params }) -> InvitationCreateResponse</code>
-- <code title="get /v1/site-invitations/{invitationId}">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">retrieve</a>(invitationID) -> InvitationRetrieveResponse</code>
-- <code title="get /v1/sites/{siteId}/invitations">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">list</a>(siteID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
-- <code title="delete /v1/site-invitations/{invitationId}">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">delete</a>(invitationID) -> InvitationDeleteResponse</code>
-
 ## Memberships
 
 Types:
@@ -293,20 +279,6 @@ Types:
 Methods:
 
 - <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>() -> OrderSampleResponse</code>
-
-# Invitations
-
-Types:
-
-- <code><a href="./src/resources/invitations.ts">InvitationRetrieveResponse</a></code>
-- <code><a href="./src/resources/invitations.ts">InvitationDeleteResponse</a></code>
-
-Methods:
-
-- <code title="get /v1/invitations/{invitationId}">client.invitations.<a href="./src/resources/invitations.ts">retrieve</a>(invitationID) -> InvitationRetrieveResponse</code>
-- <code title="delete /v1/invitations/{invitationId}">client.invitations.<a href="./src/resources/invitations.ts">delete</a>(invitationID) -> InvitationDeleteResponse</code>
-
-# ZapierSubscriptions
 
 # SiteInvitations
 
