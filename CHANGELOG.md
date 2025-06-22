@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.38.0 (2025-06-22)
+
+Full Changelog: [v0.37.1...v0.38.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.37.1...v0.38.0)
+
+### Features
+
+* **api:** api update ([f7a69e2](https://github.com/fingertip-com/fingertip-typescript/commit/f7a69e2c96d90dcc63f5bf385c61311a49559352))
+* **api:** update via SDK Studio ([44ccb30](https://github.com/fingertip-com/fingertip-typescript/commit/44ccb30ff70b66fed1cf2f5b8febaab7714d7089))
+* **api:** update via SDK Studio ([382c6cc](https://github.com/fingertip-com/fingertip-typescript/commit/382c6ccaa0b7a5350851bda3c89e2bf951eed8c2))
+* **api:** update via SDK Studio ([5a68578](https://github.com/fingertip-com/fingertip-typescript/commit/5a68578f91d70ca3c88d42cdbd88501d90924588))
+
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([7137113](https://github.com/fingertip-com/fingertip-typescript/commit/7137113164af7ed0a36bd9c8a342e994407537a7))
+
 ## 0.37.1 (2025-06-20)
 
 Full Changelog: [v0.37.0...v0.37.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.37.0...v0.37.1)
