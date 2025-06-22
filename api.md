@@ -40,26 +40,6 @@ Methods:
 - <code title="post /v1/sites/{siteId}/pages">client.sites.pages.<a href="./src/resources/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
 - <code title="get /v1/sites/{siteId}/pages">client.sites.pages.<a href="./src/resources/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
 
-## Invitations
-
-## Memberships
-
-Types:
-
-- <code><a href="./src/resources/sites/memberships.ts">MembershipCreateResponse</a></code>
-- <code><a href="./src/resources/sites/memberships.ts">MembershipRetrieveResponse</a></code>
-- <code><a href="./src/resources/sites/memberships.ts">MembershipUpdateResponse</a></code>
-- <code><a href="./src/resources/sites/memberships.ts">MembershipListResponse</a></code>
-- <code><a href="./src/resources/sites/memberships.ts">MembershipDeleteResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/sites/{siteId}/memberships">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">create</a>(siteID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/site-memberships/{membershipId}">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">retrieve</a>(membershipID) -> MembershipRetrieveResponse</code>
-- <code title="patch /v1/site-memberships/{membershipId}">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">update</a>(membershipID, { ...params }) -> MembershipUpdateResponse</code>
-- <code title="get /v1/sites/{siteId}/memberships">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">list</a>(siteID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
-- <code title="delete /v1/site-memberships/{membershipId}">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">delete</a>(membershipID) -> MembershipDeleteResponse</code>
-
 # Pages
 
 Types:
@@ -251,24 +231,6 @@ Methods:
 
 - <code title="post /v1/workspaces/{workspaceId}/invitations">client.workspaces.invitations.<a href="./src/resources/workspaces/invitations.ts">create</a>(workspaceID, { ...params }) -> InvitationCreateResponse</code>
 - <code title="get /v1/workspaces/{workspaceId}/invitations">client.workspaces.invitations.<a href="./src/resources/workspaces/invitations.ts">list</a>(workspaceID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
-
-## Memberships
-
-Types:
-
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipCreateResponse</a></code>
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipRetrieveResponse</a></code>
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipUpdateResponse</a></code>
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipListResponse</a></code>
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipDeleteResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/workspaces/{workspaceId}/memberships">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/workspace-memberships/{membershipId}">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">retrieve</a>(membershipID) -> MembershipRetrieveResponse</code>
-- <code title="patch /v1/workspace-memberships/{membershipId}">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">update</a>(membershipID, { ...params }) -> MembershipUpdateResponse</code>
-- <code title="get /v1/workspaces/{workspaceId}/memberships">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
-- <code title="delete /v1/workspace-memberships/{membershipId}">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">delete</a>(membershipID) -> MembershipDeleteResponse</code>
 
 ## Orders
 
