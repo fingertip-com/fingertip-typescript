@@ -1,21 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as InvitationsAPI from './invitations';
-import { Invitations } from './invitations';
-import * as MembershipsAPI from './memberships';
-import {
-  MembershipCreateParams,
-  MembershipCreateResponse,
-  MembershipDeleteResponse,
-  MembershipListParams,
-  MembershipListResponse,
-  MembershipListResponsesMyCursorPage,
-  MembershipRetrieveResponse,
-  MembershipUpdateParams,
-  MembershipUpdateResponse,
-  Memberships,
-} from './memberships';
 import * as PagesAPI from './pages';
 import {
   PageCreateParams,
@@ -32,8 +17,6 @@ import { path } from '../../internal/utils/path';
 
 export class Sites extends APIResource {
   pages: PagesAPI.Pages = new PagesAPI.Pages(this._client);
-  invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
-  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
 
   /**
    * Creates a new site with associated pages, themes, and blocks
@@ -1403,8 +1386,6 @@ export interface SiteRetrieveAnalyticsParams {
 }
 
 Sites.Pages = Pages;
-Sites.Invitations = Invitations;
-Sites.Memberships = Memberships;
 
 export declare namespace Sites {
   export {
@@ -1428,20 +1409,5 @@ export declare namespace Sites {
     type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
-  };
-
-  export { Invitations as Invitations };
-
-  export {
-    Memberships as Memberships,
-    type MembershipCreateResponse as MembershipCreateResponse,
-    type MembershipRetrieveResponse as MembershipRetrieveResponse,
-    type MembershipUpdateResponse as MembershipUpdateResponse,
-    type MembershipListResponse as MembershipListResponse,
-    type MembershipDeleteResponse as MembershipDeleteResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
-    type MembershipCreateParams as MembershipCreateParams,
-    type MembershipUpdateParams as MembershipUpdateParams,
-    type MembershipListParams as MembershipListParams,
   };
 }

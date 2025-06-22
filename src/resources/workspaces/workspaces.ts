@@ -10,19 +10,6 @@ import {
   InvitationListResponsesMyCursorPage,
   Invitations,
 } from './invitations';
-import * as MembershipsAPI from './memberships';
-import {
-  MembershipCreateParams,
-  MembershipCreateResponse,
-  MembershipDeleteResponse,
-  MembershipListParams,
-  MembershipListResponse,
-  MembershipListResponsesMyCursorPage,
-  MembershipRetrieveResponse,
-  MembershipUpdateParams,
-  MembershipUpdateResponse,
-  Memberships,
-} from './memberships';
 import * as OrdersAPI from './orders';
 import { OrderSampleResponse, Orders } from './orders';
 import { APIPromise } from '../../core/api-promise';
@@ -32,7 +19,6 @@ import { path } from '../../internal/utils/path';
 
 export class Workspaces extends APIResource {
   invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
-  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
   orders: OrdersAPI.Orders = new OrdersAPI.Orders(this._client);
 
   /**
@@ -464,7 +450,6 @@ export interface WorkspaceListParams extends MyCursorPageParams {
 }
 
 Workspaces.Invitations = Invitations;
-Workspaces.Memberships = Memberships;
 Workspaces.Orders = Orders;
 
 export declare namespace Workspaces {
@@ -484,19 +469,6 @@ export declare namespace Workspaces {
     type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
     type InvitationCreateParams as InvitationCreateParams,
     type InvitationListParams as InvitationListParams,
-  };
-
-  export {
-    Memberships as Memberships,
-    type MembershipCreateResponse as MembershipCreateResponse,
-    type MembershipRetrieveResponse as MembershipRetrieveResponse,
-    type MembershipUpdateResponse as MembershipUpdateResponse,
-    type MembershipListResponse as MembershipListResponse,
-    type MembershipDeleteResponse as MembershipDeleteResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
-    type MembershipCreateParams as MembershipCreateParams,
-    type MembershipUpdateParams as MembershipUpdateParams,
-    type MembershipListParams as MembershipListParams,
   };
 
   export { Orders as Orders, type OrderSampleResponse as OrderSampleResponse };
