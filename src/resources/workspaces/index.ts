@@ -8,18 +8,6 @@ export {
   type InvitationListParams,
   type InvitationListResponsesMyCursorPage,
 } from './invitations';
-export {
-  Memberships,
-  type MembershipCreateResponse,
-  type MembershipRetrieveResponse,
-  type MembershipUpdateResponse,
-  type MembershipListResponse,
-  type MembershipDeleteResponse,
-  type MembershipCreateParams,
-  type MembershipUpdateParams,
-  type MembershipListParams,
-  type MembershipListResponsesMyCursorPage,
-} from './memberships';
 export { Orders, type OrderSampleResponse } from './orders';
 export {
   Workspaces,
