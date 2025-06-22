@@ -182,13 +182,6 @@ The following tools are available in this MCP server.
 - `create_sites_pages` (`write`): Creates a new page within a site with the provided content.
 - `list_sites_pages` (`read`): Retrieves a paginated list of pages for a specific site.
 
-### Resource `sites.invitations`:
-
-- `create_sites_invitations` (`write`): Creates a new invitation for a user to join a site
-- `retrieve_sites_invitations` (`read`): Retrieves details of a specific site invitation
-- `list_sites_invitations` (`read`): Retrieves a paginated list of invitations for a specific site
-- `delete_sites_invitations` (`write`): Deletes an existing site invitation
-
 ### Resource `sites.memberships`:
 
 - `create_sites_memberships` (`write`): Adds a user to a site
@@ -259,11 +252,6 @@ The following tools are available in this MCP server.
 - `retrieve_workspaces_memberships` (`read`): Retrieves details of a specific workspace membership
 - `update_workspaces_memberships` (`write`): Updates the role of an existing workspace membership
 - `delete_workspaces_memberships` (`write`): Removes a user from a workspace
-
-### Resource `invitations`:
-
-- `retrieve_invitations` (`read`): Retrieves details of a specific workspace invitation
-- `delete_invitations` (`write`): Deletes an existing workspace invitation
 
 ### Resource `site_invitations`:
 
