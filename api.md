@@ -40,30 +40,6 @@ Methods:
 - <code title="post /v1/sites/{siteId}/pages">client.sites.pages.<a href="./src/resources/sites/pages.ts">create</a>(siteID, { ...params }) -> PageCreateResponse</code>
 - <code title="get /v1/sites/{siteId}/pages">client.sites.pages.<a href="./src/resources/sites/pages.ts">list</a>(siteID, { ...params }) -> PageListResponsesMyCursorPage</code>
 
-## Invitations
-
-Types:
-
-- <code><a href="./src/resources/sites/invitations.ts">InvitationCreateResponse</a></code>
-- <code><a href="./src/resources/sites/invitations.ts">InvitationListResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/sites/{siteId}/invitations">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">create</a>(siteID, { ...params }) -> InvitationCreateResponse</code>
-- <code title="get /v1/sites/{siteId}/invitations">client.sites.invitations.<a href="./src/resources/sites/invitations.ts">list</a>(siteID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
-
-## Memberships
-
-Types:
-
-- <code><a href="./src/resources/sites/memberships.ts">MembershipCreateResponse</a></code>
-- <code><a href="./src/resources/sites/memberships.ts">MembershipListResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/sites/{siteId}/memberships">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">create</a>(siteID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/sites/{siteId}/memberships">client.sites.memberships.<a href="./src/resources/sites/memberships.ts">list</a>(siteID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
-
 # Pages
 
 Types:
@@ -282,50 +258,52 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/site-invitations.ts">SiteInvitationCreateResponse</a></code>
 - <code><a href="./src/resources/site-invitations.ts">SiteInvitationRetrieveResponse</a></code>
+- <code><a href="./src/resources/site-invitations.ts">SiteInvitationListResponse</a></code>
 - <code><a href="./src/resources/site-invitations.ts">SiteInvitationDeleteResponse</a></code>
 
 Methods:
 
+- <code title="post /v1/sites/{siteId}/invitations">client.siteInvitations.<a href="./src/resources/site-invitations.ts">create</a>(siteID, { ...params }) -> SiteInvitationCreateResponse</code>
 - <code title="get /v1/site-invitations/{invitationId}">client.siteInvitations.<a href="./src/resources/site-invitations.ts">retrieve</a>(invitationID) -> SiteInvitationRetrieveResponse</code>
+- <code title="get /v1/sites/{siteId}/invitations">client.siteInvitations.<a href="./src/resources/site-invitations.ts">list</a>(siteID, { ...params }) -> SiteInvitationListResponsesMyCursorPage</code>
 - <code title="delete /v1/site-invitations/{invitationId}">client.siteInvitations.<a href="./src/resources/site-invitations.ts">delete</a>(invitationID) -> SiteInvitationDeleteResponse</code>
 
 # SiteMemberships
 
 Types:
 
+- <code><a href="./src/resources/site-memberships.ts">SiteMembershipCreateResponse</a></code>
 - <code><a href="./src/resources/site-memberships.ts">SiteMembershipRetrieveResponse</a></code>
 - <code><a href="./src/resources/site-memberships.ts">SiteMembershipUpdateResponse</a></code>
+- <code><a href="./src/resources/site-memberships.ts">SiteMembershipListResponse</a></code>
 - <code><a href="./src/resources/site-memberships.ts">SiteMembershipDeleteResponse</a></code>
 
 Methods:
 
+- <code title="post /v1/sites/{siteId}/memberships">client.siteMemberships.<a href="./src/resources/site-memberships.ts">create</a>(siteID, { ...params }) -> SiteMembershipCreateResponse</code>
 - <code title="get /v1/site-memberships/{membershipId}">client.siteMemberships.<a href="./src/resources/site-memberships.ts">retrieve</a>(membershipID) -> SiteMembershipRetrieveResponse</code>
 - <code title="patch /v1/site-memberships/{membershipId}">client.siteMemberships.<a href="./src/resources/site-memberships.ts">update</a>(membershipID, { ...params }) -> SiteMembershipUpdateResponse</code>
+- <code title="get /v1/sites/{siteId}/memberships">client.siteMemberships.<a href="./src/resources/site-memberships.ts">list</a>(siteID, { ...params }) -> SiteMembershipListResponsesMyCursorPage</code>
 - <code title="delete /v1/site-memberships/{membershipId}">client.siteMemberships.<a href="./src/resources/site-memberships.ts">delete</a>(membershipID) -> SiteMembershipDeleteResponse</code>
 
 # WorkspaceMemberships
 
 Types:
 
+- <code><a href="./src/resources/workspace-memberships.ts">WorkspaceMembershipCreateResponse</a></code>
 - <code><a href="./src/resources/workspace-memberships.ts">WorkspaceMembershipRetrieveResponse</a></code>
 - <code><a href="./src/resources/workspace-memberships.ts">WorkspaceMembershipUpdateResponse</a></code>
+- <code><a href="./src/resources/workspace-memberships.ts">WorkspaceMembershipListResponse</a></code>
 - <code><a href="./src/resources/workspace-memberships.ts">WorkspaceMembershipDeleteResponse</a></code>
 
 Methods:
 
+- <code title="post /v1/workspaces/{workspaceId}/memberships">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">create</a>(workspaceID, { ...params }) -> WorkspaceMembershipCreateResponse</code>
 - <code title="get /v1/workspace-memberships/{membershipId}">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">retrieve</a>(membershipID) -> WorkspaceMembershipRetrieveResponse</code>
 - <code title="patch /v1/workspace-memberships/{membershipId}">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">update</a>(membershipID, { ...params }) -> WorkspaceMembershipUpdateResponse</code>
+- <code title="get /v1/workspaces/{workspaceId}/memberships">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">list</a>(workspaceID, { ...params }) -> WorkspaceMembershipListResponsesMyCursorPage</code>
 - <code title="delete /v1/workspace-memberships/{membershipId}">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>
 
-# Invitations
-
-Types:
-
-- <code><a href="./src/resources/invitations.ts">InvitationRetrieveResponse</a></code>
-- <code><a href="./src/resources/invitations.ts">InvitationDeleteResponse</a></code>
-
-Methods:
-
-- <code title="get /v1/invitations/{invitationId}">client.invitations.<a href="./src/resources/invitations.ts">retrieve</a>(invitationID) -> InvitationRetrieveResponse</code>
-- <code title="delete /v1/invitations/{invitationId}">client.invitations.<a href="./src/resources/invitations.ts">delete</a>(invitationID) -> InvitationDeleteResponse</code>
+# WorkspaceInvitations

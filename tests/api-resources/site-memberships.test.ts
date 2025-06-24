@@ -9,6 +9,29 @@ const client = new Fingertip({
 
 describe('resource siteMemberships', () => {
   // skipped: tests are disabled for the time being
+  test.skip('create: only required params', async () => {
+    const responsePromise = client.siteMemberships.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
+      role: 'OWNER',
+      userId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('create: required and optional params', async () => {
+    const response = await client.siteMemberships.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
+      role: 'OWNER',
+      userId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+    });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('retrieve', async () => {
     const responsePromise = client.siteMemberships.retrieve('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -39,6 +62,30 @@ describe('resource siteMemberships', () => {
     const response = await client.siteMemberships.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       role: 'OWNER',
     });
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('list', async () => {
+    const responsePromise = client.siteMemberships.list('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.siteMemberships.list(
+        '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+        { cursor: 'cursor', pageSize: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Fingertip.NotFoundError);
   });
 
   // skipped: tests are disabled for the time being
