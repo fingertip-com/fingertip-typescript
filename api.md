@@ -307,3 +307,13 @@ Methods:
 - <code title="delete /v1/workspace-memberships/{membershipId}">client.workspaceMemberships.<a href="./src/resources/workspace-memberships.ts">delete</a>(membershipID) -> WorkspaceMembershipDeleteResponse</code>
 
 # WorkspaceInvitations
+
+Types:
+
+- <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationRetrieveResponse</a></code>
+- <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationDeleteResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">retrieve</a>(invitationID) -> WorkspaceInvitationRetrieveResponse</code>
+- <code title="delete /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">delete</a>(invitationID) -> WorkspaceInvitationDeleteResponse</code>
