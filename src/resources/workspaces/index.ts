@@ -8,6 +8,14 @@ export {
   type InvitationListParams,
   type InvitationListResponsesMyCursorPage,
 } from './invitations';
+export {
+  Memberships,
+  type MembershipCreateResponse,
+  type MembershipListResponse,
+  type MembershipCreateParams,
+  type MembershipListParams,
+  type MembershipListResponsesMyCursorPage,
+} from './memberships';
 export { Orders, type OrderSampleResponse } from './orders';
 export {
   Workspaces,

@@ -63,7 +63,7 @@ describe('resource siteContacts', () => {
       hasQuotes: true,
       hasRatings: true,
       hasSegmentation: true,
-      marketingStatuses: ['string'],
+      marketingStatuses: ['SUBSCRIBED'],
       pageSize: 0,
       search: 'search',
     });

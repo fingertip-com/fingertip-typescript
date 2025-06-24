@@ -1,6 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as InvitationsAPI from './invitations';
+import {
+  InvitationCreateParams,
+  InvitationCreateResponse,
+  InvitationListParams,
+  InvitationListResponse,
+  InvitationListResponsesMyCursorPage,
+  Invitations,
+} from './invitations';
+import * as MembershipsAPI from './memberships';
+import {
+  MembershipCreateParams,
+  MembershipCreateResponse,
+  MembershipListParams,
+  MembershipListResponse,
+  MembershipListResponsesMyCursorPage,
+  Memberships,
+} from './memberships';
 import * as PagesAPI from './pages';
 import {
   PageCreateParams,
@@ -17,6 +35,8 @@ import { path } from '../../internal/utils/path';
 
 export class Sites extends APIResource {
   pages: PagesAPI.Pages = new PagesAPI.Pages(this._client);
+  invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
+  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
 
   /**
    * Creates a new site with associated pages, themes, and blocks
@@ -1386,6 +1406,8 @@ export interface SiteRetrieveAnalyticsParams {
 }
 
 Sites.Pages = Pages;
+Sites.Invitations = Invitations;
+Sites.Memberships = Memberships;
 
 export declare namespace Sites {
   export {
@@ -1409,5 +1431,23 @@ export declare namespace Sites {
     type PageListResponsesMyCursorPage as PageListResponsesMyCursorPage,
     type PageCreateParams as PageCreateParams,
     type PageListParams as PageListParams,
+  };
+
+  export {
+    Invitations as Invitations,
+    type InvitationCreateResponse as InvitationCreateResponse,
+    type InvitationListResponse as InvitationListResponse,
+    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
+    type InvitationCreateParams as InvitationCreateParams,
+    type InvitationListParams as InvitationListParams,
+  };
+
+  export {
+    Memberships as Memberships,
+    type MembershipCreateResponse as MembershipCreateResponse,
+    type MembershipListResponse as MembershipListResponse,
+    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
+    type MembershipCreateParams as MembershipCreateParams,
+    type MembershipListParams as MembershipListParams,
   };
 }

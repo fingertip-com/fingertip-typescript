@@ -62,6 +62,7 @@ import {
   FormTemplateRetrieveResponse,
   FormTemplates,
 } from './resources/form-templates';
+import { InvitationDeleteResponse, InvitationRetrieveResponse, Invitations } from './resources/invitations';
 import {
   InvoiceListParams,
   InvoiceListResponse,
@@ -852,6 +853,7 @@ export class Fingertip {
   siteInvitations: API.SiteInvitations = new API.SiteInvitations(this);
   siteMemberships: API.SiteMemberships = new API.SiteMemberships(this);
   workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
+  invitations: API.Invitations = new API.Invitations(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -870,6 +872,7 @@ Fingertip.Workspaces = Workspaces;
 Fingertip.SiteInvitations = SiteInvitations;
 Fingertip.SiteMemberships = SiteMemberships;
 Fingertip.WorkspaceMemberships = WorkspaceMemberships;
+Fingertip.Invitations = Invitations;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -1017,5 +1020,11 @@ export declare namespace Fingertip {
     type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
     type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
     type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,
+  };
+
+  export {
+    Invitations as Invitations,
+    type InvitationRetrieveResponse as InvitationRetrieveResponse,
+    type InvitationDeleteResponse as InvitationDeleteResponse,
   };
 }
