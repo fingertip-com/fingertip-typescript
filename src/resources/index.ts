@@ -43,6 +43,7 @@ export {
   type FormTemplateListParams,
   type FormTemplateListResponsesMyCursorPage,
 } from './form-templates';
+export { Invitations, type InvitationRetrieveResponse, type InvitationDeleteResponse } from './invitations';
 export {
   Invoices,
   type InvoiceListResponse,

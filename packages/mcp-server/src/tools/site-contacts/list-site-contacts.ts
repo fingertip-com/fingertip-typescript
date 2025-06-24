@@ -70,11 +70,12 @@ export const tool: Tool = {
         description: 'Filter by marketing status',
         items: {
           type: 'string',
+          enum: ['SUBSCRIBED', 'UNSUBSCRIBED', 'CLEANED', 'PENDING', 'TRANSACTIONAL', 'ARCHIVED'],
         },
       },
       pageSize: {
         type: 'number',
-        description: 'Number of items per page',
+        description: 'Number of items per page (default: 25, max: 100)',
       },
       search: {
         type: 'string',
