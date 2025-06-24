@@ -99,7 +99,7 @@ export namespace SiteContactCreateResponse {
     /**
      * Marketing consent status of the contact
      */
-    marketingStatus: string;
+    marketingStatus: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CLEANED' | 'PENDING' | 'TRANSACTIONAL' | 'ARCHIVED';
 
     /**
      * Full name of the contact, can be null
@@ -233,7 +233,7 @@ export namespace SiteContactListResponse {
     /**
      * Marketing consent status of the contact
      */
-    marketingStatus: string;
+    marketingStatus: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CLEANED' | 'PENDING' | 'TRANSACTIONAL' | 'ARCHIVED';
 
     /**
      * Full name of the contact, can be null
@@ -389,7 +389,9 @@ export interface SiteContactListParams extends MyCursorPageParams {
   /**
    * Filter by marketing status
    */
-  marketingStatuses?: Array<string>;
+  marketingStatuses?: Array<
+    'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CLEANED' | 'PENDING' | 'TRANSACTIONAL' | 'ARCHIVED'
+  >;
 
   /**
    * Search term for contacts
