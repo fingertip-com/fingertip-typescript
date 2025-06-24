@@ -1397,7 +1397,7 @@ export interface SiteRetrieveAnalyticsParams {
   /**
    * Include store analytics data
    */
-  includeStore?: boolean;
+  includeStore?: boolean | null;
 
   /**
    * Time period for analytics data
