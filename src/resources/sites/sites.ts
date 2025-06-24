@@ -883,16 +883,6 @@ export namespace SiteRetrieveAnalyticsResponse {
     bestSellers: Array<Store.BestSeller>;
 
     /**
-     * Whether payment processing is connected
-     */
-    hasActiveConnection: boolean;
-
-    /**
-     * Whether the store has sales history
-     */
-    hasSalesHistory: boolean;
-
-    /**
      * Store statistics
      */
     stats: Store.Stats;
@@ -901,6 +891,16 @@ export namespace SiteRetrieveAnalyticsResponse {
      * Store sales summary
      */
     summary: Store.Summary;
+
+    /**
+     * Whether payment processing is connected
+     */
+    hasActiveConnection?: boolean | null;
+
+    /**
+     * Whether the store has sales history
+     */
+    hasSalesHistory?: boolean | null;
   }
 
   export namespace Store {
