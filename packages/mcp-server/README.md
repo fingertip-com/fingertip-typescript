@@ -133,7 +133,7 @@ over time, you can manually enable or disable certain capabilities:
 import { server, endpoints, init } from "fingertip-mcp/server";
 
 // import a specific tool
-import checkPing from "fingertip-mcp/tools/ping/check-ping";
+import createSites from "fingertip-mcp/tools/sites/create-sites";
 
 // initialize the server and all endpoints
 init({ server, endpoints });
@@ -158,16 +158,12 @@ const myCustomEndpoint = {
 };
 
 // initialize the server with your custom endpoints
-init({ server: myServer, endpoints: [checkPing, myCustomEndpoint] });
+init({ server: myServer, endpoints: [createSites, myCustomEndpoint] });
 ```
 
 ## Available Tools
 
 The following tools are available in this MCP server.
-
-### Resource `ping`:
-
-- `check_ping` (`read`): Simple health check endpoint to verify the API is running. Requires authentication.
 
 ### Resource `sites`:
 
@@ -242,16 +238,8 @@ The following tools are available in this MCP server.
 ### Resource `site_invitations`:
 
 - `retrieve_site_invitations` (`read`): Retrieves details of a specific site invitation
-- `delete_site_invitations` (`write`): Deletes an existing site invitation
 
 ### Resource `site_memberships`:
 
 - `retrieve_site_memberships` (`read`): Retrieves details of a specific site membership
 - `update_site_memberships` (`write`): Updates the role of an existing site membership
-- `delete_site_memberships` (`write`): Removes a user from a site
-
-### Resource `workspace_memberships`:
-
-- `retrieve_workspace_memberships` (`read`): Retrieves details of a specific workspace membership
-- `update_workspace_memberships` (`write`): Updates the role of an existing workspace membership
-- `delete_workspace_memberships` (`write`): Removes a user from a workspace

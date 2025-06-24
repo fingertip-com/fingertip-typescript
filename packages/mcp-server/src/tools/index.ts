@@ -4,7 +4,6 @@ import { Metadata, Endpoint, HandlerFunction } from './types';
 
 export { Metadata, Endpoint, HandlerFunction };
 
-import check_ping from './ping/check-ping';
 import create_sites from './sites/create-sites';
 import retrieve_sites from './sites/retrieve-sites';
 import update_sites from './sites/update-sites';
@@ -34,13 +33,8 @@ import list_orders from './orders/list-orders';
 import create_site_contacts from './site-contacts/create-site-contacts';
 import list_site_contacts from './site-contacts/list-site-contacts';
 import retrieve_site_invitations from './site-invitations/retrieve-site-invitations';
-import delete_site_invitations from './site-invitations/delete-site-invitations';
 import retrieve_site_memberships from './site-memberships/retrieve-site-memberships';
 import update_site_memberships from './site-memberships/update-site-memberships';
-import delete_site_memberships from './site-memberships/delete-site-memberships';
-import retrieve_workspace_memberships from './workspace-memberships/retrieve-workspace-memberships';
-import update_workspace_memberships from './workspace-memberships/update-workspace-memberships';
-import delete_workspace_memberships from './workspace-memberships/delete-workspace-memberships';
 
 export const endpoints: Endpoint[] = [];
 
@@ -48,7 +42,6 @@ function addEndpoint(endpoint: Endpoint) {
   endpoints.push(endpoint);
 }
 
-addEndpoint(check_ping);
 addEndpoint(create_sites);
 addEndpoint(retrieve_sites);
 addEndpoint(update_sites);
@@ -78,13 +71,8 @@ addEndpoint(list_orders);
 addEndpoint(create_site_contacts);
 addEndpoint(list_site_contacts);
 addEndpoint(retrieve_site_invitations);
-addEndpoint(delete_site_invitations);
 addEndpoint(retrieve_site_memberships);
 addEndpoint(update_site_memberships);
-addEndpoint(delete_site_memberships);
-addEndpoint(retrieve_workspace_memberships);
-addEndpoint(update_workspace_memberships);
-addEndpoint(delete_workspace_memberships);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';
