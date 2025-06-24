@@ -113,7 +113,11 @@ import {
   WebhookUpdateResponse,
   Webhooks,
 } from './resources/webhooks';
-import { WorkspaceInvitations } from './resources/workspace-invitations';
+import {
+  WorkspaceInvitationDeleteResponse,
+  WorkspaceInvitationRetrieveResponse,
+  WorkspaceInvitations,
+} from './resources/workspace-invitations';
 import {
   WorkspaceMembershipCreateParams,
   WorkspaceMembershipCreateResponse,
@@ -1052,5 +1056,9 @@ export declare namespace Fingertip {
     type WorkspaceMembershipListParams as WorkspaceMembershipListParams,
   };
 
-  export { WorkspaceInvitations as WorkspaceInvitations };
+  export {
+    WorkspaceInvitations as WorkspaceInvitations,
+    type WorkspaceInvitationRetrieveResponse as WorkspaceInvitationRetrieveResponse,
+    type WorkspaceInvitationDeleteResponse as WorkspaceInvitationDeleteResponse,
+  };
 }

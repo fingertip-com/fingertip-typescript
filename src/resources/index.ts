@@ -115,7 +115,11 @@ export {
   type WebhookListParams,
   type WebhookListResponsesMyCursorPage,
 } from './webhooks';
-export { WorkspaceInvitations } from './workspace-invitations';
+export {
+  WorkspaceInvitations,
+  type WorkspaceInvitationRetrieveResponse,
+  type WorkspaceInvitationDeleteResponse,
+} from './workspace-invitations';
 export {
   WorkspaceMemberships,
   type WorkspaceMembershipCreateResponse,
