@@ -62,7 +62,6 @@ import {
   FormTemplateRetrieveResponse,
   FormTemplates,
 } from './resources/form-templates';
-import { InvitationDeleteResponse, InvitationRetrieveResponse, Invitations } from './resources/invitations';
 import {
   InvoiceListParams,
   InvoiceListResponse,
@@ -81,12 +80,22 @@ import {
   SiteContacts,
 } from './resources/site-contacts';
 import {
+  SiteInvitationCreateParams,
+  SiteInvitationCreateResponse,
   SiteInvitationDeleteResponse,
+  SiteInvitationListParams,
+  SiteInvitationListResponse,
+  SiteInvitationListResponsesMyCursorPage,
   SiteInvitationRetrieveResponse,
   SiteInvitations,
 } from './resources/site-invitations';
 import {
+  SiteMembershipCreateParams,
+  SiteMembershipCreateResponse,
   SiteMembershipDeleteResponse,
+  SiteMembershipListParams,
+  SiteMembershipListResponse,
+  SiteMembershipListResponsesMyCursorPage,
   SiteMembershipRetrieveResponse,
   SiteMembershipUpdateParams,
   SiteMembershipUpdateResponse,
@@ -104,8 +113,14 @@ import {
   WebhookUpdateResponse,
   Webhooks,
 } from './resources/webhooks';
+import { WorkspaceInvitations } from './resources/workspace-invitations';
 import {
+  WorkspaceMembershipCreateParams,
+  WorkspaceMembershipCreateResponse,
   WorkspaceMembershipDeleteResponse,
+  WorkspaceMembershipListParams,
+  WorkspaceMembershipListResponse,
+  WorkspaceMembershipListResponsesMyCursorPage,
   WorkspaceMembershipRetrieveResponse,
   WorkspaceMembershipUpdateParams,
   WorkspaceMembershipUpdateResponse,
@@ -853,7 +868,7 @@ export class Fingertip {
   siteInvitations: API.SiteInvitations = new API.SiteInvitations(this);
   siteMemberships: API.SiteMemberships = new API.SiteMemberships(this);
   workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
-  invitations: API.Invitations = new API.Invitations(this);
+  workspaceInvitations: API.WorkspaceInvitations = new API.WorkspaceInvitations(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -872,7 +887,7 @@ Fingertip.Workspaces = Workspaces;
 Fingertip.SiteInvitations = SiteInvitations;
 Fingertip.SiteMemberships = SiteMemberships;
 Fingertip.WorkspaceMemberships = WorkspaceMemberships;
-Fingertip.Invitations = Invitations;
+Fingertip.WorkspaceInvitations = WorkspaceInvitations;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -1002,29 +1017,40 @@ export declare namespace Fingertip {
 
   export {
     SiteInvitations as SiteInvitations,
+    type SiteInvitationCreateResponse as SiteInvitationCreateResponse,
     type SiteInvitationRetrieveResponse as SiteInvitationRetrieveResponse,
+    type SiteInvitationListResponse as SiteInvitationListResponse,
     type SiteInvitationDeleteResponse as SiteInvitationDeleteResponse,
+    type SiteInvitationListResponsesMyCursorPage as SiteInvitationListResponsesMyCursorPage,
+    type SiteInvitationCreateParams as SiteInvitationCreateParams,
+    type SiteInvitationListParams as SiteInvitationListParams,
   };
 
   export {
     SiteMemberships as SiteMemberships,
+    type SiteMembershipCreateResponse as SiteMembershipCreateResponse,
     type SiteMembershipRetrieveResponse as SiteMembershipRetrieveResponse,
     type SiteMembershipUpdateResponse as SiteMembershipUpdateResponse,
+    type SiteMembershipListResponse as SiteMembershipListResponse,
     type SiteMembershipDeleteResponse as SiteMembershipDeleteResponse,
+    type SiteMembershipListResponsesMyCursorPage as SiteMembershipListResponsesMyCursorPage,
+    type SiteMembershipCreateParams as SiteMembershipCreateParams,
     type SiteMembershipUpdateParams as SiteMembershipUpdateParams,
+    type SiteMembershipListParams as SiteMembershipListParams,
   };
 
   export {
     WorkspaceMemberships as WorkspaceMemberships,
+    type WorkspaceMembershipCreateResponse as WorkspaceMembershipCreateResponse,
     type WorkspaceMembershipRetrieveResponse as WorkspaceMembershipRetrieveResponse,
     type WorkspaceMembershipUpdateResponse as WorkspaceMembershipUpdateResponse,
+    type WorkspaceMembershipListResponse as WorkspaceMembershipListResponse,
     type WorkspaceMembershipDeleteResponse as WorkspaceMembershipDeleteResponse,
+    type WorkspaceMembershipListResponsesMyCursorPage as WorkspaceMembershipListResponsesMyCursorPage,
+    type WorkspaceMembershipCreateParams as WorkspaceMembershipCreateParams,
     type WorkspaceMembershipUpdateParams as WorkspaceMembershipUpdateParams,
+    type WorkspaceMembershipListParams as WorkspaceMembershipListParams,
   };
 
-  export {
-    Invitations as Invitations,
-    type InvitationRetrieveResponse as InvitationRetrieveResponse,
-    type InvitationDeleteResponse as InvitationDeleteResponse,
-  };
+  export { WorkspaceInvitations as WorkspaceInvitations };
 }
