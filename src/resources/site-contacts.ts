@@ -349,42 +349,42 @@ export interface SiteContactListParams extends MyCursorPageParams {
   /**
    * Filter contacts with appointments
    */
-  hasAppointments?: boolean;
+  hasAppointments?: boolean | null;
 
   /**
    * Filter contacts with form responses
    */
-  hasFormResponses?: boolean;
+  hasFormResponses?: boolean | null;
 
   /**
    * Filter contacts with invoices
    */
-  hasInvoices?: boolean;
+  hasInvoices?: boolean | null;
 
   /**
    * Filter contacts with orders
    */
-  hasOrders?: boolean;
+  hasOrders?: boolean | null;
 
   /**
    * Filter contacts with payments
    */
-  hasPayments?: boolean;
+  hasPayments?: boolean | null;
 
   /**
    * Filter contacts with quotes
    */
-  hasQuotes?: boolean;
+  hasQuotes?: boolean | null;
 
   /**
    * Filter contacts with ratings
    */
-  hasRatings?: boolean;
+  hasRatings?: boolean | null;
 
   /**
    * Enable segmentation filters
    */
-  hasSegmentation?: boolean;
+  hasSegmentation?: boolean | null;
 
   /**
    * Filter by marketing status
