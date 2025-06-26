@@ -220,18 +220,6 @@ Methods:
 - <code title="patch /v1/workspaces/{workspaceId}">client.workspaces.<a href="./src/resources/workspaces/workspaces.ts">update</a>(workspaceID, { ...params }) -> WorkspaceUpdateResponse</code>
 - <code title="get /v1/workspaces">client.workspaces.<a href="./src/resources/workspaces/workspaces.ts">list</a>({ ...params }) -> WorkspaceListResponsesMyCursorPage</code>
 
-## Invitations
-
-Types:
-
-- <code><a href="./src/resources/workspaces/invitations.ts">InvitationCreateResponse</a></code>
-- <code><a href="./src/resources/workspaces/invitations.ts">InvitationListResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/workspaces/{workspaceId}/invitations">client.workspaces.invitations.<a href="./src/resources/workspaces/invitations.ts">create</a>(workspaceID, { ...params }) -> InvitationCreateResponse</code>
-- <code title="get /v1/workspaces/{workspaceId}/invitations">client.workspaces.invitations.<a href="./src/resources/workspaces/invitations.ts">list</a>(workspaceID, { ...params }) -> InvitationListResponsesMyCursorPage</code>
-
 ## Orders
 
 Types:
@@ -241,18 +229,6 @@ Types:
 Methods:
 
 - <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>() -> OrderSampleResponse</code>
-
-## Memberships
-
-Types:
-
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipCreateResponse</a></code>
-- <code><a href="./src/resources/workspaces/memberships.ts">MembershipListResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/workspaces/{workspaceId}/memberships">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">create</a>(workspaceID, { ...params }) -> MembershipCreateResponse</code>
-- <code title="get /v1/workspaces/{workspaceId}/memberships">client.workspaces.memberships.<a href="./src/resources/workspaces/memberships.ts">list</a>(workspaceID, { ...params }) -> MembershipListResponsesMyCursorPage</code>
 
 # SiteInvitations
 
@@ -310,10 +286,14 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationCreateResponse</a></code>
 - <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationRetrieveResponse</a></code>
+- <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationListResponse</a></code>
 - <code><a href="./src/resources/workspace-invitations.ts">WorkspaceInvitationDeleteResponse</a></code>
 
 Methods:
 
+- <code title="post /v1/workspaces/{workspaceId}/invitations">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">create</a>(workspaceID, { ...params }) -> WorkspaceInvitationCreateResponse</code>
 - <code title="get /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">retrieve</a>(invitationID) -> WorkspaceInvitationRetrieveResponse</code>
+- <code title="get /v1/workspaces/{workspaceId}/invitations">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">list</a>(workspaceID, { ...params }) -> WorkspaceInvitationListResponsesMyCursorPage</code>
 - <code title="delete /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">delete</a>(invitationID) -> WorkspaceInvitationDeleteResponse</code>

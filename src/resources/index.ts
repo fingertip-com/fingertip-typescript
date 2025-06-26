@@ -117,8 +117,13 @@ export {
 } from './webhooks';
 export {
   WorkspaceInvitations,
+  type WorkspaceInvitationCreateResponse,
   type WorkspaceInvitationRetrieveResponse,
+  type WorkspaceInvitationListResponse,
   type WorkspaceInvitationDeleteResponse,
+  type WorkspaceInvitationCreateParams,
+  type WorkspaceInvitationListParams,
+  type WorkspaceInvitationListResponsesMyCursorPage,
 } from './workspace-invitations';
 export {
   WorkspaceMemberships,
