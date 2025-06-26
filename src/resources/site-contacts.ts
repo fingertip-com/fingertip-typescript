@@ -305,11 +305,6 @@ export interface SiteContactCreateParams {
   email: string;
 
   /**
-   * Marketing consent status of the contact
-   */
-  marketingStatus: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CLEANED' | 'PENDING' | 'TRANSACTIONAL' | 'ARCHIVED';
-
-  /**
    * ID of the site to associate this contact with
    */
   siteId: string;
@@ -323,6 +318,11 @@ export interface SiteContactCreateParams {
    * Last name of the contact
    */
   lastName?: string;
+
+  /**
+   * Marketing consent status of the contact
+   */
+  marketingStatus?: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'CLEANED' | 'PENDING' | 'TRANSACTIONAL' | 'ARCHIVED';
 
   /**
    * Additional notes about the contact

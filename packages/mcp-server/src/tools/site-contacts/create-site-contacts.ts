@@ -25,11 +25,6 @@ export const tool: Tool = {
         type: 'string',
         description: 'Email address of the contact',
       },
-      marketingStatus: {
-        type: 'string',
-        description: 'Marketing consent status of the contact',
-        enum: ['SUBSCRIBED', 'UNSUBSCRIBED', 'CLEANED', 'PENDING', 'TRANSACTIONAL', 'ARCHIVED'],
-      },
       siteId: {
         type: 'string',
         description: 'ID of the site to associate this contact with',
@@ -41,6 +36,11 @@ export const tool: Tool = {
       lastName: {
         type: 'string',
         description: 'Last name of the contact',
+      },
+      marketingStatus: {
+        type: 'string',
+        description: 'Marketing consent status of the contact',
+        enum: ['SUBSCRIBED', 'UNSUBSCRIBED', 'CLEANED', 'PENDING', 'TRANSACTIONAL', 'ARCHIVED'],
       },
       notes: {
         type: 'string',
