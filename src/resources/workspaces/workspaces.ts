@@ -1,24 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as InvitationsAPI from './invitations';
-import {
-  InvitationCreateParams,
-  InvitationCreateResponse,
-  InvitationListParams,
-  InvitationListResponse,
-  InvitationListResponsesMyCursorPage,
-  Invitations,
-} from './invitations';
-import * as MembershipsAPI from './memberships';
-import {
-  MembershipCreateParams,
-  MembershipCreateResponse,
-  MembershipListParams,
-  MembershipListResponse,
-  MembershipListResponsesMyCursorPage,
-  Memberships,
-} from './memberships';
 import * as OrdersAPI from './orders';
 import { OrderSampleResponse, Orders } from './orders';
 import { APIPromise } from '../../core/api-promise';
@@ -27,9 +9,7 @@ import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class Workspaces extends APIResource {
-  invitations: InvitationsAPI.Invitations = new InvitationsAPI.Invitations(this._client);
   orders: OrdersAPI.Orders = new OrdersAPI.Orders(this._client);
-  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
 
   /**
    * Retrieves a specific workspace and its related data by workspace ID
@@ -459,9 +439,7 @@ export interface WorkspaceListParams extends MyCursorPageParams {
   sortDirection?: 'asc' | 'desc';
 }
 
-Workspaces.Invitations = Invitations;
 Workspaces.Orders = Orders;
-Workspaces.Memberships = Memberships;
 
 export declare namespace Workspaces {
   export {
@@ -473,23 +451,5 @@ export declare namespace Workspaces {
     type WorkspaceListParams as WorkspaceListParams,
   };
 
-  export {
-    Invitations as Invitations,
-    type InvitationCreateResponse as InvitationCreateResponse,
-    type InvitationListResponse as InvitationListResponse,
-    type InvitationListResponsesMyCursorPage as InvitationListResponsesMyCursorPage,
-    type InvitationCreateParams as InvitationCreateParams,
-    type InvitationListParams as InvitationListParams,
-  };
-
   export { Orders as Orders, type OrderSampleResponse as OrderSampleResponse };
-
-  export {
-    Memberships as Memberships,
-    type MembershipCreateResponse as MembershipCreateResponse,
-    type MembershipListResponse as MembershipListResponse,
-    type MembershipListResponsesMyCursorPage as MembershipListResponsesMyCursorPage,
-    type MembershipCreateParams as MembershipCreateParams,
-    type MembershipListParams as MembershipListParams,
-  };
 }
