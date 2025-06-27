@@ -31,7 +31,7 @@ export const tool: Tool = {
       },
       pageSize: {
         type: 'number',
-        description: 'Number of items per page (default: 25, max: 100)',
+        description: 'Number of items per page (default: 10, max: 25)',
       },
       search: {
         type: 'string',
