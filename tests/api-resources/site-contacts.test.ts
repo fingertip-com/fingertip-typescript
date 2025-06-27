@@ -35,7 +35,7 @@ describe('resource siteContacts', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('list: only required params', async () => {
-    const responsePromise = client.siteContacts.list({ siteSlug: 'siteSlug' });
+    const responsePromise = client.siteContacts.list({ siteId: 'siteId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -48,7 +48,7 @@ describe('resource siteContacts', () => {
   // skipped: tests are disabled for the time being
   test.skip('list: required and optional params', async () => {
     const response = await client.siteContacts.list({
-      siteSlug: 'siteSlug',
+      siteId: 'siteId',
       createdAfter: 'createdAfter',
       cursor: 'cursor',
       hasAppointments: true,
