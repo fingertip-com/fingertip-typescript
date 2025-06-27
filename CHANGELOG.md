@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.47.0 (2025-06-27)
+
+Full Changelog: [v0.46.1...v0.47.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.46.1...v0.47.0)
+
+### Features
+
+* **api:** api update ([82d2c3e](https://github.com/fingertip-com/fingertip-typescript/commit/82d2c3ec8ff41e111368588dda4cc217281ae886))
+* **api:** api update ([c2e2242](https://github.com/fingertip-com/fingertip-typescript/commit/c2e2242713855ddf8797e0df742fd7640efe9db6))
+* **api:** api update ([832b4dc](https://github.com/fingertip-com/fingertip-typescript/commit/832b4dc23fdd82503dc91c53de9d56c864b9d530))
+* **api:** api update ([ef991f7](https://github.com/fingertip-com/fingertip-typescript/commit/ef991f730e7be6c723c6e21b88b15b628a0cc680))
+
+
+### Bug Fixes
+
+* **client:** get fetchOptions type more reliably ([c924311](https://github.com/fingertip-com/fingertip-typescript/commit/c924311088b8fd2cecbf51ae7f518c451bfa4d68))
+
+
+### Chores
+
+* **internal:** codegen related update ([efa20ba](https://github.com/fingertip-com/fingertip-typescript/commit/efa20ba5691a01fb733a59b1acc748d4403a8848))
+
 ## 0.46.1 (2025-06-27)
 
 Full Changelog: [v0.46.0...v0.46.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.46.0...v0.46.1)
