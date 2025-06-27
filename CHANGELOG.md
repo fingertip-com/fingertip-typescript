@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.46.1 (2025-06-27)
+
+Full Changelog: [v0.46.0...v0.46.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.46.0...v0.46.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([9ceeecf](https://github.com/fingertip-com/fingertip-typescript/commit/9ceeecf4268adbc1223bc2d1da8aca9a0fcc3195))
+
 ## 0.46.0 (2025-06-26)
 
 Full Changelog: [v0.45.0...v0.46.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.45.0...v0.46.0)
