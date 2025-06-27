@@ -337,9 +337,9 @@ export interface SiteContactCreateParams {
 
 export interface SiteContactListParams extends MyCursorPageParams {
   /**
-   * Site slug to filter contacts
+   * Site ID to filter contacts
    */
-  siteSlug: string;
+  siteId: string;
 
   /**
    * Filter contacts created after date

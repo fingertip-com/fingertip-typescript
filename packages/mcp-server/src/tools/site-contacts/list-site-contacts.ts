@@ -21,9 +21,9 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      siteSlug: {
+      siteId: {
         type: 'string',
-        description: 'Site slug to filter contacts',
+        description: 'Site ID to filter contacts',
       },
       createdAfter: {
         type: 'string',
