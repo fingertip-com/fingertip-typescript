@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.47.1 (2025-06-28)
+
+Full Changelog: [v0.47.0...v0.47.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.47.0...v0.47.1)
+
+### Bug Fixes
+
+* handle docker image not existing yet ([0ddc842](https://github.com/fingertip-com/fingertip-typescript/commit/0ddc84238c4ec823a7dd7dcab056f699856eea9f))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([b34280d](https://github.com/fingertip-com/fingertip-typescript/commit/b34280d796b3646dd89b0cd574873c3f04c00421))
+
 ## 0.47.0 (2025-06-27)
 
 Full Changelog: [v0.46.1...v0.47.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.46.1...v0.47.0)
