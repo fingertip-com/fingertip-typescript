@@ -63,9 +63,32 @@ import {
   FormTemplates,
 } from './resources/form-templates';
 import {
+  InvoiceItemCreateParams,
+  InvoiceItemCreateResponse,
+  InvoiceItemDeleteResponse,
+  InvoiceItemListParams,
+  InvoiceItemListResponse,
+  InvoiceItemListResponsesMyCursorPage,
+  InvoiceItemRetrieveResponse,
+  InvoiceItemUpdateParams,
+  InvoiceItemUpdateResponse,
+  InvoiceItems,
+} from './resources/invoice-items';
+import {
+  InvoiceCreateParams,
+  InvoiceCreateResponse,
+  InvoiceDeleteResponse,
   InvoiceListParams,
   InvoiceListResponse,
   InvoiceListResponsesMyCursorPage,
+  InvoiceMarkPaidParams,
+  InvoiceMarkPaidResponse,
+  InvoiceSendParams,
+  InvoiceSendResponse,
+  InvoiceUpdateParams,
+  InvoiceUpdateResponse,
+  InvoiceVoidParams,
+  InvoiceVoidResponse,
   Invoices,
 } from './resources/invoices';
 import { OrderListParams, OrderListResponse, OrderListSampleResponse, Orders } from './resources/orders';
@@ -878,6 +901,7 @@ export class Fingertip {
   siteMemberships: API.SiteMemberships = new API.SiteMemberships(this);
   workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
   workspaceInvitations: API.WorkspaceInvitations = new API.WorkspaceInvitations(this);
+  invoiceItems: API.InvoiceItems = new API.InvoiceItems(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -897,6 +921,7 @@ Fingertip.SiteInvitations = SiteInvitations;
 Fingertip.SiteMemberships = SiteMemberships;
 Fingertip.WorkspaceMemberships = WorkspaceMemberships;
 Fingertip.WorkspaceInvitations = WorkspaceInvitations;
+Fingertip.InvoiceItems = InvoiceItems;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -979,9 +1004,20 @@ export declare namespace Fingertip {
 
   export {
     Invoices as Invoices,
+    type InvoiceCreateResponse as InvoiceCreateResponse,
+    type InvoiceUpdateResponse as InvoiceUpdateResponse,
     type InvoiceListResponse as InvoiceListResponse,
+    type InvoiceDeleteResponse as InvoiceDeleteResponse,
+    type InvoiceMarkPaidResponse as InvoiceMarkPaidResponse,
+    type InvoiceSendResponse as InvoiceSendResponse,
+    type InvoiceVoidResponse as InvoiceVoidResponse,
     type InvoiceListResponsesMyCursorPage as InvoiceListResponsesMyCursorPage,
+    type InvoiceCreateParams as InvoiceCreateParams,
+    type InvoiceUpdateParams as InvoiceUpdateParams,
     type InvoiceListParams as InvoiceListParams,
+    type InvoiceMarkPaidParams as InvoiceMarkPaidParams,
+    type InvoiceSendParams as InvoiceSendParams,
+    type InvoiceVoidParams as InvoiceVoidParams,
   };
 
   export {
@@ -1070,5 +1106,18 @@ export declare namespace Fingertip {
     type WorkspaceInvitationListResponsesMyCursorPage as WorkspaceInvitationListResponsesMyCursorPage,
     type WorkspaceInvitationCreateParams as WorkspaceInvitationCreateParams,
     type WorkspaceInvitationListParams as WorkspaceInvitationListParams,
+  };
+
+  export {
+    InvoiceItems as InvoiceItems,
+    type InvoiceItemCreateResponse as InvoiceItemCreateResponse,
+    type InvoiceItemRetrieveResponse as InvoiceItemRetrieveResponse,
+    type InvoiceItemUpdateResponse as InvoiceItemUpdateResponse,
+    type InvoiceItemListResponse as InvoiceItemListResponse,
+    type InvoiceItemDeleteResponse as InvoiceItemDeleteResponse,
+    type InvoiceItemListResponsesMyCursorPage as InvoiceItemListResponsesMyCursorPage,
+    type InvoiceItemCreateParams as InvoiceItemCreateParams,
+    type InvoiceItemUpdateParams as InvoiceItemUpdateParams,
+    type InvoiceItemListParams as InvoiceItemListParams,
   };
 }
