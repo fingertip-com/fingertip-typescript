@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.48.0 (2025-07-01)
+
+Full Changelog: [v0.47.1...v0.48.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.47.1...v0.48.0)
+
+### Features
+
+* **api:** update via SDK Studio ([b743d5d](https://github.com/fingertip-com/fingertip-typescript/commit/b743d5d5d1b6ef16eb78014b7044370230d1f3d6))
+
+
+### Chores
+
+* **client:** improve path param validation ([b75e24c](https://github.com/fingertip-com/fingertip-typescript/commit/b75e24c29432f216c70dd1e10ff3886244c849f7))
+
 ## 0.47.1 (2025-06-28)
 
 Full Changelog: [v0.47.0...v0.47.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.47.0...v0.47.1)
