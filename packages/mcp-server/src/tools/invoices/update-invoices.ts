@@ -24,6 +24,56 @@ export const tool: Tool = {
       invoiceId: {
         type: 'string',
       },
+      invoiceItems: {
+        type: 'array',
+        description: 'Invoice items',
+        items: {
+          type: 'object',
+          description: 'Schema for a store invoice item',
+          properties: {
+            description: {
+              type: 'string',
+              description: 'Description of the item',
+            },
+            quantity: {
+              type: 'number',
+              description: 'Quantity',
+            },
+            taxRate: {
+              type: 'number',
+              description: 'Tax rate',
+            },
+            unitPriceInCents: {
+              type: 'number',
+              description: 'Unit price in cents',
+            },
+            id: {
+              type: 'string',
+            },
+            itemId: {
+              type: 'string',
+              description: 'Store item ID (optional for custom items)',
+            },
+            lineNumber: {
+              type: 'number',
+              description: 'Line number',
+            },
+          },
+          required: ['description', 'quantity', 'taxRate', 'unitPriceInCents'],
+        },
+      },
+      currency: {
+        type: 'string',
+        description: 'Currency',
+      },
+      dueAt: {
+        type: 'string',
+        description: 'Due date (ISO string)',
+      },
+      footer: {
+        type: 'string',
+        description: 'Footer',
+      },
       invoiceDiscounts: {
         type: 'array',
         description: 'Invoice discounts',
@@ -54,56 +104,6 @@ export const tool: Tool = {
           },
           required: ['valueType'],
         },
-      },
-      invoiceItems: {
-        type: 'array',
-        description: 'Invoice items',
-        items: {
-          type: 'object',
-          description: 'Schema for a store invoice item',
-          properties: {
-            itemId: {
-              type: 'string',
-              description: 'Store item ID',
-            },
-            quantity: {
-              type: 'number',
-              description: 'Quantity',
-            },
-            taxRate: {
-              type: 'number',
-              description: 'Tax rate',
-            },
-            unitPriceInCents: {
-              type: 'number',
-              description: 'Unit price in cents',
-            },
-            id: {
-              type: 'string',
-            },
-            description: {
-              type: 'string',
-              description: 'Optional description',
-            },
-            lineNumber: {
-              type: 'number',
-              description: 'Line number',
-            },
-          },
-          required: ['itemId', 'quantity', 'taxRate', 'unitPriceInCents'],
-        },
-      },
-      currency: {
-        type: 'string',
-        description: 'Currency',
-      },
-      dueAt: {
-        type: 'string',
-        description: 'Due date (ISO string)',
-      },
-      footer: {
-        type: 'string',
-        description: 'Footer',
       },
       memo: {
         type: 'string',

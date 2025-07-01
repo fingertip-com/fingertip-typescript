@@ -21,37 +21,6 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      invoiceDiscounts: {
-        type: 'array',
-        description: 'Invoice discounts',
-        items: {
-          type: 'object',
-          description: 'Schema for a store invoice discount',
-          properties: {
-            valueType: {
-              type: 'string',
-              description: 'Discount value type',
-              enum: ['FIXED', 'PERCENT'],
-            },
-            discountId: {
-              type: 'string',
-            },
-            lineNumber: {
-              type: 'number',
-              description: 'Line number',
-            },
-            valueFixedInCents: {
-              type: 'number',
-              description: 'Fixed discount in cents',
-            },
-            valuePercent: {
-              type: 'number',
-              description: 'Percentage discount',
-            },
-          },
-          required: ['valueType'],
-        },
-      },
       invoiceItems: {
         type: 'array',
         description: 'Invoice items',
@@ -59,9 +28,9 @@ export const tool: Tool = {
           type: 'object',
           description: 'Schema for a store invoice item',
           properties: {
-            itemId: {
+            description: {
               type: 'string',
-              description: 'Store item ID',
+              description: 'Description of the item',
             },
             quantity: {
               type: 'number',
@@ -78,16 +47,16 @@ export const tool: Tool = {
             id: {
               type: 'string',
             },
-            description: {
+            itemId: {
               type: 'string',
-              description: 'Optional description',
+              description: 'Store item ID (optional for custom items)',
             },
             lineNumber: {
               type: 'number',
               description: 'Line number',
             },
           },
-          required: ['itemId', 'quantity', 'taxRate', 'unitPriceInCents'],
+          required: ['description', 'quantity', 'taxRate', 'unitPriceInCents'],
         },
       },
       siteContactId: {
@@ -118,6 +87,37 @@ export const tool: Tool = {
       footer: {
         type: 'string',
         description: 'Footer text',
+      },
+      invoiceDiscounts: {
+        type: 'array',
+        description: 'Invoice discounts',
+        items: {
+          type: 'object',
+          description: 'Schema for a store invoice discount',
+          properties: {
+            valueType: {
+              type: 'string',
+              description: 'Discount value type',
+              enum: ['FIXED', 'PERCENT'],
+            },
+            discountId: {
+              type: 'string',
+            },
+            lineNumber: {
+              type: 'number',
+              description: 'Line number',
+            },
+            valueFixedInCents: {
+              type: 'number',
+              description: 'Fixed discount in cents',
+            },
+            valuePercent: {
+              type: 'number',
+              description: 'Percentage discount',
+            },
+          },
+          required: ['valueType'],
+        },
       },
       memo: {
         type: 'string',

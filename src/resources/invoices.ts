@@ -215,11 +215,6 @@ export interface InvoiceVoidResponse {
 
 export interface InvoiceCreateParams {
   /**
-   * Invoice discounts
-   */
-  invoiceDiscounts: Array<InvoiceCreateParams.InvoiceDiscount>;
-
-  /**
    * Invoice items
    */
   invoiceItems: Array<InvoiceCreateParams.InvoiceItem>;
@@ -260,6 +255,11 @@ export interface InvoiceCreateParams {
   footer?: string;
 
   /**
+   * Invoice discounts
+   */
+  invoiceDiscounts?: Array<InvoiceCreateParams.InvoiceDiscount>;
+
+  /**
    * Memo
    */
   memo?: string;
@@ -276,6 +276,43 @@ export interface InvoiceCreateParams {
 }
 
 export namespace InvoiceCreateParams {
+  /**
+   * Schema for a store invoice item
+   */
+  export interface InvoiceItem {
+    /**
+     * Description of the item
+     */
+    description: string;
+
+    /**
+     * Quantity
+     */
+    quantity: number;
+
+    /**
+     * Tax rate
+     */
+    taxRate: number;
+
+    /**
+     * Unit price in cents
+     */
+    unitPriceInCents: number;
+
+    id?: string;
+
+    /**
+     * Store item ID (optional for custom items)
+     */
+    itemId?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+  }
+
   /**
    * Schema for a store invoice discount
    */
@@ -302,51 +339,9 @@ export namespace InvoiceCreateParams {
      */
     valuePercent?: number;
   }
-
-  /**
-   * Schema for a store invoice item
-   */
-  export interface InvoiceItem {
-    /**
-     * Store item ID
-     */
-    itemId: string;
-
-    /**
-     * Quantity
-     */
-    quantity: number;
-
-    /**
-     * Tax rate
-     */
-    taxRate: number;
-
-    /**
-     * Unit price in cents
-     */
-    unitPriceInCents: number;
-
-    id?: string;
-
-    /**
-     * Optional description
-     */
-    description?: string;
-
-    /**
-     * Line number
-     */
-    lineNumber?: number;
-  }
 }
 
 export interface InvoiceUpdateParams {
-  /**
-   * Invoice discounts
-   */
-  invoiceDiscounts: Array<InvoiceUpdateParams.InvoiceDiscount>;
-
   /**
    * Invoice items
    */
@@ -366,6 +361,11 @@ export interface InvoiceUpdateParams {
    * Footer
    */
   footer?: string;
+
+  /**
+   * Invoice discounts
+   */
+  invoiceDiscounts?: Array<InvoiceUpdateParams.InvoiceDiscount>;
 
   /**
    * Memo
@@ -395,6 +395,43 @@ export interface InvoiceUpdateParams {
 
 export namespace InvoiceUpdateParams {
   /**
+   * Schema for a store invoice item
+   */
+  export interface InvoiceItem {
+    /**
+     * Description of the item
+     */
+    description: string;
+
+    /**
+     * Quantity
+     */
+    quantity: number;
+
+    /**
+     * Tax rate
+     */
+    taxRate: number;
+
+    /**
+     * Unit price in cents
+     */
+    unitPriceInCents: number;
+
+    id?: string;
+
+    /**
+     * Store item ID (optional for custom items)
+     */
+    itemId?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+  }
+
+  /**
    * Schema for a store invoice discount
    */
   export interface InvoiceDiscount {
@@ -419,43 +456,6 @@ export namespace InvoiceUpdateParams {
      * Percentage discount
      */
     valuePercent?: number;
-  }
-
-  /**
-   * Schema for a store invoice item
-   */
-  export interface InvoiceItem {
-    /**
-     * Store item ID
-     */
-    itemId: string;
-
-    /**
-     * Quantity
-     */
-    quantity: number;
-
-    /**
-     * Tax rate
-     */
-    taxRate: number;
-
-    /**
-     * Unit price in cents
-     */
-    unitPriceInCents: number;
-
-    id?: string;
-
-    /**
-     * Optional description
-     */
-    description?: string;
-
-    /**
-     * Line number
-     */
-    lineNumber?: number;
   }
 }
 
