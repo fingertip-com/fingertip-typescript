@@ -11,10 +11,7 @@ describe('resource invoices', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
     const responsePromise = client.invoices.create({
-      invoiceDiscounts: [{ valueType: 'FIXED' }],
-      invoiceItems: [
-        { itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', quantity: 0, taxRate: 0, unitPriceInCents: 0 },
-      ],
+      invoiceItems: [{ description: 'description', quantity: 0, taxRate: 0, unitPriceInCents: 0 }],
       siteContactId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       status: 'DRAFT',
@@ -31,23 +28,14 @@ describe('resource invoices', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
     const response = await client.invoices.create({
-      invoiceDiscounts: [
-        {
-          valueType: 'FIXED',
-          discountId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          lineNumber: 0,
-          valueFixedInCents: 0,
-          valuePercent: 0,
-        },
-      ],
       invoiceItems: [
         {
-          itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          description: 'description',
           quantity: 0,
           taxRate: 0,
           unitPriceInCents: 0,
           id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          description: 'description',
+          itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
           lineNumber: 0,
         },
       ],
@@ -58,6 +46,15 @@ describe('resource invoices', () => {
       currency: 'currency',
       dueAt: 'dueAt',
       footer: 'footer',
+      invoiceDiscounts: [
+        {
+          valueType: 'FIXED',
+          discountId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          lineNumber: 0,
+          valueFixedInCents: 0,
+          valuePercent: 0,
+        },
+      ],
       memo: 'memo',
       passThroughPaymentFee: true,
       paymentReference: 'paymentReference',
@@ -67,10 +64,7 @@ describe('resource invoices', () => {
   // skipped: tests are disabled for the time being
   test.skip('update: only required params', async () => {
     const responsePromise = client.invoices.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
-      invoiceDiscounts: [{ valueType: 'FIXED' }],
-      invoiceItems: [
-        { itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', quantity: 0, taxRate: 0, unitPriceInCents: 0 },
-      ],
+      invoiceItems: [{ description: 'description', quantity: 0, taxRate: 0, unitPriceInCents: 0 }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -84,6 +78,20 @@ describe('resource invoices', () => {
   // skipped: tests are disabled for the time being
   test.skip('update: required and optional params', async () => {
     const response = await client.invoices.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
+      invoiceItems: [
+        {
+          description: 'description',
+          quantity: 0,
+          taxRate: 0,
+          unitPriceInCents: 0,
+          id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          lineNumber: 0,
+        },
+      ],
+      currency: 'currency',
+      dueAt: 'dueAt',
+      footer: 'footer',
       invoiceDiscounts: [
         {
           valueType: 'FIXED',
@@ -93,20 +101,6 @@ describe('resource invoices', () => {
           valuePercent: 0,
         },
       ],
-      invoiceItems: [
-        {
-          itemId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          quantity: 0,
-          taxRate: 0,
-          unitPriceInCents: 0,
-          id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          description: 'description',
-          lineNumber: 0,
-        },
-      ],
-      currency: 'currency',
-      dueAt: 'dueAt',
-      footer: 'footer',
       memo: 'memo',
       notes: 'notes',
       passThroughPaymentFee: true,
