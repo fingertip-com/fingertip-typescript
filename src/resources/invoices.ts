@@ -1,10 +1,30 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Invoices extends APIResource {
+  /**
+   * Creates a new store invoice
+   */
+  create(body: InvoiceCreateParams, options?: RequestOptions): APIPromise<InvoiceCreateResponse> {
+    return this._client.post('/v1/invoices', { body, ...options });
+  }
+
+  /**
+   * Updates a store invoice
+   */
+  update(
+    invoiceID: string,
+    body: InvoiceUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<InvoiceUpdateResponse> {
+    return this._client.put(path`/v1/invoices/${invoiceID}`, { body, ...options });
+  }
+
   /**
    * Retrieves a paginated list of invoices for sites the user has access to
    */
@@ -14,9 +34,69 @@ export class Invoices extends APIResource {
   ): PagePromise<InvoiceListResponsesMyCursorPage, InvoiceListResponse> {
     return this._client.getAPIList('/v1/invoices', MyCursorPage<InvoiceListResponse>, { query, ...options });
   }
+
+  /**
+   * Deletes a draft store invoice
+   */
+  delete(invoiceID: string, options?: RequestOptions): APIPromise<InvoiceDeleteResponse> {
+    return this._client.delete(path`/v1/invoices/${invoiceID}`, options);
+  }
+
+  /**
+   * Marks a store invoice as paid
+   */
+  markPaid(
+    invoiceID: string,
+    body: InvoiceMarkPaidParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<InvoiceMarkPaidResponse> {
+    return this._client.post(path`/v1/invoices/${invoiceID}/mark-paid`, { body, ...options });
+  }
+
+  /**
+   * Sends a draft store invoice
+   */
+  send(
+    invoiceID: string,
+    body: InvoiceSendParams,
+    options?: RequestOptions,
+  ): APIPromise<InvoiceSendResponse> {
+    return this._client.post(path`/v1/invoices/${invoiceID}/send`, { body, ...options });
+  }
+
+  /**
+   * Voids a store invoice
+   */
+  void(
+    invoiceID: string,
+    body?: InvoiceVoidParams | null | undefined,
+    options?: RequestOptions,
+  ): APIPromise<InvoiceVoidResponse> {
+    return this._client.post(path`/v1/invoices/${invoiceID}/void`, { body, ...options });
+  }
 }
 
 export type InvoiceListResponsesMyCursorPage = MyCursorPage<InvoiceListResponse>;
+
+/**
+ * Successful invoice creation response
+ */
+export interface InvoiceCreateResponse {
+  /**
+   * Created invoice ID
+   */
+  invoiceId: string;
+}
+
+/**
+ * Successful update response
+ */
+export interface InvoiceUpdateResponse {
+  /**
+   * Success status
+   */
+  success: boolean;
+}
 
 /**
  * Schema for an invoice
@@ -93,6 +173,292 @@ export interface InvoiceListResponse {
   updatedAt: string;
 }
 
+/**
+ * Successful deletion response
+ */
+export interface InvoiceDeleteResponse {
+  /**
+   * Success status
+   */
+  success: boolean;
+}
+
+/**
+ * Successful mark paid response
+ */
+export interface InvoiceMarkPaidResponse {
+  /**
+   * Success status
+   */
+  success: boolean;
+}
+
+/**
+ * Successful send response
+ */
+export interface InvoiceSendResponse {
+  /**
+   * Success status
+   */
+  success: boolean;
+}
+
+/**
+ * Successful void response
+ */
+export interface InvoiceVoidResponse {
+  /**
+   * Success status
+   */
+  success: boolean;
+}
+
+export interface InvoiceCreateParams {
+  /**
+   * Invoice discounts
+   */
+  invoiceDiscounts: Array<InvoiceCreateParams.InvoiceDiscount>;
+
+  /**
+   * Invoice items
+   */
+  invoiceItems: Array<InvoiceCreateParams.InvoiceItem>;
+
+  /**
+   * Site contact ID
+   */
+  siteContactId: string;
+
+  /**
+   * Site ID
+   */
+  siteId: string;
+
+  /**
+   * Invoice status
+   */
+  status: 'DRAFT' | 'PENDING' | 'PAID' | 'VOID' | 'OVERDUE';
+
+  /**
+   * Business name
+   */
+  businessName?: string;
+
+  /**
+   * Currency code
+   */
+  currency?: string;
+
+  /**
+   * Due date (ISO string)
+   */
+  dueAt?: string;
+
+  /**
+   * Footer text
+   */
+  footer?: string;
+
+  /**
+   * Memo
+   */
+  memo?: string;
+
+  /**
+   * Pass through payment fee
+   */
+  passThroughPaymentFee?: boolean;
+
+  /**
+   * Payment reference
+   */
+  paymentReference?: string;
+}
+
+export namespace InvoiceCreateParams {
+  /**
+   * Schema for a store invoice discount
+   */
+  export interface InvoiceDiscount {
+    /**
+     * Discount value type
+     */
+    valueType: 'FIXED' | 'PERCENT';
+
+    discountId?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+
+    /**
+     * Fixed discount in cents
+     */
+    valueFixedInCents?: number;
+
+    /**
+     * Percentage discount
+     */
+    valuePercent?: number;
+  }
+
+  /**
+   * Schema for a store invoice item
+   */
+  export interface InvoiceItem {
+    /**
+     * Store item ID
+     */
+    itemId: string;
+
+    /**
+     * Quantity
+     */
+    quantity: number;
+
+    /**
+     * Tax rate
+     */
+    taxRate: number;
+
+    /**
+     * Unit price in cents
+     */
+    unitPriceInCents: number;
+
+    id?: string;
+
+    /**
+     * Optional description
+     */
+    description?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+  }
+}
+
+export interface InvoiceUpdateParams {
+  /**
+   * Invoice discounts
+   */
+  invoiceDiscounts: Array<InvoiceUpdateParams.InvoiceDiscount>;
+
+  /**
+   * Invoice items
+   */
+  invoiceItems: Array<InvoiceUpdateParams.InvoiceItem>;
+
+  /**
+   * Currency
+   */
+  currency?: string;
+
+  /**
+   * Due date (ISO string)
+   */
+  dueAt?: string;
+
+  /**
+   * Footer
+   */
+  footer?: string;
+
+  /**
+   * Memo
+   */
+  memo?: string;
+
+  /**
+   * Notes
+   */
+  notes?: string;
+
+  /**
+   * Pass through payment fee
+   */
+  passThroughPaymentFee?: boolean;
+
+  /**
+   * Payment reference
+   */
+  paymentReference?: string;
+
+  /**
+   * Site contact ID
+   */
+  siteContactId?: string;
+}
+
+export namespace InvoiceUpdateParams {
+  /**
+   * Schema for a store invoice discount
+   */
+  export interface InvoiceDiscount {
+    /**
+     * Discount value type
+     */
+    valueType: 'FIXED' | 'PERCENT';
+
+    discountId?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+
+    /**
+     * Fixed discount in cents
+     */
+    valueFixedInCents?: number;
+
+    /**
+     * Percentage discount
+     */
+    valuePercent?: number;
+  }
+
+  /**
+   * Schema for a store invoice item
+   */
+  export interface InvoiceItem {
+    /**
+     * Store item ID
+     */
+    itemId: string;
+
+    /**
+     * Quantity
+     */
+    quantity: number;
+
+    /**
+     * Tax rate
+     */
+    taxRate: number;
+
+    /**
+     * Unit price in cents
+     */
+    unitPriceInCents: number;
+
+    id?: string;
+
+    /**
+     * Optional description
+     */
+    description?: string;
+
+    /**
+     * Line number
+     */
+    lineNumber?: number;
+  }
+}
+
 export interface InvoiceListParams extends MyCursorPageParams {
   /**
    * ID of the site to retrieve invoices for
@@ -115,10 +481,37 @@ export interface InvoiceListParams extends MyCursorPageParams {
   status?: 'DRAFT' | 'PENDING' | 'PAID' | 'VOID' | 'OVERDUE';
 }
 
+export interface InvoiceMarkPaidParams {
+  /**
+   * Completion date (ISO string)
+   */
+  completedAt?: string;
+}
+
+export interface InvoiceSendParams {
+  /**
+   * Site slug
+   */
+  siteSlug: string;
+}
+
+export interface InvoiceVoidParams {}
+
 export declare namespace Invoices {
   export {
+    type InvoiceCreateResponse as InvoiceCreateResponse,
+    type InvoiceUpdateResponse as InvoiceUpdateResponse,
     type InvoiceListResponse as InvoiceListResponse,
+    type InvoiceDeleteResponse as InvoiceDeleteResponse,
+    type InvoiceMarkPaidResponse as InvoiceMarkPaidResponse,
+    type InvoiceSendResponse as InvoiceSendResponse,
+    type InvoiceVoidResponse as InvoiceVoidResponse,
     type InvoiceListResponsesMyCursorPage as InvoiceListResponsesMyCursorPage,
+    type InvoiceCreateParams as InvoiceCreateParams,
+    type InvoiceUpdateParams as InvoiceUpdateParams,
     type InvoiceListParams as InvoiceListParams,
+    type InvoiceMarkPaidParams as InvoiceMarkPaidParams,
+    type InvoiceSendParams as InvoiceSendParams,
+    type InvoiceVoidParams as InvoiceVoidParams,
   };
 }

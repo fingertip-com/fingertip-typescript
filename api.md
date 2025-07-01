@@ -156,11 +156,23 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/invoices.ts">InvoiceCreateResponse</a></code>
+- <code><a href="./src/resources/invoices.ts">InvoiceUpdateResponse</a></code>
 - <code><a href="./src/resources/invoices.ts">InvoiceListResponse</a></code>
+- <code><a href="./src/resources/invoices.ts">InvoiceDeleteResponse</a></code>
+- <code><a href="./src/resources/invoices.ts">InvoiceMarkPaidResponse</a></code>
+- <code><a href="./src/resources/invoices.ts">InvoiceSendResponse</a></code>
+- <code><a href="./src/resources/invoices.ts">InvoiceVoidResponse</a></code>
 
 Methods:
 
+- <code title="post /v1/invoices">client.invoices.<a href="./src/resources/invoices.ts">create</a>({ ...params }) -> InvoiceCreateResponse</code>
+- <code title="put /v1/invoices/{invoiceId}">client.invoices.<a href="./src/resources/invoices.ts">update</a>(invoiceID, { ...params }) -> InvoiceUpdateResponse</code>
 - <code title="get /v1/invoices">client.invoices.<a href="./src/resources/invoices.ts">list</a>({ ...params }) -> InvoiceListResponsesMyCursorPage</code>
+- <code title="delete /v1/invoices/{invoiceId}">client.invoices.<a href="./src/resources/invoices.ts">delete</a>(invoiceID) -> InvoiceDeleteResponse</code>
+- <code title="post /v1/invoices/{invoiceId}/mark-paid">client.invoices.<a href="./src/resources/invoices.ts">markPaid</a>(invoiceID, { ...params }) -> InvoiceMarkPaidResponse</code>
+- <code title="post /v1/invoices/{invoiceId}/send">client.invoices.<a href="./src/resources/invoices.ts">send</a>(invoiceID, { ...params }) -> InvoiceSendResponse</code>
+- <code title="post /v1/invoices/{invoiceId}/void">client.invoices.<a href="./src/resources/invoices.ts">void</a>(invoiceID) -> InvoiceVoidResponse</code>
 
 # Orders
 
@@ -297,3 +309,21 @@ Methods:
 - <code title="get /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">retrieve</a>(invitationID) -> WorkspaceInvitationRetrieveResponse</code>
 - <code title="get /v1/workspaces/{workspaceId}/invitations">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">list</a>(workspaceID, { ...params }) -> WorkspaceInvitationListResponsesMyCursorPage</code>
 - <code title="delete /v1/workspace-invitations/{invitationId}">client.workspaceInvitations.<a href="./src/resources/workspace-invitations.ts">delete</a>(invitationID) -> WorkspaceInvitationDeleteResponse</code>
+
+# InvoiceItems
+
+Types:
+
+- <code><a href="./src/resources/invoice-items.ts">InvoiceItemCreateResponse</a></code>
+- <code><a href="./src/resources/invoice-items.ts">InvoiceItemRetrieveResponse</a></code>
+- <code><a href="./src/resources/invoice-items.ts">InvoiceItemUpdateResponse</a></code>
+- <code><a href="./src/resources/invoice-items.ts">InvoiceItemListResponse</a></code>
+- <code><a href="./src/resources/invoice-items.ts">InvoiceItemDeleteResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/invoice-items">client.invoiceItems.<a href="./src/resources/invoice-items.ts">create</a>({ ...params }) -> InvoiceItemCreateResponse</code>
+- <code title="get /v1/invoice-items/{itemId}">client.invoiceItems.<a href="./src/resources/invoice-items.ts">retrieve</a>(itemID) -> InvoiceItemRetrieveResponse</code>
+- <code title="put /v1/invoice-items/{itemId}">client.invoiceItems.<a href="./src/resources/invoice-items.ts">update</a>(itemID, { ...params }) -> InvoiceItemUpdateResponse</code>
+- <code title="get /v1/invoice-items">client.invoiceItems.<a href="./src/resources/invoice-items.ts">list</a>({ ...params }) -> InvoiceItemListResponsesMyCursorPage</code>
+- <code title="delete /v1/invoice-items/{itemId}">client.invoiceItems.<a href="./src/resources/invoice-items.ts">delete</a>(itemID) -> InvoiceItemDeleteResponse</code>

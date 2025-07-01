@@ -44,9 +44,32 @@ export {
   type FormTemplateListResponsesMyCursorPage,
 } from './form-templates';
 export {
+  InvoiceItems,
+  type InvoiceItemCreateResponse,
+  type InvoiceItemRetrieveResponse,
+  type InvoiceItemUpdateResponse,
+  type InvoiceItemListResponse,
+  type InvoiceItemDeleteResponse,
+  type InvoiceItemCreateParams,
+  type InvoiceItemUpdateParams,
+  type InvoiceItemListParams,
+  type InvoiceItemListResponsesMyCursorPage,
+} from './invoice-items';
+export {
   Invoices,
+  type InvoiceCreateResponse,
+  type InvoiceUpdateResponse,
   type InvoiceListResponse,
+  type InvoiceDeleteResponse,
+  type InvoiceMarkPaidResponse,
+  type InvoiceSendResponse,
+  type InvoiceVoidResponse,
+  type InvoiceCreateParams,
+  type InvoiceUpdateParams,
   type InvoiceListParams,
+  type InvoiceMarkPaidParams,
+  type InvoiceSendParams,
+  type InvoiceVoidParams,
   type InvoiceListResponsesMyCursorPage,
 } from './invoices';
 export { Orders, type OrderListResponse, type OrderListSampleResponse, type OrderListParams } from './orders';
