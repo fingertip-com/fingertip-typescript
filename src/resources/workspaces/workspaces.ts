@@ -2,7 +2,7 @@
 
 import { APIResource } from '../../core/resource';
 import * as OrdersAPI from './orders';
-import { OrderSampleResponse, Orders } from './orders';
+import { OrderSampleParams, OrderSampleResponse, Orders } from './orders';
 import { APIPromise } from '../../core/api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
@@ -451,5 +451,9 @@ export declare namespace Workspaces {
     type WorkspaceListParams as WorkspaceListParams,
   };
 
-  export { Orders as Orders, type OrderSampleResponse as OrderSampleResponse };
+  export {
+    Orders as Orders,
+    type OrderSampleResponse as OrderSampleResponse,
+    type OrderSampleParams as OrderSampleParams,
+  };
 }

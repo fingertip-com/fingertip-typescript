@@ -34,6 +34,8 @@ export {
   type FormResponseListSampleResponse,
   type FormResponseListParams,
   type FormResponseListSampleParams,
+  type FormResponseListResponsesMyCursorPage,
+  type FormResponseListSampleResponsesMyCursorPage,
 } from './form-responses';
 export {
   FormTemplates,
@@ -72,7 +74,15 @@ export {
   type InvoiceVoidParams,
   type InvoiceListResponsesMyCursorPage,
 } from './invoices';
-export { Orders, type OrderListResponse, type OrderListSampleResponse, type OrderListParams } from './orders';
+export {
+  Orders,
+  type OrderListResponse,
+  type OrderListSampleResponse,
+  type OrderListParams,
+  type OrderListSampleParams,
+  type OrderListResponsesMyCursorPage,
+  type OrderListSampleResponsesMyCursorPage,
+} from './orders';
 export {
   Pages,
   type PageRetrieveResponse,

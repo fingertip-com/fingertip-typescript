@@ -50,8 +50,10 @@ import {
 import {
   FormResponseListParams,
   FormResponseListResponse,
+  FormResponseListResponsesMyCursorPage,
   FormResponseListSampleParams,
   FormResponseListSampleResponse,
+  FormResponseListSampleResponsesMyCursorPage,
   FormResponses,
 } from './resources/form-responses';
 import {
@@ -91,7 +93,15 @@ import {
   InvoiceVoidResponse,
   Invoices,
 } from './resources/invoices';
-import { OrderListParams, OrderListResponse, OrderListSampleResponse, Orders } from './resources/orders';
+import {
+  OrderListParams,
+  OrderListResponse,
+  OrderListResponsesMyCursorPage,
+  OrderListSampleParams,
+  OrderListSampleResponse,
+  OrderListSampleResponsesMyCursorPage,
+  Orders,
+} from './resources/orders';
 import { Ping, PingCheckResponse } from './resources/ping';
 import {
   SiteContactCreateParams,
@@ -989,6 +999,8 @@ export declare namespace Fingertip {
     FormResponses as FormResponses,
     type FormResponseListResponse as FormResponseListResponse,
     type FormResponseListSampleResponse as FormResponseListSampleResponse,
+    type FormResponseListResponsesMyCursorPage as FormResponseListResponsesMyCursorPage,
+    type FormResponseListSampleResponsesMyCursorPage as FormResponseListSampleResponsesMyCursorPage,
     type FormResponseListParams as FormResponseListParams,
     type FormResponseListSampleParams as FormResponseListSampleParams,
   };
@@ -1024,7 +1036,10 @@ export declare namespace Fingertip {
     Orders as Orders,
     type OrderListResponse as OrderListResponse,
     type OrderListSampleResponse as OrderListSampleResponse,
+    type OrderListResponsesMyCursorPage as OrderListResponsesMyCursorPage,
+    type OrderListSampleResponsesMyCursorPage as OrderListSampleResponsesMyCursorPage,
     type OrderListParams as OrderListParams,
+    type OrderListSampleParams as OrderListSampleParams,
   };
 
   export {

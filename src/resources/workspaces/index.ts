@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Orders, type OrderSampleResponse } from './orders';
+export { Orders, type OrderSampleResponse, type OrderSampleParams } from './orders';
 export {
   Workspaces,
   type WorkspaceRetrieveResponse,

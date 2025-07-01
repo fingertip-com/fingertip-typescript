@@ -22,7 +22,7 @@ describe('resource orders', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('list: required and optional params', async () => {
-    const response = await client.orders.list({ site: 'site' });
+    const response = await client.orders.list({ site: 'site', cursor: 'cursor', pageSize: 0 });
   });
 
   // skipped: tests are disabled for the time being
@@ -35,5 +35,13 @@ describe('resource orders', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('listSample: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.orders.listSample({ cursor: 'cursor', pageSize: 0 }, { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Fingertip.NotFoundError);
   });
 });

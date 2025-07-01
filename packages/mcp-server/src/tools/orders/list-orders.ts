@@ -25,6 +25,14 @@ export const tool: Tool = {
         type: 'string',
         description: 'Site slug to retrieve orders for',
       },
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor',
+      },
+      pageSize: {
+        type: 'number',
+        description: 'Number of items per page (default: 10, max: 25)',
+      },
     },
   },
 };
