@@ -137,8 +137,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/form-responses">client.formResponses.<a href="./src/resources/form-responses.ts">list</a>({ ...params }) -> unknown</code>
-- <code title="get /v1/form-responses/sample">client.formResponses.<a href="./src/resources/form-responses.ts">listSample</a>({ ...params }) -> unknown</code>
+- <code title="get /v1/form-responses">client.formResponses.<a href="./src/resources/form-responses.ts">list</a>({ ...params }) -> FormResponseListResponsesMyCursorPage</code>
+- <code title="get /v1/form-responses/sample">client.formResponses.<a href="./src/resources/form-responses.ts">listSample</a>({ ...params }) -> FormResponseListSampleResponsesMyCursorPage</code>
 
 # FormTemplates
 
@@ -183,8 +183,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/orders">client.orders.<a href="./src/resources/orders.ts">list</a>({ ...params }) -> OrderListResponse</code>
-- <code title="get /v1/orders/sample">client.orders.<a href="./src/resources/orders.ts">listSample</a>() -> OrderListSampleResponse</code>
+- <code title="get /v1/orders">client.orders.<a href="./src/resources/orders.ts">list</a>({ ...params }) -> OrderListResponsesMyCursorPage</code>
+- <code title="get /v1/orders/sample">client.orders.<a href="./src/resources/orders.ts">listSample</a>({ ...params }) -> OrderListSampleResponsesMyCursorPage</code>
 
 # SiteContacts
 
@@ -240,7 +240,7 @@ Types:
 
 Methods:
 
-- <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>() -> OrderSampleResponse</code>
+- <code title="get /v1/orders/sample">client.workspaces.orders.<a href="./src/resources/workspaces/orders.ts">sample</a>({ ...params }) -> OrderSampleResponse</code>
 
 # SiteInvitations
 

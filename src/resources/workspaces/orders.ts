@@ -8,21 +8,39 @@ export class Orders extends APIResource {
   /**
    * Retrieves a sample of orders with basic information
    */
-  sample(options?: RequestOptions): APIPromise<OrderSampleResponse> {
-    return this._client.get('/v1/orders/sample', options);
+  sample(
+    query: OrderSampleParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<OrderSampleResponse> {
+    return this._client.get('/v1/orders/sample', { query, ...options });
   }
 }
 
 /**
- * Array of order webhook events
+ * Successful orders listing response
  */
-export type OrderSampleResponse = Array<OrderSampleResponse.OrderSampleResponseItem>;
+export interface OrderSampleResponse {
+  /**
+   * Array of order webhook events in the current page
+   */
+  items: Array<OrderSampleResponse.Item>;
+
+  /**
+   * Pagination information
+   */
+  pageInfo: OrderSampleResponse.PageInfo;
+
+  /**
+   * Total number of orders
+   */
+  total: number;
+}
 
 export namespace OrderSampleResponse {
   /**
    * Order webhook event
    */
-  export interface OrderSampleResponseItem {
+  export interface Item {
     /**
      * Webhook event ID
      */
@@ -36,7 +54,7 @@ export namespace OrderSampleResponse {
     /**
      * Order data
      */
-    data: OrderSampleResponseItem.Data;
+    data: Item.Data;
 
     /**
      * Event type
@@ -44,7 +62,7 @@ export namespace OrderSampleResponse {
     type: 'order.created';
   }
 
-  export namespace OrderSampleResponseItem {
+  export namespace Item {
     /**
      * Order data
      */
@@ -137,8 +155,45 @@ export namespace OrderSampleResponse {
       }
     }
   }
+
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
+
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
+
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
+  }
+}
+
+export interface OrderSampleParams {
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 10, max: 25)
+   */
+  pageSize?: number | null;
 }
 
 export declare namespace Orders {
-  export { type OrderSampleResponse as OrderSampleResponse };
+  export { type OrderSampleResponse as OrderSampleResponse, type OrderSampleParams as OrderSampleParams };
 }
