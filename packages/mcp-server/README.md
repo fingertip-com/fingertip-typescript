@@ -224,7 +224,13 @@ The following tools are available in this MCP server.
 
 ### Resource `invoices`:
 
+- `create_invoices` (`write`): Creates a new store invoice
+- `update_invoices` (`write`): Updates a store invoice
 - `list_invoices` (`read`): Retrieves a paginated list of invoices for sites the user has access to
+- `delete_invoices` (`write`): Deletes a draft store invoice
+- `mark_paid_invoices` (`write`): Marks a store invoice as paid
+- `send_invoices` (`write`): Sends a draft store invoice
+- `void_invoices` (`write`): Voids a store invoice
 
 ### Resource `orders`:
 
