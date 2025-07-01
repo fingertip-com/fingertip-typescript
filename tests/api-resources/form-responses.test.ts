@@ -28,6 +28,8 @@ describe('resource formResponses', () => {
     const response = await client.formResponses.list({
       form_template_id: 'form_template_id',
       site_id: 'site_id',
+      cursor: 'cursor',
+      pageSize: 0,
     });
   });
 
@@ -45,6 +47,10 @@ describe('resource formResponses', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('listSample: required and optional params', async () => {
-    const response = await client.formResponses.listSample({ form_template_slug: 'form_template_slug' });
+    const response = await client.formResponses.listSample({
+      form_template_slug: 'form_template_slug',
+      cursor: 'cursor',
+      pageSize: 0,
+    });
   });
 });

@@ -1,288 +1,292 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
-import { APIPromise } from '../core/api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 
 export class Orders extends APIResource {
   /**
    * Retrieves orders with basic information
    */
-  list(query: OrderListParams, options?: RequestOptions): APIPromise<OrderListResponse> {
-    return this._client.get('/v1/orders', { query, ...options });
+  list(
+    query: OrderListParams,
+    options?: RequestOptions,
+  ): PagePromise<OrderListResponsesMyCursorPage, OrderListResponse> {
+    return this._client.getAPIList('/v1/orders', MyCursorPage<OrderListResponse>, { query, ...options });
   }
 
   /**
    * Retrieves a sample of orders with basic information
    */
-  listSample(options?: RequestOptions): APIPromise<OrderListSampleResponse> {
-    return this._client.get('/v1/orders/sample', options);
+  listSample(
+    query: OrderListSampleParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<OrderListSampleResponsesMyCursorPage, OrderListSampleResponse> {
+    return this._client.getAPIList('/v1/orders/sample', MyCursorPage<OrderListSampleResponse>, {
+      query,
+      ...options,
+    });
   }
 }
 
+export type OrderListResponsesMyCursorPage = MyCursorPage<OrderListResponse>;
+
+export type OrderListSampleResponsesMyCursorPage = MyCursorPage<OrderListSampleResponse>;
+
 /**
- * Array of order webhook events
+ * Order webhook event
  */
-export type OrderListResponse = Array<OrderListResponse.OrderListResponseItem>;
+export interface OrderListResponse {
+  /**
+   * Webhook event ID
+   */
+  id: string;
+
+  /**
+   * Unix timestamp when event was created
+   */
+  created: number;
+
+  /**
+   * Order data
+   */
+  data: OrderListResponse.Data;
+
+  /**
+   * Event type
+   */
+  type: 'order.created';
+}
 
 export namespace OrderListResponse {
   /**
-   * Order webhook event
+   * Order data
    */
-  export interface OrderListResponseItem {
+  export interface Data {
     /**
-     * Webhook event ID
+     * Order ID
      */
     id: string;
 
     /**
-     * Unix timestamp when event was created
+     * Order creation date ISO string
      */
-    created: number;
+    createdAt: string;
 
     /**
-     * Order data
+     * Currency code
      */
-    data: OrderListResponseItem.Data;
+    currency: string;
 
     /**
-     * Event type
+     * Customer email
      */
-    type: 'order.created';
+    customerEmail: string;
+
+    /**
+     * Customer full name
+     */
+    customerName: string;
+
+    /**
+     * Order items
+     */
+    orderItems: Array<Data.OrderItem>;
+
+    /**
+     * Order number
+     */
+    orderNumber: number;
+
+    /**
+     * Site ID
+     */
+    siteId: string;
+
+    /**
+     * Order status
+     */
+    status: string;
+
+    /**
+     * Total amount in cents
+     */
+    totalInCents: number;
   }
 
-  export namespace OrderListResponseItem {
+  export namespace Data {
     /**
-     * Order data
+     * Order item details
      */
-    export interface Data {
+    export interface OrderItem {
       /**
-       * Order ID
+       * Order item ID
        */
       id: string;
 
       /**
-       * Order creation date ISO string
+       * Product name
        */
-      createdAt: string;
+      name: string;
 
       /**
-       * Currency code
+       * Original price in cents
        */
-      currency: string;
+      originalPriceInCents: number;
 
       /**
-       * Customer email
+       * Item price in cents
        */
-      customerEmail: string;
+      priceInCents: number;
 
       /**
-       * Customer full name
+       * Quantity ordered
        */
-      customerName: string;
+      quantity: number;
 
       /**
-       * Order items
+       * Tax amount in cents
        */
-      orderItems: Array<Data.OrderItem>;
-
-      /**
-       * Order number
-       */
-      orderNumber: number;
-
-      /**
-       * Site ID
-       */
-      siteId: string;
-
-      /**
-       * Order status
-       */
-      status: string;
-
-      /**
-       * Total amount in cents
-       */
-      totalInCents: number;
-    }
-
-    export namespace Data {
-      /**
-       * Order item details
-       */
-      export interface OrderItem {
-        /**
-         * Order item ID
-         */
-        id: string;
-
-        /**
-         * Product name
-         */
-        name: string;
-
-        /**
-         * Original price in cents
-         */
-        originalPriceInCents: number;
-
-        /**
-         * Item price in cents
-         */
-        priceInCents: number;
-
-        /**
-         * Quantity ordered
-         */
-        quantity: number;
-
-        /**
-         * Tax amount in cents
-         */
-        taxInCents: number;
-      }
+      taxInCents: number;
     }
   }
 }
 
 /**
- * Array of order webhook events
+ * Order webhook event
  */
-export type OrderListSampleResponse = Array<OrderListSampleResponse.OrderListSampleResponseItem>;
+export interface OrderListSampleResponse {
+  /**
+   * Webhook event ID
+   */
+  id: string;
+
+  /**
+   * Unix timestamp when event was created
+   */
+  created: number;
+
+  /**
+   * Order data
+   */
+  data: OrderListSampleResponse.Data;
+
+  /**
+   * Event type
+   */
+  type: 'order.created';
+}
 
 export namespace OrderListSampleResponse {
   /**
-   * Order webhook event
+   * Order data
    */
-  export interface OrderListSampleResponseItem {
+  export interface Data {
     /**
-     * Webhook event ID
+     * Order ID
      */
     id: string;
 
     /**
-     * Unix timestamp when event was created
+     * Order creation date ISO string
      */
-    created: number;
+    createdAt: string;
 
     /**
-     * Order data
+     * Currency code
      */
-    data: OrderListSampleResponseItem.Data;
+    currency: string;
 
     /**
-     * Event type
+     * Customer email
      */
-    type: 'order.created';
+    customerEmail: string;
+
+    /**
+     * Customer full name
+     */
+    customerName: string;
+
+    /**
+     * Order items
+     */
+    orderItems: Array<Data.OrderItem>;
+
+    /**
+     * Order number
+     */
+    orderNumber: number;
+
+    /**
+     * Site ID
+     */
+    siteId: string;
+
+    /**
+     * Order status
+     */
+    status: string;
+
+    /**
+     * Total amount in cents
+     */
+    totalInCents: number;
   }
 
-  export namespace OrderListSampleResponseItem {
+  export namespace Data {
     /**
-     * Order data
+     * Order item details
      */
-    export interface Data {
+    export interface OrderItem {
       /**
-       * Order ID
+       * Order item ID
        */
       id: string;
 
       /**
-       * Order creation date ISO string
+       * Product name
        */
-      createdAt: string;
+      name: string;
 
       /**
-       * Currency code
+       * Original price in cents
        */
-      currency: string;
+      originalPriceInCents: number;
 
       /**
-       * Customer email
+       * Item price in cents
        */
-      customerEmail: string;
+      priceInCents: number;
 
       /**
-       * Customer full name
+       * Quantity ordered
        */
-      customerName: string;
+      quantity: number;
 
       /**
-       * Order items
+       * Tax amount in cents
        */
-      orderItems: Array<Data.OrderItem>;
-
-      /**
-       * Order number
-       */
-      orderNumber: number;
-
-      /**
-       * Site ID
-       */
-      siteId: string;
-
-      /**
-       * Order status
-       */
-      status: string;
-
-      /**
-       * Total amount in cents
-       */
-      totalInCents: number;
-    }
-
-    export namespace Data {
-      /**
-       * Order item details
-       */
-      export interface OrderItem {
-        /**
-         * Order item ID
-         */
-        id: string;
-
-        /**
-         * Product name
-         */
-        name: string;
-
-        /**
-         * Original price in cents
-         */
-        originalPriceInCents: number;
-
-        /**
-         * Item price in cents
-         */
-        priceInCents: number;
-
-        /**
-         * Quantity ordered
-         */
-        quantity: number;
-
-        /**
-         * Tax amount in cents
-         */
-        taxInCents: number;
-      }
+      taxInCents: number;
     }
   }
 }
 
-export interface OrderListParams {
+export interface OrderListParams extends MyCursorPageParams {
   /**
    * Site slug to retrieve orders for
    */
   site: string;
 }
 
+export interface OrderListSampleParams extends MyCursorPageParams {}
+
 export declare namespace Orders {
   export {
     type OrderListResponse as OrderListResponse,
     type OrderListSampleResponse as OrderListSampleResponse,
+    type OrderListResponsesMyCursorPage as OrderListResponsesMyCursorPage,
+    type OrderListSampleResponsesMyCursorPage as OrderListSampleResponsesMyCursorPage,
     type OrderListParams as OrderListParams,
+    type OrderListSampleParams as OrderListSampleParams,
   };
 }

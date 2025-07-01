@@ -29,6 +29,14 @@ export const tool: Tool = {
         type: 'string',
         description: 'ID of the site to retrieve responses for',
       },
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor',
+      },
+      pageSize: {
+        type: 'number',
+        description: 'Number of items per page (default: 10, max: 25)',
+      },
     },
   },
 };
