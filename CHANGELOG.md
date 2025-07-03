@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.52.0 (2025-07-03)
+
+Full Changelog: [v0.51.0...v0.52.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.51.0...v0.52.0)
+
+### Features
+
+* **api:** api update ([b7d8ab9](https://github.com/fingertip-com/fingertip-typescript/commit/b7d8ab93ab608e5a047291cc389ec7aba2151bea))
+
+
+### Bug Fixes
+
+* **mcp:** define `.well-known/oauth-protected-resource` ([634eaf4](https://github.com/fingertip-com/fingertip-typescript/commit/634eaf41c69f261771902d100710b20f4ce3ca4f))
+
+
+### Chores
+
+* add docs to RequestOptions type ([307e82d](https://github.com/fingertip-com/fingertip-typescript/commit/307e82d4ea30d6a8b2507f912994d07210bf8547))
+
 ## 0.51.0 (2025-07-02)
 
 Full Changelog: [v0.50.0...v0.51.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.50.0...v0.51.0)
