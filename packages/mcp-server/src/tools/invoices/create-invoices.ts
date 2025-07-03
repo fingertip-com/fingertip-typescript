@@ -70,7 +70,7 @@ export const tool: Tool = {
       status: {
         type: 'string',
         description: 'Invoice status',
-        enum: ['DRAFT', 'PENDING', 'PAID', 'VOID', 'OVERDUE'],
+        enum: ['DRAFT', 'PENDING', 'PAID', 'VOID', 'OVERDUE', 'REFUNDED'],
       },
       businessName: {
         type: 'string',
