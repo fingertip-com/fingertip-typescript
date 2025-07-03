@@ -46,7 +46,7 @@ export const tool: Tool = {
       status: {
         type: 'string',
         description: 'Filter by invoice status',
-        enum: ['DRAFT', 'PENDING', 'PAID', 'VOID', 'OVERDUE'],
+        enum: ['DRAFT', 'PENDING', 'PAID', 'VOID', 'OVERDUE', 'REFUNDED'],
       },
     },
   },
