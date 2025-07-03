@@ -26,7 +26,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'fingertip_api',
-    version: '0.50.0',
+    version: '0.51.0',
   },
   {
     capabilities: {
