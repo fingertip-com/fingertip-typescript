@@ -443,12 +443,12 @@ export const parseApproveFormBody = async (
     config.clientProperties.map((prop: ClientProperty) => {
       const rawValue = body[`clientopt_${prop.key}`];
       let value = prop.type === 'number' ? Number(rawValue) : rawValue;
-      
+
       // Automatically prepend "Bearer " to API key if not present
       if (prop.key === 'apiKey' && typeof value === 'string' && value && !value.startsWith('Bearer ')) {
         value = `Bearer ${value}`;
       }
-      
+
       return [prop.key, value];
     }),
   );
