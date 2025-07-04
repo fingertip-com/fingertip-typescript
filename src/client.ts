@@ -34,10 +34,18 @@ import {
   BlogPosts,
 } from './resources/blog-posts';
 import {
+  BookingAcceptParams,
+  BookingAcceptResponse,
+  BookingCompleteParams,
+  BookingCompleteResponse,
+  BookingDeclineParams,
+  BookingDeclineResponse,
   BookingListParams,
   BookingListResponse,
   BookingListResponsesMyCursorPage,
   BookingListSampleResponse,
+  BookingRescheduleParams,
+  BookingRescheduleResponse,
   Bookings,
 } from './resources/bookings';
 import {
@@ -982,9 +990,17 @@ export declare namespace Fingertip {
   export {
     Bookings as Bookings,
     type BookingListResponse as BookingListResponse,
+    type BookingAcceptResponse as BookingAcceptResponse,
+    type BookingCompleteResponse as BookingCompleteResponse,
+    type BookingDeclineResponse as BookingDeclineResponse,
     type BookingListSampleResponse as BookingListSampleResponse,
+    type BookingRescheduleResponse as BookingRescheduleResponse,
     type BookingListResponsesMyCursorPage as BookingListResponsesMyCursorPage,
     type BookingListParams as BookingListParams,
+    type BookingAcceptParams as BookingAcceptParams,
+    type BookingCompleteParams as BookingCompleteParams,
+    type BookingDeclineParams as BookingDeclineParams,
+    type BookingRescheduleParams as BookingRescheduleParams,
   };
 
   export {
