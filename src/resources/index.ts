@@ -21,6 +21,7 @@ export {
   type BookingCancelResponse,
   type BookingCompleteResponse,
   type BookingDeclineResponse,
+  type BookingListRequestsResponse,
   type BookingListSampleResponse,
   type BookingRescheduleResponse,
   type BookingListParams,
@@ -28,8 +29,10 @@ export {
   type BookingCancelParams,
   type BookingCompleteParams,
   type BookingDeclineParams,
+  type BookingListRequestsParams,
   type BookingRescheduleParams,
   type BookingListResponsesMyCursorPage,
+  type BookingListRequestsResponsesMyCursorPage,
 } from './bookings';
 export {
   EventTypes,

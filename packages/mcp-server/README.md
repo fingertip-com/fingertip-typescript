@@ -211,6 +211,7 @@ The following tools are available in this MCP server.
 - `cancel_bookings` (`write`): Cancels an existing booking as a host
 - `complete_bookings` (`write`): Marks a booking as completed or no-show
 - `decline_bookings` (`write`): Declines a pending booking request
+- `list_requests_bookings` (`read`): Retrieves a paginated list of pending booking requests for a site
 - `reschedule_bookings` (`write`): Changes the start and end time of an existing booking
 
 ### Resource `event_types`:
