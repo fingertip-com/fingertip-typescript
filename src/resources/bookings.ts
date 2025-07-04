@@ -4,6 +4,7 @@ import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Bookings extends APIResource {
   /**
@@ -17,10 +18,54 @@ export class Bookings extends APIResource {
   }
 
   /**
+   * Accepts a pending booking request and confirms the booking
+   */
+  accept(
+    bookingID: string,
+    body: BookingAcceptParams,
+    options?: RequestOptions,
+  ): APIPromise<BookingAcceptResponse> {
+    return this._client.post(path`/v1/bookings/${bookingID}/accept`, { body, ...options });
+  }
+
+  /**
+   * Marks a booking as completed or no-show
+   */
+  complete(
+    bookingID: string,
+    body: BookingCompleteParams,
+    options?: RequestOptions,
+  ): APIPromise<BookingCompleteResponse> {
+    return this._client.post(path`/v1/bookings/${bookingID}/complete`, { body, ...options });
+  }
+
+  /**
+   * Declines a pending booking request
+   */
+  decline(
+    bookingID: string,
+    body: BookingDeclineParams,
+    options?: RequestOptions,
+  ): APIPromise<BookingDeclineResponse> {
+    return this._client.post(path`/v1/bookings/${bookingID}/decline`, { body, ...options });
+  }
+
+  /**
    * Retrieves a sample of bookings with basic information
    */
   listSample(options?: RequestOptions): APIPromise<unknown> {
     return this._client.get('/v1/bookings/sample', options);
+  }
+
+  /**
+   * Changes the start and end time of an existing booking
+   */
+  reschedule(
+    bookingID: string,
+    body: BookingRescheduleParams,
+    options?: RequestOptions,
+  ): APIPromise<BookingRescheduleResponse> {
+    return this._client.post(path`/v1/bookings/${bookingID}/reschedule`, { body, ...options });
   }
 }
 
@@ -166,10 +211,38 @@ export interface BookingListResponse {
   response?: null;
 }
 
+export interface BookingAcceptResponse {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+}
+
+export interface BookingCompleteResponse {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+}
+
+export interface BookingDeclineResponse {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+}
+
 /**
  * Array of simplified bookings with basic information
  */
 export type BookingListSampleResponse = unknown;
+
+export interface BookingRescheduleResponse {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+}
 
 export interface BookingListParams extends MyCursorPageParams {
   /**
@@ -201,11 +274,67 @@ export interface BookingListParams extends MyCursorPageParams {
     | 'PENDING_CONFIRMATION';
 }
 
+export interface BookingAcceptParams {
+  /**
+   * Site ID for permission validation
+   */
+  siteId: string;
+}
+
+export interface BookingCompleteParams {
+  /**
+   * Site ID for permission validation
+   */
+  siteId: string;
+
+  /**
+   * Amount to charge in cents
+   */
+  chargeAmountInCents?: number;
+
+  /**
+   * Whether the booking was a no-show
+   */
+  noShow?: boolean;
+}
+
+export interface BookingDeclineParams {
+  /**
+   * Site ID for permission validation
+   */
+  siteId: string;
+
+  /**
+   * Reason for declining the booking
+   */
+  cancellationReason?: string;
+}
+
+export interface BookingRescheduleParams {
+  /**
+   * New end time for the booking
+   */
+  endTime: string;
+
+  /**
+   * New start time for the booking
+   */
+  startTime: string;
+}
+
 export declare namespace Bookings {
   export {
     type BookingListResponse as BookingListResponse,
+    type BookingAcceptResponse as BookingAcceptResponse,
+    type BookingCompleteResponse as BookingCompleteResponse,
+    type BookingDeclineResponse as BookingDeclineResponse,
     type BookingListSampleResponse as BookingListSampleResponse,
+    type BookingRescheduleResponse as BookingRescheduleResponse,
     type BookingListResponsesMyCursorPage as BookingListResponsesMyCursorPage,
     type BookingListParams as BookingListParams,
+    type BookingAcceptParams as BookingAcceptParams,
+    type BookingCompleteParams as BookingCompleteParams,
+    type BookingDeclineParams as BookingDeclineParams,
+    type BookingRescheduleParams as BookingRescheduleParams,
   };
 }
