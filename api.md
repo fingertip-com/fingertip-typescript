@@ -110,6 +110,7 @@ Types:
 
 - <code><a href="./src/resources/bookings.ts">BookingListResponse</a></code>
 - <code><a href="./src/resources/bookings.ts">BookingAcceptResponse</a></code>
+- <code><a href="./src/resources/bookings.ts">BookingCancelResponse</a></code>
 - <code><a href="./src/resources/bookings.ts">BookingCompleteResponse</a></code>
 - <code><a href="./src/resources/bookings.ts">BookingDeclineResponse</a></code>
 - <code><a href="./src/resources/bookings.ts">BookingListSampleResponse</a></code>
@@ -119,6 +120,7 @@ Methods:
 
 - <code title="get /v1/bookings">client.bookings.<a href="./src/resources/bookings.ts">list</a>({ ...params }) -> BookingListResponsesMyCursorPage</code>
 - <code title="post /v1/bookings/{bookingId}/accept">client.bookings.<a href="./src/resources/bookings.ts">accept</a>(bookingID, { ...params }) -> BookingAcceptResponse</code>
+- <code title="post /v1/bookings/{bookingId}/cancel">client.bookings.<a href="./src/resources/bookings.ts">cancel</a>(bookingID, { ...params }) -> BookingCancelResponse</code>
 - <code title="post /v1/bookings/{bookingId}/complete">client.bookings.<a href="./src/resources/bookings.ts">complete</a>(bookingID, { ...params }) -> BookingCompleteResponse</code>
 - <code title="post /v1/bookings/{bookingId}/decline">client.bookings.<a href="./src/resources/bookings.ts">decline</a>(bookingID, { ...params }) -> BookingDeclineResponse</code>
 - <code title="get /v1/bookings/sample">client.bookings.<a href="./src/resources/bookings.ts">listSample</a>() -> unknown</code>

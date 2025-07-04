@@ -29,6 +29,17 @@ export class Bookings extends APIResource {
   }
 
   /**
+   * Cancels an existing booking as a host
+   */
+  cancel(
+    bookingID: string,
+    body: BookingCancelParams,
+    options?: RequestOptions,
+  ): APIPromise<BookingCancelResponse> {
+    return this._client.post(path`/v1/bookings/${bookingID}/cancel`, { body, ...options });
+  }
+
+  /**
    * Marks a booking as completed or no-show
    */
   complete(
@@ -218,6 +229,13 @@ export interface BookingAcceptResponse {
   success: boolean;
 }
 
+export interface BookingCancelResponse {
+  /**
+   * Whether the operation was successful
+   */
+  success: boolean;
+}
+
 export interface BookingCompleteResponse {
   /**
    * Whether the operation was successful
@@ -281,6 +299,23 @@ export interface BookingAcceptParams {
   siteId: string;
 }
 
+export interface BookingCancelParams {
+  /**
+   * Site ID for permission validation
+   */
+  siteId: string;
+
+  /**
+   * Reason for cancelling the booking
+   */
+  cancellationReason?: string;
+
+  /**
+   * Whether to charge a cancellation fee
+   */
+  chargeCancellationFee?: boolean;
+}
+
 export interface BookingCompleteParams {
   /**
    * Site ID for permission validation
@@ -326,6 +361,7 @@ export declare namespace Bookings {
   export {
     type BookingListResponse as BookingListResponse,
     type BookingAcceptResponse as BookingAcceptResponse,
+    type BookingCancelResponse as BookingCancelResponse,
     type BookingCompleteResponse as BookingCompleteResponse,
     type BookingDeclineResponse as BookingDeclineResponse,
     type BookingListSampleResponse as BookingListSampleResponse,
@@ -333,6 +369,7 @@ export declare namespace Bookings {
     type BookingListResponsesMyCursorPage as BookingListResponsesMyCursorPage,
     type BookingListParams as BookingListParams,
     type BookingAcceptParams as BookingAcceptParams,
+    type BookingCancelParams as BookingCancelParams,
     type BookingCompleteParams as BookingCompleteParams,
     type BookingDeclineParams as BookingDeclineParams,
     type BookingRescheduleParams as BookingRescheduleParams,
