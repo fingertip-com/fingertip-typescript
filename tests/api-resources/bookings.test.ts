@@ -54,6 +54,29 @@ describe('resource bookings', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('cancel: only required params', async () => {
+    const responsePromise = client.bookings.cancel('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
+      siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('cancel: required and optional params', async () => {
+    const response = await client.bookings.cancel('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
+      siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+      cancellationReason: 'cancellationReason',
+      chargeCancellationFee: true,
+    });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('complete: only required params', async () => {
     const responsePromise = client.bookings.complete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',

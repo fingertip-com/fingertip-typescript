@@ -208,6 +208,7 @@ The following tools are available in this MCP server.
 
 - `list_bookings` (`read`): Retrieves a paginated list of bookings for a site with optional status filtering
 - `accept_bookings` (`write`): Accepts a pending booking request and confirms the booking
+- `cancel_bookings` (`write`): Cancels an existing booking as a host
 - `complete_bookings` (`write`): Marks a booking as completed or no-show
 - `decline_bookings` (`write`): Declines a pending booking request
 - `reschedule_bookings` (`write`): Changes the start and end time of an existing booking
