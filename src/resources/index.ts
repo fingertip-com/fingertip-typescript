@@ -17,8 +17,16 @@ export {
 export {
   Bookings,
   type BookingListResponse,
+  type BookingAcceptResponse,
+  type BookingCompleteResponse,
+  type BookingDeclineResponse,
   type BookingListSampleResponse,
+  type BookingRescheduleResponse,
   type BookingListParams,
+  type BookingAcceptParams,
+  type BookingCompleteParams,
+  type BookingDeclineParams,
+  type BookingRescheduleParams,
   type BookingListResponsesMyCursorPage,
 } from './bookings';
 export {
