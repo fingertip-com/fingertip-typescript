@@ -1,6 +1,6 @@
 {
   "name": "fingertip-mcp",
-  "version": "0.52.1",
+  "version": "0.53.0",
   "description": "The official MCP Server for the Fingertip API",
   "author": "Fingertip <hello@fingertip.com>",
   "types": "dist/index.d.ts",
