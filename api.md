@@ -339,3 +339,15 @@ Methods:
 - <code title="put /v1/invoice-items/{itemId}">client.invoiceItems.<a href="./src/resources/invoice-items.ts">update</a>(itemID, { ...params }) -> InvoiceItemUpdateResponse</code>
 - <code title="get /v1/invoice-items">client.invoiceItems.<a href="./src/resources/invoice-items.ts">list</a>({ ...params }) -> InvoiceItemListResponsesMyCursorPage</code>
 - <code title="delete /v1/invoice-items/{itemId}">client.invoiceItems.<a href="./src/resources/invoice-items.ts">delete</a>(itemID) -> InvoiceItemDeleteResponse</code>
+
+# Messages
+
+Types:
+
+- <code><a href="./src/resources/messages.ts">MessageCreateResponse</a></code>
+- <code><a href="./src/resources/messages.ts">MessageListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/messages">client.messages.<a href="./src/resources/messages.ts">create</a>({ ...params }) -> MessageCreateResponse</code>
+- <code title="get /v1/messages">client.messages.<a href="./src/resources/messages.ts">list</a>({ ...params }) -> MessageListResponsesMyCursorPage</code>

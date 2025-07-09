@@ -107,6 +107,14 @@ import {
   Invoices,
 } from './resources/invoices';
 import {
+  MessageCreateParams,
+  MessageCreateResponse,
+  MessageListParams,
+  MessageListResponse,
+  MessageListResponsesMyCursorPage,
+  Messages,
+} from './resources/messages';
+import {
   OrderListParams,
   OrderListResponse,
   OrderListResponsesMyCursorPage,
@@ -927,6 +935,7 @@ export class Fingertip {
   workspaceMemberships: API.WorkspaceMemberships = new API.WorkspaceMemberships(this);
   workspaceInvitations: API.WorkspaceInvitations = new API.WorkspaceInvitations(this);
   invoiceItems: API.InvoiceItems = new API.InvoiceItems(this);
+  messages: API.Messages = new API.Messages(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -947,6 +956,7 @@ Fingertip.SiteMemberships = SiteMemberships;
 Fingertip.WorkspaceMemberships = WorkspaceMemberships;
 Fingertip.WorkspaceInvitations = WorkspaceInvitations;
 Fingertip.InvoiceItems = InvoiceItems;
+Fingertip.Messages = Messages;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -1162,5 +1172,14 @@ export declare namespace Fingertip {
     type InvoiceItemCreateParams as InvoiceItemCreateParams,
     type InvoiceItemUpdateParams as InvoiceItemUpdateParams,
     type InvoiceItemListParams as InvoiceItemListParams,
+  };
+
+  export {
+    Messages as Messages,
+    type MessageCreateResponse as MessageCreateResponse,
+    type MessageListResponse as MessageListResponse,
+    type MessageListResponsesMyCursorPage as MessageListResponsesMyCursorPage,
+    type MessageCreateParams as MessageCreateParams,
+    type MessageListParams as MessageListParams,
   };
 }
