@@ -47,6 +47,10 @@ import list_site_contacts from './site-contacts/list-site-contacts';
 import retrieve_site_invitations from './site-invitations/retrieve-site-invitations';
 import retrieve_site_memberships from './site-memberships/retrieve-site-memberships';
 import update_site_memberships from './site-memberships/update-site-memberships';
+import create_invoice_items from './invoice-items/create-invoice-items';
+import list_invoice_items from './invoice-items/list-invoice-items';
+import create_messages from './messages/create-messages';
+import list_messages from './messages/list-messages';
 
 export const endpoints: Endpoint[] = [];
 
@@ -97,6 +101,10 @@ addEndpoint(list_site_contacts);
 addEndpoint(retrieve_site_invitations);
 addEndpoint(retrieve_site_memberships);
 addEndpoint(update_site_memberships);
+addEndpoint(create_invoice_items);
+addEndpoint(list_invoice_items);
+addEndpoint(create_messages);
+addEndpoint(list_messages);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

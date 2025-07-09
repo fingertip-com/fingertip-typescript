@@ -255,3 +255,13 @@ The following tools are available in this MCP server.
 
 - `retrieve_site_memberships` (`read`): Retrieves details of a specific site membership
 - `update_site_memberships` (`write`): Updates the role of an existing site membership
+
+### Resource `invoice_items`:
+
+- `create_invoice_items` (`write`): Creates a new invoice item
+- `list_invoice_items` (`read`): Retrieves a paginated list of invoice items
+
+### Resource `messages`:
+
+- `create_messages` (`write`): Sends a message as the site owner to a site contact
+- `list_messages` (`read`): Retrieves messages for a site contact or all site owner messages
