@@ -259,6 +259,7 @@ The following tools are available in this MCP server.
 ### Resource `invoice_items`:
 
 - `create_invoice_items` (`write`): Creates a new invoice item
+- `update_invoice_items` (`write`): Updates a invoice item
 - `list_invoice_items` (`read`): Retrieves a paginated list of invoice items
 
 ### Resource `messages`:
