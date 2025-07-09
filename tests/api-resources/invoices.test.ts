@@ -43,7 +43,6 @@ describe('resource invoices', () => {
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       status: 'DRAFT',
       businessName: 'businessName',
-      currency: 'currency',
       dueAt: 'dueAt',
       footer: 'footer',
       invoiceDiscounts: [
@@ -89,7 +88,6 @@ describe('resource invoices', () => {
           lineNumber: 0,
         },
       ],
-      currency: 'currency',
       dueAt: 'dueAt',
       footer: 'footer',
       invoiceDiscounts: [
