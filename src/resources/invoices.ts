@@ -240,11 +240,6 @@ export interface InvoiceCreateParams {
   businessName?: string;
 
   /**
-   * Currency code
-   */
-  currency?: string;
-
-  /**
    * Due date (ISO string)
    */
   dueAt?: string;
@@ -346,11 +341,6 @@ export interface InvoiceUpdateParams {
    * Invoice items
    */
   invoiceItems: Array<InvoiceUpdateParams.InvoiceItem>;
-
-  /**
-   * Currency
-   */
-  currency?: string;
 
   /**
    * Due date (ISO string)

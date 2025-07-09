@@ -62,10 +62,6 @@ export const tool: Tool = {
           required: ['description', 'quantity', 'taxRate', 'unitPriceInCents'],
         },
       },
-      currency: {
-        type: 'string',
-        description: 'Currency',
-      },
       dueAt: {
         type: 'string',
         description: 'Due date (ISO string)',

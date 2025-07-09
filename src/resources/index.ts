@@ -88,6 +88,14 @@ export {
   type InvoiceListResponsesMyCursorPage,
 } from './invoices';
 export {
+  Messages,
+  type MessageCreateResponse,
+  type MessageListResponse,
+  type MessageCreateParams,
+  type MessageListParams,
+  type MessageListResponsesMyCursorPage,
+} from './messages';
+export {
   Orders,
   type OrderListResponse,
   type OrderListSampleResponse,

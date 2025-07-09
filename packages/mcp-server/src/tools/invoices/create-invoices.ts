@@ -76,10 +76,6 @@ export const tool: Tool = {
         type: 'string',
         description: 'Business name',
       },
-      currency: {
-        type: 'string',
-        description: 'Currency code',
-      },
       dueAt: {
         type: 'string',
         description: 'Due date (ISO string)',
