@@ -125,6 +125,19 @@ import {
 } from './resources/orders';
 import { Ping, PingCheckResponse } from './resources/ping';
 import {
+  QuoteCreateParams,
+  QuoteCreateResponse,
+  QuoteDeleteResponse,
+  QuoteListParams,
+  QuoteListResponse,
+  QuoteRetrieveResponse,
+  QuoteSendParams,
+  QuoteSendResponse,
+  QuoteUpdateParams,
+  QuoteUpdateResponse,
+  Quotes,
+} from './resources/quotes';
+import {
   SiteContactCreateParams,
   SiteContactCreateResponse,
   SiteContactListParams,
@@ -939,6 +952,7 @@ export class Fingertip {
   workspaceInvitations: API.WorkspaceInvitations = new API.WorkspaceInvitations(this);
   invoiceItems: API.InvoiceItems = new API.InvoiceItems(this);
   messages: API.Messages = new API.Messages(this);
+  quotes: API.Quotes = new API.Quotes(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -960,6 +974,7 @@ Fingertip.WorkspaceMemberships = WorkspaceMemberships;
 Fingertip.WorkspaceInvitations = WorkspaceInvitations;
 Fingertip.InvoiceItems = InvoiceItems;
 Fingertip.Messages = Messages;
+Fingertip.Quotes = Quotes;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -1184,5 +1199,19 @@ export declare namespace Fingertip {
     type MessageListResponsesMyCursorPage as MessageListResponsesMyCursorPage,
     type MessageCreateParams as MessageCreateParams,
     type MessageListParams as MessageListParams,
+  };
+
+  export {
+    Quotes as Quotes,
+    type QuoteCreateResponse as QuoteCreateResponse,
+    type QuoteRetrieveResponse as QuoteRetrieveResponse,
+    type QuoteUpdateResponse as QuoteUpdateResponse,
+    type QuoteListResponse as QuoteListResponse,
+    type QuoteDeleteResponse as QuoteDeleteResponse,
+    type QuoteSendResponse as QuoteSendResponse,
+    type QuoteCreateParams as QuoteCreateParams,
+    type QuoteUpdateParams as QuoteUpdateParams,
+    type QuoteListParams as QuoteListParams,
+    type QuoteSendParams as QuoteSendParams,
   };
 }

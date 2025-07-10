@@ -267,3 +267,12 @@ The following tools are available in this MCP server.
 
 - `create_messages` (`write`): Sends a message as the site owner to a site contact
 - `list_messages` (`read`): Retrieves messages for a site contact or all site owner messages
+
+### Resource `quotes`:
+
+- `create_quotes` (`write`): Creates a new store quote
+- `retrieve_quotes` (`read`): Retrieves a single store quote by ID
+- `update_quotes` (`write`): Updates a store quote
+- `list_quotes` (`read`): Retrieves a paginated list of quotes for sites the user has access to
+- `delete_quotes` (`write`): Deletes a store quote
+- `send_quotes` (`write`): Sends a draft store quote
