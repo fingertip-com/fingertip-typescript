@@ -7,35 +7,30 @@ import type { Metadata } from '../';
 import Fingertip from 'fingertip';
 
 export const metadata: Metadata = {
-  resource: 'site_memberships',
-  operation: 'write',
+  resource: 'invoice_items',
+  operation: 'read',
   tags: [],
-  httpMethod: 'patch',
-  httpPath: '/v1/site-memberships/{membershipId}',
-  operationId: 'updateSiteMembership',
+  httpMethod: 'get',
+  httpPath: '/v1/invoice-items/{itemId}',
+  operationId: 'getInvoiceItem',
 };
 
 export const tool: Tool = {
-  name: 'update_site_memberships',
-  description: 'Updates the role of an existing site membership',
+  name: 'retrieve_invoice_items',
+  description: 'Retrieves a invoice item by ID',
   inputSchema: {
     type: 'object',
     properties: {
-      membershipId: {
+      itemId: {
         type: 'string',
-      },
-      role: {
-        type: 'string',
-        description: 'New role to assign to the user',
-        enum: ['OWNER', 'EDITOR', 'VIEWER'],
       },
     },
   },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { membershipId, ...body } = args as any;
-  return asTextContentResult(await client.siteMemberships.update(membershipId, body));
+  const { itemId, ...body } = args as any;
+  return asTextContentResult(await client.invoiceItems.retrieve(itemId));
 };
 
 export default { metadata, tool, handler };
