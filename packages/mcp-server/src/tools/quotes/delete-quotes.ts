@@ -7,35 +7,30 @@ import type { Metadata } from '../';
 import Fingertip from 'fingertip';
 
 export const metadata: Metadata = {
-  resource: 'site_memberships',
+  resource: 'quotes',
   operation: 'write',
   tags: [],
-  httpMethod: 'patch',
-  httpPath: '/v1/site-memberships/{membershipId}',
-  operationId: 'updateSiteMembership',
+  httpMethod: 'delete',
+  httpPath: '/v1/quotes/{quoteId}',
+  operationId: 'deleteStoreQuote',
 };
 
 export const tool: Tool = {
-  name: 'update_site_memberships',
-  description: 'Updates the role of an existing site membership',
+  name: 'delete_quotes',
+  description: 'Deletes a store quote',
   inputSchema: {
     type: 'object',
     properties: {
-      membershipId: {
+      quoteId: {
         type: 'string',
-      },
-      role: {
-        type: 'string',
-        description: 'New role to assign to the user',
-        enum: ['OWNER', 'EDITOR', 'VIEWER'],
       },
     },
   },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { membershipId, ...body } = args as any;
-  return asTextContentResult(await client.siteMemberships.update(membershipId, body));
+  const { quoteId, ...body } = args as any;
+  return asTextContentResult(await client.quotes.delete(quoteId));
 };
 
 export default { metadata, tool, handler };

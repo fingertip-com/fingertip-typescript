@@ -113,6 +113,20 @@ export {
 } from './pages/pages';
 export { Ping, type PingCheckResponse } from './ping';
 export {
+  Quotes,
+  type QuoteCreateResponse,
+  type QuoteRetrieveResponse,
+  type QuoteUpdateResponse,
+  type QuoteListResponse,
+  type QuoteDeleteResponse,
+  type QuoteSendResponse,
+  type QuoteCreateParams,
+  type QuoteUpdateParams,
+  type QuoteListParams,
+  type QuoteSendParams,
+  type QuoteListResponsesMyCursorPage,
+} from './quotes';
+export {
   SiteContacts,
   type SiteContactCreateResponse,
   type SiteContactListResponse,

@@ -46,12 +46,19 @@ import create_site_contacts from './site-contacts/create-site-contacts';
 import list_site_contacts from './site-contacts/list-site-contacts';
 import retrieve_site_invitations from './site-invitations/retrieve-site-invitations';
 import retrieve_site_memberships from './site-memberships/retrieve-site-memberships';
-import update_site_memberships from './site-memberships/update-site-memberships';
+import list_site_memberships from './site-memberships/list-site-memberships';
 import create_invoice_items from './invoice-items/create-invoice-items';
+import retrieve_invoice_items from './invoice-items/retrieve-invoice-items';
 import update_invoice_items from './invoice-items/update-invoice-items';
 import list_invoice_items from './invoice-items/list-invoice-items';
 import create_messages from './messages/create-messages';
 import list_messages from './messages/list-messages';
+import create_quotes from './quotes/create-quotes';
+import retrieve_quotes from './quotes/retrieve-quotes';
+import update_quotes from './quotes/update-quotes';
+import list_quotes from './quotes/list-quotes';
+import delete_quotes from './quotes/delete-quotes';
+import send_quotes from './quotes/send-quotes';
 
 export const endpoints: Endpoint[] = [];
 
@@ -101,12 +108,19 @@ addEndpoint(create_site_contacts);
 addEndpoint(list_site_contacts);
 addEndpoint(retrieve_site_invitations);
 addEndpoint(retrieve_site_memberships);
-addEndpoint(update_site_memberships);
+addEndpoint(list_site_memberships);
 addEndpoint(create_invoice_items);
+addEndpoint(retrieve_invoice_items);
 addEndpoint(update_invoice_items);
 addEndpoint(list_invoice_items);
 addEndpoint(create_messages);
 addEndpoint(list_messages);
+addEndpoint(create_quotes);
+addEndpoint(retrieve_quotes);
+addEndpoint(update_quotes);
+addEndpoint(list_quotes);
+addEndpoint(delete_quotes);
+addEndpoint(send_quotes);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';
