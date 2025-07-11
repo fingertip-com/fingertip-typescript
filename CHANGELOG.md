@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.58.1 (2025-07-11)
+
+Full Changelog: [v0.58.0...v0.58.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.58.0...v0.58.1)
+
+### Bug Fixes
+
+* **mcp:** relax input type for asTextContextResult ([8ccd15d](https://github.com/fingertip-com/fingertip-typescript/commit/8ccd15d5a79d8efd8842ca817125ea24745e089c))
+
 ## 0.58.0 (2025-07-11)
 
 Full Changelog: [v0.57.0...v0.58.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.57.0...v0.58.0)
