@@ -2,7 +2,6 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
-import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -35,11 +34,8 @@ export class Quotes extends APIResource {
   /**
    * Retrieves a paginated list of quotes for sites the user has access to
    */
-  list(
-    query: QuoteListParams,
-    options?: RequestOptions,
-  ): PagePromise<QuoteListResponsesMyCursorPage, QuoteListResponse> {
-    return this._client.getAPIList('/v1/quotes', MyCursorPage<QuoteListResponse>, { query, ...options });
+  list(query: QuoteListParams, options?: RequestOptions): APIPromise<QuoteListResponse> {
+    return this._client.get('/v1/quotes', { query, ...options });
   }
 
   /**
@@ -78,8 +74,6 @@ export class Quotes extends APIResource {
     return this._client.post(path`/v1/quotes/${quoteID}/send`, { body, ...options });
   }
 }
-
-export type QuoteListResponsesMyCursorPage = MyCursorPage<QuoteListResponse>;
 
 /**
  * Successful quote creation response
@@ -284,97 +278,144 @@ export interface QuoteUpdateResponse {
   success: boolean;
 }
 
+/**
+ * Successful quotes listing response
+ */
 export interface QuoteListResponse {
-  contact: QuoteListResponse.Contact;
+  /**
+   * Pagination information
+   */
+  pageInfo: QuoteListResponse.PageInfo;
 
   /**
-   * Schema for a quote
+   * Array of quotes in the current page
    */
-  quote: QuoteListResponse.Quote;
+  quotes: Array<QuoteListResponse.Quote>;
+
+  /**
+   * Total number of quotes
+   */
+  total: number;
 }
 
 export namespace QuoteListResponse {
-  export interface Contact {
-    id: string;
+  /**
+   * Pagination information
+   */
+  export interface PageInfo {
+    /**
+     * Indicates if there are more pages after the current one
+     */
+    hasNextPage: boolean;
 
-    email: string;
+    /**
+     * Indicates if there are previous pages before the current one
+     */
+    hasPreviousPage: boolean;
 
-    name: string | null;
+    /**
+     * Cursor pointing to the last item in the current page, if available
+     */
+    endCursor?: string;
+
+    /**
+     * Cursor pointing to the first item in the current page, if available
+     */
+    startCursor?: string;
   }
 
-  /**
-   * Schema for a quote
-   */
   export interface Quote {
-    /**
-     * Unique identifier for the quote
-     */
-    id: string;
+    contact: Quote.Contact;
 
     /**
-     * Date and time when the quote was created
+     * Schema for a quote
      */
-    createdAt: string;
+    quote: Quote.Quote;
+  }
+
+  export namespace Quote {
+    export interface Contact {
+      id: string;
+
+      email: string;
+
+      name: string | null;
+    }
 
     /**
-     * Currency code for the quote
+     * Schema for a quote
      */
-    currency: string;
+    export interface Quote {
+      /**
+       * Unique identifier for the quote
+       */
+      id: string;
 
-    /**
-     * Expiration date for the quote
-     */
-    expiresAt: string;
+      /**
+       * Date and time when the quote was created
+       */
+      createdAt: string;
 
-    /**
-     * Optional footer for the quote
-     */
-    footer: string | null;
+      /**
+       * Currency code for the quote
+       */
+      currency: string;
 
-    /**
-     * Optional memo for the quote
-     */
-    memo: string | null;
+      /**
+       * Expiration date for the quote
+       */
+      expiresAt: string;
 
-    /**
-     * Optional notes for the quote
-     */
-    notes: string | null;
+      /**
+       * Optional footer for the quote
+       */
+      footer: string | null;
 
-    /**
-     * Whether prices include tax
-     */
-    priceIncludesTax: boolean;
+      /**
+       * Optional memo for the quote
+       */
+      memo: string | null;
 
-    /**
-     * Sequential quote number
-     */
-    quoteNumber: number;
+      /**
+       * Optional notes for the quote
+       */
+      notes: string | null;
 
-    /**
-     * ID of the site this quote belongs to
-     */
-    siteId: string;
+      /**
+       * Whether prices include tax
+       */
+      priceIncludesTax: boolean;
 
-    /**
-     * Current status of the quote
-     */
-    status: 'DRAFT' | 'PENDING' | 'ACCEPTED' | 'DECLINED' | 'EXPIRED';
+      /**
+       * Sequential quote number
+       */
+      quoteNumber: number;
 
-    /**
-     * Total amount in cents
-     */
-    totalInCents: number;
+      /**
+       * ID of the site this quote belongs to
+       */
+      siteId: string;
 
-    /**
-     * Total tax amount in cents
-     */
-    totalTaxInCents: number;
+      /**
+       * Current status of the quote
+       */
+      status: 'DRAFT' | 'PENDING' | 'ACCEPTED' | 'DECLINED' | 'EXPIRED';
 
-    /**
-     * Date and time when the quote was last updated
-     */
-    updatedAt: string;
+      /**
+       * Total amount in cents
+       */
+      totalInCents: number;
+
+      /**
+       * Total tax amount in cents
+       */
+      totalTaxInCents: number;
+
+      /**
+       * Date and time when the quote was last updated
+       */
+      updatedAt: string;
+    }
   }
 }
 
@@ -639,11 +680,21 @@ export namespace QuoteUpdateParams {
   }
 }
 
-export interface QuoteListParams extends MyCursorPageParams {
+export interface QuoteListParams {
   /**
    * Site slug to retrieve quotes for
    */
   siteSlug: string;
+
+  /**
+   * Pagination cursor
+   */
+  cursor?: string;
+
+  /**
+   * Number of items per page (default: 10, max: 25)
+   */
+  pageSize?: number | null;
 
   /**
    * Search term
@@ -682,7 +733,6 @@ export declare namespace Quotes {
     type QuoteAcceptResponse as QuoteAcceptResponse,
     type QuoteDeclineResponse as QuoteDeclineResponse,
     type QuoteSendResponse as QuoteSendResponse,
-    type QuoteListResponsesMyCursorPage as QuoteListResponsesMyCursorPage,
     type QuoteCreateParams as QuoteCreateParams,
     type QuoteUpdateParams as QuoteUpdateParams,
     type QuoteListParams as QuoteListParams,

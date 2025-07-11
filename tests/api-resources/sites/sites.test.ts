@@ -10,7 +10,12 @@ const client = new Fingertip({
 describe('resource sites', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.sites.create({ businessType: 'businessType', name: 'name', slug: 'slug' });
+    const responsePromise = client.sites.create({
+      businessType: 'businessType',
+      name: 'name',
+      pages: [{ name: 'name', pageTheme: {}, slug: 'slug' }],
+      slug: 'slug',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,6 +30,27 @@ describe('resource sites', () => {
     const response = await client.sites.create({
       businessType: 'businessType',
       name: 'name',
+      pages: [
+        {
+          name: 'name',
+          pageTheme: { componentPageThemeId: 'componentPageThemeId', content: {}, isComponent: true },
+          slug: 'slug',
+          bannerMedia: {},
+          blocks: [
+            {
+              componentBlockId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+              kind: 'kind',
+              name: 'name',
+              content: {},
+              isComponent: true,
+            },
+          ],
+          description: 'description',
+          logoMedia: {},
+          position: 0,
+          socialIcons: {},
+        },
+      ],
       slug: 'slug',
       description: 'description',
       homePageId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_sites',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreates a new site with associated pages, themes, and blocks\n\n# Response Schema\n```json\n{\n  type: 'object',\n  description: 'Successful site creation response',\n  properties: {\n    site: {\n      type: 'object',\n      description: 'The newly created site',\n      properties: {\n        id: {\n          type: 'string',\n          description: 'Unique identifier for the site'\n        },\n        businessType: {\n          type: 'string',\n          description: 'Type of business the site represents, can be null'\n        },\n        createdAt: {\n          type: 'string',\n          description: 'Date and time when the site was created',\n          format: 'date-time'\n        },\n        description: {\n          type: 'string',\n          description: 'Description of the site, can be null'\n        },\n        homePageId: {\n          type: 'string',\n          description: 'ID of the site\\'s home page, can be null'\n        },\n        locationId: {\n          type: 'string',\n          description: 'ID of the associated location, can be null'\n        },\n        name: {\n          type: 'string',\n          description: 'Name of the site'\n        },\n        overridePlan: {\n          type: 'string',\n          description: 'Custom plan override for the site, can be null'\n        },\n        slug: {\n          type: 'string',\n          description: 'URL-friendly identifier for the site'\n        },\n        timeZone: {\n          type: 'string',\n          description: 'Time zone for the site, can be null'\n        },\n        updatedAt: {\n          type: 'string',\n          description: 'Date and time when the site was last updated',\n          format: 'date-time'\n        },\n        workspaceId: {\n          type: 'string',\n          description: 'ID of the workspace this site belongs to, can be null'\n        },\n        logoMedia: {\n          type: 'object',\n          description: 'Logo media for the site, can be null'\n        },\n        socialIcons: {\n          type: 'object',\n          description: 'Social media icons configuration, can be null'\n        },\n        status: {\n          type: 'string',\n          description: 'Current status of the site',\n          enum: [            'EMPTY',\n            'UNPUBLISHED',\n            'PREVIEW',\n            'SOFT_CLAIM',\n            'ENABLED',\n            'DEMO',\n            'ARCHIVED'\n          ]\n        }\n      },\n      required: [        'id',\n        'businessType',\n        'createdAt',\n        'description',\n        'homePageId',\n        'locationId',\n        'name',\n        'overridePlan',\n        'slug',\n        'timeZone',\n        'updatedAt',\n        'workspaceId'\n      ]\n    }\n  },\n  required: [    'site'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreates a new site with associated pages, themes, and blocks\n\n# Response Schema\n```json\n{\n  type: 'object',\n  description: 'Successful site creation response',\n  properties: {\n    site: {\n      type: 'object',\n      description: 'The newly created site with all relations',\n      properties: {\n        id: {\n          type: 'string',\n          description: 'Unique identifier for the site'\n        },\n        businessType: {\n          type: 'string',\n          description: 'Type of business the site represents, can be null'\n        },\n        createdAt: {\n          type: 'string',\n          description: 'Date and time when the site was created',\n          format: 'date-time'\n        },\n        description: {\n          type: 'string',\n          description: 'Description of the site, can be null'\n        },\n        homePageId: {\n          type: 'string',\n          description: 'ID of the site\\'s home page, can be null'\n        },\n        locationId: {\n          type: 'string',\n          description: 'ID of the associated location, can be null'\n        },\n        name: {\n          type: 'string',\n          description: 'Name of the site'\n        },\n        overridePlan: {\n          type: 'string',\n          description: 'Custom plan override for the site, can be null'\n        },\n        pages: {\n          type: 'array',\n          description: 'Array of pages associated with this site',\n          items: {\n            type: 'object',\n            description: 'Schema for a page entity',\n            properties: {\n              id: {\n                type: 'string',\n                description: 'Unique identifier for the page'\n              },\n              createdAt: {\n                type: 'string',\n                description: 'Date and time when the page was created',\n                format: 'date-time'\n              },\n              description: {\n                type: 'string',\n                description: 'Description of the page content, can be null'\n              },\n              name: {\n                type: 'string',\n                description: 'Name of the page, can be null'\n              },\n              pageThemeId: {\n                type: 'string',\n                description: 'ID of the theme applied to this page, can be null'\n              },\n              siteId: {\n                type: 'string',\n                description: 'ID of the site this page belongs to'\n              },\n              slug: {\n                type: 'string',\n                description: 'URL-friendly path segment for the page'\n              },\n              updatedAt: {\n                type: 'string',\n                description: 'Date and time when the page was last updated',\n                format: 'date-time'\n              },\n              bannerMedia: {\n                type: 'object',\n                description: 'Banner media for the page, can be null'\n              },\n              logoMedia: {\n                type: 'object',\n                description: 'Logo media for the page, can be null'\n              },\n              position: {\n                type: 'number',\n                description: 'Display position of the page within the site'\n              },\n              socialIcons: {\n                type: 'object',\n                description: 'Social media icons configuration, can be null'\n              }\n            },\n            required: [              'id',\n              'createdAt',\n              'description',\n              'name',\n              'pageThemeId',\n              'siteId',\n              'slug',\n              'updatedAt'\n            ]\n          }\n        },\n        slug: {\n          type: 'string',\n          description: 'URL-friendly identifier for the site'\n        },\n        timeZone: {\n          type: 'string',\n          description: 'Time zone for the site, can be null'\n        },\n        updatedAt: {\n          type: 'string',\n          description: 'Date and time when the site was last updated',\n          format: 'date-time'\n        },\n        workspaceId: {\n          type: 'string',\n          description: 'ID of the workspace this site belongs to, can be null'\n        },\n        logoMedia: {\n          type: 'object',\n          description: 'Logo media for the site, can be null'\n        },\n        socialIcons: {\n          type: 'object',\n          description: 'Social media icons configuration, can be null'\n        },\n        status: {\n          type: 'string',\n          description: 'Current status of the site',\n          enum: [            'EMPTY',\n            'UNPUBLISHED',\n            'PREVIEW',\n            'SOFT_CLAIM',\n            'ENABLED',\n            'DEMO',\n            'ARCHIVED'\n          ]\n        }\n      },\n      required: [        'id',\n        'businessType',\n        'createdAt',\n        'description',\n        'homePageId',\n        'locationId',\n        'name',\n        'overridePlan',\n        'pages',\n        'slug',\n        'timeZone',\n        'updatedAt',\n        'workspaceId'\n      ]\n    }\n  },\n  required: [    'site'\n  ]\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -30,6 +30,95 @@ export const tool: Tool = {
       name: {
         type: 'string',
         description: 'Name of the site',
+      },
+      pages: {
+        type: 'array',
+        description: 'Array of pages to create with the site',
+        items: {
+          type: 'object',
+          description: 'Page to create with theme and blocks',
+          properties: {
+            name: {
+              type: 'string',
+              description: 'Name of the page, can be null',
+            },
+            pageTheme: {
+              type: 'object',
+              description: 'Theme for the page',
+              properties: {
+                componentPageThemeId: {
+                  type: 'string',
+                  description: 'ID of the parent component theme if this is an instance, can be null',
+                },
+                content: {
+                  type: 'object',
+                  description: 'Theme content configuration, can be null',
+                },
+                isComponent: {
+                  type: 'boolean',
+                  description: 'Whether this theme is a reusable component',
+                },
+              },
+              required: [],
+            },
+            slug: {
+              type: 'string',
+              description: 'URL-friendly path segment for the page',
+            },
+            bannerMedia: {
+              type: 'object',
+              description: 'Banner media for the page, can be null',
+            },
+            blocks: {
+              type: 'array',
+              description: 'Content blocks for the page',
+              items: {
+                type: 'object',
+                description: 'Schema for creating a new block',
+                properties: {
+                  componentBlockId: {
+                    type: 'string',
+                    description: 'ID of the component block if this is an instance, can be null',
+                  },
+                  kind: {
+                    type: 'string',
+                    description: 'Type or category of the block, can be null',
+                  },
+                  name: {
+                    type: 'string',
+                    description: 'Name of the block',
+                  },
+                  content: {
+                    type: 'object',
+                    description: 'Content of the block, can be null',
+                  },
+                  isComponent: {
+                    type: 'boolean',
+                    description: 'Whether this block is a component',
+                  },
+                },
+                required: ['componentBlockId', 'kind', 'name'],
+              },
+            },
+            description: {
+              type: 'string',
+              description: 'Description of the page content, can be null',
+            },
+            logoMedia: {
+              type: 'object',
+              description: 'Logo media for the page, can be null',
+            },
+            position: {
+              type: 'number',
+              description: 'Display position of the page within the site',
+            },
+            socialIcons: {
+              type: 'object',
+              description: 'Social media icons configuration, can be null',
+            },
+          },
+          required: ['name', 'pageTheme', 'slug'],
+        },
       },
       slug: {
         type: 'string',
