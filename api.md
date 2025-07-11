@@ -71,12 +71,10 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/pages/theme.ts">ThemeRetrieveResponse</a></code>
-- <code><a href="./src/resources/pages/theme.ts">ThemePatchResponse</a></code>
 
 Methods:
 
 - <code title="get /v1/pages/{pageId}/theme">client.pages.theme.<a href="./src/resources/pages/theme.ts">retrieve</a>(pageID) -> ThemeRetrieveResponse</code>
-- <code title="patch /v1/pages/{pageId}/theme/patch">client.pages.theme.<a href="./src/resources/pages/theme.ts">patch</a>(pageID, [ ...body ]) -> ThemePatchResponse</code>
 
 # Blocks
 
@@ -370,7 +368,7 @@ Methods:
 - <code title="post /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">create</a>({ ...params }) -> QuoteCreateResponse</code>
 - <code title="get /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">retrieve</a>(quoteID) -> QuoteRetrieveResponse</code>
 - <code title="put /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">update</a>(quoteID, { ...params }) -> QuoteUpdateResponse</code>
-- <code title="get /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">list</a>({ ...params }) -> QuoteListResponsesMyCursorPage</code>
+- <code title="get /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">list</a>({ ...params }) -> QuoteListResponse</code>
 - <code title="delete /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">delete</a>(quoteID) -> QuoteDeleteResponse</code>
 - <code title="post /v1/quotes/{quoteId}/accept">client.quotes.<a href="./src/resources/quotes.ts">accept</a>(quoteID) -> QuoteAcceptResponse</code>
 - <code title="post /v1/quotes/{quoteId}/decline">client.quotes.<a href="./src/resources/quotes.ts">decline</a>(quoteID) -> QuoteDeclineResponse</code>

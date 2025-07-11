@@ -4,7 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as BlocksAPI from './blocks';
 import { BlockCreateParams, BlockCreateResponse, BlockListResponse, Blocks } from './blocks';
 import * as ThemeAPI from './theme';
-import { Theme, ThemePatchParams, ThemePatchResponse, ThemeRetrieveResponse } from './theme';
+import { Theme, ThemeRetrieveResponse } from './theme';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
@@ -14,7 +14,8 @@ export class Pages extends APIResource {
   theme: ThemeAPI.Theme = new ThemeAPI.Theme(this._client);
 
   /**
-   * Retrieves a specific page by ID.
+   * Retrieves a specific page by ID including all related blocks and theme
+   * information.
    */
   retrieve(pageID: string, options?: RequestOptions): APIPromise<PageRetrieveResponse> {
     return this._client.get(path`/v1/pages/${pageID}`, options);
@@ -60,6 +61,11 @@ export namespace PageRetrieveResponse {
     id: string;
 
     /**
+     * Array of content blocks associated with the page
+     */
+    blocks: Array<Page.Block>;
+
+    /**
      * Date and time when the page was created
      */
     createdAt: string;
@@ -73,6 +79,11 @@ export namespace PageRetrieveResponse {
      * Name of the page, can be null
      */
     name: string | null;
+
+    /**
+     * Theme applied to the page, can be null
+     */
+    pageTheme: Page.PageTheme | null;
 
     /**
      * ID of the theme applied to this page, can be null
@@ -114,6 +125,90 @@ export namespace PageRetrieveResponse {
      */
     socialIcons?: unknown;
   }
+
+  export namespace Page {
+    export interface Block {
+      /**
+       * Unique identifier for the block
+       */
+      id: string;
+
+      /**
+       * ID of the component block if this is an instance, can be null
+       */
+      componentBlockId: string | null;
+
+      /**
+       * Date and time when the block was created
+       */
+      createdAt: string;
+
+      /**
+       * Type or category of the block, can be null
+       */
+      kind: string | null;
+
+      /**
+       * Name of the block
+       */
+      name: string;
+
+      /**
+       * ID of the page this block belongs to
+       */
+      pageId: string;
+
+      /**
+       * Date and time when the block was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * Content of the block, can be null
+       */
+      content?: unknown;
+
+      /**
+       * Whether this block is a component
+       */
+      isComponent?: boolean;
+    }
+
+    /**
+     * Theme applied to the page, can be null
+     */
+    export interface PageTheme {
+      /**
+       * Unique identifier for the page theme
+       */
+      id: string;
+
+      /**
+       * ID of the parent component theme if this is an instance, can be null
+       */
+      componentPageThemeId: string | null;
+
+      /**
+       * Date and time when the theme was created
+       */
+      createdAt: string;
+
+      /**
+       * Date and time when the theme was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * Theme content configuration, can be null
+       */
+      content?: unknown;
+
+      /**
+       * Whether this theme is a reusable component
+       */
+      isComponent?: boolean;
+    }
+  }
 }
 
 /**
@@ -137,6 +232,11 @@ export namespace PageUpdateResponse {
     id: string;
 
     /**
+     * Array of content blocks associated with the page
+     */
+    blocks: Array<Page.Block>;
+
+    /**
      * Date and time when the page was created
      */
     createdAt: string;
@@ -150,6 +250,11 @@ export namespace PageUpdateResponse {
      * Name of the page, can be null
      */
     name: string | null;
+
+    /**
+     * Theme applied to the page, can be null
+     */
+    pageTheme: Page.PageTheme | null;
 
     /**
      * ID of the theme applied to this page, can be null
@@ -190,6 +295,90 @@ export namespace PageUpdateResponse {
      * Social media icons configuration, can be null
      */
     socialIcons?: unknown;
+  }
+
+  export namespace Page {
+    export interface Block {
+      /**
+       * Unique identifier for the block
+       */
+      id: string;
+
+      /**
+       * ID of the component block if this is an instance, can be null
+       */
+      componentBlockId: string | null;
+
+      /**
+       * Date and time when the block was created
+       */
+      createdAt: string;
+
+      /**
+       * Type or category of the block, can be null
+       */
+      kind: string | null;
+
+      /**
+       * Name of the block
+       */
+      name: string;
+
+      /**
+       * ID of the page this block belongs to
+       */
+      pageId: string;
+
+      /**
+       * Date and time when the block was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * Content of the block, can be null
+       */
+      content?: unknown;
+
+      /**
+       * Whether this block is a component
+       */
+      isComponent?: boolean;
+    }
+
+    /**
+     * Theme applied to the page, can be null
+     */
+    export interface PageTheme {
+      /**
+       * Unique identifier for the page theme
+       */
+      id: string;
+
+      /**
+       * ID of the parent component theme if this is an instance, can be null
+       */
+      componentPageThemeId: string | null;
+
+      /**
+       * Date and time when the theme was created
+       */
+      createdAt: string;
+
+      /**
+       * Date and time when the theme was last updated
+       */
+      updatedAt: string;
+
+      /**
+       * Theme content configuration, can be null
+       */
+      content?: unknown;
+
+      /**
+       * Whether this theme is a reusable component
+       */
+      isComponent?: boolean;
+    }
   }
 }
 
@@ -263,10 +452,5 @@ export declare namespace Pages {
     type BlockCreateParams as BlockCreateParams,
   };
 
-  export {
-    Theme as Theme,
-    type ThemeRetrieveResponse as ThemeRetrieveResponse,
-    type ThemePatchResponse as ThemePatchResponse,
-    type ThemePatchParams as ThemePatchParams,
-  };
+  export { Theme as Theme, type ThemeRetrieveResponse as ThemeRetrieveResponse };
 }
