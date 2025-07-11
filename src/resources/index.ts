@@ -124,6 +124,7 @@ export {
   type QuoteUpdateParams,
   type QuoteListParams,
   type QuoteSendParams,
+  type QuoteListResponsesMyCursorPage,
 } from './quotes';
 export {
   SiteContacts,

@@ -368,6 +368,6 @@ Methods:
 - <code title="post /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">create</a>({ ...params }) -> QuoteCreateResponse</code>
 - <code title="get /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">retrieve</a>(quoteID) -> QuoteRetrieveResponse</code>
 - <code title="put /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">update</a>(quoteID, { ...params }) -> QuoteUpdateResponse</code>
-- <code title="get /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">list</a>({ ...params }) -> QuoteListResponse</code>
+- <code title="get /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">list</a>({ ...params }) -> QuoteListResponsesMyCursorPage</code>
 - <code title="delete /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">delete</a>(quoteID) -> QuoteDeleteResponse</code>
 - <code title="post /v1/quotes/{quoteId}/send">client.quotes.<a href="./src/resources/quotes.ts">send</a>(quoteID, { ...params }) -> QuoteSendResponse</code>

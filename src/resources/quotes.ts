@@ -2,6 +2,7 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
+import { MyCursorPage, type MyCursorPageParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -34,8 +35,11 @@ export class Quotes extends APIResource {
   /**
    * Retrieves a paginated list of quotes for sites the user has access to
    */
-  list(query: QuoteListParams, options?: RequestOptions): APIPromise<QuoteListResponse> {
-    return this._client.get('/v1/quotes', { query, ...options });
+  list(
+    query: QuoteListParams,
+    options?: RequestOptions,
+  ): PagePromise<QuoteListResponsesMyCursorPage, QuoteListResponse> {
+    return this._client.getAPIList('/v1/quotes', MyCursorPage<QuoteListResponse>, { query, ...options });
   }
 
   /**
@@ -52,6 +56,8 @@ export class Quotes extends APIResource {
     return this._client.post(path`/v1/quotes/${quoteID}/send`, { body, ...options });
   }
 }
+
+export type QuoteListResponsesMyCursorPage = MyCursorPage<QuoteListResponse>;
 
 /**
  * Successful quote creation response
@@ -256,144 +262,97 @@ export interface QuoteUpdateResponse {
   success: boolean;
 }
 
-/**
- * Successful quotes listing response
- */
 export interface QuoteListResponse {
-  /**
-   * Pagination information
-   */
-  pageInfo: QuoteListResponse.PageInfo;
+  contact: QuoteListResponse.Contact;
 
   /**
-   * Array of quotes in the current page
+   * Schema for a quote
    */
-  quotes: Array<QuoteListResponse.Quote>;
-
-  /**
-   * Total number of quotes
-   */
-  total: number;
+  quote: QuoteListResponse.Quote;
 }
 
 export namespace QuoteListResponse {
+  export interface Contact {
+    id: string;
+
+    email: string;
+
+    name: string | null;
+  }
+
   /**
-   * Pagination information
+   * Schema for a quote
    */
-  export interface PageInfo {
-    /**
-     * Indicates if there are more pages after the current one
-     */
-    hasNextPage: boolean;
-
-    /**
-     * Indicates if there are previous pages before the current one
-     */
-    hasPreviousPage: boolean;
-
-    /**
-     * Cursor pointing to the last item in the current page, if available
-     */
-    endCursor?: string;
-
-    /**
-     * Cursor pointing to the first item in the current page, if available
-     */
-    startCursor?: string;
-  }
-
   export interface Quote {
-    contact: Quote.Contact;
+    /**
+     * Unique identifier for the quote
+     */
+    id: string;
 
     /**
-     * Schema for a quote
+     * Date and time when the quote was created
      */
-    quote: Quote.Quote;
-  }
-
-  export namespace Quote {
-    export interface Contact {
-      id: string;
-
-      email: string;
-
-      name: string | null;
-    }
+    createdAt: string;
 
     /**
-     * Schema for a quote
+     * Currency code for the quote
      */
-    export interface Quote {
-      /**
-       * Unique identifier for the quote
-       */
-      id: string;
+    currency: string;
 
-      /**
-       * Date and time when the quote was created
-       */
-      createdAt: string;
+    /**
+     * Expiration date for the quote
+     */
+    expiresAt: string;
 
-      /**
-       * Currency code for the quote
-       */
-      currency: string;
+    /**
+     * Optional footer for the quote
+     */
+    footer: string | null;
 
-      /**
-       * Expiration date for the quote
-       */
-      expiresAt: string;
+    /**
+     * Optional memo for the quote
+     */
+    memo: string | null;
 
-      /**
-       * Optional footer for the quote
-       */
-      footer: string | null;
+    /**
+     * Optional notes for the quote
+     */
+    notes: string | null;
 
-      /**
-       * Optional memo for the quote
-       */
-      memo: string | null;
+    /**
+     * Whether prices include tax
+     */
+    priceIncludesTax: boolean;
 
-      /**
-       * Optional notes for the quote
-       */
-      notes: string | null;
+    /**
+     * Sequential quote number
+     */
+    quoteNumber: number;
 
-      /**
-       * Whether prices include tax
-       */
-      priceIncludesTax: boolean;
+    /**
+     * ID of the site this quote belongs to
+     */
+    siteId: string;
 
-      /**
-       * Sequential quote number
-       */
-      quoteNumber: number;
+    /**
+     * Current status of the quote
+     */
+    status: 'DRAFT' | 'PENDING' | 'ACCEPTED' | 'DECLINED' | 'EXPIRED';
 
-      /**
-       * ID of the site this quote belongs to
-       */
-      siteId: string;
+    /**
+     * Total amount in cents
+     */
+    totalInCents: number;
 
-      /**
-       * Current status of the quote
-       */
-      status: 'DRAFT' | 'PENDING' | 'ACCEPTED' | 'DECLINED' | 'EXPIRED';
+    /**
+     * Total tax amount in cents
+     */
+    totalTaxInCents: number;
 
-      /**
-       * Total amount in cents
-       */
-      totalInCents: number;
-
-      /**
-       * Total tax amount in cents
-       */
-      totalTaxInCents: number;
-
-      /**
-       * Date and time when the quote was last updated
-       */
-      updatedAt: string;
-    }
+    /**
+     * Date and time when the quote was last updated
+     */
+    updatedAt: string;
   }
 }
 
@@ -638,21 +597,11 @@ export namespace QuoteUpdateParams {
   }
 }
 
-export interface QuoteListParams {
+export interface QuoteListParams extends MyCursorPageParams {
   /**
    * Site slug to retrieve quotes for
    */
   siteSlug: string;
-
-  /**
-   * Pagination cursor
-   */
-  cursor?: string;
-
-  /**
-   * Number of items per page (default: 10, max: 25)
-   */
-  pageSize?: number | null;
 
   /**
    * Search term
@@ -685,6 +634,7 @@ export declare namespace Quotes {
     type QuoteListResponse as QuoteListResponse,
     type QuoteDeleteResponse as QuoteDeleteResponse,
     type QuoteSendResponse as QuoteSendResponse,
+    type QuoteListResponsesMyCursorPage as QuoteListResponsesMyCursorPage,
     type QuoteCreateParams as QuoteCreateParams,
     type QuoteUpdateParams as QuoteUpdateParams,
     type QuoteListParams as QuoteListParams,
