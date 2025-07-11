@@ -12,7 +12,6 @@ describe('resource pages', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.sites.pages.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       name: 'name',
-      pageTheme: {},
       body_siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       slug: 'slug',
     });
@@ -29,19 +28,9 @@ describe('resource pages', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.sites.pages.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       name: 'name',
-      pageTheme: { componentPageThemeId: 'componentPageThemeId', content: {}, isComponent: true },
       body_siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       slug: 'slug',
       bannerMedia: {},
-      blocks: [
-        {
-          componentBlockId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          kind: 'kind',
-          name: 'name',
-          content: {},
-          isComponent: true,
-        },
-      ],
       description: 'description',
       logoMedia: {},
       position: 0,
