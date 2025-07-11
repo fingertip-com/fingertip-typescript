@@ -47,7 +47,7 @@ export type HandlerFunction = (
   args: Record<string, unknown> | undefined,
 ) => Promise<ToolCallResult>;
 
-export function asTextContentResult(result: unknown): ToolCallResult {
+export function asTextContentResult(result: Object): ToolCallResult {
   return {
     content: [
       {
