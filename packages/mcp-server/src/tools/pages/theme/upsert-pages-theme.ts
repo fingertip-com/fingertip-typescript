@@ -8,33 +8,21 @@ import Fingertip from 'fingertip';
 
 export const metadata: Metadata = {
   resource: 'pages.theme',
-  operation: 'write',
+  operation: 'read',
   tags: [],
-  httpMethod: 'patch',
+  httpMethod: 'get',
   httpPath: '/v1/pages/{pageId}/theme',
-  operationId: 'upsertPageTheme',
+  operationId: 'getPageTheme',
 };
 
 export const tool: Tool = {
-  name: 'update_pages_theme',
-  description: 'Creates or updates the theme for a specific page',
+  name: 'upsert_pages_theme',
+  description: 'Retrieves the theme associated with a specific page',
   inputSchema: {
     type: 'object',
     properties: {
       pageId: {
         type: 'string',
-      },
-      componentPageThemeId: {
-        type: 'string',
-        description: 'ID of the parent component theme if this is an instance, can be null',
-      },
-      content: {
-        type: 'object',
-        description: 'Theme content configuration, can be null',
-      },
-      isComponent: {
-        type: 'boolean',
-        description: 'Whether this theme is a reusable component',
       },
     },
   },
@@ -42,7 +30,7 @@ export const tool: Tool = {
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
   const { pageId, ...body } = args as any;
-  return asTextContentResult(await client.pages.theme.update(pageId, body));
+  return asTextContentResult(await client.pages.theme.upsert(pageId));
 };
 
 export default { metadata, tool, handler };

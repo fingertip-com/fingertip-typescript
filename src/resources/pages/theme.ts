@@ -14,14 +14,22 @@ export class Theme extends APIResource {
   }
 
   /**
-   * Creates or updates the theme for a specific page
+   * Applies JSON Patch operations to the theme content field
    */
-  update(
+  patch(
     pageID: string,
-    body: ThemeUpdateParams | null | undefined = {},
+    params: ThemePatchParams | null | undefined = undefined,
     options?: RequestOptions,
-  ): APIPromise<ThemeUpdateResponse> {
-    return this._client.patch(path`/v1/pages/${pageID}/theme`, { body, ...options });
+  ): APIPromise<ThemePatchResponse> {
+    const { body } = params ?? {};
+    return this._client.patch(path`/v1/pages/${pageID}/theme/patch`, { body: body, ...options });
+  }
+
+  /**
+   * Retrieves the theme associated with a specific page
+   */
+  upsert(pageID: string, options?: RequestOptions): APIPromise<ThemeUpsertResponse> {
+    return this._client.get(path`/v1/pages/${pageID}/theme`, options);
   }
 }
 
@@ -73,18 +81,18 @@ export namespace ThemeRetrieveResponse {
 }
 
 /**
- * Successful theme update response
+ * Successful patch application response
  */
-export interface ThemeUpdateResponse {
+export interface ThemePatchResponse {
   /**
-   * The updated or created page theme
+   * The updated page theme after applying patches
    */
-  pageTheme: ThemeUpdateResponse.PageTheme;
+  pageTheme: ThemePatchResponse.PageTheme;
 }
 
-export namespace ThemeUpdateResponse {
+export namespace ThemePatchResponse {
   /**
-   * The updated or created page theme
+   * The updated page theme after applying patches
    */
   export interface PageTheme {
     /**
@@ -119,27 +127,92 @@ export namespace ThemeUpdateResponse {
   }
 }
 
-export interface ThemeUpdateParams {
+/**
+ * Successful theme retrieval response
+ */
+export interface ThemeUpsertResponse {
   /**
-   * ID of the parent component theme if this is an instance, can be null
+   * The theme associated with the requested page
    */
-  componentPageThemeId?: string | null;
+  pageTheme: ThemeUpsertResponse.PageTheme;
+}
 
+export namespace ThemeUpsertResponse {
   /**
-   * Theme content configuration, can be null
+   * The theme associated with the requested page
    */
-  content?: unknown;
+  export interface PageTheme {
+    /**
+     * Unique identifier for the page theme
+     */
+    id: string;
 
+    /**
+     * ID of the parent component theme if this is an instance, can be null
+     */
+    componentPageThemeId: string | null;
+
+    /**
+     * Date and time when the theme was created
+     */
+    createdAt: string;
+
+    /**
+     * Date and time when the theme was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * Theme content configuration, can be null
+     */
+    content?: unknown;
+
+    /**
+     * Whether this theme is a reusable component
+     */
+    isComponent?: boolean;
+  }
+}
+
+export interface ThemePatchParams {
   /**
-   * Whether this theme is a reusable component
+   * Array of JSON Patch operations to apply
    */
-  isComponent?: boolean;
+  body?: Array<ThemePatchParams.Body>;
+}
+
+export namespace ThemePatchParams {
+  /**
+   * JSON Patch operation following RFC 6902
+   */
+  export interface Body {
+    /**
+     * The operation to perform
+     */
+    op: 'add' | 'remove' | 'replace' | 'move' | 'copy' | 'test';
+
+    /**
+     * JSON pointer to the target location
+     */
+    path: string;
+
+    /**
+     * Source path for move and copy operations
+     */
+    from?: string;
+
+    /**
+     * Value for add, replace, and test operations
+     */
+    value?: unknown;
+  }
 }
 
 export declare namespace Theme {
   export {
     type ThemeRetrieveResponse as ThemeRetrieveResponse,
-    type ThemeUpdateResponse as ThemeUpdateResponse,
-    type ThemeUpdateParams as ThemeUpdateParams,
+    type ThemePatchResponse as ThemePatchResponse,
+    type ThemeUpsertResponse as ThemeUpsertResponse,
+    type ThemePatchParams as ThemePatchParams,
   };
 }
