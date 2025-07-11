@@ -180,7 +180,7 @@ The following tools are available in this MCP server.
 
 ### Resource `pages`:
 
-- `retrieve_pages` (`read`): Retrieves a specific page by ID including all related blocks and theme information.
+- `retrieve_pages` (`read`): Retrieves a specific page by ID.
 - `update_pages` (`write`): Updates an existing page with the provided data.
 
 ### Resource `pages.blocks`:

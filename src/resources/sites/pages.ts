@@ -52,11 +52,6 @@ export namespace PageCreateResponse {
     id: string;
 
     /**
-     * Array of content blocks associated with the page
-     */
-    blocks: Array<Page.Block>;
-
-    /**
      * Date and time when the page was created
      */
     createdAt: string;
@@ -70,11 +65,6 @@ export namespace PageCreateResponse {
      * Name of the page, can be null
      */
     name: string | null;
-
-    /**
-     * Theme applied to the page, can be null
-     */
-    pageTheme: Page.PageTheme | null;
 
     /**
      * ID of the theme applied to this page, can be null
@@ -116,105 +106,16 @@ export namespace PageCreateResponse {
      */
     socialIcons?: unknown;
   }
-
-  export namespace Page {
-    export interface Block {
-      /**
-       * Unique identifier for the block
-       */
-      id: string;
-
-      /**
-       * ID of the component block if this is an instance, can be null
-       */
-      componentBlockId: string | null;
-
-      /**
-       * Date and time when the block was created
-       */
-      createdAt: string;
-
-      /**
-       * Type or category of the block, can be null
-       */
-      kind: string | null;
-
-      /**
-       * Name of the block
-       */
-      name: string;
-
-      /**
-       * ID of the page this block belongs to
-       */
-      pageId: string;
-
-      /**
-       * Date and time when the block was last updated
-       */
-      updatedAt: string;
-
-      /**
-       * Content of the block, can be null
-       */
-      content?: unknown;
-
-      /**
-       * Whether this block is a component
-       */
-      isComponent?: boolean;
-    }
-
-    /**
-     * Theme applied to the page, can be null
-     */
-    export interface PageTheme {
-      /**
-       * Unique identifier for the page theme
-       */
-      id: string;
-
-      /**
-       * ID of the parent component theme if this is an instance, can be null
-       */
-      componentPageThemeId: string | null;
-
-      /**
-       * Date and time when the theme was created
-       */
-      createdAt: string;
-
-      /**
-       * Date and time when the theme was last updated
-       */
-      updatedAt: string;
-
-      /**
-       * Theme content configuration, can be null
-       */
-      content?: unknown;
-
-      /**
-       * Whether this theme is a reusable component
-       */
-      isComponent?: boolean;
-    }
-  }
 }
 
 /**
- * Page schema including related blocks and theme information
+ * Schema for a page entity
  */
 export interface PageListResponse {
   /**
    * Unique identifier for the page
    */
   id: string;
-
-  /**
-   * Array of content blocks associated with the page
-   */
-  blocks: Array<PageListResponse.Block>;
 
   /**
    * Date and time when the page was created
@@ -230,11 +131,6 @@ export interface PageListResponse {
    * Name of the page, can be null
    */
   name: string | null;
-
-  /**
-   * Theme applied to the page, can be null
-   */
-  pageTheme: PageListResponse.PageTheme | null;
 
   /**
    * ID of the theme applied to this page, can be null
@@ -277,100 +173,11 @@ export interface PageListResponse {
   socialIcons?: unknown;
 }
 
-export namespace PageListResponse {
-  export interface Block {
-    /**
-     * Unique identifier for the block
-     */
-    id: string;
-
-    /**
-     * ID of the component block if this is an instance, can be null
-     */
-    componentBlockId: string | null;
-
-    /**
-     * Date and time when the block was created
-     */
-    createdAt: string;
-
-    /**
-     * Type or category of the block, can be null
-     */
-    kind: string | null;
-
-    /**
-     * Name of the block
-     */
-    name: string;
-
-    /**
-     * ID of the page this block belongs to
-     */
-    pageId: string;
-
-    /**
-     * Date and time when the block was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * Content of the block, can be null
-     */
-    content?: unknown;
-
-    /**
-     * Whether this block is a component
-     */
-    isComponent?: boolean;
-  }
-
-  /**
-   * Theme applied to the page, can be null
-   */
-  export interface PageTheme {
-    /**
-     * Unique identifier for the page theme
-     */
-    id: string;
-
-    /**
-     * ID of the parent component theme if this is an instance, can be null
-     */
-    componentPageThemeId: string | null;
-
-    /**
-     * Date and time when the theme was created
-     */
-    createdAt: string;
-
-    /**
-     * Date and time when the theme was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * Theme content configuration, can be null
-     */
-    content?: unknown;
-
-    /**
-     * Whether this theme is a reusable component
-     */
-    isComponent?: boolean;
-  }
-}
-
 export interface PageCreateParams {
   /**
    * Name of the page, can be null
    */
   name: string | null;
-
-  /**
-   * Theme to apply to the new page
-   */
-  pageTheme: PageCreateParams.PageTheme;
 
   /**
    * ID of the site this page belongs to
@@ -386,11 +193,6 @@ export interface PageCreateParams {
    * Banner media for the page, can be null
    */
   bannerMedia?: unknown;
-
-  /**
-   * Initial content blocks for the page
-   */
-  blocks?: Array<PageCreateParams.Block>;
 
   /**
    * Description of the page content, can be null
@@ -411,58 +213,6 @@ export interface PageCreateParams {
    * Social media icons configuration, can be null
    */
   socialIcons?: unknown;
-}
-
-export namespace PageCreateParams {
-  /**
-   * Theme to apply to the new page
-   */
-  export interface PageTheme {
-    /**
-     * ID of the parent component theme if this is an instance, can be null
-     */
-    componentPageThemeId?: string | null;
-
-    /**
-     * Theme content configuration, can be null
-     */
-    content?: unknown;
-
-    /**
-     * Whether this theme is a reusable component
-     */
-    isComponent?: boolean;
-  }
-
-  /**
-   * Schema for creating a new block
-   */
-  export interface Block {
-    /**
-     * ID of the component block if this is an instance, can be null
-     */
-    componentBlockId: string | null;
-
-    /**
-     * Type or category of the block, can be null
-     */
-    kind: string | null;
-
-    /**
-     * Name of the block
-     */
-    name: string;
-
-    /**
-     * Content of the block, can be null
-     */
-    content?: unknown;
-
-    /**
-     * Whether this block is a component
-     */
-    isComponent?: boolean;
-  }
 }
 
 export interface PageListParams extends MyCursorPageParams {
