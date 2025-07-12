@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.60.1 (2025-07-12)
+
+Full Changelog: [v0.60.0...v0.60.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.60.0...v0.60.1)
+
+### Chores
+
+* **internal:** codegen related update ([c39c75b](https://github.com/fingertip-com/fingertip-typescript/commit/c39c75bfaf8d251cfb7ba6c3d072d61b86a80808))
+
+
+### Documentation
+
+* **mcp:** correct instructions for adding to claude web ([b491cc2](https://github.com/fingertip-com/fingertip-typescript/commit/b491cc2fe50742b847e6cf5707b343bbea3fd0bd))
+
 ## 0.60.0 (2025-07-11)
 
 Full Changelog: [v0.59.0...v0.60.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.59.0...v0.60.0)
