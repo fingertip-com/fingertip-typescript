@@ -125,12 +125,8 @@ import {
 } from './resources/orders';
 import { Ping, PingCheckResponse } from './resources/ping';
 import {
-  QuoteAcceptParams,
-  QuoteAcceptResponse,
   QuoteCreateParams,
   QuoteCreateResponse,
-  QuoteDeclineParams,
-  QuoteDeclineResponse,
   QuoteDeleteResponse,
   QuoteListParams,
   QuoteListResponse,
@@ -1213,15 +1209,11 @@ export declare namespace Fingertip {
     type QuoteUpdateResponse as QuoteUpdateResponse,
     type QuoteListResponse as QuoteListResponse,
     type QuoteDeleteResponse as QuoteDeleteResponse,
-    type QuoteAcceptResponse as QuoteAcceptResponse,
-    type QuoteDeclineResponse as QuoteDeclineResponse,
     type QuoteSendResponse as QuoteSendResponse,
     type QuoteListResponsesMyCursorPage as QuoteListResponsesMyCursorPage,
     type QuoteCreateParams as QuoteCreateParams,
     type QuoteUpdateParams as QuoteUpdateParams,
     type QuoteListParams as QuoteListParams,
-    type QuoteAcceptParams as QuoteAcceptParams,
-    type QuoteDeclineParams as QuoteDeclineParams,
     type QuoteSendParams as QuoteSendParams,
   };
 }
