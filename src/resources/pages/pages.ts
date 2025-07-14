@@ -4,14 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as BlocksAPI from './blocks';
 import { BlockCreateParams, BlockCreateResponse, BlockListResponse, Blocks } from './blocks';
 import * as ThemeAPI from './theme';
-import {
-  Theme,
-  ThemePatchParams,
-  ThemePatchResponse,
-  ThemeRetrieveResponse,
-  ThemeUpsertParams,
-  ThemeUpsertResponse,
-} from './theme';
+import { Theme, ThemePatchParams, ThemePatchResponse, ThemeRetrieveResponse } from './theme';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
@@ -274,8 +267,6 @@ export declare namespace Pages {
     Theme as Theme,
     type ThemeRetrieveResponse as ThemeRetrieveResponse,
     type ThemePatchResponse as ThemePatchResponse,
-    type ThemeUpsertResponse as ThemeUpsertResponse,
     type ThemePatchParams as ThemePatchParams,
-    type ThemeUpsertParams as ThemeUpsertParams,
   };
 }
