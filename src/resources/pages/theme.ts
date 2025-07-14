@@ -24,6 +24,17 @@ export class Theme extends APIResource {
     const { body } = params ?? {};
     return this._client.patch(path`/v1/pages/${pageID}/theme/patch`, { body: body, ...options });
   }
+
+  /**
+   * Creates or updates the theme for a specific page
+   */
+  upsert(
+    pageID: string,
+    body: ThemeUpsertParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ThemeUpsertResponse> {
+    return this._client.patch(path`/v1/pages/${pageID}/theme`, { body, ...options });
+  }
 }
 
 /**
@@ -120,6 +131,53 @@ export namespace ThemePatchResponse {
   }
 }
 
+/**
+ * Successful theme update response
+ */
+export interface ThemeUpsertResponse {
+  /**
+   * The updated or created page theme
+   */
+  pageTheme: ThemeUpsertResponse.PageTheme;
+}
+
+export namespace ThemeUpsertResponse {
+  /**
+   * The updated or created page theme
+   */
+  export interface PageTheme {
+    /**
+     * Unique identifier for the page theme
+     */
+    id: string;
+
+    /**
+     * ID of the parent component theme if this is an instance, can be null
+     */
+    componentPageThemeId: string | null;
+
+    /**
+     * Date and time when the theme was created
+     */
+    createdAt: string;
+
+    /**
+     * Date and time when the theme was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * Theme content configuration, can be null
+     */
+    content?: unknown;
+
+    /**
+     * Whether this theme is a reusable component
+     */
+    isComponent?: boolean;
+  }
+}
+
 export interface ThemePatchParams {
   /**
    * Array of JSON Patch operations to apply
@@ -154,10 +212,29 @@ export namespace ThemePatchParams {
   }
 }
 
+export interface ThemeUpsertParams {
+  /**
+   * ID of the parent component theme if this is an instance, can be null
+   */
+  componentPageThemeId?: string | null;
+
+  /**
+   * Theme content configuration, can be null
+   */
+  content?: unknown;
+
+  /**
+   * Whether this theme is a reusable component
+   */
+  isComponent?: boolean;
+}
+
 export declare namespace Theme {
   export {
     type ThemeRetrieveResponse as ThemeRetrieveResponse,
     type ThemePatchResponse as ThemePatchResponse,
+    type ThemeUpsertResponse as ThemeUpsertResponse,
     type ThemePatchParams as ThemePatchParams,
+    type ThemeUpsertParams as ThemeUpsertParams,
   };
 }

@@ -8,4 +8,11 @@ export {
   type PageDeleteResponse,
   type PageUpdateParams,
 } from './pages';
-export { Theme, type ThemeRetrieveResponse, type ThemePatchResponse, type ThemePatchParams } from './theme';
+export {
+  Theme,
+  type ThemeRetrieveResponse,
+  type ThemePatchResponse,
+  type ThemeUpsertResponse,
+  type ThemePatchParams,
+  type ThemeUpsertParams,
+} from './theme';
