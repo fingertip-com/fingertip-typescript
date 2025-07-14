@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.61.0 (2025-07-14)
+
+Full Changelog: [v0.60.0...v0.61.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.60.0...v0.61.0)
+
+### Features
+
+* **api:** api update ([0c4ca28](https://github.com/fingertip-com/fingertip-typescript/commit/0c4ca2876b16a3972f65edb80debc9493c07e7b0))
+* **api:** api update ([603f519](https://github.com/fingertip-com/fingertip-typescript/commit/603f519832138ab3fe9811972af3c66a21b21c50))
+* **api:** update via SDK Studio ([09ea99a](https://github.com/fingertip-com/fingertip-typescript/commit/09ea99a024b704f51bdfbaa37d952a7df1448dce))
+* **api:** update via SDK Studio ([2eb7851](https://github.com/fingertip-com/fingertip-typescript/commit/2eb78514bcc6e7b3fbca6d568404160b1f8a482e))
+* **api:** update via SDK Studio ([8f8c9c7](https://github.com/fingertip-com/fingertip-typescript/commit/8f8c9c74cd988a36a0e7b1cc6b61c1b1e5c42ad6))
+* **api:** update via SDK Studio ([0a4ab99](https://github.com/fingertip-com/fingertip-typescript/commit/0a4ab99c7a684203fc6ba84ad3c372ad17a4e211))
+
+
+### Chores
+
+* **internal:** codegen related update ([c39c75b](https://github.com/fingertip-com/fingertip-typescript/commit/c39c75bfaf8d251cfb7ba6c3d072d61b86a80808))
+
+
+### Documentation
+
+* **mcp:** correct instructions for adding to claude web ([b491cc2](https://github.com/fingertip-com/fingertip-typescript/commit/b491cc2fe50742b847e6cf5707b343bbea3fd0bd))
+
 ## 0.60.0 (2025-07-11)
 
 Full Changelog: [v0.59.0...v0.60.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.59.0...v0.60.0)
