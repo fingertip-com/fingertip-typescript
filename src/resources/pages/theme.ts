@@ -14,17 +14,6 @@ export class Theme extends APIResource {
   }
 
   /**
-   * Creates or updates the theme for a specific page
-   */
-  update(
-    pageID: string,
-    body: ThemeUpdateParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<ThemeUpdateResponse> {
-    return this._client.patch(path`/v1/pages/${pageID}/theme`, { body, ...options });
-  }
-
-  /**
    * Applies JSON Patch operations to the theme content field
    */
   patch(
@@ -34,6 +23,17 @@ export class Theme extends APIResource {
   ): APIPromise<ThemePatchResponse> {
     const { body } = params ?? {};
     return this._client.patch(path`/v1/pages/${pageID}/theme/patch`, { body: body, ...options });
+  }
+
+  /**
+   * Creates or updates the theme for a specific page
+   */
+  upsert(
+    pageID: string,
+    body: ThemeUpsertParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ThemeUpsertResponse> {
+    return this._client.patch(path`/v1/pages/${pageID}/theme`, { body, ...options });
   }
 }
 
@@ -50,53 +50,6 @@ export interface ThemeRetrieveResponse {
 export namespace ThemeRetrieveResponse {
   /**
    * The theme associated with the requested page
-   */
-  export interface PageTheme {
-    /**
-     * Unique identifier for the page theme
-     */
-    id: string;
-
-    /**
-     * ID of the parent component theme if this is an instance, can be null
-     */
-    componentPageThemeId: string | null;
-
-    /**
-     * Date and time when the theme was created
-     */
-    createdAt: string;
-
-    /**
-     * Date and time when the theme was last updated
-     */
-    updatedAt: string;
-
-    /**
-     * Theme content configuration, can be null
-     */
-    content?: unknown;
-
-    /**
-     * Whether this theme is a reusable component
-     */
-    isComponent?: boolean;
-  }
-}
-
-/**
- * Successful theme update response
- */
-export interface ThemeUpdateResponse {
-  /**
-   * The updated or created page theme
-   */
-  pageTheme: ThemeUpdateResponse.PageTheme;
-}
-
-export namespace ThemeUpdateResponse {
-  /**
-   * The updated or created page theme
    */
   export interface PageTheme {
     /**
@@ -178,21 +131,51 @@ export namespace ThemePatchResponse {
   }
 }
 
-export interface ThemeUpdateParams {
+/**
+ * Successful theme update response
+ */
+export interface ThemeUpsertResponse {
   /**
-   * ID of the parent component theme if this is an instance, can be null
+   * The updated or created page theme
    */
-  componentPageThemeId?: string | null;
+  pageTheme: ThemeUpsertResponse.PageTheme;
+}
 
+export namespace ThemeUpsertResponse {
   /**
-   * Theme content configuration, can be null
+   * The updated or created page theme
    */
-  content?: unknown;
+  export interface PageTheme {
+    /**
+     * Unique identifier for the page theme
+     */
+    id: string;
 
-  /**
-   * Whether this theme is a reusable component
-   */
-  isComponent?: boolean;
+    /**
+     * ID of the parent component theme if this is an instance, can be null
+     */
+    componentPageThemeId: string | null;
+
+    /**
+     * Date and time when the theme was created
+     */
+    createdAt: string;
+
+    /**
+     * Date and time when the theme was last updated
+     */
+    updatedAt: string;
+
+    /**
+     * Theme content configuration, can be null
+     */
+    content?: unknown;
+
+    /**
+     * Whether this theme is a reusable component
+     */
+    isComponent?: boolean;
+  }
 }
 
 export interface ThemePatchParams {
@@ -229,12 +212,29 @@ export namespace ThemePatchParams {
   }
 }
 
+export interface ThemeUpsertParams {
+  /**
+   * ID of the parent component theme if this is an instance, can be null
+   */
+  componentPageThemeId?: string | null;
+
+  /**
+   * Theme content configuration, can be null
+   */
+  content?: unknown;
+
+  /**
+   * Whether this theme is a reusable component
+   */
+  isComponent?: boolean;
+}
+
 export declare namespace Theme {
   export {
     type ThemeRetrieveResponse as ThemeRetrieveResponse,
-    type ThemeUpdateResponse as ThemeUpdateResponse,
     type ThemePatchResponse as ThemePatchResponse,
-    type ThemeUpdateParams as ThemeUpdateParams,
+    type ThemeUpsertResponse as ThemeUpsertResponse,
     type ThemePatchParams as ThemePatchParams,
+    type ThemeUpsertParams as ThemeUpsertParams,
   };
 }

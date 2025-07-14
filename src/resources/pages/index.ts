@@ -11,8 +11,8 @@ export {
 export {
   Theme,
   type ThemeRetrieveResponse,
-  type ThemeUpdateResponse,
   type ThemePatchResponse,
-  type ThemeUpdateParams,
+  type ThemeUpsertResponse,
   type ThemePatchParams,
+  type ThemeUpsertParams,
 } from './theme';

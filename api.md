@@ -71,14 +71,14 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/pages/theme.ts">ThemeRetrieveResponse</a></code>
-- <code><a href="./src/resources/pages/theme.ts">ThemeUpdateResponse</a></code>
 - <code><a href="./src/resources/pages/theme.ts">ThemePatchResponse</a></code>
+- <code><a href="./src/resources/pages/theme.ts">ThemeUpsertResponse</a></code>
 
 Methods:
 
 - <code title="get /v1/pages/{pageId}/theme">client.pages.theme.<a href="./src/resources/pages/theme.ts">retrieve</a>(pageID) -> ThemeRetrieveResponse</code>
-- <code title="patch /v1/pages/{pageId}/theme">client.pages.theme.<a href="./src/resources/pages/theme.ts">update</a>(pageID, { ...params }) -> ThemeUpdateResponse</code>
 - <code title="patch /v1/pages/{pageId}/theme/patch">client.pages.theme.<a href="./src/resources/pages/theme.ts">patch</a>(pageID, [ ...body ]) -> ThemePatchResponse</code>
+- <code title="patch /v1/pages/{pageId}/theme">client.pages.theme.<a href="./src/resources/pages/theme.ts">upsert</a>(pageID, { ...params }) -> ThemeUpsertResponse</code>
 
 # Blocks
 
