@@ -9,8 +9,8 @@ import {
   ThemePatchParams,
   ThemePatchResponse,
   ThemeRetrieveResponse,
-  ThemeUpdateParams,
-  ThemeUpdateResponse,
+  ThemeUpsertParams,
+  ThemeUpsertResponse,
 } from './theme';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
@@ -273,9 +273,9 @@ export declare namespace Pages {
   export {
     Theme as Theme,
     type ThemeRetrieveResponse as ThemeRetrieveResponse,
-    type ThemeUpdateResponse as ThemeUpdateResponse,
     type ThemePatchResponse as ThemePatchResponse,
-    type ThemeUpdateParams as ThemeUpdateParams,
+    type ThemeUpsertResponse as ThemeUpsertResponse,
     type ThemePatchParams as ThemePatchParams,
+    type ThemeUpsertParams as ThemeUpsertParams,
   };
 }

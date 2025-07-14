@@ -192,6 +192,7 @@ The following tools are available in this MCP server.
 
 - `retrieve_pages_theme` (`read`): Retrieves the theme associated with a specific page
 - `patch_pages_theme` (`write`): Applies JSON Patch operations to the theme content field
+- `upsert_pages_theme` (`write`): Creates or updates the theme for a specific page
 
 ### Resource `blocks`:
 
