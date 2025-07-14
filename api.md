@@ -363,8 +363,6 @@ Types:
 - <code><a href="./src/resources/quotes.ts">QuoteUpdateResponse</a></code>
 - <code><a href="./src/resources/quotes.ts">QuoteListResponse</a></code>
 - <code><a href="./src/resources/quotes.ts">QuoteDeleteResponse</a></code>
-- <code><a href="./src/resources/quotes.ts">QuoteAcceptResponse</a></code>
-- <code><a href="./src/resources/quotes.ts">QuoteDeclineResponse</a></code>
 - <code><a href="./src/resources/quotes.ts">QuoteSendResponse</a></code>
 
 Methods:
@@ -374,6 +372,4 @@ Methods:
 - <code title="put /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">update</a>(quoteID, { ...params }) -> QuoteUpdateResponse</code>
 - <code title="get /v1/quotes">client.quotes.<a href="./src/resources/quotes.ts">list</a>({ ...params }) -> QuoteListResponsesMyCursorPage</code>
 - <code title="delete /v1/quotes/{quoteId}">client.quotes.<a href="./src/resources/quotes.ts">delete</a>(quoteID) -> QuoteDeleteResponse</code>
-- <code title="post /v1/quotes/{quoteId}/accept">client.quotes.<a href="./src/resources/quotes.ts">accept</a>(quoteID) -> QuoteAcceptResponse</code>
-- <code title="post /v1/quotes/{quoteId}/decline">client.quotes.<a href="./src/resources/quotes.ts">decline</a>(quoteID) -> QuoteDeclineResponse</code>
 - <code title="post /v1/quotes/{quoteId}/send">client.quotes.<a href="./src/resources/quotes.ts">send</a>(quoteID, { ...params }) -> QuoteSendResponse</code>
