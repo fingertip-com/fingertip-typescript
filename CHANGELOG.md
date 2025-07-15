@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.61.1 (2025-07-15)
+
+Full Changelog: [v0.61.0...v0.61.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.61.0...v0.61.1)
+
+### Bug Fixes
+
+* **mcp:** support jq filtering on cloudflare workers ([c18a1fb](https://github.com/fingertip-com/fingertip-typescript/commit/c18a1fb85972b962f309183752b0b9b4f3d9905f))
+
 ## 0.61.0 (2025-07-14)
 
 Full Changelog: [v0.60.0...v0.61.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.60.0...v0.61.0)
