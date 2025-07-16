@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.62.0 (2025-07-16)
+
+Full Changelog: [v0.61.1...v0.62.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.61.1...v0.62.0)
+
+### Features
+
+* **api:** api update ([c8487e3](https://github.com/fingertip-com/fingertip-typescript/commit/c8487e3565248a03fe8c3664d3d9e878c2b6d66d))
+* **api:** update via SDK Studio ([3b286ca](https://github.com/fingertip-com/fingertip-typescript/commit/3b286ca04310ea8e0888a326e504662e3a6c4ebf))
+
+
+### Chores
+
+* **mcp:** rework imports in tools ([7e9e38a](https://github.com/fingertip-com/fingertip-typescript/commit/7e9e38a7019e57da6b3efb9e9a7a006c520a1d78))
+
 ## 0.61.1 (2025-07-15)
 
 Full Changelog: [v0.61.0...v0.61.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.61.0...v0.61.1)
