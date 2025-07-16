@@ -153,46 +153,6 @@ describe('resource quotes', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('accept', async () => {
-    const responsePromise = client.quotes.accept('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('accept: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.quotes.accept('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {}, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Fingertip.NotFoundError);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('decline', async () => {
-    const responsePromise = client.quotes.decline('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // skipped: tests are disabled for the time being
-  test.skip('decline: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.quotes.decline('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {}, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Fingertip.NotFoundError);
-  });
-
-  // skipped: tests are disabled for the time being
   test.skip('send: only required params', async () => {
     const responsePromise = client.quotes.send('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       siteSlug: 'siteSlug',

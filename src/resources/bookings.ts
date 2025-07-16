@@ -424,9 +424,9 @@ export interface BookingListParams extends MyCursorPageParams {
   siteId: string;
 
   /**
-   * Field to sort by (default: updatedAt)
+   * Field to sort by (default: startTime)
    */
-  sortBy?: 'createdAt' | 'updatedAt';
+  sortBy?: 'createdAt' | 'updatedAt' | 'startTime';
 
   /**
    * Sort direction (default: desc)
@@ -507,9 +507,9 @@ export interface BookingListRequestsParams extends MyCursorPageParams {
   siteId: string;
 
   /**
-   * Field to sort by (default: updatedAt)
+   * Field to sort by (default: startTime)
    */
-  sortBy?: 'createdAt' | 'updatedAt';
+  sortBy?: 'createdAt' | 'updatedAt' | 'startTime';
 
   /**
    * Sort direction (default: desc)

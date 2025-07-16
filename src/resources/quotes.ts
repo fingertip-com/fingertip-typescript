@@ -50,28 +50,6 @@ export class Quotes extends APIResource {
   }
 
   /**
-   * Accepts a store quote
-   */
-  accept(
-    quoteID: string,
-    body?: QuoteAcceptParams | null | undefined,
-    options?: RequestOptions,
-  ): APIPromise<QuoteAcceptResponse> {
-    return this._client.post(path`/v1/quotes/${quoteID}/accept`, { body, ...options });
-  }
-
-  /**
-   * Declines a store quote
-   */
-  decline(
-    quoteID: string,
-    body?: QuoteDeclineParams | null | undefined,
-    options?: RequestOptions,
-  ): APIPromise<QuoteDeclineResponse> {
-    return this._client.post(path`/v1/quotes/${quoteID}/decline`, { body, ...options });
-  }
-
-  /**
    * Sends a draft store quote
    */
   send(quoteID: string, body: QuoteSendParams, options?: RequestOptions): APIPromise<QuoteSendResponse> {
@@ -389,26 +367,6 @@ export interface QuoteDeleteResponse {
 }
 
 /**
- * Successful accept response
- */
-export interface QuoteAcceptResponse {
-  /**
-   * Success status
-   */
-  success: boolean;
-}
-
-/**
- * Successful decline response
- */
-export interface QuoteDeclineResponse {
-  /**
-   * Success status
-   */
-  success: boolean;
-}
-
-/**
  * Successful send response
  */
 export interface QuoteSendResponse {
@@ -661,10 +619,6 @@ export interface QuoteListParams extends MyCursorPageParams {
   statusFilters?: Array<'DRAFT' | 'PENDING' | 'ACCEPTED' | 'DECLINED' | 'EXPIRED'>;
 }
 
-export interface QuoteAcceptParams {}
-
-export interface QuoteDeclineParams {}
-
 export interface QuoteSendParams {
   /**
    * Site slug
@@ -679,15 +633,11 @@ export declare namespace Quotes {
     type QuoteUpdateResponse as QuoteUpdateResponse,
     type QuoteListResponse as QuoteListResponse,
     type QuoteDeleteResponse as QuoteDeleteResponse,
-    type QuoteAcceptResponse as QuoteAcceptResponse,
-    type QuoteDeclineResponse as QuoteDeclineResponse,
     type QuoteSendResponse as QuoteSendResponse,
     type QuoteListResponsesMyCursorPage as QuoteListResponsesMyCursorPage,
     type QuoteCreateParams as QuoteCreateParams,
     type QuoteUpdateParams as QuoteUpdateParams,
     type QuoteListParams as QuoteListParams,
-    type QuoteAcceptParams as QuoteAcceptParams,
-    type QuoteDeclineParams as QuoteDeclineParams,
     type QuoteSendParams as QuoteSendParams,
   };
 }
