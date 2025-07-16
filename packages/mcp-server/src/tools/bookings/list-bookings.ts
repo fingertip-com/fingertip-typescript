@@ -36,8 +36,8 @@ export const tool: Tool = {
       },
       sortBy: {
         type: 'string',
-        description: 'Field to sort by (default: updatedAt)',
-        enum: ['createdAt', 'updatedAt'],
+        description: 'Field to sort by (default: startTime)',
+        enum: ['createdAt', 'updatedAt', 'startTime'],
       },
       sortDirection: {
         type: 'string',
