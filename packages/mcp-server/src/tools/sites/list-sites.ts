@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from 'fingertip-mcp/filtering';
-import { asTextContentResult } from 'fingertip-mcp/tools/types';
+import { Metadata, asTextContentResult } from 'fingertip-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Fingertip from 'fingertip';
 
 export const metadata: Metadata = {
