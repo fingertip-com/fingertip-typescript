@@ -77,6 +77,7 @@ import {
   FormTemplateRetrieveResponse,
   FormTemplates,
 } from './resources/form-templates';
+import { HelpDocSearchArticlesParams, HelpDocSearchArticlesResponse, HelpDocs } from './resources/help-docs';
 import {
   InvoiceItemCreateParams,
   InvoiceItemCreateResponse,
@@ -954,6 +955,7 @@ export class Fingertip {
   invoiceItems: API.InvoiceItems = new API.InvoiceItems(this);
   messages: API.Messages = new API.Messages(this);
   quotes: API.Quotes = new API.Quotes(this);
+  helpDocs: API.HelpDocs = new API.HelpDocs(this);
 }
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
@@ -976,6 +978,7 @@ Fingertip.WorkspaceInvitations = WorkspaceInvitations;
 Fingertip.InvoiceItems = InvoiceItems;
 Fingertip.Messages = Messages;
 Fingertip.Quotes = Quotes;
+Fingertip.HelpDocs = HelpDocs;
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -1215,5 +1218,11 @@ export declare namespace Fingertip {
     type QuoteUpdateParams as QuoteUpdateParams,
     type QuoteListParams as QuoteListParams,
     type QuoteSendParams as QuoteSendParams,
+  };
+
+  export {
+    HelpDocs as HelpDocs,
+    type HelpDocSearchArticlesResponse as HelpDocSearchArticlesResponse,
+    type HelpDocSearchArticlesParams as HelpDocSearchArticlesParams,
   };
 }
