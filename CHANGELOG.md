@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.64.0 (2025-07-17)
+
+Full Changelog: [v0.63.0...v0.64.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.63.0...v0.64.0)
+
+### Features
+
+* **api:** api update ([ef2448e](https://github.com/fingertip-com/fingertip-typescript/commit/ef2448e165610f433e4251132bbba8ac0e3b2cf6))
+
+
+### Chores
+
+* **mcp:** formatting ([aac2923](https://github.com/fingertip-com/fingertip-typescript/commit/aac29239a15cde470a45f58944e06891d69f1c07))
+* **ts:** reorder package.json imports ([bf3d137](https://github.com/fingertip-com/fingertip-typescript/commit/bf3d1377f9b82ca3a5dcf65644a69b2a175278ea))
+
 ## 0.63.0 (2025-07-16)
 
 Full Changelog: [v0.62.0...v0.63.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.62.0...v0.63.0)
