@@ -73,7 +73,7 @@ export interface HelpDocSearchArticlesParams {
   /**
    * Number of results to return (default: 10, max: 20)
    */
-  limit?: number;
+  limit?: number | null;
 }
 
 export declare namespace HelpDocs {
