@@ -45,19 +45,19 @@ export interface FormResponseListParams extends MyCursorPageParams {
   /**
    * ID of the form template to retrieve responses for
    */
-  form_template_id: string;
+  formTemplateId: string;
 
   /**
    * ID of the site to retrieve responses for
    */
-  site_id: string;
+  siteId: string;
 }
 
 export interface FormResponseListSampleParams extends MyCursorPageParams {
   /**
    * Slug of the form template to retrieve responses for
    */
-  form_template_slug: string;
+  formTemplateSlug: string;
 }
 
 export declare namespace FormResponses {
