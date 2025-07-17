@@ -40,7 +40,7 @@ export namespace HelpDocSearchArticlesResponse {
     /**
      * Unique identifier for the article
      */
-    id: number;
+    id: string;
 
     /**
      * Full content body of the article
