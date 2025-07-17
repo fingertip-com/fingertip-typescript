@@ -21,11 +21,11 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      form_template_id: {
+      formTemplateId: {
         type: 'string',
         description: 'ID of the form template to retrieve responses for',
       },
-      site_id: {
+      siteId: {
         type: 'string',
         description: 'ID of the site to retrieve responses for',
       },
