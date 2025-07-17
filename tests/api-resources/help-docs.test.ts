@@ -22,6 +22,6 @@ describe('resource helpDocs', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('searchArticles: required and optional params', async () => {
-    const response = await client.helpDocs.searchArticles({ search: 'xxx', limit: 1 });
+    const response = await client.helpDocs.searchArticles({ search: 'xxx', limit: 0 });
   });
 });
