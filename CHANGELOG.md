@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.66.1 (2025-07-18)
+
+Full Changelog: [v0.66.0...v0.66.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.66.0...v0.66.1)
+
+### Bug Fixes
+
+* **mcp:** include required section for top-level properties and support naming transformations ([c9b1c56](https://github.com/fingertip-com/fingertip-typescript/commit/c9b1c567f9a426076cea4d124af41b8d67092bac))
+
 ## 0.66.0 (2025-07-17)
 
 Full Changelog: [v0.65.0...v0.66.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.65.0...v0.66.0)
