@@ -34,6 +34,7 @@ export const tool: Tool = {
         enum: ['7d', '30d', '90d', '1y', 'all'],
       },
     },
+    required: ['siteId'],
   },
 };
 
