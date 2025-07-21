@@ -14,7 +14,6 @@ describe('resource invoices', () => {
       invoiceItems: [{ description: 'description', quantity: 0, taxRate: 0, unitPriceInCents: 0 }],
       siteContactId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      status: 'DRAFT',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -41,7 +40,6 @@ describe('resource invoices', () => {
       ],
       siteContactId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       siteId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      status: 'DRAFT',
       businessName: 'businessName',
       dueAt: 'dueAt',
       footer: 'footer',
@@ -57,6 +55,7 @@ describe('resource invoices', () => {
       memo: 'memo',
       passThroughPaymentFee: true,
       paymentReference: 'paymentReference',
+      status: 'DRAFT',
     });
   });
 
