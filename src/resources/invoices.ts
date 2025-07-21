@@ -160,7 +160,7 @@ export interface InvoiceListResponse {
   /**
    * Current status of the invoice
    */
-  status: 'DRAFT' | 'PENDING' | 'PAID' | 'VOID' | 'OVERDUE' | 'REFUNDED';
+  status: 'DRAFT' | 'PENDING' | 'VOID' | 'PAID' | 'UNPAID' | 'REFUNDED' | 'PROCESSING';
 
   /**
    * Total amount in cents
@@ -230,11 +230,6 @@ export interface InvoiceCreateParams {
   siteId: string;
 
   /**
-   * Invoice status
-   */
-  status: 'DRAFT' | 'PENDING' | 'PAID' | 'VOID' | 'OVERDUE' | 'REFUNDED';
-
-  /**
    * Business name
    */
   businessName?: string;
@@ -268,6 +263,11 @@ export interface InvoiceCreateParams {
    * Payment reference
    */
   paymentReference?: string;
+
+  /**
+   * Invoice status (defaults to DRAFT)
+   */
+  status?: 'DRAFT' | 'PENDING' | 'VOID' | 'PAID' | 'UNPAID' | 'REFUNDED' | 'PROCESSING';
 }
 
 export namespace InvoiceCreateParams {
@@ -468,7 +468,7 @@ export interface InvoiceListParams extends MyCursorPageParams {
   /**
    * Filter by invoice status
    */
-  status?: 'DRAFT' | 'PENDING' | 'PAID' | 'VOID' | 'OVERDUE' | 'REFUNDED';
+  status?: 'DRAFT' | 'PENDING' | 'VOID' | 'PAID' | 'UNPAID' | 'REFUNDED' | 'PROCESSING';
 }
 
 export interface InvoiceMarkPaidParams {
