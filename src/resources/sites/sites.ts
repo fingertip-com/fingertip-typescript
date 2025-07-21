@@ -136,11 +136,6 @@ export namespace SiteCreateResponse {
     slug: string;
 
     /**
-     * Current status of the site
-     */
-    status: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
-
-    /**
      * Time zone for the site, can be null
      */
     timeZone: string | null;
@@ -164,6 +159,11 @@ export namespace SiteCreateResponse {
      * Social media icons configuration, can be null
      */
     socialIcons?: unknown;
+
+    /**
+     * Current status of the site
+     */
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 }
 
@@ -228,11 +228,6 @@ export namespace SiteRetrieveResponse {
     slug: string;
 
     /**
-     * Current status of the site
-     */
-    status: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
-
-    /**
      * Time zone for the site, can be null
      */
     timeZone: string | null;
@@ -256,6 +251,11 @@ export namespace SiteRetrieveResponse {
      * Social media icons configuration, can be null
      */
     socialIcons?: unknown;
+
+    /**
+     * Current status of the site
+     */
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 }
 
@@ -320,11 +320,6 @@ export namespace SiteUpdateResponse {
     slug: string;
 
     /**
-     * Current status of the site
-     */
-    status: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
-
-    /**
      * Time zone for the site, can be null
      */
     timeZone: string | null;
@@ -348,6 +343,11 @@ export namespace SiteUpdateResponse {
      * Social media icons configuration, can be null
      */
     socialIcons?: unknown;
+
+    /**
+     * Current status of the site
+     */
+    status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
   }
 }
 
@@ -401,11 +401,6 @@ export interface SiteListResponse {
   slug: string;
 
   /**
-   * Current status of the site
-   */
-  status: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
-
-  /**
    * Time zone for the site, can be null
    */
   timeZone: string | null;
@@ -429,6 +424,11 @@ export interface SiteListResponse {
    * Social media icons configuration, can be null
    */
   socialIcons?: unknown;
+
+  /**
+   * Current status of the site
+   */
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
 }
 
 /**
@@ -924,11 +924,6 @@ export interface SiteCreateParams {
   slug: string;
 
   /**
-   * Current status of the site
-   */
-  status: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
-
-  /**
    * Description of the site, can be null
    */
   description?: string | null;
@@ -952,6 +947,11 @@ export interface SiteCreateParams {
    * Social media icons configuration, can be null
    */
   socialIcons?: unknown;
+
+  /**
+   * Current status of the site
+   */
+  status?: 'EMPTY' | 'UNPUBLISHED' | 'PREVIEW' | 'SOFT_CLAIM' | 'ENABLED' | 'DEMO' | 'ARCHIVED';
 
   /**
    * Time zone for the site, can be null
