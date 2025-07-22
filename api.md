@@ -375,3 +375,11 @@ Methods:
 - <code title="post /v1/quotes/{quoteId}/send">client.quotes.<a href="./src/resources/quotes.ts">send</a>(quoteID, { ...params }) -> QuoteSendResponse</code>
 
 # HelpDocs
+
+Types:
+
+- <code><a href="./src/resources/help-docs.ts">HelpDocSearchArticlesResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/help-docs/articles">client.helpDocs.<a href="./src/resources/help-docs.ts">searchArticles</a>({ ...params }) -> HelpDocSearchArticlesResponse</code>
