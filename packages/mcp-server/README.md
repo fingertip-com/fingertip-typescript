@@ -278,7 +278,3 @@ The following tools are available in this MCP server.
 - `list_quotes` (`read`): Retrieves a paginated list of quotes for sites the user has access to
 - `delete_quotes` (`write`): Deletes a store quote
 - `send_quotes` (`write`): Sends a draft store quote
-
-### Resource `help_docs`:
-
-- `search_articles_help_docs` (`read`): Search through help documentation articles using full-text search. Returns articles ordered by relevance.

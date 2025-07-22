@@ -77,7 +77,7 @@ import {
   FormTemplateRetrieveResponse,
   FormTemplates,
 } from './resources/form-templates';
-import { HelpDocSearchArticlesParams, HelpDocSearchArticlesResponse, HelpDocs } from './resources/help-docs';
+import { HelpDocs } from './resources/help-docs';
 import {
   InvoiceItemCreateParams,
   InvoiceItemCreateResponse,
@@ -1220,9 +1220,5 @@ export declare namespace Fingertip {
     type QuoteSendParams as QuoteSendParams,
   };
 
-  export {
-    HelpDocs as HelpDocs,
-    type HelpDocSearchArticlesResponse as HelpDocSearchArticlesResponse,
-    type HelpDocSearchArticlesParams as HelpDocSearchArticlesParams,
-  };
+  export { HelpDocs as HelpDocs };
 }
