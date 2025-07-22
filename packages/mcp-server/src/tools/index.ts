@@ -61,7 +61,6 @@ import update_quotes from './quotes/update-quotes';
 import list_quotes from './quotes/list-quotes';
 import delete_quotes from './quotes/delete-quotes';
 import send_quotes from './quotes/send-quotes';
-import search_articles_help_docs from './help-docs/search-articles-help-docs';
 
 export const endpoints: Endpoint[] = [];
 
@@ -126,7 +125,6 @@ addEndpoint(update_quotes);
 addEndpoint(list_quotes);
 addEndpoint(delete_quotes);
 addEndpoint(send_quotes);
-addEndpoint(search_articles_help_docs);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

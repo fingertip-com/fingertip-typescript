@@ -58,7 +58,7 @@ export {
   type FormTemplateListParams,
   type FormTemplateListResponsesMyCursorPage,
 } from './form-templates';
-export { HelpDocs, type HelpDocSearchArticlesResponse, type HelpDocSearchArticlesParams } from './help-docs';
+export { HelpDocs } from './help-docs';
 export {
   InvoiceItems,
   type InvoiceItemCreateResponse,
