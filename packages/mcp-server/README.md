@@ -251,6 +251,7 @@ The following tools are available in this MCP server.
 ### Resource `site_invitations`:
 
 - `retrieve_site_invitations` (`read`): Retrieves details of a specific site invitation
+- `list_site_invitations` (`read`): Retrieves a paginated list of invitations for a specific site
 
 ### Resource `site_memberships`:
 
