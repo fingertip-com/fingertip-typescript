@@ -125,9 +125,9 @@ export async function executeHandler(
 
 export const readEnv = (env: string): string | undefined => {
   if (typeof (globalThis as any).process !== 'undefined') {
-    return (globalThis as any).process.env?.[env]?.trim();
+    return (globalThis as any).process.env?.[env]?.trim?.() || (globalThis as any).process.env?.[env];
   } else if (typeof (globalThis as any).Deno !== 'undefined') {
-    return (globalThis as any).Deno.env?.get?.(env)?.trim();
+    return (globalThis as any).Deno.env?.get?.(env)?.trim?.() || (globalThis as any).Deno.env?.get?.(env);
   }
   return;
 };
