@@ -424,16 +424,6 @@ export interface BookingListParams extends MyCursorPageParams {
   siteId: string;
 
   /**
-   * Field to sort by (default: startTime)
-   */
-  sortBy?: 'createdAt' | 'updatedAt' | 'startTime';
-
-  /**
-   * Sort direction (default: desc)
-   */
-  sortDirection?: 'asc' | 'desc';
-
-  /**
    * Filter by booking status
    */
   status?:
@@ -505,16 +495,6 @@ export interface BookingListRequestsParams extends MyCursorPageParams {
    * Site ID to fetch booking requests for
    */
   siteId: string;
-
-  /**
-   * Field to sort by (default: startTime)
-   */
-  sortBy?: 'createdAt' | 'updatedAt' | 'startTime';
-
-  /**
-   * Sort direction (default: desc)
-   */
-  sortDirection?: 'asc' | 'desc';
 }
 
 export interface BookingRescheduleParams {
