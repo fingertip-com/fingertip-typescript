@@ -38,6 +38,9 @@ export const tool: Tool = {
     },
     required: ['formTemplateId', 'siteId'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

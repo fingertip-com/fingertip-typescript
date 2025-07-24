@@ -60,6 +60,7 @@ export const tool: Tool = {
     },
     required: ['email', 'siteId'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

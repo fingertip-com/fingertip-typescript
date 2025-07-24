@@ -54,6 +54,7 @@ export const tool: Tool = {
     },
     required: ['blockId'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

@@ -59,6 +59,9 @@ export const tool: Tool = {
     },
     required: ['siteSlug'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

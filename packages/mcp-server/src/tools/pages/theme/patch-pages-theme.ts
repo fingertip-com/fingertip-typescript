@@ -62,6 +62,7 @@ export const tool: Tool = {
     },
     required: ['pageId'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
