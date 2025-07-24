@@ -34,16 +34,6 @@ export const tool: Tool = {
         type: 'number',
         description: 'Number of items per page (default: 10, max: 25)',
       },
-      sortBy: {
-        type: 'string',
-        description: 'Field to sort by (default: startTime)',
-        enum: ['createdAt', 'updatedAt', 'startTime'],
-      },
-      sortDirection: {
-        type: 'string',
-        description: 'Sort direction (default: desc)',
-        enum: ['asc', 'desc'],
-      },
       status: {
         type: 'string',
         description: 'Filter by booking status',
