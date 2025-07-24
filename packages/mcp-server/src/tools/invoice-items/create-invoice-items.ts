@@ -47,6 +47,7 @@ export const tool: Tool = {
     },
     required: ['priceInCents', 'siteId', 'title'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
