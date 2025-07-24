@@ -43,6 +43,7 @@ export const tool: Tool = {
     },
     required: ['content', 'siteContactId', 'siteSlug'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

@@ -123,6 +123,9 @@ export const tool: Tool = {
     },
     required: ['quoteId', 'quoteItems'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
