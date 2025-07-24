@@ -46,6 +46,9 @@ export const tool: Tool = {
     },
     required: ['itemId'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

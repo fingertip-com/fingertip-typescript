@@ -76,6 +76,7 @@ export const tool: Tool = {
     },
     required: ['businessType', 'name', 'slug'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {

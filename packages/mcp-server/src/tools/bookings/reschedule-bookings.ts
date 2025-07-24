@@ -44,6 +44,7 @@ export const tool: Tool = {
     },
     required: ['bookingId', 'endTime', 'startTime'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
