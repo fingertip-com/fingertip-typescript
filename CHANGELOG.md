@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.71.1 (2025-07-24)
+
+Full Changelog: [v0.71.0...v0.71.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.0...v0.71.1)
+
+### Chores
+
+* **internal:** codegen related update ([f598889](https://github.com/fingertip-com/fingertip-typescript/commit/f598889c6b74067b3ee9be878b0a0c21bf4b4523))
+
 ## 0.71.0 (2025-07-23)
 
 Full Changelog: [v0.70.0...v0.71.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.70.0...v0.71.0)
