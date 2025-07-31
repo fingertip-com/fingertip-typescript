@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.71.1 (2025-07-31)
+
+Full Changelog: [v0.71.0...v0.71.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.0...v0.71.1)
+
+### Bug Fixes
+
+* **mcp:** fix tool description of jq_filter ([f26d120](https://github.com/fingertip-com/fingertip-typescript/commit/f26d120cdbf47d465a0e3dd49cd0a045c900f6da))
+
+
+### Chores
+
+* **internal:** codegen related update ([f598889](https://github.com/fingertip-com/fingertip-typescript/commit/f598889c6b74067b3ee9be878b0a0c21bf4b4523))
+* **internal:** remove redundant imports config ([86228d0](https://github.com/fingertip-com/fingertip-typescript/commit/86228d0a6aaf46a23ebcb254ab0ace4407468293))
+
 ## 0.71.0 (2025-07-23)
 
 Full Changelog: [v0.70.0...v0.71.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.70.0...v0.71.0)
