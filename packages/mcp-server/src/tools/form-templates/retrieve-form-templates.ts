@@ -44,9 +44,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { formTemplateId, ...body } = args as any;
+  const { formTemplateId, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.formTemplates.retrieve(formTemplateId, body)),
+    await maybeFilter(jq_filter, await client.formTemplates.retrieve(formTemplateId, body)),
   );
 };
 
