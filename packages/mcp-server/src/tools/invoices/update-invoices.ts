@@ -137,8 +137,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { invoiceId, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.invoices.update(invoiceId, body)));
+  const { invoiceId, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.invoices.update(invoiceId, body)));
 };
 
 export default { metadata, tool, handler };

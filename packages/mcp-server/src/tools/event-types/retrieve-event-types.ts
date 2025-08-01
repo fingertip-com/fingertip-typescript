@@ -40,8 +40,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { eventTypeId, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.eventTypes.retrieve(eventTypeId)));
+  const { eventTypeId, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.eventTypes.retrieve(eventTypeId)));
 };
 
 export default { metadata, tool, handler };

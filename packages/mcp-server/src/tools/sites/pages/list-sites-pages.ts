@@ -58,9 +58,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { siteId, ...body } = args as any;
+  const { siteId, jq_filter, ...body } = args as any;
   const response = await client.sites.pages.list(siteId, body).asResponse();
-  return asTextContentResult(await maybeFilter(args, await response.json()));
+  return asTextContentResult(await maybeFilter(jq_filter, await response.json()));
 };
 
 export default { metadata, tool, handler };
