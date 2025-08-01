@@ -58,8 +58,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Fingertip, args: Record<string, unknown> | undefined) => {
-  const { blockId, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.blocks.update(blockId, body)));
+  const { blockId, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.blocks.update(blockId, body)));
 };
 
 export default { metadata, tool, handler };
