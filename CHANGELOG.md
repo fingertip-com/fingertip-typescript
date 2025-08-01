@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.71.2 (2025-08-01)
+
+Full Changelog: [v0.71.1...v0.71.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.1...v0.71.2)
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([b412804](https://github.com/fingertip-com/fingertip-typescript/commit/b41280477bcb72840386e92afa162fafd914bd85))
+* **mcp:** reverse validJson capability option and limit scope ([dd350cc](https://github.com/fingertip-com/fingertip-typescript/commit/dd350cc2c02c3181758beb402dc708b6ae65d4d6))
+
 ## 0.71.1 (2025-07-31)
 
 Full Changelog: [v0.71.0...v0.71.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.0...v0.71.1)
