@@ -26,7 +26,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'fingertip_api',
-      version: '0.72.0',
+      version: '0.72.1',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
