@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.72.0 (2025-08-05)
+
+Full Changelog: [v0.71.2...v0.72.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.2...v0.72.0)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([8aefa43](https://github.com/fingertip-com/fingertip-typescript/commit/8aefa43b795de2ca9b89ea1bf224552f09ccbf2e))
+* **mcp:** remote server with passthru auth ([2d2fa10](https://github.com/fingertip-com/fingertip-typescript/commit/2d2fa102461582134a4a388038e3c1b047225f69))
+
 ## 0.71.2 (2025-08-01)
 
 Full Changelog: [v0.71.1...v0.71.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.1...v0.71.2)
