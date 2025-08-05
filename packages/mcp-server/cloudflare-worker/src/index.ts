@@ -19,10 +19,10 @@ const serverConfig: ServerConfig = {
     {
       key: 'apiKey',
       label: 'API Key',
-      description: 'Enter your Fingertip API key (Bearer prefix will be added automatically)',
+      description: 'Fingertip API authentication using Bearer token',
       required: true,
       default: undefined,
-      placeholder: 'pk_live_...',
+      placeholder: 'My API Key',
       type: 'password',
     },
   ],

@@ -442,13 +442,7 @@ export const parseApproveFormBody = async (
   const parsedClientProps = Object.fromEntries(
     config.clientProperties.map((prop: ClientProperty) => {
       const rawValue = body[`clientopt_${prop.key}`];
-      let value = prop.type === 'number' ? Number(rawValue) : rawValue;
-
-      // Automatically prepend "Bearer " to API key if not present
-      if (prop.key === 'apiKey' && typeof value === 'string' && value && !value.startsWith('Bearer ')) {
-        value = `Bearer ${value}`;
-      }
-
+      const value = prop.type === 'number' ? Number(rawValue) : rawValue;
       return [prop.key, value];
     }),
   );

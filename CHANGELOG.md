@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.72.1 (2025-08-05)
+
+Full Changelog: [v0.72.0...v0.72.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.0...v0.72.1)
+
+### Chores
+
+* remove custom code ([66491a6](https://github.com/fingertip-com/fingertip-typescript/commit/66491a6b6ce0293ba21b9b6819774ef979e7546e))
+
 ## 0.72.0 (2025-08-05)
 
 Full Changelog: [v0.71.2...v0.72.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.71.2...v0.72.0)
