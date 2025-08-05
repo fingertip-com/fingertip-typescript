@@ -4,7 +4,7 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "fingertip-api-mcp-server",
+  "name": "mcp-server",
   "main": "src/index.ts",
   "compatibility_date": "2025-03-10",
   "compatibility_flags": ["nodejs_compat"],
@@ -25,7 +25,7 @@
   "kv_namespaces": [
     {
       "binding": "OAUTH_KV",
-      "id": "ae6fe7d7993146a9b8d54d87f73b0bdf"
+      "id": "b325710f9d53491dac2f058e22ac2b02"
     }
   ],
   "observability": {
