@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.72.2 (2025-08-06)
+
+Full Changelog: [v0.72.1...v0.72.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.1...v0.72.2)
+
+### Bug Fixes
+
+* **mcp:** fix bug in header handling ([15339fa](https://github.com/fingertip-com/fingertip-typescript/commit/15339fa3bb2a97ea7da67a465f0993fd7dffa0de))
+
 ## 0.72.1 (2025-08-05)
 
 Full Changelog: [v0.72.0...v0.72.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.0...v0.72.1)
