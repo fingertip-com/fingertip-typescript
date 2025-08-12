@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource siteContacts', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.siteContacts.create({ email: 'email', siteId: 'siteId' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource siteContacts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.siteContacts.create({
       email: 'email',
@@ -33,7 +33,7 @@ describe('resource siteContacts', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.siteContacts.list({ siteId: 'siteId' });
     const rawResponse = await responsePromise.asResponse();
@@ -45,7 +45,7 @@ describe('resource siteContacts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.siteContacts.list({
       siteId: 'siteId',
@@ -65,7 +65,7 @@ describe('resource siteContacts', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listSample', async () => {
     const responsePromise = client.siteContacts.listSample();
     const rawResponse = await responsePromise.asResponse();

@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource formResponses', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.formResponses.list({ formTemplateId: 'formTemplateId', siteId: 'siteId' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource formResponses', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.formResponses.list({
       formTemplateId: 'formTemplateId',
@@ -30,7 +30,7 @@ describe('resource formResponses', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listSample: only required params', async () => {
     const responsePromise = client.formResponses.listSample({ formTemplateSlug: 'formTemplateSlug' });
     const rawResponse = await responsePromise.asResponse();
@@ -42,7 +42,7 @@ describe('resource formResponses', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listSample: required and optional params', async () => {
     const response = await client.formResponses.listSample({
       formTemplateSlug: 'formTemplateSlug',
