@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource orders', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.orders.list({ site: 'site' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.orders.list({ site: 'site', cursor: 'cursor', pageSize: 0 });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listSample', async () => {
     const responsePromise = client.orders.listSample();
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource orders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('listSample: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(

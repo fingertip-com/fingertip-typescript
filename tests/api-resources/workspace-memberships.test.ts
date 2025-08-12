@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource workspaceMemberships', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.workspaceMemberships.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       email: 'dev@stainless.com',
@@ -23,7 +23,7 @@ describe('resource workspaceMemberships', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.workspaceMemberships.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       email: 'dev@stainless.com',
@@ -31,7 +31,7 @@ describe('resource workspaceMemberships', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.workspaceMemberships.retrieve('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +43,7 @@ describe('resource workspaceMemberships', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('update: only required params', async () => {
     const responsePromise = client.workspaceMemberships.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       role: 'OWNER',
@@ -57,14 +57,14 @@ describe('resource workspaceMemberships', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('update: required and optional params', async () => {
     const response = await client.workspaceMemberships.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       role: 'OWNER',
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.workspaceMemberships.list('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -76,7 +76,7 @@ describe('resource workspaceMemberships', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -88,7 +88,7 @@ describe('resource workspaceMemberships', () => {
     ).rejects.toThrow(Fingertip.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.workspaceMemberships.delete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();

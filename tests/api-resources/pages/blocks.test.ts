@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource blocks', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.pages.blocks.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       componentBlockId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
@@ -24,7 +24,7 @@ describe('resource blocks', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.pages.blocks.create('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       componentBlockId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
@@ -35,7 +35,7 @@ describe('resource blocks', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.pages.blocks.list('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
