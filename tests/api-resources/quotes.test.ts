@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource quotes', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.quotes.create({
       quoteItems: [{ description: 'description', quantity: 0, taxRate: 0, unitPriceInCents: 0 }],
@@ -25,7 +25,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.quotes.create({
       quoteItems: [
@@ -59,7 +59,7 @@ describe('resource quotes', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.quotes.retrieve('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -71,7 +71,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('update: only required params', async () => {
     const responsePromise = client.quotes.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       quoteItems: [{ description: 'description', quantity: 0, taxRate: 0, unitPriceInCents: 0 }],
@@ -85,7 +85,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('update: required and optional params', async () => {
     const response = await client.quotes.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       quoteItems: [
@@ -116,7 +116,7 @@ describe('resource quotes', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.quotes.list({ siteSlug: 'siteSlug' });
     const rawResponse = await responsePromise.asResponse();
@@ -128,7 +128,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.quotes.list({
       siteSlug: 'siteSlug',
@@ -140,7 +140,7 @@ describe('resource quotes', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.quotes.delete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');
     const rawResponse = await responsePromise.asResponse();
@@ -152,7 +152,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('send: only required params', async () => {
     const responsePromise = client.quotes.send('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       siteSlug: 'siteSlug',
@@ -166,7 +166,7 @@ describe('resource quotes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('send: required and optional params', async () => {
     const response = await client.quotes.send('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {
       siteSlug: 'siteSlug',

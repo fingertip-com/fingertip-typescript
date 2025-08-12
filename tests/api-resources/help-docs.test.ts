@@ -8,7 +8,7 @@ const client = new Fingertip({
 });
 
 describe('resource helpDocs', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('searchArticles: only required params', async () => {
     const responsePromise = client.helpDocs.searchArticles({ search: 'xxx' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource helpDocs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('searchArticles: required and optional params', async () => {
     const response = await client.helpDocs.searchArticles({ search: 'xxx', limit: 0 });
   });
