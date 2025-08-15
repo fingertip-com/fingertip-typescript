@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.72.3 (2025-08-15)
+
+Full Changelog: [v0.72.2...v0.72.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.2...v0.72.3)
+
+### Features
+
+* **mcp:** add unix socket option for remote MCP ([de18139](https://github.com/fingertip-com/fingertip-typescript/commit/de181390c8b2930a8522a2d887f82071d25ed407))
+
+
+### Bug Fixes
+
+* **mcp:** generate additionalProperties=true for map schemas to avoid validation issues ([2fba52a](https://github.com/fingertip-com/fingertip-typescript/commit/2fba52a93a8013a04f5ceb1b7c6c8bebc0ce1567))
+
+
+### Chores
+
+* **internal:** codegen related update ([a5f9d81](https://github.com/fingertip-com/fingertip-typescript/commit/a5f9d81f5722a617905b066a585f6d81774199e3))
+* **internal:** move publish config ([5c80abd](https://github.com/fingertip-com/fingertip-typescript/commit/5c80abd4615b49a206769f9fa302894713a44bfb))
+* **internal:** update comment in script ([3b146a4](https://github.com/fingertip-com/fingertip-typescript/commit/3b146a4e009586c9dfc88b22d7557d2bbb1cd856))
+* **mcp:** minor cleanup of types and package.json ([8cc8c20](https://github.com/fingertip-com/fingertip-typescript/commit/8cc8c2038ef8781701a388c7f3d05fe73c298acc))
+* **mcp:** refactor streamable http transport ([e9a2890](https://github.com/fingertip-com/fingertip-typescript/commit/e9a289080a71e530d18dcd1ae4d1d841bad148d1))
+* update @stainless-api/prism-cli to v5.15.0 ([4a50c48](https://github.com/fingertip-com/fingertip-typescript/commit/4a50c486371a05e4d6b461c78da6097f520282c6))
+
 ## 0.72.2 (2025-08-06)
 
 Full Changelog: [v0.72.1...v0.72.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.1...v0.72.2)
