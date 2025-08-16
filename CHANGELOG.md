@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.72.4 (2025-08-16)
+
+Full Changelog: [v0.72.3...v0.72.4](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.3...v0.72.4)
+
+### Chores
+
+* **deps:** update dependency @types/node to v20.17.58 ([7cc7ae0](https://github.com/fingertip-com/fingertip-typescript/commit/7cc7ae0f7326185e434690a5d77154db57e6bf01))
+* **internal:** formatting change ([5c30e8f](https://github.com/fingertip-com/fingertip-typescript/commit/5c30e8fe60714936b1085ba726c65286f8c61b61))
+* **mcp:** document remote server in README.md ([e739b20](https://github.com/fingertip-com/fingertip-typescript/commit/e739b2057b6aee87317ab881c53326b7c7f44e05))
+* **mcp:** update README ([d843b94](https://github.com/fingertip-com/fingertip-typescript/commit/d843b945e54854f5ee2c956ac90f8b5756c6a3d3))
+
 ## 0.72.3 (2025-08-15)
 
 Full Changelog: [v0.72.2...v0.72.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.2...v0.72.3)
