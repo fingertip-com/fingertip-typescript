@@ -957,6 +957,7 @@ export class Fingertip {
   quotes: API.Quotes = new API.Quotes(this);
   helpDocs: API.HelpDocs = new API.HelpDocs(this);
 }
+
 Fingertip.Ping = Ping;
 Fingertip.Sites = Sites;
 Fingertip.Pages = Pages;
@@ -979,6 +980,7 @@ Fingertip.InvoiceItems = InvoiceItems;
 Fingertip.Messages = Messages;
 Fingertip.Quotes = Quotes;
 Fingertip.HelpDocs = HelpDocs;
+
 export declare namespace Fingertip {
   export type RequestOptions = Opts.RequestOptions;
 
