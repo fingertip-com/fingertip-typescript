@@ -17,7 +17,7 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
   }
 
   const apiKey =
-    req.headers['x-fingertip-api-key'] instanceof Array ?
+    Array.isArray(req.headers['x-fingertip-api-key']) ?
       req.headers['x-fingertip-api-key'][0]
     : req.headers['x-fingertip-api-key'];
   return { apiKey };
