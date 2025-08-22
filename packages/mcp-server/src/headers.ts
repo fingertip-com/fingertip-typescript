@@ -1,8 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from 'fingertip/client';
-
 import { IncomingMessage } from 'node:http';
+import { ClientOptions } from 'fingertip';
 
 export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> => {
   if (req.headers.authorization) {
