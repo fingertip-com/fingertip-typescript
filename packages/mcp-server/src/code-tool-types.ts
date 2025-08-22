@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from 'fingertip/client';
+import { ClientOptions } from 'fingertip';
 
 export type WorkerInput = {
   opts: ClientOptions;
