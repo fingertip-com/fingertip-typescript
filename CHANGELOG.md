@@ -1,5 +1,45 @@
 # Changelog
 
+## 0.73.0 (2025-09-06)
+
+Full Changelog: [v0.72.3...v0.73.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.3...v0.73.0)
+
+### Features
+
+* **mcp:** add client infer to cloudflare oauth screen ([0589c21](https://github.com/fingertip-com/fingertip-typescript/commit/0589c212878b0e7177891b141c4e50ae8af92dad))
+* **mcp:** add code execution tool ([3838a3e](https://github.com/fingertip-com/fingertip-typescript/commit/3838a3e8921cd99f03f08b9daa31e134bbeff9c0))
+* **mcp:** add option to infer mcp client ([50d5433](https://github.com/fingertip-com/fingertip-typescript/commit/50d543380dfd275c063482b5fda780affbf9289d))
+* **mcp:** allow setting logging level ([3b2dc5d](https://github.com/fingertip-com/fingertip-typescript/commit/3b2dc5d4d8fb0aa434450ab025342946d7fab891))
+* **mcp:** expose client options in `streamableHTTPApp` ([15b6df3](https://github.com/fingertip-com/fingertip-typescript/commit/15b6df3674ef5513217a7929a4aea9447c6ad910))
+* **mcp:** parse query string as mcp client options in mcp server ([265c44d](https://github.com/fingertip-com/fingertip-typescript/commit/265c44d3536dc767393e08a719b7025d141d2708))
+
+
+### Bug Fixes
+
+* **mcp:** fix query options parsing ([c0a76c1](https://github.com/fingertip-com/fingertip-typescript/commit/c0a76c10c94f5ceed2d4a3e122e1befd05e2b101))
+
+
+### Chores
+
+* add package to package.json ([71e9447](https://github.com/fingertip-com/fingertip-typescript/commit/71e94478ad6b7879dae4665e9f762808eb5b2cb2))
+* ci build action ([d1fe8c8](https://github.com/fingertip-com/fingertip-typescript/commit/d1fe8c854605ff0a813d0aa0cc196bab655e138a))
+* **client:** qualify global Blob ([57a866a](https://github.com/fingertip-com/fingertip-typescript/commit/57a866a16208309ab4be1f16c93a8ea702934d27))
+* **deps:** update dependency @types/node to v20.17.58 ([7cc7ae0](https://github.com/fingertip-com/fingertip-typescript/commit/7cc7ae0f7326185e434690a5d77154db57e6bf01))
+* **internal:** codegen related update ([94ad29b](https://github.com/fingertip-com/fingertip-typescript/commit/94ad29bd8fb20a068f137e03ade8cf9c5b056659))
+* **internal:** codegen related update ([9ebb2fe](https://github.com/fingertip-com/fingertip-typescript/commit/9ebb2fe2e8a53aa48af27c685f4826eae4c3456e))
+* **internal:** codegen related update ([bb5c583](https://github.com/fingertip-com/fingertip-typescript/commit/bb5c583b7c07ea649b61e4b70f994168306f78be))
+* **internal:** codegen related update ([038f461](https://github.com/fingertip-com/fingertip-typescript/commit/038f4612877544a15f4a312bc4e3321b78aa8f42))
+* **internal:** formatting change ([5c30e8f](https://github.com/fingertip-com/fingertip-typescript/commit/5c30e8fe60714936b1085ba726c65286f8c61b61))
+* **internal:** make mcp-server publishing public by defaut ([617a36e](https://github.com/fingertip-com/fingertip-typescript/commit/617a36e3600a3cc2c5147c90c35d60a5d1a92c87))
+* **internal:** refactor array check ([5488d31](https://github.com/fingertip-com/fingertip-typescript/commit/5488d31aacb44c473f52490ce3997068be880334))
+* **internal:** update global Error reference ([01289c7](https://github.com/fingertip-com/fingertip-typescript/commit/01289c792e9ea4ef38c45ed8fa8ec0c715760585))
+* **mcp:** add cors to oauth metadata route ([7500678](https://github.com/fingertip-com/fingertip-typescript/commit/7500678f0a32b80ef972d95e55be3df3d5d140d9))
+* **mcp:** document remote server in README.md ([e739b20](https://github.com/fingertip-com/fingertip-typescript/commit/e739b2057b6aee87317ab881c53326b7c7f44e05))
+* **mcp:** update package.json ([03f12f6](https://github.com/fingertip-com/fingertip-typescript/commit/03f12f684e994a8b74f8773af28332c324a65df8))
+* **mcp:** update README ([d843b94](https://github.com/fingertip-com/fingertip-typescript/commit/d843b945e54854f5ee2c956ac90f8b5756c6a3d3))
+* **mcp:** update types ([47032e0](https://github.com/fingertip-com/fingertip-typescript/commit/47032e018cb9c4b117ec340ce6ab707a5f2f6588))
+* update CI script ([0e9878a](https://github.com/fingertip-com/fingertip-typescript/commit/0e9878a37e4e4cf9d0dc9a555f17c4a1c0f4f554))
+
 ## 0.72.3 (2025-08-15)
 
 Full Changelog: [v0.72.2...v0.72.3](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.2...v0.72.3)
