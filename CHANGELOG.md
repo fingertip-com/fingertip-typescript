@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.73.1 (2025-09-09)
+
+Full Changelog: [v0.73.0...v0.73.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.73.0...v0.73.1)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([d13812c](https://github.com/fingertip-com/fingertip-typescript/commit/d13812c0d0bb5457bcdc825d49eafc41fb581b40))
+
 ## 0.73.0 (2025-09-06)
 
 Full Changelog: [v0.72.3...v0.73.0](https://github.com/fingertip-com/fingertip-typescript/compare/v0.72.3...v0.73.0)
