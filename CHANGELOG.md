@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.73.2 (2025-09-12)
+
+Full Changelog: [v0.73.1...v0.73.2](https://github.com/fingertip-com/fingertip-typescript/compare/v0.73.1...v0.73.2)
+
+### Bug Fixes
+
+* **mcp:** fix uploading dxt release assets ([700ad76](https://github.com/fingertip-com/fingertip-typescript/commit/700ad76141c38c948b1a957247d46b1e4ed8601b))
+
+
+### Chores
+
+* **mcp:** upload dxt as release asset ([bb44514](https://github.com/fingertip-com/fingertip-typescript/commit/bb445144fbeb7605350c33ba9d9e32e02a09942b))
+
 ## 0.73.1 (2025-09-09)
 
 Full Changelog: [v0.73.0...v0.73.1](https://github.com/fingertip-com/fingertip-typescript/compare/v0.73.0...v0.73.1)
